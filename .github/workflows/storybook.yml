@@ -28,4 +28,4 @@ jobs:
       - name: Publish to Chromatic
         run: pnpm chromatic
         env:
-          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          CHROMATIC_UI_PACKAGE_TOKEN: ${{ secrets.CHROMATIC_UI_PACKAGE_TOKEN }}
