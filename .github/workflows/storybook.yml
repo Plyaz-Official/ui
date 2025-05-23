@@ -19,7 +19,7 @@ jobs:
           node-version: "22.4.x"
 
       - name: Setup pnpm
-        uses: npm install -g pnpm
+        uses: pnpm/action-setup@v2
         with:
           version: 10
 
