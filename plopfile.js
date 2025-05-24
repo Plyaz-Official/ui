@@ -9,6 +9,11 @@ export default function (plop) {
       },
       {
         type: "input",
+        name: "dirName",
+        message: "Component directory name (e.g., Button):",
+      },
+      {
+        type: "input",
         name: "name",
         message: "Component name (PascalCase):",
       },
@@ -16,7 +21,7 @@ export default function (plop) {
     actions: [
       {
         type: "add",
-        path: "src/{{path}}/{{pascalCase name}}.stories.tsx",
+        path: "src/{{path}}/{{pascalCase dirName}}/{{pascalCase name}}.stories.tsx",
         templateFile: "plop-templates/Component.stories.tsx.hbs",
       },
     ],
