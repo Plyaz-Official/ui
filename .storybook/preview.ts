@@ -2,9 +2,11 @@ import type { Preview } from "@storybook/react";
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 import { autoDocsTemplate } from "../src/docs/DocTemplate";
 import "../src/index.css";
+
 const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: "^on[A-Z].*" },
+    layout: "centered",
     controls: {
       matchers: {
         color: /(background|color)$/i,
