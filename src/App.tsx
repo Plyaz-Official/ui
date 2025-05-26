@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import { Button } from "src/components/Button";
 
 export type AppProps = {
   children?: React.ReactNode;
@@ -7,7 +8,7 @@ export type AppProps = {
 
 function App() {
   const [count, setCount] = useState(0);
-
+  <Button label="submit" />;
   return (
     <div className="flex flex-col justify-center items-center h-full">
       <button

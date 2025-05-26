@@ -7,20 +7,23 @@ import dts from "vite-plugin-dts";
 export default defineConfig({
   plugins: [
     react(),
-
     dts({
       include: ["src"],
       exclude: ["src/**/*.test.tsx", "src/**/*.test.ts"],
       insertTypesEntry: true,
-      outDir:  "dist/types",
+      outDir: "dist/types",
       tsconfigPath: "./tsconfig.app.json",
-      entryRoot : "src",
-
+      entryRoot: "src",
     }),
   ],
+  resolve: {
+    alias: {
+      src: path.resolve(__dirname, "src"),
+    },
+  },
   build: {
     lib: {
-      entry: path.resolve(__dirname, "src/index.ts"), 
+      entry: path.resolve(__dirname, "src/index.ts"),
       name: "ui",
       fileName: (format) => `ui.${format}.js`,
       formats: ["es", "cjs"],
