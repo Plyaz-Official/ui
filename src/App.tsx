@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import { Button } from "src/components/Button";
+import { Button } from "@/components/Button";
 
 export type AppProps = {
   children?: React.ReactNode;

@@ -24,7 +24,7 @@
     "outDir": "dist",
     "baseUrl": ".",
     "paths": {
-      "src/*": ["./src/*"]
+      "@/*": ["./src/*"]
     }
   },
   "include": ["src", "plopfile.js"]
