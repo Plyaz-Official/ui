@@ -14,7 +14,7 @@ const preview: Preview = {
     },
     viewport: {
       viewports: allModes,
-      defaultViewport: allModes.default,
+      defaultViewport: allModes.laptop_xl,
     },
     chromatic: {
       diffThreshold: 0.02,
@@ -23,9 +23,9 @@ const preview: Preview = {
       diffIncludeAntiAliasing: false,
       delay: 1000,
       modes: {
-        Mobile: allModes.mobile_small,
-        Tablet: allModes.tablet,
-        Desktop: allModes.default,
+        Mobile: allModes.mobile_xs,
+        Tablet: allModes.tablet_lg,
+        Desktop: allModes.laptop_xl,
       },
     },
     docs: {
