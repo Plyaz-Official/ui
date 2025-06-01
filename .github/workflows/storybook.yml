@@ -30,3 +30,4 @@ jobs:
         uses: chromaui/action@latest
         with:
           projectToken: ${{ secrets.CHROMATIC_UI_PACKAGE_TOKEN }}
+          onlyChanged: true
