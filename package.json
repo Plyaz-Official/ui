@@ -25,10 +25,12 @@
     "chromatic": "chromatic"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.1.8",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/user-event": "^14.6.1",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "tailwindcss": "^4.1.8"
   },
   "peerDependencies": {
     "react": "^18.0.0 || ^19.0.0",
@@ -66,7 +68,7 @@
     "plop": "^4.0.1",
     "postcss": "^8.5.3",
     "storybook": "^8.6.12",
-    "tailwindcss": "^3.4.17",
+    "storybook-addon-tailwind-autodocs": "^1.0.8",
     "ts-node": "^10.9.2",
     "typescript": "~5.8.3",
     "vite": "^6.3.5",
