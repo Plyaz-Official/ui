@@ -1,7 +1,6 @@
 import type { Preview } from "@storybook/react";
 import { autoDocsTemplate } from "../src/docs/DocTemplate";
 import { allModes } from "./mode";
-import { ThemeProvider } from "./ThemeProvider";
 import "../src/index.css";
 
 /**
@@ -29,7 +28,16 @@ export const globalTypes = {
 };
 
 const preview: Preview = {
-  decorators: [ThemeProvider],
+  decorators: [
+    (Story, context) => {
+      const { theme } = context.globals;
+      return (
+        <div className={theme}>
+          <Story />
+        </div>
+      );
+    },
+  ],
   parameters: {
     actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
