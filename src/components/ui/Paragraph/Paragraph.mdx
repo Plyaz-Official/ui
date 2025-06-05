@@ -1,0 +1,53 @@
+import { Meta, Story, Controls } from '@storybook/addon-docs';
+import * as ParagraphStories from './Paragraph.stories';
+
+<Meta of={ParagraphStories} />
+
+# Paragraph
+
+`Paragraph` is a semantic wrapper around the `Text` component for rendering paragraph text. It enforces consistent typography styles using Tailwind utility classes while keeping the semantics of a `<p>` tag.
+
+Use `Paragraph` when displaying body text content that should be styled consistently across your UI.
+
+---
+
+## Usage Guidelines
+
+- Use `Paragraph` for any body text, descriptive text, or paragraph-style content.
+- Choose the appropriate size via the `size` prop (`xs`, `sm`, `base`, `lg`) based on content importance and hierarchy.
+- Use `className` to apply additional Tailwind CSS styles like margin, padding, or text color.
+
+---
+
+## Best Practices
+
+- Stick to consistent sizes throughout your UI to maintain visual harmony.
+- Avoid nesting block-level tags inside `Paragraph` (e.g., headings or lists).
+- Prefer `Paragraph` over raw `<p>` tags for reusable, styled content.
+- Use responsive Tailwind classes in `className` to adapt text size or spacing.
+
+---
+
+## Props
+
+<Controls of={ParagraphStories.Default} />
+
+---
+
+## 💡 Examples
+
+### Default (Base size)
+
+<Story of={ParagraphStories.Default} />
+
+### Small
+
+<Story of={ParagraphStories.Small} />
+
+### Extra Small
+
+<Story of={ParagraphStories.ExtraSmall} />
+
+### Large
+
+<Story of={ParagraphStories.Large} />

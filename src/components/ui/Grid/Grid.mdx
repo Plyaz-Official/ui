@@ -1,0 +1,46 @@
+import { Meta, Story, Controls } from '@storybook/addon-docs';
+import * as GridStories from './Grid.stories';
+
+<Meta of={GridStories} />
+
+# Grid
+
+The `Grid` component is a responsive layout utility based on Tailwind CSS’s `grid` classes. It provides a structured way to arrange child components into rows and columns with consistent spacing and alignment.
+
+---
+
+## Usage Guidelines
+
+- Use `Grid` when content should be laid out in a structured grid format rather than a flexible row/column.
+- Define the number of columns using the `cols` prop (`grid-cols-2`, `grid-cols-4`, etc.).
+- Use the `rows` prop if you need specific row definitions (`grid-rows-2`, `grid-rows-3`, etc.).
+- Apply consistent spacing using the `gap` prop (`gap-2`, `gap-4`, etc.).
+- Add Tailwind’s alignment classes using `justify` or `className` to center or align items within the grid.
+
+---
+
+## Best Practices
+
+- Prefer `Grid` over `Flex` for structured content like cards, galleries, or dashboards.
+- Use responsive utilities like `sm:grid-cols-2 md:grid-cols-4` for adaptive layouts.
+- Avoid overcomplicating grid configurations — keep the layout readable and intuitive.
+- Combine with `Box` for consistent styling and spacing within grid items.
+- Test with varying content lengths to ensure grid alignment holds visually.
+
+---
+
+## Props
+
+<Controls of={GridStories.Default} />
+
+---
+
+## Examples
+
+### Default 2x2 Grid
+
+<Story of={GridStories.Default} />
+
+### Column Justified Grid
+
+<Story of={GridStories.Justified} />

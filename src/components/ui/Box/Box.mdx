@@ -1,0 +1,66 @@
+import { Meta, Story,Controls } from '@storybook/addon-docs';
+import * as BoxStories from './Box.stories';
+
+<Meta of={BoxStories} />
+
+#  Box
+
+`Box` is a flexible layout component that supports rendering different semantic HTML tags such as `div`, `section`, `article`, `aside`, `nav`, `header`, and `footer`. It allows you to customize styling via Tailwind CSS classes passed in the `className` prop.
+
+Use `Box` as a foundational building block for creating more complex layout components while maintaining semantic HTML structure and consistent styling.
+
+---
+
+##  Usage Guidelines
+
+- Choose the appropriate semantic tag with the `element` prop for better accessibility and SEO.
+- Use `Box` to wrap content blocks where you want flexible layout and styling control.
+- Apply Tailwind CSS classes through `className` for spacing, background, borders, etc.
+- Combine with other layout components like `Container`, `Section`, or `Grid` for more complex layouts.
+
+---
+
+##  Best Practices
+
+- Always specify the semantic `element` that best represents your content.
+- Avoid nesting semantic elements improperly (e.g., don’t put a `header` inside another `header`).
+- Use Tailwind’s utility classes for responsive and accessible styling.
+- Keep the `Box` component lightweight; use it as a wrapper only, avoid heavy logic inside.
+
+---
+
+## Props
+
+<Controls of = {BoxStories.Default}/>
+
+---
+
+## 💡 Examples
+
+### Default (div)
+
+<Story of={BoxStories.Default} />
+
+### Section
+
+<Story of={BoxStories.Section} />
+
+### Article
+
+<Story of={BoxStories.Article} />
+
+### Aside
+
+<Story of={BoxStories.Aside} />
+
+### Nav
+
+<Story of={BoxStories.Nav} />
+
+### Header
+
+<Story of={BoxStories.Header} />
+
+### Footer
+
+<Story of={BoxStories.Footer} />
