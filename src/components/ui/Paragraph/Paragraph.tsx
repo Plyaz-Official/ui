@@ -17,14 +17,16 @@ export const Paragraph = ({
   children,
   className,
   size,
+  ...props
 }: ParagraphProps) => {
   return (
     <Text
-      element={'p'}
+      element={"p"}
       weight="normal"
       variant="body"
       className={className}
       size={SIZE_MAP[size]}
+      {...props}
     >
       {children}
     </Text>

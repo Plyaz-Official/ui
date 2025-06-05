@@ -10,11 +10,14 @@ interface SectionProps extends React.HTMLAttributes<HTMLElement> {
 export const Section = ({
   className = "",
   children,
-
   ...props
 }: SectionProps) => {
   return (
-    <Box element="section" className={clsx("p-4 sm:p-6 my-4 mx-2", className)} {...props}>
+    <Box
+      element="section"
+      className={clsx("p-4 sm:p-6 my-4 mx-2", className)}
+      {...props}
+    >
       {children}
     </Box>
   );

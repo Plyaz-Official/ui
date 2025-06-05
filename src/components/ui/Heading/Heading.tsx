@@ -23,6 +23,7 @@ export const Heading = ({
   element,
   className,
   size,
+  ...props
 }: HeadingProps) => {
   return (
     <Text
@@ -31,6 +32,7 @@ export const Heading = ({
       variant="heading"
       className={className}
       size={SIZE_MAP[size]}
+       {...props}
     >
       {children}
     </Text>
