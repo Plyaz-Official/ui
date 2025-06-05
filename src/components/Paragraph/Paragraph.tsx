@@ -1,5 +1,5 @@
 import React from "react";
-import { Text } from "@/components/ui/Text/Text";
+import { Text } from "@/components/Text/Text";
 
 const SIZE_MAP = {
   xs: "xs",

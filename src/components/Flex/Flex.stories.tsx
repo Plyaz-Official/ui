@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Flex } from "./Flex";
-import { Box } from "@/components/ui/Box/Box";
+import { Box } from "@/components/Box/Box";
 
 const meta: Meta<typeof Flex> = {
   title: "Layout/Flex",

@@ -1,6 +1,6 @@
 import React from "react";
 import clsx from "clsx";
-import { Box,  } from "@/components/ui/Box/Box";
+import { Box,  } from "@/components/Box/Box";
 import type { ElementType } from "@/types/type";
 
 interface ContainerProps extends React.HTMLAttributes<HTMLElement> {

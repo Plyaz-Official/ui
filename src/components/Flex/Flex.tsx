@@ -1,7 +1,7 @@
 import React from "react";
 import clsx from "clsx";
-import { Box, } from "@/components/ui/Box/Box";
-import { ALIGN_MAPPER, JUASTIFY_MAPPER } from "@/components/ui/Grid/Grid";
+import { Box, } from "@/components/Box/Box";
+import { ALIGN_MAPPER, JUASTIFY_MAPPER } from "@/components/Grid/Grid";
 import type { ElementType } from "@/types/type";
 
 const DIRECTION_MAPPER = {

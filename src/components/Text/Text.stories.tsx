@@ -25,6 +25,7 @@ export const Default: Story = {
     element: "p",
     size: "base",
     variant: "body",
+    weight : "normal",
   },
 };
 export const Heading: Story = {
@@ -33,6 +34,7 @@ export const Heading: Story = {
     element: "h1",
     size: "2xl",
     variant: "heading",
+    weight: "bold",
   },
 };
 export const Caption: Story = {
@@ -41,5 +43,6 @@ export const Caption: Story = {
     element: "p",
     size: "sm",
     variant: "caption",
+    weight: "normal",
   },
 };

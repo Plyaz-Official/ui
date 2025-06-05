@@ -38,8 +38,8 @@ interface TextProps extends React.HTMLAttributes<HTMLElement> {
   className?: string;
   children: React.ReactNode;
   element: TextElement;
-  weight?: keyof typeof TEXT_WEIGHT_MAPPER;
-  variant?: keyof typeof VARIANT_MAPPER;
+  weight: keyof typeof TEXT_WEIGHT_MAPPER;
+  variant: keyof typeof VARIANT_MAPPER;
   size?: keyof typeof SIZES_MAPPER;
 }
 
