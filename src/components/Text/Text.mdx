@@ -1,0 +1,50 @@
+import { Meta, Story, Controls } from "@storybook/addon-docs";
+import * as TextStories from "./Text.stories";
+
+<Meta of={TextStories} />
+
+# Text
+
+The `Text` component is a highly flexible typography element used for rendering semantic text elements like paragraphs and headings with consistent styles using Tailwind CSS.
+
+---
+
+## Usage Guidelines
+
+- Use semantic elements (`h1`–`h6`, `p`, `span`) to match content structure and improve accessibility.
+- Match size and variant props with the design system (e.g., `size="xl"`, `variant="heading"`).
+- Use for consistent typography across your application, avoiding raw HTML elements.
+- When building a layout, pair `Text` with layout components like `Box`, `Stack`, or `Container`.
+
+---
+
+## Best Practices
+
+- Always use the correct semantic tag (`h1` for main headings, `p` for body text).
+- Avoid hardcoding styles inline — use props and utility classes via Tailwind.
+- Consider screen readers: headings help with content navigation for assistive technologies.
+- For dynamic content, ensure heading levels are meaningful and properly nested.
+
+---
+
+## Props
+
+<Controls of={TextStories.Default} />
+
+---
+
+## Examples
+
+### Default 
+
+<Story of={TextStories.Default} />
+
+### Caption
+
+<Story of={TextStories.Caption} />
+
+### Heading
+
+<Story of={TextStories.Heading} />
+
+

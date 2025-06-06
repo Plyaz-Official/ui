@@ -1,0 +1,47 @@
+import { Meta, Story, Controls } from '@storybook/addon-docs';
+import * as StackStories from './Stack.stories';
+
+<Meta of={StackStories} />
+
+# Stack
+
+The `Stack` component is a layout utility that arranges its children either vertically or horizontally with consistent spacing using Tailwind's `space-*` utilities. It's perfect for simple layout composition without needing full Flexbox or Grid control.
+
+---
+
+## Usage Guidelines
+
+- Use `Stack` when you need consistent spacing between elements in one direction.
+- Choose `horizontal` for row alignment (e.g., buttons, badges) and `vertical` for column layouts (e.g., lists, cards).
+- Apply spacing classes like `space-x-*` or `space-y-*` based on direction.
+- Wrap `Stack` around layout primitives like `Box` or components like `Card`, `Button`, etc.
+
+---
+
+## Best Practices
+
+- Use `Stack` to simplify layout logic instead of writing custom margin rules.
+- Match `direction` with the correct spacing utility:
+  - `horizontal` → `space-x-*`
+  - `vertical` → `space-y-*`
+- Don't mix directional spacing classes—let `Stack` handle layout direction internally.
+- Combine with `Container` or `Section` for more structured layout blocks.
+- Keep the DOM clean by limiting unnecessary nested wrappers inside `Stack`.
+
+---
+
+## Props
+
+<Controls of={StackStories.Default} />
+
+---
+
+##  Examples
+
+### Horizontal Stack
+
+<Story of={StackStories.Default} />
+
+### Vertical Stack
+
+<Story of={StackStories.Vertical} />

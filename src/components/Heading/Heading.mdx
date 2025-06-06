@@ -1,0 +1,61 @@
+import { Meta, Story, Controls } from '@storybook/addon-docs';
+import * as HeadingStories from './Heading.stories';
+
+<Meta of={HeadingStories} />
+
+# Heading
+
+`Heading` is a semantic wrapper around the `Text` component for rendering HTML heading elements (`h1` to `h6`). It provides consistent typography styles and scales through Tailwind utility classes.
+
+Use `Heading` to maintain a clear visual and structural hierarchy in your UI while keeping heading levels semantic and accessible.
+
+---
+
+## Usage Guidelines
+
+- Use `Heading` for all section titles, headings, or any content needing emphasis.
+- Match the `element` (`h1` to `h6`) with the appropriate `size` for semantic correctness and visual hierarchy.
+- Customize with `className` to control spacing, colors, or other Tailwind utility styles.
+
+---
+
+## Best Practices
+
+- Always follow a logical heading structure (e.g., `h1` > `h2` > `h3`) to improve SEO and accessibility.
+- Use consistent sizes for similar heading levels across your app.
+- Avoid skipping heading levels unless necessary for accessibility reasons.
+- Do not use `Heading` to style text that is not semantically a heading.
+
+---
+
+## Props
+
+<Controls of={HeadingStories.H1} />
+
+---
+
+## 💡 Examples
+
+### H1
+
+<Story of={HeadingStories.H1} />
+
+### H2
+
+<Story of={HeadingStories.H2} />
+
+### H3
+
+<Story of={HeadingStories.H3} />
+
+### H4
+
+<Story of={HeadingStories.H4} />
+
+### H5
+
+<Story of={HeadingStories.H5} />
+
+### H6
+
+<Story of={HeadingStories.H6} />

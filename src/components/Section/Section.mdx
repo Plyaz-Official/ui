@@ -1,0 +1,39 @@
+import { Meta, Story, Controls } from '@storybook/addon-docs';
+import * as SectionStories from './Section.stories';
+
+<Meta of={SectionStories} />
+
+#  Section
+
+The `Section` component represents a semantically meaningful region of a page, wrapped in a `<section>` tag. It provides padding and spacing using Tailwind CSS, and is typically used to organize the layout into logical content blocks.
+
+---
+
+## Usage Guidelines
+
+- Use `Section` to divide content into visually and semantically distinct areas.
+- Ideal for wrapping thematic blocks like "Features", "Pricing", or "Testimonials".
+- Combine `Section` with `Container` to limit content width inside a full-width section.
+- Apply background colors or borders using Tailwind classes to visually distinguish sections.
+
+---
+
+## Best Practices
+
+- Keep `Section` usage limited to top-level layout blocks; avoid deeply nesting.
+- Don't rely solely on `Section` for visual spacing — pair with layout primitives like `Box`, `Grid`, or `Flex` inside.
+- Ensure accessibility by labeling sections with appropriate ARIA attributes or headings when needed.
+
+---
+
+## Props
+
+<Controls of={SectionStories.Default} />
+
+---
+
+## Example
+
+### Default Section
+
+<Story of={SectionStories.Default} />

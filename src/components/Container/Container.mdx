@@ -1,0 +1,58 @@
+import { Meta, Controls, Story } from '@storybook/addon-docs';
+import * as ContainerStories from './Container.stories';
+
+<Meta of={ContainerStories} />
+
+# Container
+
+`Container` is a responsive layout wrapper that centers your content horizontally and applies a fixed maximum width, typically used for page sections like headers, main content, or footers.
+
+---
+
+## Features
+
+- Centers content using `mx-auto`.
+- Responsive horizontal padding: `px-4 sm:px-6 lg:px-8`.
+- Sets max width via `max-w-7xl` (customizable through `className`).
+- Fully supports native `HTMLElement` attributes like `id`, `aria-*`, `data-*`, and event handlers.
+
+---
+
+## Usage Guidelines
+
+- Wrap high-level layout areas such as headers, footers, or sections.
+- Combine with layout components like `Box`, `Grid`, or `Flex` for structure.
+- Use `className` to extend or override styles.
+- Use semantic elements (`<main>`, `<section>`, etc.) if needed through composition.
+
+---
+
+## Best Practices
+
+- **Don’t nest containers** unless absolutely necessary — use one per layout block.
+- Adjust max-width (`max-w-*`) only when needed, not globally.
+- Ensure spacing looks good across breakpoints using Storybook’s viewport tool.
+- Use `...props` to pass down accessibility attributes like `aria-label`, `role`, etc.
+
+---
+
+## Props
+
+<Controls of={ContainerStories.Default} />
+
+### Additional Supported Props
+
+The `Container` component also supports all valid props for a native `HTMLElement`, such as:
+
+- `id`, `role`, `aria-label`, `data-*`
+- Event handlers like `onClick`, `onMouseEnter`, etc.
+
+These are automatically passed to the root `Box` component.
+
+---
+
+## Examples
+
+### Default
+
+<Story of={ContainerStories.Default} />

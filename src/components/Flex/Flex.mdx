@@ -1,0 +1,46 @@
+import { Meta, Story, Controls } from '@storybook/addon-docs';
+import * as FlexStories from './Flex.stories';
+
+<Meta of={FlexStories} />
+
+# Flex
+
+`Flex` is a layout component that wraps Tailwind's flexbox utility classes into a reusable abstraction. It provides a flexible way to align and distribute space among child elements using familiar props like `direction`, `justify`, `align`, `wrap`, and `gap`.
+
+Use `Flex` to simplify building layouts where elements need dynamic alignment or spacing along a row or column.
+
+---
+
+## Usage Guidelines
+
+- Use `Flex` when you need horizontal or vertical layouts with spacing or alignment.
+- Choose `direction="row"` for horizontal layouts, and `direction="col"` for vertical ones.
+- Use the `wrap` prop to allow children to wrap on small screens.
+- Apply spacing between children using Tailwind gap utilities via the `gap` prop.
+- Avoid deeply nesting `Flex` inside `Flex`; if needed, separate responsibilities clearly (e.g., layout vs alignment).
+
+---
+
+## Best Practices
+
+- Prefer semantic grouping with `Box` or `Section` around `Flex` for clearer structure.
+- Ensure responsive design by adjusting `direction` or `wrap` conditionally using custom className overrides.
+- Test `Flex` layouts with real content in Storybook using various viewport sizes.
+
+---
+
+## Props
+
+<Controls of={FlexStories.Default} />
+
+---
+
+## 💡 Examples
+
+### Default Flex Layout
+
+<Story of={FlexStories.Default} />
+
+### Centered Column Layout
+
+<Story of={FlexStories.ColumnCentered} />
