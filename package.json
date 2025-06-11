@@ -26,7 +26,8 @@
     "coverage": "vitest run --coverage",
     "chromatic": "chromatic",
     "release:publish": "pnpm publish --access public",
-    "publish:ci": "pnpm publish --access public --no-git-checks"
+    "publish:ci": "pnpm publish --access public --no-git-checks",
+    "release": "standard-version"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.8",
