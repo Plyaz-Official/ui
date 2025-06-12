@@ -27,7 +27,6 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, "src/components/index.ts"),
       name: "PlyazUI",
-      fileName: (format) => `ui.${format}.js`,
       formats: ["es", "cjs"],
     },
     rollupOptions: {
