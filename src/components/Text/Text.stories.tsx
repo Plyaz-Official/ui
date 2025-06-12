@@ -25,7 +25,8 @@ export const Default: Story = {
     element: "p",
     size: "base",
     variant: "body",
-    weight : "normal",
+    weight: "normal",
+    className: "bg-white dark:bg-black dark:text-white",
   },
 };
 export const Heading: Story = {
@@ -35,6 +36,7 @@ export const Heading: Story = {
     size: "2xl",
     variant: "heading",
     weight: "bold",
+    className: "bg-white dark:bg-black dark:text-white",
   },
 };
 export const Caption: Story = {
@@ -44,5 +46,6 @@ export const Caption: Story = {
     size: "sm",
     variant: "caption",
     weight: "normal",
+    className: "bg-white dark:bg-black dark:text-white",
   },
 };

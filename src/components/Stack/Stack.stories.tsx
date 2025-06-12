@@ -16,12 +16,14 @@ const meta: Meta<typeof Stack> = {
   },
 };
 export default meta;
+
 type Story = StoryObj<typeof Stack>;
+
 export const Default: Story = {
   args: {
     direction: "horizontal",
     spacing: "space-x-2",
-    className: "bg-gray-100 p-4 rounded",
+    className: "bg-gray-100 p-4 rounded dark:bg-black dark:text-white",
     children: (
       <>
         <Box className="bg-red-400 p-4 rounded text-white">Item 1</Box>
@@ -36,7 +38,7 @@ export const Vertical: Story = {
   args: {
     direction: "vertical",
     spacing: "space-y-4",
-    className: "bg-gray-200 p-4 rounded",
+    className: "bg-gray-200 p-4 rounded dark:bg-black dark:text-white",
     children: (
       <>
         <Box className="bg-purple-500 p-3 text-white rounded">Item A</Box>

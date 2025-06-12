@@ -22,12 +22,13 @@ export const Default: Story = {
   args: {
     children: "This is a link",
     href: "#",
+    className: " bg-white dark:bg-black dark:text-white",
   },
-}
+};
 export const CustomClass: Story = {
   args: {
     children: "This is a link link",
-    className: "text-red-600 hover:text-red-800",
+    className: "text-red-600 hover:text-red-800 dark:bg-black dark:text-white",
     href: "#",
   },
 };
