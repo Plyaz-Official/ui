@@ -26,6 +26,7 @@ export const H1: Story = {
     children: "This is an H1 heading",
     element: "h1",
     size: "4xl",
+    className: "bg-white dark:bg-black dark:text-white",
   },
 };
 
@@ -34,6 +35,7 @@ export const H2: Story = {
     children: "This is an H2 heading",
     element: "h2",
     size: "3xl",
+    className: "bg-white dark:bg-black dark:text-white",
   },
 };
 
@@ -42,6 +44,7 @@ export const H3: Story = {
     children: "This is an H3 heading",
     element: "h3",
     size: "2xl",
+    className: "bg-white dark:bg-black dark:text-white",
   },
 };
 
@@ -50,6 +53,7 @@ export const H4: Story = {
     children: "This is an H4 heading",
     element: "h4",
     size: "xl",
+    className: "bg-white dark:bg-black dark:text-white",
   },
 };
 
@@ -58,6 +62,7 @@ export const H5: Story = {
     children: "This is an H5 heading",
     element: "h5",
     size: "lg",
+    className: "bg-white dark:bg-black dark:text-white",
   },
 };
 
@@ -66,5 +71,6 @@ export const H6: Story = {
     children: "This is an H6 heading",
     element: "h6",
     size: "base",
+    className: "bg-white dark:bg-black dark:text-white",
   },
 };

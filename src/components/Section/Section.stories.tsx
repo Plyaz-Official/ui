@@ -20,6 +20,6 @@ type Story = StoryObj<typeof Section>;
 export const Default: Story = {
   args: {
     children: <Box>Section</Box>,
-    className: "bg-gray-100  rounded",
+    className: "bg-gray-100  rounded dark:bg-black dark:text-white",
   },
 };

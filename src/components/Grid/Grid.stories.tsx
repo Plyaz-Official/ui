@@ -31,6 +31,7 @@ export const Default: Story = {
     cols: "grid-cols-2",
     rows: "grid-rows-2",
     gap: "gap-4",
+    className: "bg-white dark:bg-black dark:text-white",
   },
 };
 
@@ -49,5 +50,6 @@ export const Justified: Story = {
     rows: "grid-rows-1",
     gap: "gap-6",
     justify: "center",
+    className: "bg-white dark:bg-black dark:text-white",
   },
 };

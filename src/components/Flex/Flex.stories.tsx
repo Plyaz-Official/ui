@@ -27,7 +27,7 @@ export const Default: Story = {
     align: "start",
     wrap: "wrap",
     gap: "gap-2",
-    className: "bg-gray-100 p-4 rounded",
+    className: "bg-gray-100 p-4 rounded dark:bg-black dark:text-white",
     children: (
       <>
         {Array.from({ length: 6 }, (_, i) => (
@@ -45,7 +45,7 @@ export const ColumnCentered: Story = {
     justify: "center",
     align: "center",
     gap: "gap-4",
-    className: "bg-gray-200 p-4 rounded",
+    className: "bg-gray-200 p-4 rounded dark:bg-black dark:text-white",
     element: "div",
     children: (
       <>
