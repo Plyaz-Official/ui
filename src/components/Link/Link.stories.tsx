@@ -24,7 +24,7 @@ export const Default: Story = {
     children: "This is a link",
     href: "#",
   },
-}
+};
 export const CustomClass: Story = {
   args: {
     children: "This is a link link",
@@ -33,13 +33,12 @@ export const CustomClass: Story = {
   },
 };
 
-
 export const UserInteraction: Story = {
- args: {
+  args: {
     children: "This is a link link",
     className: "text-red-600 hover:text-red-800",
     href: "#",
-    onClick : fn()
+    onClick: fn(),
   },
   play: async ({ args, canvas }) => {
     const container = canvas.getByTestId("link");

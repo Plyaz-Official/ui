@@ -11,6 +11,7 @@ const paragraphProps = {
   className: "bg-red-200 px-4 py-2",
   size: SIZE_MAP["lg"],
 };
+
 describe("Paragraph component ", () => {
   it("renders with correct element, class, and children", () => {
     render(<Paragraph {...paragraphProps} />);

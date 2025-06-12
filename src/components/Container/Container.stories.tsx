@@ -15,7 +15,6 @@ const meta: Meta<typeof Container> = {
       },
     },
   },
-  
 };
 export default meta;
 
@@ -29,17 +28,16 @@ export const Default: Story = {
   },
 };
 
-export const UserInteraction : Story = {
-  args : {
- children: <Box>Container</Box>,
+export const UserInteraction: Story = {
+  args: {
+    children: <Box>Container</Box>,
     className: "bg-gray-100 p-6 rounded",
     element: "div",
-    onClick : fn()
+    onClick: fn(),
   },
-  play : async ({args,canvas})=>{
-     const container = canvas.getAllByTestId("box")[0];
-     await userEvent.click(container);
-     expect(args.onClick).toBeCalled()
-  }
-
-}
+  play: async ({ args, canvas }) => {
+    const container = canvas.getAllByTestId("box")[0];
+    await userEvent.click(container);
+    expect(args.onClick).toBeCalled();
+  },
+};

@@ -54,7 +54,7 @@ export const Justified: Story = {
 };
 
 export const UserInteraction: Story = {
- args: {
+  args: {
     children: (
       <>
         {Array.from({ length: 3 }, (_, i) => (
@@ -68,7 +68,7 @@ export const UserInteraction: Story = {
     rows: "grid-rows-1",
     gap: "gap-6",
     justify: "center",
-    onClick:fn()
+    onClick: fn(),
   },
   play: async ({ args, canvas }) => {
     const container = canvas.getAllByTestId("box")[0];

@@ -68,7 +68,7 @@ export const UserInteraction: Story = {
     gap: "gap-4",
     className: "bg-gray-200 p-4 rounded",
     element: "div",
-    onClick : fn(),
+    onClick: fn(),
     children: (
       <>
         {Array.from({ length: 3 }, (_, i) => (

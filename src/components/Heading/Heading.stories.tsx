@@ -1,5 +1,3 @@
-// Heading.stories.tsx
-
 import type { Meta, StoryObj } from "@storybook/react";
 import { Heading } from "./Heading";
 import { expect, fn, userEvent } from "@storybook/test";
@@ -71,11 +69,11 @@ export const H6: Story = {
 };
 
 export const UserInteraction: Story = {
- args: {
+  args: {
     children: "This is an H6 heading",
     element: "h6",
     size: "base",
-    onClick : fn()
+    onClick: fn(),
   },
   play: async ({ args, canvas }) => {
     const container = canvas.getByTestId("text");

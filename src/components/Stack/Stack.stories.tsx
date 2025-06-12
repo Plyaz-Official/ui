@@ -49,11 +49,11 @@ export const Vertical: Story = {
 };
 
 export const UserInteraction: Story = {
- args: {
+  args: {
     direction: "vertical",
     spacing: "space-y-4",
     className: "bg-gray-200 p-4 rounded",
-    onClick : fn(),
+    onClick: fn(),
     children: (
       <>
         <Box className="bg-purple-500 p-3 text-white rounded">Item A</Box>

@@ -53,11 +53,11 @@ export const Large: Story = {
 };
 
 export const UserInteraction: Story = {
- args: {
+  args: {
     children: "This is a large paragraph.",
     size: "lg",
     className: "text-gray-900",
-    onClick : fn()
+    onClick: fn(),
   },
   play: async ({ args, canvas }) => {
     const container = canvas.getByTestId("text");
