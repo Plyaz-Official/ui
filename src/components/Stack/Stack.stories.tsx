@@ -16,7 +16,9 @@ const meta: Meta<typeof Stack> = {
   },
 };
 export default meta;
+
 type Story = StoryObj<typeof Stack>;
+
 export const Default: Story = {
   args: {
     direction: "horizontal",

@@ -16,7 +16,9 @@ const meta: Meta<typeof Grid> = {
   },
 };
 export default meta;
+
 type Story = StoryObj<typeof Grid>;
+
 export const Default: Story = {
   args: {
     children: (
