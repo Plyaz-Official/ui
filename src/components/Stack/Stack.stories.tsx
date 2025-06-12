@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Stack } from "./Stack";
 import { Box } from "@/components/Box/Box";
+import { expect, fn, userEvent } from "@storybook/test";
 
 const meta: Meta<typeof Stack> = {
   title: "Layout/Stack",
@@ -44,5 +45,26 @@ export const Vertical: Story = {
         <Box className="bg-purple-700 p-3 text-white rounded">Item C</Box>
       </>
     ),
+  },
+};
+
+export const UserInteraction: Story = {
+ args: {
+    direction: "vertical",
+    spacing: "space-y-4",
+    className: "bg-gray-200 p-4 rounded",
+    onClick : fn(),
+    children: (
+      <>
+        <Box className="bg-purple-500 p-3 text-white rounded">Item A</Box>
+        <Box className="bg-purple-600 p-3 text-white rounded">Item B</Box>
+        <Box className="bg-purple-700 p-3 text-white rounded">Item C</Box>
+      </>
+    ),
+  },
+  play: async ({ args, canvas }) => {
+    const container = canvas.getAllByTestId("box")[0];
+    await userEvent.click(container);
+    expect(args.onClick).toBeCalled();
   },
 };

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Text } from "./Text";
+import { expect, fn, userEvent } from "@storybook/test";
 
 const meta: Meta<typeof Text> = {
   title: "Typography/Text",
@@ -25,7 +26,7 @@ export const Default: Story = {
     element: "p",
     size: "base",
     variant: "body",
-    weight : "normal",
+    weight: "normal",
   },
 };
 export const Heading: Story = {
@@ -44,5 +45,21 @@ export const Caption: Story = {
     size: "sm",
     variant: "caption",
     weight: "normal",
+  },
+};
+
+export const UserInteraction: Story = {
+  args: {
+    children: "This is a caption",
+    element: "p",
+    size: "sm",
+    variant: "caption",
+    weight: "normal",
+    onClick: fn(),
+  },
+  play: async ({ args, canvas }) => {
+    const container = canvas.getByTestId("text");
+    await userEvent.click(container);
+    expect(args.onClick).toBeCalled();
   },
 };

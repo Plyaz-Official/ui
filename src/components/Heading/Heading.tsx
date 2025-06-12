@@ -1,7 +1,7 @@
 import React from "react";
 import { Text } from "@/components/Text/Text";
 
-const SIZE_MAP = {
+ const SIZE_MAP = {
   xs: "xs",
   sm: "sm",
   base: "base",
@@ -12,10 +12,11 @@ const SIZE_MAP = {
   "4xl": "4xl",
 } as const;
 
+export type HeadingType = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
   children: React.ReactNode;
   className?: string;
-  element: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  element: HeadingType;
   size: keyof typeof SIZE_MAP;
 }
 export const Heading = ({
@@ -31,6 +32,7 @@ export const Heading = ({
       weight="medium"
       variant="heading"
       className={className}
+     
       size={SIZE_MAP[size]}
        {...props}
     >

@@ -24,13 +24,13 @@ const SIZES_MAPPER = {
 
 };
 
-const TEXT_WEIGHT_MAPPER = {
+export const TEXT_WEIGHT_MAPPER = {
   normal: "font-normal",
   medium: "font-medium",
   semibold: "font-semibold",
   bold: "font-bold",
   light : 'font-light'
-};
+} as const ;
 
 type TextElement = "p" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
@@ -55,13 +55,16 @@ export const Text = ({
   const Element = element;
   return (
     <Element
+     
       className={clsx(
         "font-normal text-base font-sans",
         size && SIZES_MAPPER[size],
         weight && TEXT_WEIGHT_MAPPER[weight],
         variant && VARIANT_MAPPER[variant],
+        
         className
       )}
+       data-testid = 'text'
       {...props}
     >
       {children}

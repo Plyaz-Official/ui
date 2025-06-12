@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Grid } from "./Grid";
 import { Box } from "@/components/Box/Box";
+import { expect, fn, userEvent } from "@storybook/test";
 
 const meta: Meta<typeof Grid> = {
   title: "Layout/Grid",
@@ -49,5 +50,29 @@ export const Justified: Story = {
     rows: "grid-rows-1",
     gap: "gap-6",
     justify: "center",
+  },
+};
+
+export const UserInteraction: Story = {
+ args: {
+    children: (
+      <>
+        {Array.from({ length: 3 }, (_, i) => (
+          <Box key={i} className={`bg-green-400 p-3 text-white rounded`}>
+            Item {i + 1}
+          </Box>
+        ))}
+      </>
+    ),
+    cols: "grid-cols-3",
+    rows: "grid-rows-1",
+    gap: "gap-6",
+    justify: "center",
+    onClick:fn()
+  },
+  play: async ({ args, canvas }) => {
+    const container = canvas.getAllByTestId("box")[0];
+    await userEvent.click(container);
+    expect(args.onClick).toBeCalled();
   },
 };

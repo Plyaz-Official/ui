@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Link } from "./Link";
+import { expect, fn, userEvent } from "@storybook/test";
 
 const meta: Meta<typeof Link> = {
   title: "Typography/Link",
@@ -29,5 +30,20 @@ export const CustomClass: Story = {
     children: "This is a link link",
     className: "text-red-600 hover:text-red-800",
     href: "#",
+  },
+};
+
+
+export const UserInteraction: Story = {
+ args: {
+    children: "This is a link link",
+    className: "text-red-600 hover:text-red-800",
+    href: "#",
+    onClick : fn()
+  },
+  play: async ({ args, canvas }) => {
+    const container = canvas.getByTestId("link");
+    await userEvent.click(container);
+    expect(args.onClick).toBeCalled();
   },
 };
