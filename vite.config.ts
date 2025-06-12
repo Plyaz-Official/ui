@@ -3,7 +3,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
 import dts from "vite-plugin-dts";
-import tailwindcss from '@tailwindcss/vite'
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   plugins: [
@@ -25,14 +25,15 @@ export default defineConfig({
   },
   build: {
     lib: {
-      entry: path.resolve(__dirname, "src/index.ts"),
-      name: "ui",
-      fileName: (format) => `ui.${format}.js`,
+      entry: path.resolve(__dirname, "src/components/index.ts"),
+      name: "PlyazUI",
       formats: ["es", "cjs"],
     },
     rollupOptions: {
       external: ["react", "react-dom"],
       output: {
+        preserveModules: true,
+        preserveModulesRoot: "src",
         globals: {
           react: "React",
           "react-dom": "ReactDOM",
