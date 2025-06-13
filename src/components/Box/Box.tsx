@@ -15,7 +15,7 @@ export const Box = ({
 }: BoxProps) => {
   const Element = element;
   return (
-    <Element className={className} {...props}>
+    <Element className={className} {...props} data-testid="box">
       {children}
     </Element>
   );

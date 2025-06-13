@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Flex } from "./Flex";
 import { Box } from "@/components/Box/Box";
+import { expect, fn, userEvent } from "@storybook/test";
 
 const meta: Meta<typeof Flex> = {
   title: "Layout/Flex",
@@ -56,5 +57,31 @@ export const ColumnCentered: Story = {
         ))}
       </>
     ),
+  },
+};
+
+export const UserInteraction: Story = {
+  args: {
+    direction: "row",
+    justify: "center",
+    align: "center",
+    gap: "gap-4",
+    className: "bg-gray-200 p-4 rounded",
+    element: "div",
+    onClick: fn(),
+    children: (
+      <>
+        {Array.from({ length: 3 }, (_, i) => (
+          <Box key={i} className={`bg-green-400 p-3 text-white rounded`}>
+            Item {i + 1}
+          </Box>
+        ))}
+      </>
+    ),
+  },
+  play: async ({ args, canvas }) => {
+    const container = canvas.getAllByTestId("box")[0];
+    await userEvent.click(container);
+    expect(args.onClick).toBeCalled();
   },
 };

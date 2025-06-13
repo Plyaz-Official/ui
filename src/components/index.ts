@@ -3,7 +3,7 @@ export * from "./Container/Container";
 export * from "./Flex/Flex";
 export * from "./Grid/Grid";
 export * from "./Heading/Heading";
-export * from "./Link/Link";
+export * from "./ExternalLink/ExternalLink";
 export * from "./Paragraph/Paragraph";
 export * from "./Section/Section";
 export * from "./Stack/Stack";

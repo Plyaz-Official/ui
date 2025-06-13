@@ -1,7 +1,6 @@
-// Heading.stories.tsx
-
 import type { Meta, StoryObj } from "@storybook/react";
 import { Heading } from "./Heading";
+import { expect, fn, userEvent } from "@storybook/test";
 
 const meta: Meta<typeof Heading> = {
   title: "Typography/Heading",
@@ -72,5 +71,19 @@ export const H6: Story = {
     element: "h6",
     size: "base",
     className: "bg-white dark:bg-black dark:text-white",
+  },
+};
+
+export const UserInteraction: Story = {
+  args: {
+    children: "This is an H6 heading",
+    element: "h6",
+    size: "base",
+    onClick: fn(),
+  },
+  play: async ({ args, canvas }) => {
+    const container = canvas.getByTestId("text");
+    await userEvent.click(container);
+    expect(args.onClick).toBeCalled();
   },
 };

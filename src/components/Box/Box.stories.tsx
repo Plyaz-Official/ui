@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Box } from "./Box";
-
+import { expect, userEvent,fn } from "@storybook/test";
 type Story = StoryObj<typeof Box>;
 
 const meta: Meta<typeof Box> = {
@@ -66,5 +66,19 @@ export const Footer: Story = {
     children: "This is a footer",
     element: "footer",
     className: "bg-red-200 p-4 rounded dark:bg-black dark:text-white",
+  },
+};
+
+export const UserInteraction: Story = {
+  args : {
+     children: "This is a footer",
+    element: "footer",
+    className: "bg-red-200 p-4 rounded",
+    onClick : fn()
+  },
+  play: async ({ args, canvas }) => {
+    const canvasElement = await canvas.findByTestId("box");
+    await userEvent.click(canvasElement);
+    expect(args.onClick).toBeCalled();
   },
 };

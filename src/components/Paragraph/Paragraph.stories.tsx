@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Paragraph } from "./Paragraph";
+import { expect, fn, userEvent } from "@storybook/test";
 
 const meta: Meta<typeof Paragraph> = {
   title: "Typography/Paragraph",
@@ -48,5 +49,19 @@ export const Large: Story = {
     children: "This is a large paragraph.",
     size: "lg",
     className: "text-gray-900  dark:bg-black dark:text-white",
+  },
+};
+
+export const UserInteraction: Story = {
+  args: {
+    children: "This is a large paragraph.",
+    size: "lg",
+    className: "text-gray-900",
+    onClick: fn(),
+  },
+  play: async ({ args, canvas }) => {
+    const container = canvas.getByTestId("text");
+    await userEvent.click(container);
+    expect(args.onClick).toBeCalled();
   },
 };

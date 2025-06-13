@@ -1,8 +1,8 @@
 import { Grid } from "@/components/Grid/Grid";
 import { Box } from "@/components/Box/Box";
-import { Link } from "@/components/Link/Link";
 import { Flex } from "@/components/Flex/Flex";
 import "./App.css";
+import { ExternalLink } from "@/components/ExternalLink/ExternalLink";
 
 export type AppProps = {
   children?: React.ReactNode;
@@ -21,7 +21,7 @@ function App() {
         <Box className="bg-red-500 p-4 rounded">Item 3</Box>
         <Box className="bg-yellow-500 p-4 rounded">Item 4</Box>
       </Grid>
-      <Link href="https:www.google.com"> This is the link</Link>
+      <ExternalLink href="https:www.google.com"> This is the link</ExternalLink>
     </Flex>
   );
 }
