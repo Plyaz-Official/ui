@@ -27,6 +27,7 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, "src/components/index.ts"),
       name: "PlyazUI",
+      fileName: (format) => `ui.${format}.js`,
       formats: ["es", "cjs"],
     },
     rollupOptions: {
@@ -45,6 +46,6 @@ export default defineConfig({
     environment: "happy-dom",
     globals: true,
     setupFiles: ["./setupTests.js"],
-    include: ['src/**/**/*.test.tsx','src/*.test.tsx']
+    include: ["src/**/**/*.test.tsx", "src/*.test.tsx"],
   },
 });
