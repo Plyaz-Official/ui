@@ -24,7 +24,7 @@ export const Default: Story = {
   args: {
     children: "This is a paragraph with base size.",
     size: "base",
-    className: "text-gray-800",
+    className: "text-gray-800 dark:bg-black dark:text-white",
   },
 };
 
@@ -32,7 +32,7 @@ export const Small: Story = {
   args: {
     children: "This is a small paragraph.",
     size: "sm",
-    className: "text-gray-700",
+    className: "text-gray-700 dark:bg-black dark:text-white",
   },
 };
 
@@ -40,7 +40,7 @@ export const ExtraSmall: Story = {
   args: {
     children: "This is an extra small paragraph.",
     size: "xs",
-    className: "text-gray-600",
+    className: "text-gray-600 dark:bg-black dark:text-white",
   },
 };
 
@@ -48,7 +48,7 @@ export const Large: Story = {
   args: {
     children: "This is a large paragraph.",
     size: "lg",
-    className: "text-gray-900",
+    className: "text-gray-900  dark:bg-black dark:text-white",
   },
 };
 

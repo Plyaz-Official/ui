@@ -16,6 +16,7 @@ const meta: Meta<typeof Container> = {
     },
   },
 };
+
 export default meta;
 
 type Story = StoryObj<typeof Container>;
@@ -23,7 +24,7 @@ type Story = StoryObj<typeof Container>;
 export const Default: Story = {
   args: {
     children: <Box>Container</Box>,
-    className: "bg-gray-100 p-6 rounded",
+    className: "bg-gray-100 p-6 rounded dark:bg-black dark:text-white",
     element: "div",
   },
 };
