@@ -4,11 +4,13 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 import dts from "vite-plugin-dts";
 import tailwindcss from "@tailwindcss/vite";
+  import bundlesize from "vite-plugin-bundlesize";
 
 export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
+     bundlesize(),
     dts({
       include: ["src"],
       exclude: ["src/**/*.test.tsx", "src/**/*.test.ts"],
@@ -30,6 +32,7 @@ export default defineConfig({
       fileName: (format) => `ui.${format}.js`,
       formats: ["es", "cjs"],
     },
+    sourcemap: "hidden",
     rollupOptions: {
       external: ["react", "react-dom"],
       output: {

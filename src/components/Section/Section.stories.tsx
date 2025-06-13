@@ -35,7 +35,12 @@ export const UserInteraction: Story = {
   },
   play: async ({ args, canvas }) => {
     const container = canvas.getAllByTestId("box")[0];
+    // Interaction performance test
+    const start = performance.now();
     await userEvent.click(container);
+    const end = performance.now();
+    const duration = end - start;
+    expect(duration).toBeLessThan(100);
     expect(args.onClick).toBeCalled();
   },
 };
