@@ -18,5 +18,12 @@ const config: StorybookConfig = {
   docs: {
     autodocs: true,
   },
+   viteFinal: async () => {
+    return  {
+      build: {
+        sourcemap: true, 
+      },
+    };
+  },
 };
 export default config;
