@@ -1,6 +1,6 @@
 import React from "react";
 import clsx from "clsx";
-import { Box,  } from "@/components/Box/Box";
+import { Box } from "@/components/Box/Box";
 import type { ElementType } from "@/types/type";
 
 export const JUASTIFY_MAPPER = {
@@ -30,7 +30,7 @@ interface GridProps extends React.HTMLAttributes<HTMLElement> {
   justify?: keyof typeof JUASTIFY_MAPPER;
   align?: keyof typeof ALIGN_MAPPER;
   element?: ElementType;
-};
+}
 
 export const Grid = ({
   children,
@@ -43,7 +43,6 @@ export const Grid = ({
   element,
   ...props
 }: GridProps) => {
-
   return (
     <Box
       element={element}
@@ -62,3 +61,5 @@ export const Grid = ({
     </Box>
   );
 };
+
+export default Grid;

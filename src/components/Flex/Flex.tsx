@@ -1,6 +1,6 @@
 import React from "react";
 import clsx from "clsx";
-import { Box, } from "@/components/Box/Box";
+import { Box } from "@/components/Box/Box";
 import { ALIGN_MAPPER, JUASTIFY_MAPPER } from "@/components/Grid/Grid";
 import type { ElementType } from "@/types/type";
 
@@ -25,7 +25,8 @@ interface FlexProps extends React.HTMLAttributes<HTMLElement> {
   wrap?: keyof typeof WRAP_MAPPER;
   className?: string;
   element?: ElementType;
-};
+}
+
 export const Flex = ({
   children,
   gap,
@@ -33,7 +34,7 @@ export const Flex = ({
   justify,
   align,
   wrap,
-  className ="",
+  className = "",
   element,
   ...props
 }: FlexProps) => {
@@ -55,3 +56,5 @@ export const Flex = ({
     </Box>
   );
 };
+
+export default Flex;

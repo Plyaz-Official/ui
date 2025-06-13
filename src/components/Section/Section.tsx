@@ -22,3 +22,5 @@ export const Section = ({
     </Box>
   );
 };
+
+export default Section;

@@ -28,3 +28,5 @@ export const ExternalLink = ({
     </a>
   );
 };
+
+export default ExternalLink;

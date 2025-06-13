@@ -32,3 +32,5 @@ export const Paragraph = ({
     </Text>
   );
 };
+
+export default Paragraph;

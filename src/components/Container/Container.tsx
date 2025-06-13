@@ -25,3 +25,5 @@ export const Container = ({
     </Box>
   );
 };
+
+export default Container;

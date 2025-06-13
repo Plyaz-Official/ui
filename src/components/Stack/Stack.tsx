@@ -29,3 +29,5 @@ export const Stack = ({
     </Box>
   );
 };
+
+export default Stack;

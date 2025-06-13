@@ -69,3 +69,5 @@ export const Text = ({
     </Element>
   );
 };
+
+export default Text;
