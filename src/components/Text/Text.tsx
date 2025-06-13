@@ -33,7 +33,7 @@ export const TEXT_WEIGHT_MAPPER = {
 
 type TextElement = "p" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
-interface TextProps extends React.HTMLAttributes<HTMLElement> {
+export interface TextProps extends React.HTMLAttributes<HTMLElement> {
   className?: string;
   children: React.ReactNode;
   element: TextElement;

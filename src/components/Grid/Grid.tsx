@@ -21,7 +21,7 @@ export const ALIGN_MAPPER = {
   stretch: "items-stretch",
 };
 
-interface GridProps extends React.HTMLAttributes<HTMLElement> {
+export interface GridProps extends React.HTMLAttributes<HTMLElement> {
   children?: React.ReactNode;
   className?: string;
   cols?: string;

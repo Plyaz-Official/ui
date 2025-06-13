@@ -2,7 +2,7 @@ import React from "react";
 import clsx from "clsx";
 import { Box } from "@/components/Box/Box";
 
-interface SectionProps extends React.HTMLAttributes<HTMLElement> {
+export interface SectionProps extends React.HTMLAttributes<HTMLElement> {
   className?: string;
   children?: React.ReactNode;
 }

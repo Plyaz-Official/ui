@@ -8,7 +8,7 @@ const SIZE_MAP = {
   lg: "lg",
 } as const;
 
-interface ParagraphProps extends React.HTMLAttributes<HTMLElement> {
+export interface ParagraphProps extends React.HTMLAttributes<HTMLElement> {
   children: React.ReactNode;
   className?: string;
   size: keyof typeof SIZE_MAP;

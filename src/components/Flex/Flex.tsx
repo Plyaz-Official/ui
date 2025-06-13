@@ -16,7 +16,7 @@ const WRAP_MAPPER = {
   "wrap-reverse": "flex-wrap-reverse",
 };
 
-interface FlexProps extends React.HTMLAttributes<HTMLElement> {
+export interface FlexProps extends React.HTMLAttributes<HTMLElement> {
   children: React.ReactNode;
   gap?: string;
   direction?: keyof typeof DIRECTION_MAPPER;
