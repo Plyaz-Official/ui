@@ -42,7 +42,6 @@ export default defineConfig({
       fileName: (format) => `ui.${format}.js`,
       formats: ["es", "cjs"],
     },
-
     rollupOptions: {
       external: ["react", "react-dom"],
       output: {

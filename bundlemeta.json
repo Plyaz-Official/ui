@@ -1,1 +1,20 @@
-{"chunks":{"ui.es.js":{"id":"ui.es.js","isEntry":true,"size":817,"sizeGzip":352,"sizeBrotli":291,"contents":{}},"ui.cjs.js":{"id":"ui.cjs.js","isEntry":true,"size":798,"sizeGzip":357,"sizeBrotli":295,"contents":{}}}}
+{
+  "chunks": {
+    "ui.js": {
+      "id": "ui.js",
+      "isEntry": true,
+      "size": 753,
+      "sizeGzip": 321,
+      "sizeBrotli": 276,
+      "contents": {}
+    },
+    "ui.cjs": {
+      "id": "ui.cjs",
+      "isEntry": true,
+      "size": 733,
+      "sizeGzip": 326,
+      "sizeBrotli": 288,
+      "contents": {}
+    }
+  }
+}
