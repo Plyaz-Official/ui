@@ -10,8 +10,17 @@ const containerProps = {
   className: 'bg-red-200 px-4 py-2',
 };
 
-describe('Container component ', () => {
-  it('renders with correct element, class, and children', () => {
+describe("Container component ", () => {
+  // Performance test to ensure the component renders quickly
+  it("renders under 100ms", () => {
+    const start = performance.now();
+    render(<Container {...containerProps} />);
+    const end = performance.now();
+    const duration = end - start;
+    expect(duration).toBeLessThan(100);
+  });
+  // Unit test to check if the component renders with the correct element, class, and children
+  it("renders with correct element, class, and children", () => {
     render(<Container {...containerProps} />);
     expect(screen.getByText(/Container/i)).toBeDefined();
   });
