@@ -1,12 +1,17 @@
 import React from "react";
 import clsx from "clsx";
 
-interface LinkProps extends React.HTMLAttributes<HTMLAnchorElement> {
+interface ExternalLinkProps extends React.HTMLAttributes<HTMLAnchorElement> {
   children: React.ReactNode;
   className?: string;
   href: string;
 }
-export const Link = ({ children, className, href, ...props }: LinkProps) => {
+export const ExternalLink = ({
+  children,
+  className,
+  href,
+  ...props
+}: ExternalLinkProps) => {
   return (
     <a
       href={href}

@@ -1,10 +1,10 @@
+import { ExternalLink } from "@/components/ExternalLink/ExternalLink";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Link } from "./Link";
 import { expect, fn, userEvent } from "@storybook/test";
 
-const meta: Meta<typeof Link> = {
-  title: "Typography/Link",
-  component: Link,
+const meta: Meta<typeof ExternalLink> = {
+  title: "Typography/ExternalLink",
+  component: ExternalLink,
   tags: ["autodocs"],
   parameters: {
     docs: {
@@ -17,7 +17,7 @@ const meta: Meta<typeof Link> = {
 };
 export default meta;
 
-type Story = StoryObj<typeof Link>;
+type Story = StoryObj<typeof ExternalLink>;
 
 export const Default: Story = {
   args: {
@@ -27,7 +27,7 @@ export const Default: Story = {
 };
 export const CustomClass: Story = {
   args: {
-    children: "This is a link link",
+    children: "This is a link ",
     className: "text-red-600 hover:text-red-800",
     href: "#",
   },
@@ -35,7 +35,7 @@ export const CustomClass: Story = {
 
 export const UserInteraction: Story = {
   args: {
-    children: "This is a link link",
+    children: "This is a link ",
     className: "text-red-600 hover:text-red-800",
     href: "#",
     onClick: fn(),
