@@ -20,3 +20,5 @@ export const Box = ({
     </Element>
   );
 };
+
+export default Box;
