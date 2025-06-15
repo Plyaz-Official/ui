@@ -12,18 +12,7 @@ const SIZE_MAP = {
   "4xl": "4xl",
 } as const;
 
-export type TextElement =
-  | "span"
-  | "p"
-  | "strong"
-  | "em"
-  | "div"
-  | "h1"
-  | "h2"
-  | "h3"
-  | "h4"
-  | "h5"
-  | "h6";
+export type HeadingType = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 export interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
   children: React.ReactNode;
   className?: string;
