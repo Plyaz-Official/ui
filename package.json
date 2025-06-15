@@ -31,6 +31,7 @@
     "release": "standard-version"
   },
   "dependencies": {
+    "@plyaz/devtools": "^1.2.0",
     "@tailwindcss/vite": "^4.1.8",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/user-event": "^14.6.1",

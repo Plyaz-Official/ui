@@ -1,10 +1,4 @@
-/** @type {import('tailwindcss').Config} */
+// packages/ui/tailwind.config.ts
+import baseConfig from "@plyaz/devtools/configs/tailwind.config";
 
-export default {
- 
-  content: ["./src/**/*.{js,ts,jsx,tsx}", "./.storybook/**/*.{js,ts,jsx,tsx}"],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-};
+export default baseConfig;
