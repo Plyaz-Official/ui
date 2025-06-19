@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { Box } from "@/components/Box/Box";
 import type { ElementType } from "@/types/type";
 
-interface StackProps extends React.HTMLAttributes<HTMLElement> {
+export interface StackProps extends React.HTMLAttributes<HTMLElement> {
   children: React.ReactNode;
   className?: string;
   direction?: "vertical" | "horizontal";
@@ -29,3 +29,5 @@ export const Stack = ({
     </Box>
   );
 };
+
+export default Stack;

@@ -25,7 +25,7 @@ export default defineConfig({
   },
   build: {
     lib: {
-      entry: path.resolve(__dirname, "src/components/index.ts"),
+      entry: path.resolve(__dirname, "src/main.ts"),
       name: "PlyazUI",
       fileName: (format) => `ui.${format}.js`,
       formats: ["es", "cjs"],

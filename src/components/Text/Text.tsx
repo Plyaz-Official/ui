@@ -31,9 +31,20 @@ export const TEXT_WEIGHT_MAPPER = {
   light: "font-light",
 } as const;
 
-type TextElement = "p" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+type TextElement =
+  | "span"
+  | "p"
+  | "strong"
+  | "em"
+  | "div"
+  | "h1"
+  | "h2"
+  | "h3"
+  | "h4"
+  | "h5"
+  | "h6";
 
-interface TextProps extends React.HTMLAttributes<HTMLElement> {
+export interface TextProps extends React.HTMLAttributes<HTMLElement> {
   className?: string;
   children: React.ReactNode;
   element: TextElement;
@@ -69,3 +80,5 @@ export const Text = ({
     </Element>
   );
 };
+
+export default Text;

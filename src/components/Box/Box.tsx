@@ -1,7 +1,7 @@
 import React from "react";
 import type { ElementType } from "@/types/type";
 
-interface BoxProps extends React.HTMLAttributes<HTMLElement> {
+export interface BoxProps extends React.HTMLAttributes<HTMLElement> {
   children: React.ReactNode;
   element?: ElementType;
   className?: string;
@@ -20,3 +20,5 @@ export const Box = ({
     </Element>
   );
 };
+
+export default Box;
