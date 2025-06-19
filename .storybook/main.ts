@@ -1,4 +1,5 @@
 import type { StorybookConfig } from "@storybook/react-vite";
+
 const config: StorybookConfig = {
   stories: [
     "../src/**/*.mdx",
@@ -19,13 +20,16 @@ const config: StorybookConfig = {
     name: "@storybook/react-vite",
     options: {},
   },
+
   docs: {
     autodocs: true,
   },
-   viteFinal: async () => {
-    return  {
+  viteFinal: async (config) => {
+    return {
+      ...config,
+      plugins: [...(config.plugins || [])],
       build: {
-        sourcemap: true, 
+        sourcemap: "hidden",
       },
     };
   },
