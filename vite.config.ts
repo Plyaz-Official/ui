@@ -40,7 +40,7 @@ export default defineConfig({
       fileName: format => `ui.${format}.js`,
       formats: ['es', 'cjs'],
     },
-    sourcemap: "hidden",
+   
     rollupOptions: {
       external: ['react', 'react-dom'],
       output: {
