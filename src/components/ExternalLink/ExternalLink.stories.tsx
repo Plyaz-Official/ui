@@ -43,6 +43,6 @@ export const UserInteraction: Story = {
   play: async ({ args, canvas }) => {
     const container = canvas.getByTestId("link");
     await userEvent.click(container);
-    expect(args.onClick).toBeCalled();
+    await expect(args.onClick).toBeCalled();
   },
 };
