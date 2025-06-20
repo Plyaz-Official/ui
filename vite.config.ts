@@ -1,17 +1,24 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 /// <reference types="vitest" />
-import { defineConfig } from "vite";
+
 import react from "@vitejs/plugin-react";
 import path from "path";
 import dts from "vite-plugin-dts";
 import tailwindcss from "@tailwindcss/vite";
-  import bundlesize from "vite-plugin-bundlesize";
-
+import { defineConfig, type PluginOption } from "vite";
+import { visualizer } from "rollup-plugin-visualizer";
 export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
-     bundlesize(),
+    visualizer({
+      open: true,
+      gzipSize: true,
+      brotliSize: true,
+      filename: "bundle-stats.html",
+      template: "treemap",
+      sourcemap: true,
+    }) as PluginOption,
     dts({
       include: ['src'],
       exclude: ['src/**/*.test.tsx', 'src/**/*.test.ts'],
