@@ -1,14 +1,23 @@
 /// <reference types="vitest" />
-import { defineConfig } from "vite";
+
 import react from "@vitejs/plugin-react";
 import path from "path";
 import dts from "vite-plugin-dts";
 import tailwindcss from "@tailwindcss/vite";
-
+import { defineConfig, type PluginOption } from "vite";
+import { visualizer } from "rollup-plugin-visualizer";
 export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
+    visualizer({
+      open: true,
+      gzipSize: true,
+      brotliSize: true,
+      filename: "bundle-stats.html",
+      template: "treemap",
+      sourcemap: true,
+    }) as PluginOption,
     dts({
       include: ["src"],
       exclude: ["src/**/*.test.tsx", "src/**/*.test.ts"],
@@ -30,6 +39,7 @@ export default defineConfig({
       fileName: (format) => `ui.${format}.js`,
       formats: ["es", "cjs"],
     },
+   
     rollupOptions: {
       external: ["react", "react-dom"],
       output: {
