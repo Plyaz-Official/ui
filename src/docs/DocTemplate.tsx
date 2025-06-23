@@ -6,7 +6,7 @@ import {
   Controls,
   Stories,
   ArgTypes,
-} from "@storybook/blocks";
+} from '@storybook/blocks';
 
 export const autoDocsTemplate = () => (
   <>
@@ -16,6 +16,6 @@ export const autoDocsTemplate = () => (
     <Primary />
     <Controls />
     <Stories />
-    <ArgTypes/>
+    <ArgTypes />
   </>
 );

@@ -1,19 +1,20 @@
-import React from "react";
-import clsx from "clsx";
-import { Box } from "@/components/Box/Box";
-import { ALIGN_MAPPER, JUASTIFY_MAPPER } from "@/components/Grid/Grid";
-import type { ElementType } from "@/types/type";
+import clsx from 'clsx';
+import React from 'react';
+
+import { Box } from '@/components/Box/Box';
+import { ALIGN_MAPPER, JUASTIFY_MAPPER } from '@/components/Grid/Grid';
+import type { ElementType } from '@/types/type';
 
 const DIRECTION_MAPPER = {
-  row: "flex-row",
-  col: "flex-col",
-  "row-reverse": "flex-row-reverse",
-  "col-reverse": "flex-col-reverse",
+  row: 'flex-row',
+  col: 'flex-col',
+  'row-reverse': 'flex-row-reverse',
+  'col-reverse': 'flex-col-reverse',
 };
 const WRAP_MAPPER = {
-  wrap: "flex-wrap",
-  nowrap: "flex-nowrap",
-  "wrap-reverse": "flex-wrap-reverse",
+  wrap: 'flex-wrap',
+  nowrap: 'flex-nowrap',
+  'wrap-reverse': 'flex-wrap-reverse',
 };
 
 export interface FlexProps extends React.HTMLAttributes<HTMLElement> {
@@ -34,7 +35,7 @@ export const Flex = ({
   justify,
   align,
   wrap,
-  className = "",
+  className = '',
   element,
   ...props
 }: FlexProps) => {
@@ -42,7 +43,7 @@ export const Flex = ({
     <Box
       element={element}
       className={clsx(
-        "flex",
+        'flex',
         direction && DIRECTION_MAPPER[direction],
         justify && JUASTIFY_MAPPER[justify],
         align && ALIGN_MAPPER[align],

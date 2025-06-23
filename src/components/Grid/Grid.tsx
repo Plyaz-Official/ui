@@ -1,24 +1,25 @@
-import React from "react";
-import clsx from "clsx";
-import { Box } from "@/components/Box/Box";
-import type { ElementType } from "@/types/type";
+import clsx from 'clsx';
+import React from 'react';
+
+import { Box } from '@/components/Box/Box';
+import type { ElementType } from '@/types/type';
 
 export const JUASTIFY_MAPPER = {
-  start: "justify-start",
-  end: "justify-end",
-  center: "justify-center",
-  between: "justify-between",
-  around: "justify-around",
-  evenly: "justify-evenly",
-  stretch: "justify-stretch",
+  start: 'justify-start',
+  end: 'justify-end',
+  center: 'justify-center',
+  between: 'justify-between',
+  around: 'justify-around',
+  evenly: 'justify-evenly',
+  stretch: 'justify-stretch',
 };
 
 export const ALIGN_MAPPER = {
-  start: "items-start",
-  end: "items-end",
-  center: "items-center",
-  baseline: "items-baseline",
-  stretch: "items-stretch",
+  start: 'items-start',
+  end: 'items-end',
+  center: 'items-center',
+  baseline: 'items-baseline',
+  stretch: 'items-stretch',
 };
 
 export interface GridProps extends React.HTMLAttributes<HTMLElement> {
@@ -47,7 +48,7 @@ export const Grid = ({
     <Box
       element={element}
       className={clsx(
-        "grid",
+        'grid',
         cols,
         rows,
         gap,

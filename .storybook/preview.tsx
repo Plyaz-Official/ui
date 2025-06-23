@@ -1,7 +1,7 @@
-import type { Preview } from "@storybook/react";
-import { autoDocsTemplate } from "../src/docs/DocTemplate";
-import { allModes } from "./mode";
-import "../src/index.css";
+import type { Preview } from '@storybook/react';
+import { autoDocsTemplate } from '../src/docs/DocTemplate';
+import { allModes } from './mode';
+import '../src/index.css';
 
 /**
  * This  globalType adds a light/dark mode menu in the Storybook toolbar,
@@ -15,12 +15,12 @@ import "../src/index.css";
 
 export const globalTypes = {
   theme: {
-    name: "Theme",
+    name: 'Theme',
     toolbar: {
-      icon: "circlehollow",
+      icon: 'circlehollow',
       items: [
-        { value: "light", title: "Light" },
-        { value: "dark", title: "Dark" },
+        { value: 'light', title: 'Light' },
+        { value: 'dark', title: 'Dark' },
       ],
       dynamicTitle: true,
     },
@@ -39,7 +39,7 @@ const preview: Preview = {
     },
   ],
   parameters: {
-    actions: { argTypesRegex: "^on[A-Z].*" },
+    actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {
         color: /(background|color)$/i,
