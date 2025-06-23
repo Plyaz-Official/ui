@@ -67,6 +67,6 @@ export const UserInteraction: Story = {
   play: async ({ args, canvas }) => {
     const container = canvas.getAllByTestId("box")[0];
     await userEvent.click(container);
-    expect(args.onClick).toBeCalled();
+    await expect(args.onClick).toBeCalled();
   },
 };
