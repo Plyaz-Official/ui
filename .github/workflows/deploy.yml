@@ -1,4 +1,6 @@
 name: Install + Build + Deploy
+permissions:
+  contents: read
 on:
   push:
     branches: [main]
