@@ -1,8 +1,8 @@
 import React from "react";
-import clsx from "clsx";
 import { Box } from "@/components/Box/Box";
 import { ALIGN_MAPPER, JUASTIFY_MAPPER } from "@/components/Grid/Grid";
 import type { ElementType } from "@/types/type";
+import { cn } from "@/utils/cn";
 
 const DIRECTION_MAPPER = {
   row: "flex-row",
@@ -26,7 +26,6 @@ export interface FlexProps extends React.HTMLAttributes<HTMLElement> {
   className?: string;
   element?: ElementType;
 }
-
 export const Flex = ({
   children,
   gap,
@@ -41,7 +40,7 @@ export const Flex = ({
   return (
     <Box
       element={element}
-      className={clsx(
+      className={cn(
         "flex",
         direction && DIRECTION_MAPPER[direction],
         justify && JUASTIFY_MAPPER[justify],

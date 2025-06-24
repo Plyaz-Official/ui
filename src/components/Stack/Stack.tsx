@@ -1,7 +1,7 @@
 import React from "react";
-import clsx from "clsx";
 import { Box } from "@/components/Box/Box";
 import type { ElementType } from "@/types/type";
+import { cn } from "@/utils/cn";
 
 export interface StackProps extends React.HTMLAttributes<HTMLElement> {
   children: React.ReactNode;
@@ -22,7 +22,7 @@ export const Stack = ({
   return (
     <Box
       element={element}
-      className={clsx("flex", flexDirection, spacing, className)}
+      className={cn("flex", flexDirection, spacing, className)}
       {...props}
     >
       {children}

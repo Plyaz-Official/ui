@@ -1,7 +1,8 @@
 import React from "react";
-import clsx from "clsx";
+
 import { Box } from "@/components/Box/Box";
 import type { ElementType } from "@/types/type";
+import { cn } from "@/utils/cn";
 
 export const JUASTIFY_MAPPER = {
   start: "justify-start",
@@ -46,7 +47,7 @@ export const Grid = ({
   return (
     <Box
       element={element}
-      className={clsx(
+      className={cn(
         "grid",
         cols,
         rows,
