@@ -1,5 +1,5 @@
-import clsx from 'clsx';
-import React from 'react';
+import React from "react";
+import { cn } from "@/utils/cn";
 
 export const VARIANT_MAPPER = {
   body: 'font-sans',
@@ -54,13 +54,11 @@ export const Text = ({
   const Element = element;
   return (
     <Element
-      data-testid='text'
-      className={clsx(
-        'font-sans text-base font-normal',
+      className={cn(
+        "font-normal text-base font-sans",
         size && SIZES_MAPPER[size],
         weight && TEXT_WEIGHT_MAPPER[weight],
         variant && VARIANT_MAPPER[variant],
-
         className
       )}
       {...props}

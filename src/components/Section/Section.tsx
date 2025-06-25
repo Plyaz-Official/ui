@@ -1,7 +1,6 @@
-import clsx from 'clsx';
-import React from 'react';
-
-import { Box } from '@/components/Box/Box';
+import React from "react";
+import { Box } from "@/components/Box/Box";
+import { cn } from "@/utils/cn";
 
 export interface SectionProps extends React.HTMLAttributes<HTMLElement> {
   className?: string;
@@ -11,14 +10,8 @@ export interface SectionProps extends React.HTMLAttributes<HTMLElement> {
 export const Section = ({ className = '', children, ...props }: SectionProps) => {
   return (
     <Box
-      element='section'
-      className={clsx(
-        `
-      mx-2 my-4 p-4
-      sm:p-6
-    `,
-        className
-      )}
+      element="section"
+      className={cn("p-4 sm:p-6 my-4 mx-2", className)}
       {...props}
     >
       {children}

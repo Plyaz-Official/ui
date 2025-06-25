@@ -1,8 +1,7 @@
-import clsx from 'clsx';
-import React from 'react';
-
-import { Box } from '@/components/Box/Box';
-import type { ElementType } from '@/types/type';
+import React from "react";
+import { Box } from "@/components/Box/Box";
+import type { ElementType } from "@/types/type";
+import { cn } from "@/utils/cn";
 
 export interface ContainerProps extends React.HTMLAttributes<HTMLElement> {
   className?: string;
@@ -14,14 +13,7 @@ export const Container = ({ className = '', children, element, ...props }: Conta
   return (
     <Box
       element={element}
-      className={clsx(
-        `
-        mx-auto max-w-7xl px-4
-        sm:px-6
-        lg:px-8
-      `,
-        className
-      )}
+      className={cn("mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl", className)}
       {...props}
     >
       {children}
