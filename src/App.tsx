@@ -1,8 +1,8 @@
-import { Grid } from '@/components/Grid/Grid';
-import { Box } from '@/components/Box/Box';
-import { Flex } from '@/components/Flex/Flex';
 import './App.css';
+import { Box } from '@/components/Box/Box';
 import { ExternalLink } from '@/components/ExternalLink/ExternalLink';
+import { Flex } from '@/components/Flex/Flex';
+import { Grid } from '@/components/Grid/Grid';
 
 export type AppProps = {
   children?: React.ReactNode;
