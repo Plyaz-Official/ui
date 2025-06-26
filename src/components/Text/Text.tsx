@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import React from 'react';
 
-export const VARIANT_MAPPER = {
+const VARIANT_MAPPER = {
   body: 'font-sans',
   heading: 'font-sans',
   caption: 'font-sans',
@@ -23,7 +23,7 @@ const SIZES_MAPPER = {
   '9xl': 'text-9xl',
 };
 
-export const TEXT_WEIGHT_MAPPER = {
+const TEXT_WEIGHT_MAPPER = {
   normal: 'font-normal',
   medium: 'font-medium',
   semibold: 'font-semibold',
