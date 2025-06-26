@@ -1,0 +1,13 @@
+name: Install + Build + Deploy
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: write
+  
+jobs:
+  build-deploy:
+    uses: Plyaz-Official/devtools/.github/workflows/deploy.yml@main
+    secrets: inherit

@@ -1,5 +1,6 @@
-import React from "react";
-import type { ElementType } from "@/types/type";
+import React from 'react';
+
+import type { ElementType } from '@/types/type';
 
 export interface BoxProps extends React.HTMLAttributes<HTMLElement> {
   children: React.ReactNode;
@@ -7,15 +8,10 @@ export interface BoxProps extends React.HTMLAttributes<HTMLElement> {
   className?: string;
 }
 
-export const Box = ({
-  children,
-  element = "div",
-  className = "",
-  ...props
-}: BoxProps) => {
+export const Box = ({ children, element = 'div', className = '', ...props }: BoxProps) => {
   const Element = element;
   return (
-    <Element className={className} {...props} data-testid="box">
+    <Element className={className} {...props} data-testid='box'>
       {children}
     </Element>
   );
