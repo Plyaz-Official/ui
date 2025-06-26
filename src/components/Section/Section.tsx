@@ -1,8 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
-
-import { Box } from '@/components/Box/Box';
-
+import { Box } from '@/components';
 export interface SectionProps extends React.HTMLAttributes<HTMLElement> {
   className?: string;
   children?: React.ReactNode;

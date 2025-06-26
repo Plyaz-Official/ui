@@ -1,9 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { expect, fn, userEvent } from '@storybook/test';
 
-import { Stack } from './Stack';
-
-import { Box } from '@/components/Box/Box';
+import { Box, Stack } from '@/components';
 
 const meta: Meta<typeof Stack> = {
   title: 'Layout/Stack',

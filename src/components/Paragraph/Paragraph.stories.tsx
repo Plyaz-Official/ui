@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { expect, fn, userEvent } from '@storybook/test';
 
-import { Paragraph } from './Paragraph';
+import { Paragraph } from '@/components';
 
 const meta: Meta<typeof Paragraph> = {
   title: 'Typography/Paragraph',

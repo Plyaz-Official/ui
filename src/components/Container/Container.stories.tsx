@@ -1,9 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { expect, fn, userEvent } from '@storybook/test';
 
-import { Container } from './Container';
-
-import { Box } from '@/components/Box/Box';
+import { Box, Container } from '@/components';
 
 const meta: Meta<typeof Container> = {
   title: 'Layout/Container',

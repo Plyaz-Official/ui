@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { expect, fn, userEvent } from '@storybook/test';
 
-import { Heading } from './Heading';
+import { Heading } from '@/components';
 
 const meta: Meta<typeof Heading> = {
   title: 'Typography/Heading',

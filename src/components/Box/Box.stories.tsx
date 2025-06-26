@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { expect, userEvent, fn } from '@storybook/test';
 
-import { Box } from './Box';
+import { Box } from '@/components';
 
 type Story = StoryObj<typeof Box>;
 

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { expect, fn, userEvent } from '@storybook/test';
 
-import { Text } from './Text';
+import { Text } from '@/components';
 
 const meta: Meta<typeof Text> = {
   title: 'Typography/Text',

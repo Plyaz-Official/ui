@@ -1,9 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { expect, fn, userEvent } from '@storybook/test';
 
-import { Grid } from './Grid';
-
-import { Box } from '@/components/Box/Box';
+import { Box, Grid } from '@/components';
 
 const meta: Meta<typeof Grid> = {
   title: 'Layout/Grid',

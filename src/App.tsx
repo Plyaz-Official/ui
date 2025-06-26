@@ -1,14 +1,12 @@
+'use client'
 import './App.css';
-import { Box } from '@/components/Box/Box';
-import { ExternalLink } from '@/components/ExternalLink/ExternalLink';
-import { Flex } from '@/components/Flex/Flex';
-import { Grid } from '@/components/Grid/Grid';
+import {Box, ExternalLink, Flex, Grid} from '@/components';
 
 export type AppProps = {
   children?: React.ReactNode;
 };
 
-function App() {
+function App(): React.ReactElement {
   return (
     <Flex className='flex min-h-screen items-center justify-center' direction='col' gap='gap-4'>
       <Grid cols='grid-cols-2' element='main' gap='gap-2'>

@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import React from 'react';
 
-import { Box } from '@/components/Box/Box';
+import { Box } from '@/components';
 import type { ElementType } from '@/types/type';
 
 export interface StackProps extends React.HTMLAttributes<HTMLElement> {

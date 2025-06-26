@@ -16,7 +16,7 @@ export default defineConfig({
       exclude: ['src/**/*.test.tsx', 'src/**/*.test.ts'],
       insertTypesEntry: true,
       outDir: 'dist/types',
-      tsconfigPath: './tsconfig.app.json',
+      tsconfigPath: './tsconfig.json',
       entryRoot: 'src',
     }),
   ],

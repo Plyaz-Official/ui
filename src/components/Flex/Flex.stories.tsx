@@ -1,9 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { expect, fn, userEvent } from '@storybook/test';
 
-import { Flex } from './Flex';
-
-import { Box } from '@/components/Box/Box';
+import { Box, Flex } from '@/components';
 
 const meta: Meta<typeof Flex> = {
   title: 'Layout/Flex',

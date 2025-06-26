@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { expect, fn, userEvent } from '@storybook/test';
 
-import { ExternalLink } from '@/components/ExternalLink/ExternalLink';
+import { ExternalLink } from '@/components';
 
 const meta: Meta<typeof ExternalLink> = {
   title: 'Typography/ExternalLink',
