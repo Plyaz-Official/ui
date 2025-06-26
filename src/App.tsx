@@ -1,6 +1,6 @@
-'use client'
+'use client';
 import './App.css';
-import {Box, ExternalLink, Flex, Grid} from '@/components';
+import { Box, ExternalLink, Flex, Grid } from '@/components';
 
 export type AppProps = {
   children?: React.ReactNode;
