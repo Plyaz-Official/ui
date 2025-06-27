@@ -234,27 +234,9 @@ importers:
       postcss:
         specifier: ^8.5.3
         version: 8.5.6
-<<<<<<< HEAD
-<<<<<<< HEAD
       rollup-plugin-visualizer:
         specifier: ^6.0.3
         version: 6.0.3(rollup@4.44.0)
-=======
-      prettier:
-        specifier: ^3.5.3
-        version: 3.5.3
-=======
-        version: 8.5.3
-      rollup-plugin-visualizer:
-        specifier: ^6.0.3
-        version: 6.0.3(rollup@4.40.2)
->>>>>>> 07b56da (chore:added rollup-plugin-visualizer dependency)
->>>>>>> 0c06da2 (chore:added rollup-plugin-visualizer dependency)
-=======
-      rollup-plugin-visualizer:
-        specifier: ^6.0.3
-        version: 6.0.3(rollup@4.44.0)
->>>>>>> 24d1a89 (chore: Updated gitignore file and fixed build and lint issues)
       standard-version:
         specifier: ^9.5.0
         version: 9.5.0
@@ -276,21 +258,6 @@ importers:
       vite:
         specifier: ^6.3.5
         version: 6.3.5(@types/node@22.15.32)(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.8.0)
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
-        version: 6.3.5(@types/node@22.15.18)(jiti@2.4.2)(less@4.3.0)(lightningcss@1.30.1)(terser@5.40.0)(yaml@2.8.0)
-<<<<<<< HEAD
-      vite-plugin-bundlesize:
-        specifier: ^0.2.0
-        version: 0.2.0(vite@6.3.5(@types/node@22.15.18)(jiti@2.4.2)(less@4.3.0)(lightningcss@1.30.1)(terser@5.40.0)(yaml@2.8.0))
->>>>>>> 8b8570c (feat: Ensure performance optimization)
-=======
->>>>>>> 07b56da (chore:added rollup-plugin-visualizer dependency)
->>>>>>> 0c06da2 (chore:added rollup-plugin-visualizer dependency)
-=======
->>>>>>> 24d1a89 (chore: Updated gitignore file and fixed build and lint issues)
       vite-plugin-dts:
         specifier: ^4.5.3
         version: 4.5.4(@types/node@22.15.32)(rollup@4.44.0)(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.32)(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.8.0))
@@ -5482,35 +5449,9 @@ packages:
     deprecated: Rimraf versions prior to v4 are no longer supported
     hasBin: true
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  rollup-plugin-visualizer@6.0.3:
-    resolution: {integrity: sha512-ZU41GwrkDcCpVoffviuM9Clwjy5fcUxlz0oMoTXTYsK+tcIFzbdacnrr2n8TXcHxbGKKXtOdjxM2HUS4HjkwIw==}
-    engines: {node: '>=18'}
-    hasBin: true
-    peerDependencies:
-      rolldown: 1.x || ^1.0.0-beta
-      rollup: 2.x || 3.x || 4.x
-    peerDependenciesMeta:
-      rolldown:
-        optional: true
-      rollup:
-        optional: true
-
-=======
-<<<<<<< HEAD
->>>>>>> 0c06da2 (chore:added rollup-plugin-visualizer dependency)
-  rollup@4.44.0:
-    resolution: {integrity: sha512-qHcdEzLCiktQIfwBq420pn2dP+30uzqYxv9ETm91wdt2R9AFcWfjNAmje4NWlnCIQ5RMTzVf0ZyisOKqHR6RwA==}
-=======
-=======
->>>>>>> 24d1a89 (chore: Updated gitignore file and fixed build and lint issues)
-=======
   robust-predicates@3.0.2:
     resolution: {integrity: sha512-IXgzBWvWQwE6PrDI05OvmXUIruQTcoMDzRsOd5CDvHCVLcLHMTSYvOK5Cm46kWqlV3yAbuSpBZdJ5oP5OUoStg==}
 
->>>>>>> 527d09b (feat: Create component documentation)
   rollup-plugin-visualizer@6.0.3:
     resolution: {integrity: sha512-ZU41GwrkDcCpVoffviuM9Clwjy5fcUxlz0oMoTXTYsK+tcIFzbdacnrr2n8TXcHxbGKKXtOdjxM2HUS4HjkwIw==}
     engines: {node: '>=18'}
@@ -5685,20 +5626,6 @@ packages:
     resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==}
     engines: {node: '>=0.10.0'}
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-  source-map@0.7.4:
-    resolution: {integrity: sha512-l3BikUxvPOcn5E74dZiq5BGsTb5yEwhaTSzccU6t4sDOH8NWJCstKO5QT2CvtFoK6F0saL7p9xHAqHOlCPJygA==}
-    engines: {node: '>= 8'}
-
-=======
-<<<<<<< HEAD
->>>>>>> 0c06da2 (chore:added rollup-plugin-visualizer dependency)
-  spawndamnit@3.0.1:
-    resolution: {integrity: sha512-MmnduQUuHCoFckZoWnXsTg7JaiLBJrKFj9UI2MbRPGaJeVpsLcVBu6P/IGZovziM/YBsellCmsprgNA+w0CzVg==}
-=======
-=======
->>>>>>> 24d1a89 (chore: Updated gitignore file and fixed build and lint issues)
   source-map@0.7.4:
     resolution: {integrity: sha512-l3BikUxvPOcn5E74dZiq5BGsTb5yEwhaTSzccU6t4sDOH8NWJCstKO5QT2CvtFoK6F0saL7p9xHAqHOlCPJygA==}
     engines: {node: '>= 8'}
@@ -6303,32 +6230,8 @@ packages:
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
 
-<<<<<<< HEAD
-<<<<<<< HEAD
   vite-plugin-dts@4.5.4:
     resolution: {integrity: sha512-d4sOM8M/8z7vRXHHq/ebbblfaxENjogAAekcfcDCCwAyvGqnPrc7f4NZbvItS+g4WTgerW0xDwSz5qz11JT3vg==}
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-  vite-plugin-dts@4.5.4:
-    resolution: {integrity: sha512-d4sOM8M/8z7vRXHHq/ebbblfaxENjogAAekcfcDCCwAyvGqnPrc7f4NZbvItS+g4WTgerW0xDwSz5qz11JT3vg==}
-=======
-  vite-plugin-bundlesize@0.2.0:
-    resolution: {integrity: sha512-2z4Z7vEL6JlSfRooy8YmIo0FDFt95+WLlkaYFWNFoRJZEe/WTQljtS0bRlkFH/q1Vw623gt584RDDHKtdMZumw==}
-    hasBin: true
-    peerDependencies:
-      vite: '>= 5.0.0'
-
-=======
->>>>>>> 07b56da (chore:added rollup-plugin-visualizer dependency)
-  vite-plugin-dts@4.5.3:
-    resolution: {integrity: sha512-P64VnD00dR+e8S26ESoFELqc17+w7pKkwlBpgXteOljFyT0zDwD8hH4zXp49M/kciy//7ZbVXIwQCekBJjfWzA==}
->>>>>>> 8b8570c (feat: Ensure performance optimization)
->>>>>>> 0c06da2 (chore:added rollup-plugin-visualizer dependency)
-=======
-  vite-plugin-dts@4.5.4:
-    resolution: {integrity: sha512-d4sOM8M/8z7vRXHHq/ebbblfaxENjogAAekcfcDCCwAyvGqnPrc7f4NZbvItS+g4WTgerW0xDwSz5qz11JT3vg==}
->>>>>>> 24d1a89 (chore: Updated gitignore file and fixed build and lint issues)
     peerDependencies:
       typescript: '*'
       vite: '*'
@@ -13077,31 +12980,9 @@ snapshots:
     dependencies:
       glob: 7.2.3
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
   robust-predicates@3.0.2: {}
 
->>>>>>> 527d09b (feat: Create component documentation)
   rollup-plugin-visualizer@6.0.3(rollup@4.44.0):
-    dependencies:
-      open: 8.4.2
-      picomatch: 4.0.2
-      source-map: 0.7.4
-      yargs: 17.7.2
-    optionalDependencies:
-      rollup: 4.44.0
-
-=======
-<<<<<<< HEAD
->>>>>>> 0c06da2 (chore:added rollup-plugin-visualizer dependency)
-  rollup@4.44.0:
-=======
-  rollup-plugin-visualizer@6.0.3(rollup@4.40.2):
-=======
-  rollup-plugin-visualizer@6.0.3(rollup@4.44.0):
->>>>>>> 24d1a89 (chore: Updated gitignore file and fixed build and lint issues)
     dependencies:
       open: 8.4.2
       picomatch: 4.0.2
@@ -13313,23 +13194,11 @@ snapshots:
 
   source-map@0.6.1: {}
 
-<<<<<<< HEAD
-<<<<<<< HEAD
   source-map@0.7.4: {}
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 0c06da2 (chore:added rollup-plugin-visualizer dependency)
-=======
-  source-map@0.7.4: {}
-
->>>>>>> 24d1a89 (chore: Updated gitignore file and fixed build and lint issues)
-=======
   space-separated-tokens@2.0.2:
     optional: true
 
->>>>>>> 527d09b (feat: Create component documentation)
   spawndamnit@3.0.1:
     dependencies:
       cross-spawn: 7.0.6
@@ -14098,29 +13967,7 @@ snapshots:
       - tsx
       - yaml
 
-<<<<<<< HEAD
-<<<<<<< HEAD
   vite-plugin-dts@4.5.4(@types/node@22.15.32)(rollup@4.44.0)(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.32)(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.8.0)):
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-  vite-plugin-dts@4.5.4(@types/node@22.15.32)(rollup@4.44.0)(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.32)(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.8.0)):
-=======
-  vite-plugin-bundlesize@0.2.0(vite@6.3.5(@types/node@22.15.18)(jiti@2.4.2)(less@4.3.0)(lightningcss@1.30.1)(terser@5.40.0)(yaml@2.8.0)):
-    dependencies:
-      picomatch: 4.0.2
-      strip-ansi: 7.1.0
-      vite: 6.3.5(@types/node@22.15.18)(jiti@2.4.2)(less@4.3.0)(lightningcss@1.30.1)(terser@5.40.0)(yaml@2.8.0)
-      vlq: 2.0.4
-
-=======
->>>>>>> 07b56da (chore:added rollup-plugin-visualizer dependency)
-  vite-plugin-dts@4.5.3(@types/node@22.15.18)(rollup@4.40.2)(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.18)(jiti@2.4.2)(less@4.3.0)(lightningcss@1.30.1)(terser@5.40.0)(yaml@2.8.0)):
->>>>>>> 8b8570c (feat: Ensure performance optimization)
->>>>>>> 0c06da2 (chore:added rollup-plugin-visualizer dependency)
-=======
-  vite-plugin-dts@4.5.4(@types/node@22.15.32)(rollup@4.44.0)(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.32)(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.8.0)):
->>>>>>> 24d1a89 (chore: Updated gitignore file and fixed build and lint issues)
     dependencies:
       '@microsoft/api-extractor': 7.52.8(@types/node@22.15.32)
       '@rollup/pluginutils': 5.2.0(rollup@4.44.0)
