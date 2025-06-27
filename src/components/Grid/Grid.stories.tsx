@@ -15,6 +15,62 @@ const meta: Meta<typeof Grid> = {
       },
     },
   },
+  argTypes: {
+    cols: {
+      control: "text",
+      description: "CSS classes for grid columns.",
+    },
+    rows: {
+      control: "text",
+      description: "CSS classes for grid rows.",
+    },
+    gap: {
+      control: "text",
+      description: "CSS classes for grid gap.",
+    },
+    justify: {
+      control: "select",
+      options: [
+        "start",
+        "end",
+        "center",
+        "between",
+        "around",
+        "evenly",
+        "stretch",
+      ],
+
+      description: "CSS classes for justify content.",
+    },
+    align: {
+      control: "select",
+      options: ["start", "end", "center", "baseline", "stretch"],
+      description: "CSS classes for align items.",
+    },
+    className: {
+      control: { type: "text" },
+      description: "Additional CSS classes to apply to the Grid.",
+    },
+    children: {
+      control: { type: "text" },
+      description: "Content to be rendered inside the Grid.",
+    },
+    element: {
+      control: "select",
+      options: [
+        "div",
+        "section",
+        "article",
+        "aside",
+        "nav",
+        "header",
+        "footer",
+        "main",
+        "span",
+      ],
+      description: "The HTML element to render as the Grid. Defaults to 'div'.",
+    },
+  },
 };
 export default meta;
 
