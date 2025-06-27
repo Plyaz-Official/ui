@@ -20,7 +20,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
+    "build-storybook": "storybook build > ./performance/storybook-build.log 2>&1",
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",
     "format": "prettier --write './**/*.{ts,tsx,js,jsx}'",

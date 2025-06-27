@@ -48,7 +48,8 @@ export const UserInteraction: Story = {
     await userEvent.click(container);
     const end = performance.now();
     const duration = end - start;
-    await expect(duration).toBeLessThan(200);
+    const durationTime  = 200;
+    await expect(duration).toBeLessThan(durationTime);
     await expect(args.onClick).toBeCalled();
   },
 };
