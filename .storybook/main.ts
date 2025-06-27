@@ -1,6 +1,10 @@
-import type { StorybookConfig } from '@storybook/react-vite';
+import type { StorybookConfig } from "@storybook/react-vite";
+
+
 const config: StorybookConfig = {
+  
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mdx|ts|tsx)', '../tailwind.config.js'],
+
   addons: [
     '@storybook/addon-essentials',
     '@storybook/addon-onboarding',
@@ -15,8 +19,10 @@ const config: StorybookConfig = {
     name: '@storybook/react-vite',
     options: {},
   },
+
   docs: {
     autodocs: true,
   },
+ 
 };
 export default config;

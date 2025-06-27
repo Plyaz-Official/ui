@@ -26,6 +26,8 @@
 
 # Build output
 dist/
+storybook-static/
+
 
 # debug
 npm-debug.log*
@@ -43,3 +45,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+
+# bundle and logs 
+/performance
+bundlemeta.json

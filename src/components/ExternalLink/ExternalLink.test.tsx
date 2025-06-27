@@ -9,8 +9,17 @@ const ExternalLinkProps = {
   href: '#',
 };
 
-describe('ExternalLink component ', () => {
-  it('renders with correct element, class, and children', () => {
+describe("ExternalLink component ", () => {
+  // Performance test to ensure the component renders quickly
+  it("renders under 100ms", () => {
+    const start = performance.now();
+    render(<ExternalLink {...ExternalLinkProps} />);
+    const end = performance.now();
+    const duration = end - start;
+    expect(duration).toBeLessThan(100);
+  });
+  // Unit test to check if the component renders with the correct element, class, and children
+  it("renders with correct element, class, and children", () => {
     render(<ExternalLink {...ExternalLinkProps} />);
     expect(screen.getByText(/Link/i)).toBeDefined();
   });

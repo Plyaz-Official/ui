@@ -1,37 +1,20 @@
-import clsx from 'clsx';
-import React from 'react';
+import clsx from "clsx";
+import React from "react";
 
-const VARIANT_MAPPER = {
-  body: 'font-sans',
-  heading: 'font-sans',
-  caption: 'font-sans',
-};
+import { SIZES_MAPPER, TEXT_WEIGHT_MAPPER, VARIANT_MAPPER } from "@/constants/constant";
 
-const SIZES_MAPPER = {
-  xs: 'text-xs',
-  sm: 'text-sm',
-  base: 'text-base',
-  lg: 'text-lg',
-  xl: 'text-xl',
-  '2xl': 'text-2xl',
-  '3xl': 'text-3xl',
-  '4xl': 'text-4xl',
-  '5xl': 'text-5xl',
-  '6xl': 'text-6xl',
-  '7xl': 'text-7xl',
-  '8xl': 'text-8xl',
-  '9xl': 'text-9xl',
-};
-
-const TEXT_WEIGHT_MAPPER = {
-  normal: 'font-normal',
-  medium: 'font-medium',
-  semibold: 'font-semibold',
-  bold: 'font-bold',
-  light: 'font-light',
-} as const;
-
-type TextElement = 'span' | 'p' | 'strong' | 'em' | 'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+type TextElement =
+  | "span"
+  | "p"
+  | "strong"
+  | "em"
+  | "div"
+  | "h1"
+  | "h2"
+  | "h3"
+  | "h4"
+  | "h5"
+  | "h6";
 
 export interface TextProps extends React.HTMLAttributes<HTMLElement> {
   className?: string;
@@ -54,9 +37,9 @@ export const Text = ({
   const Element = element;
   return (
     <Element
-      data-testid='text'
+      data-testid="text"
       className={clsx(
-        'font-sans text-base font-normal',
+        "font-sans text-base font-normal",
         size && SIZES_MAPPER[size],
         weight && TEXT_WEIGHT_MAPPER[weight],
         variant && VARIANT_MAPPER[variant],
