@@ -1,0 +1,51 @@
+import { Meta, Story, Canvas, Controls, Source } from "@storybook/addon-docs";
+import * as SignupFormStories from "./SignupForm.stories";
+
+<Meta of={SignupFormStories} />
+
+# Signup Form
+
+The `SignupForm` is a validated form pattern that includes name, email, and password fields. It provides inline error feedback, leverages Tailwind CSS for styling, and promotes accessible form practices.
+
+## Features
+
+- Validates `name`, `email`, and `password` fields
+- Displays inline error messages
+- Tailwind CSS-based styling
+- Semantic markup with `label` and `input`
+- Responsive and reusable structure
+
+## Usage Guidelines
+
+- Use `SignupForm` to onboard new users with a minimal and clean UI.
+- Ensure form validation is client-side at a minimum; extend to server-side for production.
+- This pattern fits most authentication and onboarding flows.
+
+## Best Practices
+
+### Do
+
+- Use semantic `label` and `input` relationships
+- Show meaningful validation messages
+- Keep the form layout consistent using spacing utilities
+- Centralize form state for scalability (e.g., with React state )
+
+### Don’t
+
+- Avoid nesting complex logic directly in JSX — extract logic if it grows
+- Don’t hardcode style values; use Tailwind utilities
+- Don’t submit invalid data without client-side validation
+
+## Props
+
+This component is self-contained and does not accept external props in this version.\_
+
+## Example
+
+### Signup Form (Default)
+
+<Canvas of={SignupFormStories.Default} />
+
+### Source Code
+
+<Source of={SignupFormStories.Default} />
