@@ -1,39 +1,50 @@
-import { Meta, Story, Controls } from '@storybook/addon-docs';
-import * as SectionStories from './Section.stories';
+import { Meta, Canvas, Controls, Source } from "@storybook/addon-docs";
+import * as SectionStories from "./Section.stories";
 
 <Meta of={SectionStories} />
 
-#  Section
+# Section
 
-The `Section` component represents a semantically meaningful region of a page, wrapped in a `<section>` tag. It provides padding and spacing using Tailwind CSS, and is typically used to organize the layout into logical content blocks.
+`Section` is a semantically meaningful layout wrapper rendered as a `<section>` tag. It organizes content into visually and structurally distinct areas, with consistent spacing and styling powered by Tailwind CSS.
 
----
+## Features
 
-## Usage Guidelines
+- Renders as a semantic `<section>` element
+- Applies vertical spacing with `p-*`
+- Fully styleable using Tailwind utility classes
+- Accepts all valid HTML attributes (`id`, `aria-*`, `data-*`, etc.)
+- Easily composable with layout components like `Container`, `Grid`, or `Box`
 
-- Use `Section` to divide content into visually and semantically distinct areas.
-- Ideal for wrapping thematic blocks like "Features", "Pricing", or "Testimonials".
-- Combine `Section` with `Container` to limit content width inside a full-width section.
-- Apply background colors or borders using Tailwind classes to visually distinguish sections.
+### Usage Guidelines
 
----
+- Use `Section` to define high-level, logically grouped content areas (e.g., Features, Pricing, Testimonials).
+- Pair with `Container` to control horizontal layout and alignment.
+- Apply background and border styles via `className`.
+- Add ARIA labels or heading tags inside for better accessibility.
 
-## Best Practices
+### Do
 
-- Keep `Section` usage limited to top-level layout blocks; avoid deeply nesting.
-- Don't rely solely on `Section` for visual spacing — pair with layout primitives like `Box`, `Grid`, or `Flex` inside.
-- Ensure accessibility by labeling sections with appropriate ARIA attributes or headings when needed.
+- Use `Section` to organize your page into clear content blocks
+- Combine with `Container` for content width control
+- Add semantic value by pairing with headings (`h2`, `h3`, etc.)
+- Pass native HTML props for accessibility (`aria-label`, `id`, etc.)
 
----
+### Don’t
+
+- Over-nest `Section` inside other layout containers unnecessarily
+- Use `Section` alone for complex layouts — combine with `Box`, `Flex`, or `Grid`
+- Treat `Section` as a generic wrapper — it has semantic meaning
 
 ## Props
 
 <Controls of={SectionStories.Default} />
 
----
-
-## Example
+### Examples
 
 ### Default Section
 
-<Story of={SectionStories.Default} />
+<Canvas of={SectionStories.Default} />
+
+### Source Code
+
+<Source of={SectionStories.Default} language="tsx" />

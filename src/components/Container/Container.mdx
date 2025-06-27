@@ -1,58 +1,48 @@
-import { Meta, Controls, Story } from '@storybook/addon-docs';
-import * as ContainerStories from './Container.stories';
+import { Meta, Canvas, Controls, Source } from "@storybook/addon-docs";
+import * as ContainerStories from "./Container.stories";
 
 <Meta of={ContainerStories} />
 
 # Container
 
-`Container` is a responsive layout wrapper that centers your content horizontally and applies a fixed maximum width, typically used for page sections like headers, main content, or footers.
-
----
+`Container` is a responsive layout wrapper that centers content horizontally and constrains its width for better readability. It is typically used to wrap high-level sections like headers, footers, or main content.
 
 ## Features
 
-- Centers content using `mx-auto`.
-- Responsive horizontal padding: `px-4 sm:px-6 lg:px-8`.
-- Sets max width via `max-w-7xl` (customizable through `className`).
-- Fully supports native `HTMLElement` attributes like `id`, `aria-*`, `data-*`, and event handlers.
-
----
+- Centers content using `mx-auto`
+- Responsive padding: `px-4 sm:px-6 lg:px-8`
+- Default max width via `max-w-7xl` (customizable)
+- Inherits all native HTML props (`id`, `role`, `aria-*`, `data-*`, etc.)
 
 ## Usage Guidelines
 
-- Wrap high-level layout areas such as headers, footers, or sections.
-- Combine with layout components like `Box`, `Grid`, or `Flex` for structure.
-- Use `className` to extend or override styles.
-- Use semantic elements (`<main>`, `<section>`, etc.) if needed through composition.
+- Use `Container` to wrap major layout regions.
+- Combine with layout components like `Box`, `Grid`, or `Flex`.
+- Customize spacing and max width via `className`.
+- Use semantic tags through composition if needed (`<main>`, `<section>`, etc.)
 
----
+## Do
 
-## Best Practices
+- Wrap key layout sections to maintain alignment and consistency
+- Extend styling using Tailwind utility classes via `className`
+- Pass accessibility attributes via props (`aria-label`, `role`, etc.)
 
-- **Don’t nest containers** unless absolutely necessary — use one per layout block.
-- Adjust max-width (`max-w-*`) only when needed, not globally.
-- Ensure spacing looks good across breakpoints using Storybook’s viewport tool.
-- Use `...props` to pass down accessibility attributes like `aria-label`, `role`, etc.
+## Don’t
 
----
+- Nest containers unnecessarily — one per layout section is usually sufficient
+- Apply `max-w-*` globally across the app
+- Ignore spacing on small breakpoints — test with Storybook’s viewport tool
 
 ## Props
 
 <Controls of={ContainerStories.Default} />
 
-### Additional Supported Props
+### Examples
 
-The `Container` component also supports all valid props for a native `HTMLElement`, such as:
+### Default Container
 
-- `id`, `role`, `aria-label`, `data-*`
-- Event handlers like `onClick`, `onMouseEnter`, etc.
+<Canvas of={ContainerStories.Default} />
 
-These are automatically passed to the root `Box` component.
+### Source Code
 
----
-
-## Examples
-
-### Default
-
-<Story of={ContainerStories.Default} />
+<Source of={ContainerStories.Default} language="tsx" />

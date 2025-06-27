@@ -1,45 +1,53 @@
-import { Meta, Story, Controls } from "@storybook/addon-docs";
+import { Meta, Canvas, Controls, Source } from "@storybook/addon-docs";
 import * as LinkStories from "./ExternalLink.stories";
 
 <Meta of={LinkStories} />
 
-# Link
+# ExternalLink
 
-The `ExternalLink` component is a styled anchor element used for navigation.
+`ExternalLink` is a styled and accessible anchor (`<a>`) component used to link to external resources. It enforces semantic HTML and security best practices and supports Tailwind utility classes for visual control.
 
----
+## Features
+
+- Renders as a native anchor tag (`<a>`)
+- Automatically applies `target="_blank"` and `rel="noopener noreferrer"`
+- Fully styleable with Tailwind CSS
+- Accepts all native anchor element props (`href`, `aria-*`, `data-*`, etc.)
 
 ## Usage Guidelines
 
-- Use for any inline navigation, both internal and external.
-- Use semantic anchor tags (`<a>`) for proper SEO and accessibility.
-- Add `target="_blank"` and `rel="noopener noreferrer"` for external links.
-- Combine with utility classes to match the desired visual style (underline, hover states, etc.).
-- Avoid using `Link` on buttons or non-interactive elements.
-
----
-
-## Best Practices
-
+- Use for external URLs where new tabs are required.
+- Always include proper security attributes for external navigation.
+- Compose with Tailwind classes for consistent hover, focus, and typography.
 - Use meaningful link text that clearly describes the destination.
-- Keep accessibility in mind by ensuring sufficient color contrast.
-- Ensure links work properly with keyboard navigation and screen readers.
-- Test link interactions and hover/focus states in Storybook using the accessibility and interaction addons.
 
----
+## Do
+
+- Use `ExternalLink` to navigate to external websites or tools
+- Include `rel="noopener noreferrer"` when using `target="_blank"`
+- Apply Tailwind classes for styling and state changes
+- Ensure accessibility through proper text, contrast, and focus state
+
+## Don’t
+
+- Use `ExternalLink` to trigger in-app navigation (use `Link` from router instead)
+- Forget accessibility — avoid vague link texts like “Click here”
+- Use `target="_blank"` without `rel="noopener noreferrer"` — it's a security risk
 
 ## Props
 
 <Controls of={LinkStories.Default} />
 
----
+### Examples
 
-## Examples
+### Default Externa lLink
 
-### Default
+<Canvas of={LinkStories.Default} />
 
-<Story of={LinkStories.Default} />
+### With Custom Styling
 
-### Custom Classes
+<Canvas of={LinkStories.CustomClass} />
 
-<Story of={LinkStories.CustomClass} />
+### Source Code
+
+<Source of={LinkStories.Default} language="tsx" />

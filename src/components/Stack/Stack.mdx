@@ -1,47 +1,57 @@
-import { Meta, Story, Controls } from '@storybook/addon-docs';
-import * as StackStories from './Stack.stories';
+import { Meta, Canvas, Controls, Source } from "@storybook/addon-docs";
+import * as StackStories from "./Stack.stories";
 
 <Meta of={StackStories} />
 
 # Stack
 
-The `Stack` component is a layout utility that arranges its children either vertically or horizontally with consistent spacing using Tailwind's `space-*` utilities. It's perfect for simple layout composition without needing full Flexbox or Grid control.
+`Stack` is a layout utility component that arranges its children in a horizontal or vertical direction using Tailwind’s `space-x-*` or `space-y-*` utilities. It's ideal for quick, clean spacing without custom margins or complex layout structures.
 
 ---
+
+## Features
+
+- Directional layout: `horizontal` or `vertical`
+- Applies consistent spacing using `space-x-*` / `space-y-*`
+- Composable with other layout components (`Box`, `Card`, `Button`)
+- Supports all native HTML props (`id`, `aria-*`, `data-*`, etc.)
+- Clean abstraction over Flexbox for simpler use cases
 
 ## Usage Guidelines
 
-- Use `Stack` when you need consistent spacing between elements in one direction.
-- Choose `horizontal` for row alignment (e.g., buttons, badges) and `vertical` for column layouts (e.g., lists, cards).
-- Apply spacing classes like `space-x-*` or `space-y-*` based on direction.
-- Wrap `Stack` around layout primitives like `Box` or components like `Card`, `Button`, etc.
+- Use `Stack` to evenly space elements in one direction.
+- Prefer `horizontal` for row-based UI (buttons, tags) and `vertical` for columns (forms, cards).
+- Pass spacing via props or Tailwind utilities in `className`.
+- Use inside layout primitives like `Container`, `Box`, or `Section`.
 
----
+## Do
 
-## Best Practices
+- Use direction prop ("horizontal" or "vertical") to switch layout easily
+- Nest reusable UI elements like Button, Card, Text, or custom components inside Stack
+- Leverage the element prop to render semantic tags (section, nav, etc.) as needed
 
-- Use `Stack` to simplify layout logic instead of writing custom margin rules.
-- Match `direction` with the correct spacing utility:
-  - `horizontal` → `space-x-*`
-  - `vertical` → `space-y-*`
-- Don't mix directional spacing classes—let `Stack` handle layout direction internally.
-- Combine with `Container` or `Section` for more structured layout blocks.
-- Keep the DOM clean by limiting unnecessary nested wrappers inside `Stack`.
+## Don’t
 
----
+- Use Stack for advanced layouts requiring wrapping, breakpoints, or grid behavior — use Grid or custom Flex instead
+- Add complex layout logic inside Stack — keep it focused on spacing and direction only
+- Override flex-\* direction manually via className, which may break layout intent
 
 ## Props
 
 <Controls of={StackStories.Default} />
 
----
+### Examples
 
-##  Examples
+## Variants
 
 ### Horizontal Stack
 
-<Story of={StackStories.Default} />
+<Canvas of={StackStories.Default} />
 
 ### Vertical Stack
 
-<Story of={StackStories.Vertical} />
+<Canvas of={StackStories.Vertical} />
+
+### Source Code
+
+<Source of={StackStories.Default} language="tsx" />

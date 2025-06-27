@@ -1,50 +1,60 @@
-import { Meta, Story, Controls } from "@storybook/addon-docs";
+import { Meta, Canvas, Controls, Source } from "@storybook/addon-docs";
 import * as TextStories from "./Text.stories";
 
 <Meta of={TextStories} />
 
 # Text
 
-The `Text` component is a highly flexible typography element used for rendering semantic text elements like paragraphs and headings with consistent styles using Tailwind CSS.
+The `Text` component is a flexible and semantic typography utility used to render elements like paragraphs, captions, or inline spans with consistent Tailwind-based styles.
 
----
+## Features
+
+- Renders semantic HTML tags like `p`, `span`, or heading levels (`h1`–`h6`)
+- Supports variants and sizes aligned with the design system
+- Applies consistent text styles via Tailwind CSS
+- Inherits native HTML props (e.g., `id`, `className`, `aria-*`, `data-*`)
 
 ## Usage Guidelines
 
-- Use semantic elements (`h1`–`h6`, `p`, `span`) to match content structure and improve accessibility.
-- Match size and variant props with the design system (e.g., `size="xl"`, `variant="heading"`).
-- Use for consistent typography across your application, avoiding raw HTML elements.
-- When building a layout, pair `Text` with layout components like `Box`, `Stack`, or `Container`.
+- Use `Text` instead of raw HTML tags to ensure consistency
+- Apply the correct semantic tag (`h1`, `p`, `span`, etc.) based on content
+- Use `size` and `variant` props to control visual appearance
+- Combine with layout primitives like `Box`, `Stack`, or `Container` for structured design
 
----
+## Do
 
-## Best Practices
+- Use semantic tags to match content structure and improve accessibility
+- Style using Tailwind utilities and design system tokens
+- Pair with layout components for responsive designs
+- Use consistent variants (e.g. `caption`, `body`, `heading`) across your app
 
-- Always use the correct semantic tag (`h1` for main headings, `p` for body text).
-- Avoid hardcoding styles inline — use props and utility classes via Tailwind.
-- Consider screen readers: headings help with content navigation for assistive technologies.
-- For dynamic content, ensure heading levels are meaningful and properly nested.
+## Don’t
 
----
+- Use raw HTML elements (`<p>`, `<h1>`) without design consistency
+- Inline hardcoded styles—prefer Tailwind classes or props
+- Skip heading levels (e.g., jumping from `h2` to `h4`)
+- Use heading tags for non-heading content
 
 ## Props
 
-<Controls of={TextStories.Default} />
+<Controls of={TextStories.Body} />
 
----
+### Examples
 
-## Examples
+## Variants
 
-### Default 
+### Body
 
-<Story of={TextStories.Default} />
+<Canvas of={TextStories.Body} />
 
 ### Caption
 
-<Story of={TextStories.Caption} />
+<Canvas of={TextStories.Caption} />
 
 ### Heading
 
-<Story of={TextStories.Heading} />
+<Canvas of={TextStories.Heading} />
 
+### Source Code
 
+<Source of={TextStories.Body} language="tsx" />

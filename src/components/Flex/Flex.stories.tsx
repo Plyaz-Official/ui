@@ -21,7 +21,7 @@ export default meta;
 
 type Story = StoryObj<typeof Flex>;
 
-export const Default: Story = {
+export const FlexItemsStart: Story = {
   args: {
     direction: 'row',
     justify: 'start',
@@ -40,7 +40,7 @@ export const Default: Story = {
     ),
   },
 };
-export const ColumnCentered: Story = {
+export const FlexItemsCenter: Story = {
   args: {
     direction: 'row',
     justify: 'center',

@@ -21,7 +21,7 @@ export default meta;
 
 type Story = StoryObj<typeof Text>;
 
-export const Default: Story = {
+export const Body: Story = {
   args: {
     children: 'This is a paragraph',
     element: 'p',

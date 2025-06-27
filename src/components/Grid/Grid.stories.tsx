@@ -1,17 +1,17 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { expect, fn, userEvent } from '@storybook/test';
+import type { Meta, StoryObj } from "@storybook/react";
+import { expect, fn, userEvent } from "@storybook/test";
 
-import { Box, Grid } from '@/components';
+import { Box, Grid } from "@/components";
 
 const meta: Meta<typeof Grid> = {
-  title: 'Layout/Grid',
+  title: "Layout/Grid",
   component: Grid,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   parameters: {
     docs: {
       description: {
         component:
-          'A Grid component that allows for flexible layout using CSS Grid. It supports responsive columns, rows, and gaps.',
+          "A Grid component that allows for flexible layout using CSS Grid. It supports responsive columns, rows, and gaps.",
       },
     },
   },
@@ -20,7 +20,7 @@ export default meta;
 
 type Story = StoryObj<typeof Grid>;
 
-export const Default: Story = {
+export const TwoColumnGrid: Story = {
   args: {
     children: (
       <>
@@ -31,14 +31,14 @@ export const Default: Story = {
         ))}
       </>
     ),
-    cols: 'grid-cols-2',
-    rows: 'grid-rows-2',
-    gap: 'gap-4',
-    className: 'bg-white dark:bg-black dark:text-white',
+    cols: "grid-cols-2",
+    rows: "grid-rows-2",
+    gap: "gap-4",
+    className: "bg-white dark:bg-black dark:text-white",
   },
 };
 
-export const Justified: Story = {
+export const ThreeColumnGrid: Story = {
   args: {
     children: (
       <>
@@ -49,11 +49,11 @@ export const Justified: Story = {
         ))}
       </>
     ),
-    cols: 'grid-cols-3',
-    rows: 'grid-rows-1',
-    gap: 'gap-6',
-    justify: 'center',
-    className: 'bg-white dark:bg-black dark:text-white',
+    cols: "grid-cols-3",
+    rows: "grid-rows-1",
+    gap: "gap-6",
+    justify: "center",
+    className: "bg-white dark:bg-black dark:text-white",
   },
 };
 
@@ -68,10 +68,10 @@ export const UserInteraction: Story = {
         ))}
       </>
     ),
-    cols: 'grid-cols-3',
-    rows: 'grid-rows-1',
-    gap: 'gap-6',
-    justify: 'center',
+    cols: "grid-cols-3",
+    rows: "grid-rows-1",
+    gap: "gap-6",
+    justify: "center",
     onClick: fn(),
   },
   play: async ({ args, canvas }) => {
