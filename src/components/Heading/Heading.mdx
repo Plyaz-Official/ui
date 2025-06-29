@@ -1,61 +1,71 @@
-import { Meta, Story, Controls } from '@storybook/addon-docs';
-import * as HeadingStories from './Heading.stories';
+import { Meta, Canvas, Controls, Source } from "@storybook/addon-docs";
+import * as HeadingStories from "./Heading.stories";
 
 <Meta of={HeadingStories} />
 
 # Heading
 
-`Heading` is a semantic wrapper around the `Text` component for rendering HTML heading elements (`h1` to `h6`). It provides consistent typography styles and scales through Tailwind utility classes.
+`Heading` is a semantic wrapper around the `Text` component, used to render heading tags (`<h1>` to `<h6>`) with consistent typography and scale using Tailwind CSS. It ensures visual hierarchy and accessibility while allowing full styling flexibility.
 
-Use `Heading` to maintain a clear visual and structural hierarchy in your UI while keeping heading levels semantic and accessible.
+## Features
 
----
+- Supports all HTML heading levels (`h1`–`h6`) via `element` prop
+- Predefined visual sizes mapped to semantic levels
+- Composable with Tailwind utilities via `className`
+- Built on top of `Text` for consistent theming
+- Fully accessible and SEO-friendly
 
 ## Usage Guidelines
 
-- Use `Heading` for all section titles, headings, or any content needing emphasis.
-- Match the `element` (`h1` to `h6`) with the appropriate `size` for semantic correctness and visual hierarchy.
-- Customize with `className` to control spacing, colors, or other Tailwind utility styles.
+- Use `Heading` to define clear sections and page hierarchy.
+- Match `element` (e.g., `h2`) to the logical structure of the document.
+- Use Tailwind utilities in `className` for custom spacing, font, and color.
+- Combine with layout components like `Box`, `Section`, or `Stack`.
 
----
+## Do
 
-## Best Practices
+- Use `h1` for main titles, `h2` for subsections, and follow a logical order
+- Add utility classes (`mt-*`, `text-*`) using `className` as needed
+- Use inside layout wrappers for clean structure and alignment
 
-- Always follow a logical heading structure (e.g., `h1` > `h2` > `h3`) to improve SEO and accessibility.
-- Use consistent sizes for similar heading levels across your app.
-- Avoid skipping heading levels unless necessary for accessibility reasons.
-- Do not use `Heading` to style text that is not semantically a heading.
+## Don’t
 
----
+- Use `Heading` just for visual text that’s not a section heading
+- Rely only on font size for hierarchy — semantic structure matters
+- Over-style headings inline; prefer reusable class tokens
 
 ## Props
 
 <Controls of={HeadingStories.H1} />
 
----
+### Examples
 
-## 💡 Examples
+## Variants
 
 ### H1
 
-<Story of={HeadingStories.H1} />
+<Canvas of={HeadingStories.H1} />
 
 ### H2
 
-<Story of={HeadingStories.H2} />
+<Canvas of={HeadingStories.H2} />
 
 ### H3
 
-<Story of={HeadingStories.H3} />
+<Canvas of={HeadingStories.H3} />
 
 ### H4
 
-<Story of={HeadingStories.H4} />
+<Canvas of={HeadingStories.H4} />
 
 ### H5
 
-<Story of={HeadingStories.H5} />
+<Canvas of={HeadingStories.H5} />
 
 ### H6
 
-<Story of={HeadingStories.H6} />
+<Canvas of={HeadingStories.H6} />
+
+### Source Code
+
+<Source of={HeadingStories.H1} language="tsx" />

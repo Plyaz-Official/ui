@@ -1,53 +1,61 @@
-import { Meta, Story, Controls } from '@storybook/addon-docs';
-import * as ParagraphStories from './Paragraph.stories';
+import { Meta, Canvas, Controls, Source } from "@storybook/addon-docs";
+import * as ParagraphStories from "./Paragraph.stories";
 
 <Meta of={ParagraphStories} />
 
 # Paragraph
 
-`Paragraph` is a semantic wrapper around the `Text` component for rendering paragraph text. It enforces consistent typography styles using Tailwind utility classes while keeping the semantics of a `<p>` tag.
+The `Paragraph` component is a semantic and styled wrapper around the native `<p>` tag. It ensures consistent typography for body text using Tailwind utility classes while supporting accessibility and readability best practices.
 
-Use `Paragraph` when displaying body text content that should be styled consistently across your UI.
+## Features
 
----
+- Semantically renders a `<p>` tag
+- Applies consistent body text styling via Tailwind
+- Supports size variants (`xs`, `sm`, `base`, `lg`)
+- Inherits all native HTML props (`className`, `id`, `aria-*`, `data-*`, etc.)
 
 ## Usage Guidelines
 
-- Use `Paragraph` for any body text, descriptive text, or paragraph-style content.
-- Choose the appropriate size via the `size` prop (`xs`, `sm`, `base`, `lg`) based on content importance and hierarchy.
-- Use `className` to apply additional Tailwind CSS styles like margin, padding, or text color.
+- Use `Paragraph` for descriptive content, long-form text, or any standard body copy.
+- Select the appropriate `size` based on visual hierarchy and context.
+- Use `className` for spacing, alignment, or color overrides via Tailwind.
 
----
+## Do
 
-## Best Practices
+- Use `Paragraph` instead of raw `<p>` to enforce consistent styling
+- Match size variants to content type and screen size
+- Compose with layout components like `Box`, `Stack`, or `Container`
 
-- Stick to consistent sizes throughout your UI to maintain visual harmony.
-- Avoid nesting block-level tags inside `Paragraph` (e.g., headings or lists).
-- Prefer `Paragraph` over raw `<p>` tags for reusable, styled content.
-- Use responsive Tailwind classes in `className` to adapt text size or spacing.
+## Don’t
 
----
+- Nest block-level elements like headings or lists inside a `Paragraph`
+- Mix inconsistent text sizes in the same section
+- Overuse inline styles—prefer Tailwind utilities or design tokens
 
 ## Props
 
-<Controls of={ParagraphStories.Default} />
+<Controls of={ParagraphStories.Base} />
 
----
+### Examples
 
-## 💡 Examples
+## Size Variants
 
-### Default (Base size)
+### Extra Small size
 
-<Story of={ParagraphStories.Default} />
+<Canvas of={ParagraphStories.ExtraSmall} />
 
-### Small
+### Small size
 
-<Story of={ParagraphStories.Small} />
+<Canvas of={ParagraphStories.Small} />
 
-### Extra Small
+### Base size
 
-<Story of={ParagraphStories.ExtraSmall} />
+<Canvas of={ParagraphStories.Base} />
 
-### Large
+### Large size
 
-<Story of={ParagraphStories.Large} />
+<Canvas of={ParagraphStories.Large} />
+
+### Source Code
+
+<Source of={ParagraphStories.Base} language="tsx" />

@@ -1,18 +1,74 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { expect, fn, userEvent } from '@storybook/test';
+import type { Meta, StoryObj } from "@storybook/react";
+import { expect, fn, userEvent } from "@storybook/test";
 
-import { Box, Grid } from '@/components';
+import { Box, Grid } from "@/components";
 
 const meta: Meta<typeof Grid> = {
-  title: 'Layout/Grid',
+  title: "Layout/Grid",
   component: Grid,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   parameters: {
     docs: {
       description: {
         component:
-          'A Grid component that allows for flexible layout using CSS Grid. It supports responsive columns, rows, and gaps.',
+          "A Grid component that allows for flexible layout using CSS Grid. It supports responsive columns, rows, and gaps.",
       },
+    },
+  },
+  argTypes: {
+    cols: {
+      control: "text",
+      description: "CSS classes for grid columns.",
+    },
+    rows: {
+      control: "text",
+      description: "CSS classes for grid rows.",
+    },
+    gap: {
+      control: "text",
+      description: "CSS classes for grid gap.",
+    },
+    justify: {
+      control: "select",
+      options: [
+        "start",
+        "end",
+        "center",
+        "between",
+        "around",
+        "evenly",
+        "stretch",
+      ],
+
+      description: "CSS classes for justify content.",
+    },
+    align: {
+      control: "select",
+      options: ["start", "end", "center", "baseline", "stretch"],
+      description: "CSS classes for align items.",
+    },
+    className: {
+      control: { type: "text" },
+      description: "Additional CSS classes to apply to the Grid.",
+    },
+    children: {
+      control: { type: "text" },
+      description: "Content to be rendered inside the Grid.",
+    },
+    element: {
+      control: "select",
+      options: [
+        "div",
+        "section",
+        "article",
+        "aside",
+        "nav",
+        "header",
+        "footer",
+        "main",
+        "span",
+      ],
+      description: "The HTML element to render as the Grid. Defaults to 'div'.",
     },
   },
 };
@@ -20,7 +76,7 @@ export default meta;
 
 type Story = StoryObj<typeof Grid>;
 
-export const Default: Story = {
+export const TwoColumnGrid: Story = {
   args: {
     children: (
       <>
@@ -31,14 +87,14 @@ export const Default: Story = {
         ))}
       </>
     ),
-    cols: 'grid-cols-2',
-    rows: 'grid-rows-2',
-    gap: 'gap-4',
-    className: 'bg-white dark:bg-black dark:text-white',
+    cols: "grid-cols-2",
+    rows: "grid-rows-2",
+    gap: "gap-4",
+    className: "bg-white dark:bg-black dark:text-white",
   },
 };
 
-export const Justified: Story = {
+export const ThreeColumnGrid: Story = {
   args: {
     children: (
       <>
@@ -49,11 +105,11 @@ export const Justified: Story = {
         ))}
       </>
     ),
-    cols: 'grid-cols-3',
-    rows: 'grid-rows-1',
-    gap: 'gap-6',
-    justify: 'center',
-    className: 'bg-white dark:bg-black dark:text-white',
+    cols: "grid-cols-3",
+    rows: "grid-rows-1",
+    gap: "gap-6",
+    justify: "center",
+    className: "bg-white dark:bg-black dark:text-white",
   },
 };
 
@@ -68,10 +124,10 @@ export const UserInteraction: Story = {
         ))}
       </>
     ),
-    cols: 'grid-cols-3',
-    rows: 'grid-rows-1',
-    gap: 'gap-6',
-    justify: 'center',
+    cols: "grid-cols-3",
+    rows: "grid-rows-1",
+    gap: "gap-6",
+    justify: "center",
     onClick: fn(),
   },
   play: async ({ args, canvas }) => {

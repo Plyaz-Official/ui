@@ -1,46 +1,52 @@
-import { Meta, Story, Controls } from '@storybook/addon-docs';
-import * as FlexStories from './Flex.stories';
+import { Meta, Canvas, Controls, Source } from "@storybook/addon-docs";
+import * as FlexStories from "./Flex.stories";
 
 <Meta of={FlexStories} />
 
 # Flex
 
-`Flex` is a layout component that wraps Tailwind's flexbox utility classes into a reusable abstraction. It provides a flexible way to align and distribute space among child elements using familiar props like `direction`, `justify`, `align`, `wrap`, and `gap`.
+The `Flex` component is a layout utility built on top of Tailwind’s `flex` classes. It enables fast and consistent layout alignment across your UI using props for direction, alignment, justification, wrapping, and spacing.
 
-Use `Flex` to simplify building layouts where elements need dynamic alignment or spacing along a row or column.
+## Features
 
----
+- Built with Tailwind's `flex`, `gap`, `justify-*`, and `items-*` classes
+- Controlled via props: `direction`, `justify`, `align`, `gap`, `wrap`
+- Responsive-friendly with utility-first overrides
+- Inherits all native HTML attributes (`id`, `className`, `aria-*`, etc.)
 
 ## Usage Guidelines
 
-- Use `Flex` when you need horizontal or vertical layouts with spacing or alignment.
-- Choose `direction="row"` for horizontal layouts, and `direction="col"` for vertical ones.
-- Use the `wrap` prop to allow children to wrap on small screens.
-- Apply spacing between children using Tailwind gap utilities via the `gap` prop.
-- Avoid deeply nesting `Flex` inside `Flex`; if needed, separate responsibilities clearly (e.g., layout vs alignment).
+- Use `Flex` for horizontal or vertical layouts requiring spacing or alignment.
+- `direction="row"` is best for horizontal alignment; `direction="col"` for vertical stacks.
+- Combine with `gap`, `wrap`, and alignment props to build adaptive UIs.
+- Wrap content or layout primitives (`Box`, `Card`, `Button`, etc.) inside `Flex` for structure.
 
----
+## Do
 
-## Best Practices
+- Use `Flex` to align buttons, inputs, icons, or layout blocks consistently
+- Leverage `wrap` for responsiveness, especially with cards or badges
+- Pair with `Container` or `Section` to build responsive layout zones
 
-- Prefer semantic grouping with `Box` or `Section` around `Flex` for clearer structure.
-- Ensure responsive design by adjusting `direction` or `wrap` conditionally using custom className overrides.
-- Test `Flex` layouts with real content in Storybook using various viewport sizes.
+## Don’t
 
----
+- Nest `Flex` elements too deeply—compose with intent
+- Override `gap` with individual margins unless layout requires it
+- Use `Flex` where `Grid` is more appropriate (e.g., structured card layouts)
 
 ## Props
 
-<Controls of={FlexStories.Default} />
+<Controls of={FlexStories.FlexItemsStart} />
 
----
+### Examples
 
-## 💡 Examples
+### Flex Items Start
 
-### Default Flex Layout
+<Canvas of={FlexStories.FlexItemsStart} />
 
-<Story of={FlexStories.Default} />
+### Flex Items Center
 
-### Centered Column Layout
+<Canvas of={FlexStories.FlexItemsCenter} />
 
-<Story of={FlexStories.ColumnCentered} />
+### Source Code
+
+<Source of={FlexStories.FlexItemsStart} language="tsx" />

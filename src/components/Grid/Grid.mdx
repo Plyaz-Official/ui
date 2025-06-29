@@ -1,46 +1,52 @@
-import { Meta, Story, Controls } from '@storybook/addon-docs';
-import * as GridStories from './Grid.stories';
+import { Meta, Canvas, Controls, Source } from "@storybook/addon-docs";
+import * as GridStories from "./Grid.stories";
 
 <Meta of={GridStories} />
 
 # Grid
 
-The `Grid` component is a responsive layout utility based on Tailwind CSS’s `grid` classes. It provides a structured way to arrange child components into rows and columns with consistent spacing and alignment.
+The `Grid` component is a responsive layout utility built on Tailwind CSS’s `grid` classes. It helps organize content into structured rows and columns, ideal for building galleries, dashboards, and tiled layouts.
 
----
+## Features
+
+- Leverages Tailwind’s native `grid` utilities
+- Supports responsive column/row control
+- Customizable gaps and alignment
+- Fully supports native HTML props (`id`, `className`, `aria-*`, etc.)
 
 ## Usage Guidelines
 
-- Use `Grid` when content should be laid out in a structured grid format rather than a flexible row/column.
-- Define the number of columns using the `cols` prop (`grid-cols-2`, `grid-cols-4`, etc.).
-- Use the `rows` prop if you need specific row definitions (`grid-rows-2`, `grid-rows-3`, etc.).
-- Apply consistent spacing using the `gap` prop (`gap-2`, `gap-4`, etc.).
-- Add Tailwind’s alignment classes using `justify` or `className` to center or align items within the grid.
+- Use `Grid` for structured content that benefits from column/row layout.
+- Configure layout using `cols`, `rows`, and `gap` props (`grid-cols-3`, `grid-rows-2`, `gap-4`).
+- Add Tailwind alignment classes via `justify` or `className` to control alignment inside the grid.
+- Wrap individual grid items with layout components like `Box` or `Card`.
 
----
+## Do
 
-## Best Practices
+- Use `Grid` for visually structured layouts like cards or tiles
+- Leverage responsive classes for adaptive column counts (`sm:grid-cols-2`, `lg:grid-cols-4`)
+- Compose grid items with reusable components for consistency
 
-- Prefer `Grid` over `Flex` for structured content like cards, galleries, or dashboards.
-- Use responsive utilities like `sm:grid-cols-2 md:grid-cols-4` for adaptive layouts.
-- Avoid overcomplicating grid configurations — keep the layout readable and intuitive.
-- Combine with `Box` for consistent styling and spacing within grid items.
-- Test with varying content lengths to ensure grid alignment holds visually.
+## Don’t
 
----
+- Overcomplicate the layout with deeply nested grids
+- Use `Grid` for one-dimensional layouts—use `Flex` instead
+- Forget to test with varying content lengths for visual consistency
 
 ## Props
 
-<Controls of={GridStories.Default} />
+<Controls of={GridStories.TwoColumnGrid} />
 
----
+### Examples
 
-## Examples
+### Two Column Grid
 
-### Default 2x2 Grid
+<Canvas of={GridStories.TwoColumnGrid} />
 
-<Story of={GridStories.Default} />
+### Three Column Grid
 
-### Column Justified Grid
+<Canvas of={GridStories.ThreeColumnGrid} />
 
-<Story of={GridStories.Justified} />
+### Source Code
+
+<Source of={GridStories.TwoColumnGrid} language="tsx" />

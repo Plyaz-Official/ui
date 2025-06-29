@@ -1,0 +1,55 @@
+import { Meta, Canvas, Source, Controls } from "@storybook/addon-docs";
+import * as FormCompositionStories from "./FormComposition.stories";
+
+<Meta of={FormCompositionStories} />
+
+# Form Composition Patterns
+
+`FormCompositionStories` demonstrates **real-world layout patterns** using multiple reusable components, including `Form`, `Layout`, `Box`, and `Heading`. These examples illustrate how to build responsive and semantic form pages using Tailwind CSS utilities and composition best practices.
+
+## Composition Details
+
+- Leverages the `Layout` component with `flex` layout mode
+- Demonstrates both `SignupForm` and `LoginForm` integration
+- Uses reusable design tokens and atomic components like `Box` and `Heading`
+- Responsive structure ideal for onboarding flows or authentication pages
+
+## Why It's a Real-World Example
+
+These compositions reflect how complete pages are structured in production apps:
+
+- Clearly separated layout and form logic
+- Reusability of components
+- Adaptable to different screen sizes and use cases
+
+## Best Practices
+
+### Do
+
+- Reuse atomic UI components (`Box`, `Heading`, `Form`)
+- Separate layout, form logic, and presentation
+- Apply Tailwind utilities for consistency and scalability
+
+### Don’t
+
+- Hardcode layout-specific styles inside form logic
+- Mix layout with business logic
+- Nest components without semantic structure
+
+## Props
+
+<Controls of={FormCompositionStories.SignupFormComposition} />
+
+### Examples
+
+### Signup Form Composition
+
+<Canvas of={FormCompositionStories.SignupFormComposition} />
+
+### Login Form Composition
+
+<Canvas of={FormCompositionStories.LoginFormComposition} />
+
+### Source Code
+
+<Source of={FormCompositionStories.SignupFormComposition} />

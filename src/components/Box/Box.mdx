@@ -1,66 +1,81 @@
-import { Meta, Story,Controls } from '@storybook/addon-docs';
-import * as BoxStories from './Box.stories';
+import { Meta, Story, Source, Canvas, Controls } from "@storybook/addon-docs";
+import * as BoxStories from "./Box.stories";
 
 <Meta of={BoxStories} />
 
-#  Box
+# Box
 
 `Box` is a flexible layout component that supports rendering different semantic HTML tags such as `div`, `section`, `article`, `aside`, `nav`, `header`, and `footer`. It allows you to customize styling via Tailwind CSS classes passed in the `className` prop.
 
 Use `Box` as a foundational building block for creating more complex layout components while maintaining semantic HTML structure and consistent styling.
 
----
+## Features
 
-##  Usage Guidelines
+- Supports rendering any semantic HTML tag via the `element` prop
+- Accepts Tailwind CSS utility classes through `className`
+- Lightweight and unopinionated—great for composition
+- Inherits native HTML attributes (`id`, `aria-*`, `data-*`, etc.)
+- Compatible with all layout components (`Grid`, `Flex`, `Stack`, etc.)
+
+## Usage Guidelines
 
 - Choose the appropriate semantic tag with the `element` prop for better accessibility and SEO.
 - Use `Box` to wrap content blocks where you want flexible layout and styling control.
 - Apply Tailwind CSS classes through `className` for spacing, background, borders, etc.
 - Combine with other layout components like `Container`, `Section`, or `Grid` for more complex layouts.
 
----
+## Do
 
-##  Best Practices
+- Use the `element` prop to render semantic HTML tags
+- Use Tailwind classes via `className` for layout/styling
+- Wrap layout sections or blocks with `Box`
 
-- Always specify the semantic `element` that best represents your content.
-- Avoid nesting semantic elements improperly (e.g., don’t put a `header` inside another `header`).
-- Use Tailwind’s utility classes for responsive and accessible styling.
-- Keep the `Box` component lightweight; use it as a wrapper only, avoid heavy logic inside.
+## Don’t
 
----
+- Hardcode `<div>` everywhere
+- Mix inline styles with Tailwind
+- Nest headers or navs incorrectly inside other semantic tags
 
 ## Props
 
-<Controls of = {BoxStories.Default}/>
+<Controls of={BoxStories.Default} />
 
----
+# Component Relationship Diagram
 
-## 💡 Examples
+### Examples
+
+## Variants
+
+These are common variations of the `Box` component using different HTML tags via the `element` prop.
 
 ### Default (div)
 
-<Story of={BoxStories.Default} />
+<Canvas of={BoxStories.Default} />
 
 ### Section
 
-<Story of={BoxStories.Section} />
+<Canvas of={BoxStories.Section} />
 
 ### Article
 
-<Story of={BoxStories.Article} />
+<Canvas of={BoxStories.Article} />
 
 ### Aside
 
-<Story of={BoxStories.Aside} />
+<Canvas of={BoxStories.Aside} />
 
 ### Nav
 
-<Story of={BoxStories.Nav} />
+<Canvas of={BoxStories.Nav} />
 
 ### Header
 
-<Story of={BoxStories.Header} />
+<Canvas of={BoxStories.Header} />
 
 ### Footer
 
-<Story of={BoxStories.Footer} />
+<Canvas of={BoxStories.Footer} />
+
+### Source Code
+
+<Source of={BoxStories.Footer} language="tsx" />

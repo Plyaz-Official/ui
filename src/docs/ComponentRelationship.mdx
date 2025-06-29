@@ -1,0 +1,29 @@
+import { Mermaid } from "mdx-mermaid/Mermaid";
+
+<Mermaid chart={`graph TD
+ Anchor
+  Box["Box (div, semantic elements)"]
+
+Box --> Flex
+Box --> Grid
+Box --> Section
+Box --> Stack
+
+Text
+
+Text --> Heading
+Text --> Paragraph
+
+subgraph Derived from Box
+Flex
+Grid
+Section
+Stack
+end
+
+subgraph Derived from Text
+Heading
+Paragraph
+end
+
+`} />
