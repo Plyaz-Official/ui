@@ -1,0 +1,71 @@
+import { Meta, Canvas, Controls, Source } from "@storybook/addon-docs";
+import * as LayoutStories from "./Layout.stories";
+
+<Meta of={LayoutStories} />
+
+# Layout
+
+The `Layout` component is a flexible container for arranging UI elements using **CSS Grid** or **Flexbox**, powered by **Tailwind CSS** utility classes. It is ideal for building consistent, responsive structures across your application.
+
+Use the `layout` prop to toggle between layout strategies:
+
+- `"grid"` for multi-column arrangements
+- `"flex"` for directional alignment
+
+---
+
+## Usage Guidelines
+
+- Use `layout="grid"` for structured, grid-based layouts
+- Use `layout="flex"` for horizontal or vertical stacks
+- Combine with `gap`, `p`, `m`, or responsive utility classes for fine-tuned spacing
+
+---
+
+## Best Practices
+
+### Do
+
+- Choose layout based on content structure (`grid` for uniform content, `flex` for flow)
+- Combine with spacing and alignment props like `gap`, `justify`, `align`
+- Keep layout responsibilities separated from content logic
+
+### Don’t
+
+- Don’t mix layout-specific Tailwind classes (`flex`, `grid`) with the `layout` prop
+- Don’t deeply nest layout components without semantic clarity
+- Avoid inline styles that conflict with responsive utility classes
+
+---
+
+## Props
+
+<Controls of={LayoutStories.GridPattern} />
+
+### Examples
+
+### Grid Layout
+
+<Canvas of={LayoutStories.GridPattern} />
+
+### Flex Layout
+
+<Canvas of={LayoutStories.FlexPattern} />
+
+## Responsive Flex Layouts
+
+### Mobile Viewport
+
+<Canvas of={LayoutStories.FlexMobileViewPort} />
+
+### Tablet Viewport
+
+<Canvas of={LayoutStories.FlexTabletViewPort} />
+
+### Desktop Viewport
+
+<Canvas of={LayoutStories.FlexDesktopViewPort} />
+
+### Source Code
+
+<Source of={LayoutStories.FlexPattern} />

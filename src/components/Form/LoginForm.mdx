@@ -1,0 +1,40 @@
+import { Meta, Canvas, Story, Source } from "@storybook/addon-docs";
+import * as LoginFormStories from "./LoginForm.stories";
+
+<Meta of={LoginFormStories} />
+
+# LoginForm
+
+`LoginForm` is a simple, accessible authentication component for signing in users. It includes built-in validation, form state management with `useState`, and utility styling with Tailwind CSS. It's ideal for use in onboarding flows or secure sections of your application.
+
+## Usage Guidelines
+
+- Keep business logic (API calls, mutations) outside the component.
+- Use this component where authentication is needed.
+- Style consistently using Tailwind and layout primitives like `Box`.
+
+## Best Practices
+
+### Do
+
+- Handle input state via a single `useState` object.
+- Validate inputs before submission.
+- Display inline error messages clearly and accessibly.
+
+### Don’t
+
+- Don’t include authentication logic in this component.
+- Don’t submit empty or invalid data without feedback.
+- Don’t hardcode multiple forms—make them reusable.
+
+## Props
+
+This component is self-contained and does not accept external props in this version
+
+### Example
+
+<Canvas of={LoginFormStories.Default} />
+
+### Source Code
+
+<Source of={LoginFormStories.Default} />
