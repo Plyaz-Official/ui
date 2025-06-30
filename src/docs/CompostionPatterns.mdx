@@ -1,0 +1,30 @@
+# Component Composition
+
+In this design system, layout components like `Flex` and `Grid` are derived from the base `Box` component, which ensures consistent styling, spacing, and responsiveness using Tailwind CSS.
+
+---
+
+### Composition Guidelines
+
+- Use `Box` for generic layout blocks or wrappers.
+- Use `Flex` when you need horizontal/vertical alignment and gap control.
+- Use `Grid` for multi-column layouts.
+- Compose components by nesting them cleanly inside each other.
+
+---
+
+### Example: Product Card Layout (using `Box`, `Flex`, and `Grid`)
+
+```tsx
+<Box className="p-4 rounded-lg shadow bg-white">
+  <Flex className="gap-2 mb-4">
+    <Box className="bg-green-400 p-3 text-white rounded">Item 1</Box>
+    <Box className="bg-green-400 p-3 text-white rounded">Item 2</Box>
+  </Flex>
+
+  <Grid cols="grid-cols-2" className="gap-4 mb-4">
+    <Box className="bg-gray-100 aspect-square rounded">Item 1</Box>
+    <Box className="bg-gray-100 aspect-square rounded">Item 12</Box>
+  </Grid>
+</Box>
+```

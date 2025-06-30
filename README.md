@@ -34,10 +34,22 @@ or
 pnpm add @plyaz/ui
 ```
 
+## Usage
+
+```bash
+import { Box } from "@plyaz/ui";
+
+export default function Page() {
+  return <Box>Click Me</Box>;
+}
+
+```
+
 ## Storybook
 
 ```bash
 pnpm run storybook
+
 ```
 
 ## Plop Utility for Auto-Generating Storybook Stories
@@ -75,3 +87,16 @@ To generate a new story file:
 ```bash
 pnpm run generate
 ```
+
+### Accessibility Guidelines
+
+Our components are designed with accessibility in mind:
+
+- Use semantic HTML (`<header>`, `<label>`, `<input>`)
+- Include `aria-*` attributes where necessary
+- Ensure keyboard navigability
+- Maintain color contrast ratio ≥ 4.5:1
+
+## Tools we use:
+
+- Storybook a11y addon
