@@ -1,0 +1,13 @@
+# Theming
+
+Our system supports both light and dark themes using Tailwind’s `dark:` variants.
+
+### Dark Mode in Storybook
+
+Dark mode in Storybook is enabled via the toolbar toggle, which adds the dark class to the parent element. This allows Tailwind's dark: utilities to function as expected without additional setup.
+
+```tsx
+<Box className="bg-white dark:bg-gray-900 text-black dark:text-white">
+  Theme aware component
+</Box>
+```

@@ -124,6 +124,7 @@ export const SignupForm = () => {
           className={`
             w-full rounded-md bg-blue-600 px-4 py-2 text-white transition
             hover:bg-blue-700
+            dark:bg-amber-800
           `}
         >
           Sign up
