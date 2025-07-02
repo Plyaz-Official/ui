@@ -1,7 +1,11 @@
 import clsx from "clsx";
 import React from "react";
 
-import { SIZES_MAPPER, TEXT_WEIGHT_MAPPER, VARIANT_MAPPER } from "@/constants/constant";
+import {
+  SIZES_MAPPER,
+  TEXT_WEIGHT_MAPPER,
+  VARIANT_MAPPER,
+} from "@/constants/constant";
 
 type TextElement =
   | "span"
@@ -34,12 +38,12 @@ export const Text = ({
   size,
   ...props
 }: TextProps) => {
-  const Element = element;
+  const ELEMENT = element;
   return (
-    <Element
+    <ELEMENT
       data-testid="text"
       className={clsx(
-        "font-sans text-base font-normal",
+        "font-sans font-normal text-base",
         size && SIZES_MAPPER[size],
         weight && TEXT_WEIGHT_MAPPER[weight],
         variant && VARIANT_MAPPER[variant],
@@ -48,7 +52,7 @@ export const Text = ({
       {...props}
     >
       {children}
-    </Element>
+    </ELEMENT>
   );
 };
 
