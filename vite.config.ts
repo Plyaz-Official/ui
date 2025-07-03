@@ -5,7 +5,7 @@ import { visualizer } from "rollup-plugin-visualizer";
 import { type PluginOption } from "vite";
 import dts from "vite-plugin-dts";
 
-import baseConfig from "./node_modules/@plyaz/devtools/configs/vite.config";
+import baseConfig from "./node_modules/@plyaz/devtools/vite.config";
 
 baseConfig.plugins?.push(
   visualizer({
@@ -13,6 +13,9 @@ baseConfig.plugins?.push(
     gzipSize: true,
     brotliSize: true,
     filename: "performance/reports/bundle-stats.html",
+    exclude: {
+        bundle: "storybook-static",
+      },
     template: "treemap",
     sourcemap: true,
   }) as PluginOption,
