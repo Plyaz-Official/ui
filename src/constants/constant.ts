@@ -38,9 +38,9 @@ export const SIZES_MAPPER = {
 };
 
 export const TEXT_WEIGHT_MAPPER = {
-  normal: "font-normal",
-  medium: "font-medium",
-  semibold: "font-semibold",
-  bold: "font-bold",
-  light: "font-light",
+  normal: 'font-normal',
+  medium: 'font-medium',
+  semibold: 'font-semibold',
+  bold: 'font-bold',
+  light: 'font-light',
 } as const;

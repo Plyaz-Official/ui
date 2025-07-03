@@ -1,9 +1,8 @@
-import type { StorybookConfig } from "@storybook/react-vite";
-
+/* eslint-disable @typescript-eslint/naming-convention */
+import type { StorybookConfig } from '@storybook/react-vite';
 
 // eslint-disable-next-line storybook/story-exports
 const config: StorybookConfig = {
-  
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mdx|ts|tsx)', '../tailwind.config.js'],
 
   addons: [
@@ -24,6 +23,5 @@ const config: StorybookConfig = {
   docs: {
     autodocs: true,
   },
- 
 };
 export default config;
