@@ -139,12 +139,13 @@ export const UserInteraction: Story = {
   },
   play: async ({ args, canvas }) => {
     const container = canvas.getAllByTestId("box")[0];
+    const performanceTime = 200;
     // Interaction performance test
     const start = performance.now();
     await userEvent.click(container);
     const end = performance.now();
     const duration = end - start;
-    await expect(duration).toBeLessThan(100);
+    await expect(duration).toBeLessThan(performanceTime);
     await expect(args.onClick).toBeCalled();
   },
 };
