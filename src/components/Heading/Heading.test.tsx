@@ -14,9 +14,9 @@ const headingProps = {
   size: SIZE_MAP['xs'],
 };
 
-describe("Heading component ", () => {
+describe('Heading component ', () => {
   // Performance test to ensure the component renders quickly
-  it("renders under 100ms", () => {
+  it('renders under 100ms', () => {
     const start = performance.now();
     render(<Heading {...headingProps} />);
     const end = performance.now();
@@ -24,7 +24,7 @@ describe("Heading component ", () => {
     expect(duration).toBeLessThan(100);
   });
   // Unit test to check if the component renders with the correct element, class, and children
-  it("renders with correct element, class, and children", () => {
+  it('renders with correct element, class, and children', () => {
     render(<Heading {...headingProps} />);
     expect(screen.getByText(/Heading/i)).toBeDefined();
   });

@@ -1,63 +1,41 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-/// <reference types="vitest" />
+import path from 'path';
 
-import path from "path";
+import dts from 'vite-plugin-dts';
 
-import tailwindcss from "@tailwindcss/vite";
-import react from "@vitejs/plugin-react";
-import { visualizer } from "rollup-plugin-visualizer";
-import { defineConfig, type PluginOption } from "vite";
-import dts from "vite-plugin-dts";
+import baseConfig from './node_modules/@plyaz/devtools/vite.config';
 
-export default defineConfig({
-  plugins: [
-    react(),
-    tailwindcss(),
-    visualizer({
-      open: true,
-      gzipSize: true,
-      brotliSize: true,
-      filename: "performance/reports/bundle-stats.html",
-      template: "treemap",
-      sourcemap: true,
-    }) as PluginOption,
-    dts({
-      include: ["src"],
-      exclude: ["src/**/*.test.tsx", "src/**/*.test.ts"],
-      insertTypesEntry: true,
-      outDir: "dist/types",
-      tsconfigPath: "./tsconfig.json",
-      entryRoot: "src",
-    }),
-  ],
+baseConfig.plugins?.push(
+  dts({
+    include: ['src'],
+    exclude: ['src/**/*.test.tsx', 'src/**/*.test.ts'],
+    insertTypesEntry: true,
+    outDir: 'dist/types',
+    tsconfigPath: './tsconfig.json',
+    entryRoot: 'src',
+  })
+);
+
+const config: Record<string, unknown> = {
+  ...baseConfig,
+  test: {
+    ...baseConfig.test,
+    setupFiles: ['./setupTests.js'],
+    include: ['src/**/**/*.test.tsx', 'src/*.test.tsx'],
+  },
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "src"),
+      '@': path.resolve(__dirname, 'src'),
     },
   },
   build: {
+    ...baseConfig.build,
     lib: {
-      entry: path.resolve(__dirname, "src/main.ts"),
-      name: "PlyazUI",
-      fileName: (format) => `ui.${format}.js`,
-      formats: ["es", "cjs"],
-    },
-    rollupOptions: {
-      external: ["react", "react-dom"],
-      output: {
-        preserveModules: true,
-        preserveModulesRoot: "src",
-        globals: {
-          react: "React",
-          "react-dom": "ReactDOM",
-        },
-      },
+      entry: path.resolve(__dirname, 'src/main.ts'),
+      name: 'PlyazUI',
+      fileName: (format: string) => `ui.${format}.js`,
+      formats: ['es', 'cjs'],
     },
   },
-  test: {
-    environment: "happy-dom",
-    globals: true,
-    setupFiles: ["./setupTests.js"],
-    include: ["src/**/**/*.test.tsx", "src/*.test.tsx"],
-  },
-});
+};
+export default config;

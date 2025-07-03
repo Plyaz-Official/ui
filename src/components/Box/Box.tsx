@@ -9,11 +9,11 @@ export interface BoxProps extends React.HTMLAttributes<HTMLElement> {
 }
 
 export const Box = ({ children, element = 'div', className = '', ...props }: BoxProps) => {
-  const Element = element;
+  const ELEMENT = element;
   return (
-    <Element className={className} {...props} data-testid='box'>
+    <ELEMENT className={className} {...props} data-testid='box'>
       {children}
-    </Element>
+    </ELEMENT>
   );
 };
 
