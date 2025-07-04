@@ -1,1 +1,1 @@
-import '@plyaz/devtools/configs/vitest.setup.mjs';
+import "@plyaz/devtools/configs/vitest.setup.mjs";

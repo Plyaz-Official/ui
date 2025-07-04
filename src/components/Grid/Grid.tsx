@@ -1,9 +1,9 @@
-import clsx from 'clsx';
-import React from 'react';
+import clsx from "clsx";
+import React from "react";
 
-import { Box } from '@/components';
-import { ALIGN_MAPPER, JUASTIFY_MAPPER } from '@/constants/constant';
-import type { ElementType } from '@/types/type';
+import { Box } from "@/components";
+import { ALIGN_MAPPER, JUASTIFY_MAPPER } from "@/constants/constant";
+import type { ElementType } from "@/types/type";
 
 export interface GridProps extends React.HTMLAttributes<HTMLElement> {
   children?: React.ReactNode;
@@ -31,7 +31,7 @@ export const Grid = ({
     <Box
       element={element}
       className={clsx(
-        'grid',
+        "grid",
         cols,
         rows,
         gap,

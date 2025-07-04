@@ -1,18 +1,24 @@
-import clsx from 'clsx';
-import React from 'react';
+import clsx from "clsx";
+import React from "react";
 
-export interface ExternalLinkProps extends React.HTMLAttributes<HTMLAnchorElement> {
+export interface ExternalLinkProps
+  extends React.HTMLAttributes<HTMLAnchorElement> {
   children: React.ReactNode;
   className?: string;
   href: string;
 }
-export const ExternalLink = ({ children, className, href, ...props }: ExternalLinkProps) => {
+export const ExternalLink = ({
+  children,
+  className,
+  href,
+  ...props
+}: ExternalLinkProps) => {
   return (
     <a
-      data-testid='link'
+      data-testid="link"
       href={href}
-      rel='noopener noreferrer'
-      target='_blank'
+      rel="noopener noreferrer"
+      target="_blank"
       className={clsx(
         `
           text-blue-600
