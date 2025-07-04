@@ -1,7 +1,7 @@
 import type { Preview } from "@storybook/react";
 import { autoDocsTemplate } from "../src/docs/DocTemplate";
 import { allModes } from "./mode";
-import "../src/index.css";
+import "../src/global.css";
 
 /**
  * This  globalType adds a light/dark mode menu in the Storybook toolbar,
