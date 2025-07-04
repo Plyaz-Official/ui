@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@plyaz/devtools':
-        specifier: ^1.6.3
-        version: 1.6.3(0c0f77694d04f0bba9714e8190f58956)
+        specifier: ^1.6.4
+        version: 1.6.4(0c0f77694d04f0bba9714e8190f58956)
       '@tailwindcss/vite':
         specifier: ^4.1.8
         version: 4.1.11(vite@6.3.5(@types/node@22.16.0)(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.8.0))
@@ -857,8 +857,8 @@ packages:
     resolution: {integrity: sha512-YLT9Zo3oNPJoBjBc4q8G2mjU4tqIbf5CEOORbUUr48dCD9q3umJ3IPlVqOqDakPfd2HuwccBaqlGhN4Gmr5OWg==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
 
-  '@plyaz/devtools@1.6.3':
-    resolution: {integrity: sha512-ZFy5YdPx+xUebU+vdKALYAt/XlOtQdXGVnl7A6dbWv+P2hXxnzHFsJGcl0wHhOEDWWbeFD+N2+D09qUuVoSbJA==}
+  '@plyaz/devtools@1.6.4':
+    resolution: {integrity: sha512-avAb8+GuVsqxe567gZQOR8Qpq6snK4az0XX5uikjs2iIBDVW3TaOIJZ7qJWMjp1hBhrOG5V+SUr0yvtluHPXlg==}
     peerDependencies:
       '@darraghor/eslint-plugin-nestjs-typed': ^6.6.0
       '@typescript-eslint/eslint-plugin': ^8.0.0
@@ -7129,7 +7129,7 @@ snapshots:
 
   '@pkgr/core@0.2.7': {}
 
-  '@plyaz/devtools@1.6.3(0c0f77694d04f0bba9714e8190f58956)':
+  '@plyaz/devtools@1.6.4(0c0f77694d04f0bba9714e8190f58956)':
     dependencies:
       '@darraghor/eslint-plugin-nestjs-typed': 6.7.0(@typescript-eslint/parser@8.35.1(eslint@9.30.1(jiti@2.4.2))(typescript@5.8.3))(class-validator@0.14.2)(eslint-import-resolver-typescript@3.10.1)(eslint@9.30.1(jiti@2.4.2))(typescript@5.8.3)
       '@typescript-eslint/eslint-plugin': 8.35.1(@typescript-eslint/parser@8.35.1(eslint@9.30.1(jiti@2.4.2))(typescript@5.8.3))(eslint@9.30.1(jiti@2.4.2))(typescript@5.8.3)
