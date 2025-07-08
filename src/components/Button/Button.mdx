@@ -1,0 +1,79 @@
+import { Meta, Story, Source, Canvas, Controls } from "@storybook/addon-docs";
+import * as ButtonStories from "./Button.stories";
+
+<Meta of={ButtonStories} />
+
+# Button
+
+`Button` is a core component used for triggering actions across the interface. It supports multiple variants like `default`, `outline`, `ghost`, `link`, and more, and can be styled using Tailwind CSS utility classes.
+
+ShadCN’s Button is built on top of the Radix UI `button` behavior and integrates seamlessly with Tailwind for customization and responsiveness.
+
+## Features
+
+- Multiple visual variants (`default`, `destructive`, `outline`, `ghost`, `link`)
+- Supports sizes (`sm`, `md`, `lg`, `icon`)
+- Keyboard accessible by default
+- Fully customizable with Tailwind CSS
+
+## Usage Guidelines
+
+- Use `variant` to define the visual tone of the button.
+- Combine with icon components from `lucide-react` if needed.
+- Prefer descriptive labels for accessibility (`aria-label`, etc.)
+- Avoid nesting `<button>` elements inside each other.
+
+## Do
+
+- Use `variant="destructive"` for dangerous actions (e.g., delete)
+- Use `variant="link"` for navigation-style buttons
+- Apply Tailwind classes when you need layout/styling tweaks
+
+## Don’t
+
+- Overuse the `ghost` or `link` variant in complex UI
+- Nest interactive elements inside the button
+- Forget to label icon-only buttons
+
+## Props
+
+<Controls of={ButtonStories.Default} />
+
+
+### Examples
+
+## Variants
+
+### Default
+
+<Canvas of={ButtonStories.Default} />
+
+### Destructive
+
+<Canvas of={ButtonStories.Destructive} />
+
+### Outline
+
+<Canvas of={ButtonStories.Outline} />
+
+### Ghost
+
+<Canvas of={ButtonStories.Ghost} />
+
+### Link
+
+<Canvas of={ButtonStories.Link} />
+
+### Small Button
+
+<Canvas of={ButtonStories.Small} />
+
+### Large Button
+
+<Canvas of={ButtonStories.Large} />
+
+---
+
+## Source Code
+
+<Source of={ButtonStories.Default} language="tsx" />

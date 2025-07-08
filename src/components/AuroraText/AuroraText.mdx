@@ -1,0 +1,74 @@
+import { Meta, Canvas, Story, Controls, Source } from "@storybook/addon-docs";
+import * as AuroraTextStories from "./AuroraText.stories";
+
+<Meta of={AuroraTextStories} />
+
+# AuroraText
+
+`AuroraText` is a visually enhanced text component from Magic UI designed to render glowing, animated, or gradient-styled typography. It’s ideal for titles, callouts, or any text you want to highlight with visual flair.
+
+It leverages Tailwind CSS and `framer-motion` to apply animated gradient effects and color transitions to text content.
+
+---
+
+## Features
+
+- Built-in animated gradient or glow effects
+- Fully customizable via Tailwind classes
+- Works with any valid text content
+- Responsive and theme-aware (light/dark)
+- Integrates seamlessly into headings, paragraphs, or standalone UI blocks
+
+---
+
+## Usage Guidelines
+
+- Use `AuroraText` to highlight key text like hero titles, product names, or marketing phrases.
+- Prefer minimal use for emphasis—avoid overusing animated text throughout a page.
+- Combine with `Heading` or `Text` for structured typography.
+
+---
+
+## Do
+
+- Use it for attention-grabbing titles or callouts
+- Combine with Tailwind text utilities for size and weight
+- Adjust gradient and animation styles via props or className
+
+## Don’t
+
+- Use for large bodies of paragraph text
+- Animate too many instances on the same screen—it can be visually overwhelming
+- Use without fallbacks in environments where animation is disabled
+
+---
+
+## Props
+
+<Controls of={AuroraTextStories.Default} />
+
+---
+
+## Examples
+
+### Default
+
+<Canvas of={AuroraTextStories.Default} />
+
+### Fast Animation
+
+<Canvas of={AuroraTextStories.FastAnimation} />
+
+### Custom Colors
+
+<Canvas of={AuroraTextStories.CustomColors} />
+
+### Subtle Effect
+
+<Canvas of={AuroraTextStories.SubtleEffect} />
+
+---
+
+## Source Code
+
+<Source of={AuroraTextStories.Default} language="tsx" />

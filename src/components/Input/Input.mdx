@@ -1,0 +1,65 @@
+import { Meta, Story, Source, Canvas, Controls } from "@storybook/addon-docs";
+import * as InputStories from "./Input.stories";
+
+<Meta of={InputStories} />
+
+# Input
+
+`Input` is a foundational form element used for capturing user text input. It supports all native HTML input attributes and is styled using Tailwind CSS utilities for consistent UI across your application.
+
+The ShadCN `Input` is built on top of the native `<input />` element with extended styling, theming, and accessibility support.
+
+## Features
+
+- Inherits all native `<input>` attributes (`type`, `placeholder`, `disabled`, etc.)
+- Styled using Tailwind CSS for consistency
+- Supports dark mode and accessibility out of the box
+- Can be composed with `Label`, `FormControl`, `FormField`, `FormMessage`, etc.
+- Integrates easily with `react-hook-form` and similar libraries
+
+## Usage Guidelines
+
+- Always associate an `Input` with a `Label` for better accessibility.
+- Use `type="email"`, `type="password"`, etc., to enforce input types.
+- Combine with `FormField` and `FormItem` to manage validation.
+- Avoid using inline styles—prefer Tailwind utilities or class extensions.
+
+## Do
+
+- Use the `placeholder` to provide contextual guidance
+- Wrap inside `FormField` and `FormItem` when using with form libraries
+- Support error states with `FormMessage`
+
+## Don’t
+
+- Use the Input without labeling it
+- Handle validation purely with visual cues (like red borders) without messages
+- Mix input types that conflict with expected user behavior
+
+## Props
+
+<Controls of={InputStories.Default} />
+
+---
+
+### Examples
+
+## Variants
+
+### Default
+
+<Canvas of={InputStories.Default} />
+
+### With Placeholder
+
+<Canvas of={InputStories.WithPlaceholder} />
+
+### Password
+
+<Canvas of={InputStories.Password} />
+
+
+
+## Source Code
+
+<Source of={InputStories.Default} language="tsx" />
