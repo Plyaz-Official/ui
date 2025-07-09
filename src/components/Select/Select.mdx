@@ -1,0 +1,67 @@
+import { Meta, Story, Source, Canvas, Controls } from "@storybook/addon-docs";
+import * as SelectStories from "./Select.stories";
+
+<Meta of={SelectStories} />
+
+# Select
+
+`Select` is a headless, accessible dropdown component built on top of Radix UI's primitive. It allows users to pick a single option from a list and is highly customizable using Tailwind CSS.
+
+This component supports keyboard navigation, screen reader accessibility, custom render content, and flexible placement for dropdown menus.
+
+## Features
+
+- Accessible dropdown built on Radix UI's `Select` primitive
+- Keyboard navigable and screen reader friendly
+- Fully customizable with Tailwind classes
+- Supports grouped items, disabled options, and separators
+- Controlled and uncontrolled usage supported
+
+## Usage Guidelines
+
+- Use `Select` when the user must choose **one option** from a known list.
+- Combine with `FormField`, `FormItem`, and `Label` for proper form layout and validation.
+- Avoid long lists—prefer search-based `Combobox` or `Autocomplete` if many options exist.
+
+## Do
+
+- Use `value` and `onValueChange` for controlled usage
+- Provide visible labels and descriptive placeholders
+- Handle validation and show error messages if needed
+
+## Don’t
+
+- Overload with too many items—opt for searchable inputs in that case
+- Use `Select` for free-form input (use `Input` or `Textarea` instead)
+- Rely solely on placeholder text—always label your fields
+
+## Props
+
+<Controls of={SelectStories.Default} />
+
+---
+
+### Examples
+
+## Variants
+
+### Default
+
+<Canvas of={SelectStories.Default} />
+
+### With Placeholder
+
+<Canvas of={SelectStories.WithPlaceholder} />
+
+### Disabled Option
+
+<Canvas of={SelectStories.Disabled} />
+
+### Controlled
+
+<Canvas of={SelectStories.Controlled} />
+
+
+## Source Code
+
+<Source of={SelectStories.Default} language="tsx" />
