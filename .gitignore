@@ -50,3 +50,4 @@ next-env.d.ts
 # bundle and logs 
 /performance
 bundlemeta.json
+/storybook-static
