@@ -2,7 +2,7 @@
 import path from 'path';
 
 import dts from 'vite-plugin-dts';
-import visualizer from 'rollup-plugin-visualizer';
+import {visualizer} from 'rollup-plugin-visualizer';
 import type {  PluginOption } from 'vite';
 
 import baseConfig from './node_modules/@plyaz/devtools/vite.config';
