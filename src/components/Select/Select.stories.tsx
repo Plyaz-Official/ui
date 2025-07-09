@@ -1,61 +1,55 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { expect, userEvent, fn } from "@storybook/test";
+import type { Meta, StoryObj } from '@storybook/react';
+import { expect, userEvent, fn } from '@storybook/test';
 
-import {
-  Select,
-  SelectTrigger,
-  SelectValue,
-  SelectContent,
-  SelectItem,
-} from "./Select";
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '@/components';
 
 type Story = StoryObj<typeof Select>;
 
 const meta: Meta<typeof Select> = {
-  title: "Components/Select",
+  title: 'Components/Select',
   component: Select,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   parameters: {
     docs: {
       description: {
         component:
-          "`Select` is a headless, accessible dropdown component built on top of Radix UI. Use it to let users select a single option from a list. It supports full keyboard navigation, accessibility, and custom styling with Tailwind.",
+          '`Select` is a headless, accessible dropdown component built on top of Radix UI. Use it to let users select a single option from a list. It supports full keyboard navigation, accessibility, and custom styling with Tailwind.',
       },
     },
   },
   argTypes: {
     value: {
-      control: "text",
-      description: "Selected value (controlled).",
+      control: 'text',
+      description: 'Selected value (controlled).',
     },
     defaultValue: {
-      control: "text",
-      description: "Initial value (uncontrolled).",
+      control: 'text',
+      description: 'Initial value (uncontrolled).',
     },
     onValueChange: {
-      action: "changed",
-      description: "Called when user selects a value.",
+      action: 'changed',
+      description: 'Called when user selects a value.',
     },
     disabled: {
-      control: "boolean",
-      description: "Disables the select dropdown.",
+      control: 'boolean',
+      description: 'Disables the select dropdown.',
     },
   },
 };
 
 export default meta;
 
-const options = ["Apple", "Banana", "Orange"];
+const options = ['Apple', 'Banana', 'Orange'];
 
 // Default uncontrolled Select
 export const Default: Story = {
-  render: (args) => (
-    <Select defaultValue="apple" {...args}>
-      <SelectTrigger className="w-[180px]">
-        <SelectValue placeholder="Select fruit" />
+  render: args => (
+    <Select defaultValue='apple' {...args}>
+      <SelectTrigger className='w-[180px]'>
+        <SelectValue placeholder='Select fruit' />
       </SelectTrigger>
       <SelectContent>
-        {options.map((opt) => (
+        {options.map(opt => (
           <SelectItem key={opt.toLowerCase()} value={opt.toLowerCase()}>
             {opt}
           </SelectItem>
@@ -67,13 +61,13 @@ export const Default: Story = {
 
 // With Placeholder
 export const WithPlaceholder: Story = {
-  render: (args) => (
+  render: args => (
     <Select {...args}>
-      <SelectTrigger className="w-[180px]">
-        <SelectValue placeholder="Pick a fruit" />
+      <SelectTrigger className='w-[180px]'>
+        <SelectValue placeholder='Pick a fruit' />
       </SelectTrigger>
       <SelectContent>
-        {options.map((opt) => (
+        {options.map(opt => (
           <SelectItem key={opt.toLowerCase()} value={opt.toLowerCase()}>
             {opt}
           </SelectItem>
@@ -85,13 +79,13 @@ export const WithPlaceholder: Story = {
 
 // Disabled Select
 export const Disabled: Story = {
-  render: (args) => (
+  render: args => (
     <Select {...args} disabled>
-      <SelectTrigger className="w-[180px]">
+      <SelectTrigger className='w-[180px]'>
         <SelectValue placeholder="Can't open this" />
       </SelectTrigger>
       <SelectContent>
-        {options.map((opt) => (
+        {options.map(opt => (
           <SelectItem key={opt.toLowerCase()} value={opt.toLowerCase()}>
             {opt}
           </SelectItem>
@@ -104,16 +98,16 @@ export const Disabled: Story = {
 // Controlled Select
 export const Controlled: Story = {
   args: {
-    value: "banana",
+    value: 'banana',
     onValueChange: fn(),
   },
-  render: (args) => (
+  render: args => (
     <Select {...args}>
-      <SelectTrigger className="w-[180px]">
-        <SelectValue placeholder="Pick a fruit" />
+      <SelectTrigger className='w-[180px]'>
+        <SelectValue placeholder='Pick a fruit' />
       </SelectTrigger>
       <SelectContent>
-        {options.map((opt) => (
+        {options.map(opt => (
           <SelectItem key={opt.toLowerCase()} value={opt.toLowerCase()}>
             {opt}
           </SelectItem>
@@ -127,13 +121,13 @@ export const UserInteraction: Story = {
   args: {
     onOpenChange: fn(),
   },
-  render: (args) => (
+  render: args => (
     <Select {...args}>
-      <SelectTrigger className="w-[180px]">
-        <SelectValue placeholder="Pick a fruit" />
+      <SelectTrigger className='w-[180px]'>
+        <SelectValue placeholder='Pick a fruit' />
       </SelectTrigger>
       <SelectContent>
-        {options.map((opt) => (
+        {options.map(opt => (
           <SelectItem key={opt.toLowerCase()} value={opt.toLowerCase()}>
             {opt}
           </SelectItem>
@@ -142,7 +136,7 @@ export const UserInteraction: Story = {
     </Select>
   ),
   play: async ({ canvasElement, args }) => {
-    const button = canvasElement.querySelector("button");
+    const button = canvasElement.querySelector('button');
     if (button) {
       const start = performance.now();
       await userEvent.click(button);
