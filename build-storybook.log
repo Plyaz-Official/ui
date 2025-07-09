@@ -1,4 +1,0 @@
-
-> @plyaz/ui@0.4.1 build-storybook /Users/usmanqadir/Desktop/projects/ui
-> mkdir -p ./performance && storybook build > ./performance/storybook-build.log 2>&1 --output-dir\=/var/folders/jf/ms82wz0s223_p2_kk60fjhfh0000gp/T/chromatic--43196-MaOg5n69gnZl
-
