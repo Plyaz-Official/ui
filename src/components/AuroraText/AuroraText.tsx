@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import React, { memo } from "react";
+import React, { memo } from 'react';
 
 interface AuroraTextProps {
   children: React.ReactNode;
@@ -12,32 +12,39 @@ interface AuroraTextProps {
 export const AuroraText = memo(
   ({
     children,
-    className = "",
-    colors = ["#FF0080", "#7928CA", "#0070F3", "#38bdf8"],
+    className = '',
+    colors = ['#FF0080', '#7928CA', '#0070F3', '#38bdf8'],
     speed = 1,
   }: AuroraTextProps) => {
     const gradientStyle = {
-      backgroundImage: `linear-gradient(135deg, ${colors.join(", ")}, ${
-        colors[0]
-      })`,
-      WebkitBackgroundClip: "text",
-      WebkitTextFillColor: "transparent",
+      backgroundImage: `linear-gradient(135deg, ${colors.join(', ')}, ${colors[0]})`,
+      WebkitBackgroundClip: 'text',
+      WebkitTextFillColor: 'transparent',
       animationDuration: `${10 / speed}s`,
     };
 
     return (
-      <span className={`relative inline-block ${className}`} data-testid='auroraText'>
-        <span className="sr-only">{children}</span>
+      <span
+        className={`
+          relative inline-block
+          ${className}
+        `}
+        data-testid='auroraText'
+      >
+        <span className='sr-only'>{children}</span>
         <span
-          className="relative bg-[length:200%_auto] bg-clip-text text-transparent animate-aurora"
+          className={`
+            relative animate-aurora bg-clip-text text-transparent
+            bg-[length:200%_auto]
+          `}
           style={gradientStyle}
-          aria-hidden="true"
+          aria-hidden='true'
         >
           {children}
         </span>
       </span>
     );
-  },
+  }
 );
 
-AuroraText.displayName = "AuroraText";
+AuroraText.displayName = 'AuroraText';

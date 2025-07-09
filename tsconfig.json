@@ -5,6 +5,7 @@
     "composite": true,
     "allowJs": true,
     "incremental": true,
+    "strict" : true,
     "jsx": "preserve",
     "moduleResolution": "bundler",
     "types": ["node", "jest", "@testing-library/jest-dom"],
@@ -18,6 +19,7 @@
       "@/*": ["./src/*"]
     }
   },
+
   "include": [
     "src/**/*",
     "**/*.ts",
@@ -39,7 +41,7 @@
     "**/*.stories.ts",
     "**/*.stories.tsx",
     "vitest.config.mjs"
-  ],
+, "setupTests.mjs"  ],
   "exclude": [
     "node_modules",
     "dist",
