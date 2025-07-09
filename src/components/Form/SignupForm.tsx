@@ -45,7 +45,9 @@ export const SignupForm = () => {
       </Heading>
       <form onSubmit={handleSubmit} className='space-y-4'>
         <Box>
-          <label htmlFor='name' className={`block text-sm font-medium text-gray-700`}>
+          <label htmlFor='name' className={`
+            block text-sm font-medium text-gray-700
+          `}>
             Name
           </label>
           <input
@@ -67,7 +69,9 @@ export const SignupForm = () => {
           {errors.name && <p className='mt-1 text-sm text-red-600'>{errors.name}</p>}
         </Box>
         <Box>
-          <label htmlFor='email' className={`block text-sm font-medium text-gray-700`}>
+          <label htmlFor='email' className={`
+            block text-sm font-medium text-gray-700
+          `}>
             Email
           </label>
           <input
@@ -86,7 +90,9 @@ export const SignupForm = () => {
         </Box>
 
         <Box>
-          <label htmlFor='password' className={`block text-sm font-medium text-gray-700`}>
+          <label htmlFor='password' className={`
+            block text-sm font-medium text-gray-700
+          `}>
             Password
           </label>
           <input
