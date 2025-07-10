@@ -1,3 +1,5 @@
+import '../global.css';
+
 export { default as Box } from './Box/Box';
 export type { BoxProps } from './Box/Box';
 
