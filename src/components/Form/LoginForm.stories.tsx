@@ -1,16 +1,16 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { LoginForm } from "./LoginForm";
+import { LoginForm } from './LoginForm';
 
 const meta: Meta<typeof LoginForm> = {
-  title: "Patterns/Form/LoginForm",
+  title: 'Patterns/Form/LoginForm',
   component: LoginForm,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   parameters: {
     docs: {
       description: {
         component:
-          "The `Form` component provides a flexible way to create forms with Tailwind CSS styling. It supports various input types and validation.",
+          'The `Form` component provides a flexible way to create forms with Tailwind CSS styling. It supports various input types and validation.',
       },
     },
   },
@@ -24,7 +24,7 @@ export const Default: Story = {};
 export const LoginFormMobileViewPort: Story = {
   parameters: {
     viewport: {
-      defaultViewport: "mobile_xs",
+      defaultViewport: 'mobile_xs',
     },
   },
 };
@@ -32,7 +32,7 @@ export const LoginFormMobileViewPort: Story = {
 export const LoginFormTabletViewPort: Story = {
   parameters: {
     viewport: {
-      defaultViewport: "tablet_sm",
+      defaultViewport: 'tablet_sm',
     },
   },
 };
@@ -40,7 +40,7 @@ export const LoginFormTabletViewPort: Story = {
 export const LoginFormDesktopViewPort: Story = {
   parameters: {
     viewport: {
-      defaultViewport: "laptop_xl",
+      defaultViewport: 'laptop_xl',
     },
   },
 };
