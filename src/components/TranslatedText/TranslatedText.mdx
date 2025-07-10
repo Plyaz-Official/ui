@@ -1,0 +1,50 @@
+import { Meta, Canvas, Controls, Source } from "@storybook/addon-docs";
+import * as TranslatedTextStories from "./TranslatedText.stories";
+
+<Meta of={TranslatedTextStories} />
+
+# TranslatedText
+
+The `TranslatedText` component is a translation-aware typography utility. It renders translated text using the design system's typography, leveraging the `useTranslation` hook and the `Text` component.
+
+## Features
+
+- Renders semantic HTML tags like `p`, `span`, or heading levels (`h1`–`h6`)
+- Supports variants, sizes, and weights aligned with the design system
+- Uses translation keys and options for i18n
+- Inherits all native HTML props from `Text`
+
+## Usage Guidelines
+
+- Use `TranslatedText` for any text that should be localized
+- Pass the translation key via `translationKey` prop
+- Use `translationOptions` for interpolation or default values
+- Use the correct semantic tag for accessibility
+
+## Props
+
+<Controls of={TranslatedTextStories.Body} />
+
+### Examples
+
+## Variants
+
+### Body
+
+<Canvas of={TranslatedTextStories.Body} />
+
+### Caption
+
+<Canvas of={TranslatedTextStories.Caption} />
+
+### Heading
+
+<Canvas of={TranslatedTextStories.Heading} />
+
+### With Interpolation
+
+<Canvas of={TranslatedTextStories.WithInterpolation} />
+
+### Source Code
+
+<Source of={TranslatedTextStories.Body} language="tsx" />{" "}
