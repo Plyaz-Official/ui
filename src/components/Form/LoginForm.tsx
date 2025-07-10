@@ -36,9 +36,12 @@ export const LoginForm = () => {
       </Heading>
       <form onSubmit={handleSubmit} className='space-y-4'>
         <Box>
-          <label htmlFor='email' className={`
+          <label
+            htmlFor='email'
+            className={`
             block text-sm font-medium text-gray-700
-          `}>
+          `}
+          >
             Email
           </label>
           <input
@@ -57,9 +60,12 @@ export const LoginForm = () => {
         </Box>
 
         <Box>
-          <label htmlFor='password' className={`
+          <label
+            htmlFor='password'
+            className={`
             block text-sm font-medium text-gray-700
-          `}>
+          `}
+          >
             Password
           </label>
           <input
