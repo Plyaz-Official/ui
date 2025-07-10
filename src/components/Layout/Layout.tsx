@@ -17,7 +17,7 @@ export const Layout = ({
   return (
     <Box data-testid='layout'>
       {layout === 'grid' ? (
-        <Grid cols='grid-cols-3' gap='gap-4' className={clsx('p-4', className)}>
+        <Grid cols='3' gap='4' className={clsx('p-4', className)}>
           {children}
         </Grid>
       ) : (

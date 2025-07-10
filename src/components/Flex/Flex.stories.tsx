@@ -27,7 +27,7 @@ export const FlexItemsStart: Story = {
     justify: 'start',
     align: 'start',
     wrap: 'wrap',
-    gap: 'gap-2',
+    gap: '2',
     className: 'bg-gray-100 p-4 rounded dark:bg-black dark:text-white',
     children: (
       <>
@@ -84,7 +84,7 @@ export const FlexItemsCenter: Story = {
     direction: 'row',
     justify: 'center',
     align: 'center',
-    gap: 'gap-4',
+    gap: '4',
     className: 'bg-gray-200 p-4 rounded dark:bg-black dark:text-white',
     element: 'div',
     children: (
@@ -104,7 +104,7 @@ export const UserInteraction: Story = {
     direction: 'row',
     justify: 'center',
     align: 'center',
-    gap: 'gap-4',
+    gap: '4',
     className: 'bg-gray-200 p-4 rounded',
     element: 'div',
     onClick: fn(),
