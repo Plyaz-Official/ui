@@ -53,6 +53,18 @@ const config: Record<string, unknown> = {
       fileName: (format: string) => `ui.${format}.js`,
       formats: ['es', 'cjs'],
     },
+   rollupOptions: {
+      external: ['react', 
+        'react-dom', 
+        'next-intl',
+        'react/jsx-runtime',
+        'react/jsx-dev-runtime',
+        '@radix-ui/react-slot',
+        '@radix-ui/react-select',
+        'clsx',
+        'lucide-react',
+      ],
+    },
   },
 };
 export default config;
