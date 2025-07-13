@@ -1,14 +1,9 @@
 import { render, screen } from "@testing-library/react";
-import { describe, expect, it, vi } from "vitest";
+import { describe, expect, it } from "vitest";
 
 import TranslatedText from "./TranslatedText";
 
-// Mock useTranslation
-vi.mock("@plyaz/translations", () => ({
-  useTranslation: () => ({
-    t: (key: string) => `translated:${key}`,
-  }),
-}));
+
 
 describe("TranslatedText component", () => {
   it("renders translated text", () => {

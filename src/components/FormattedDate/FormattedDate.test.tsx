@@ -5,14 +5,15 @@ import type { TEXT_WEIGHT_MAPPER, VARIANT_MAPPER } from '@/constants/constant';
 
 import FormattedDate from './FormattedDate';
 
-// Mock the useFormatting hook
+// Mock the useFormatting hook to return a predictable formatter
 vi.mock('@plyaz/translations/frontend', () => ({
   useFormatting: () => ({
-    formatDate: (date: Date | string | number) => {
-      if (date instanceof Date) {
-        return date.toLocaleDateString('en-US');
-      }
-      return new Date(date).toLocaleDateString('en-US');
+    formatDate: (date: Date | string | number, formatOptions?: Intl.DateTimeFormatOptions) => {
+      const dateObj = date instanceof Date ? date : new Date(date);
+      return dateObj.toLocaleDateString('en-US', { 
+        timeZone: 'UTC',
+        ...formatOptions 
+      });
     },
   }),
 }));
@@ -20,7 +21,7 @@ vi.mock('@plyaz/translations/frontend', () => ({
 type TextElement = 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
 const formattedDateProps = {
-  date: new Date('2024-01-15'),
+  date: new Date(Date.UTC(2024, 0, 15)),
   className: 'bg-red-200 px-4 py-2',
   element: 'h1' as TextElement,
   variant: 'body' as keyof typeof VARIANT_MAPPER,
@@ -40,7 +41,7 @@ describe('FormattedDate component', () => {
   // Unit test to check if the component renders with the correct element, class, and children
   it('renders with correct element, class, and children', () => {
     render(<FormattedDate {...formattedDateProps} />);
-    expect(screen.getByText(/1\/15\/2024/i)).toBeDefined();
+    expect(screen.getByText('1/15/2024')).toBeDefined();
   });
 
   // Test with different date formats
@@ -55,7 +56,7 @@ describe('FormattedDate component', () => {
       },
     };
     render(<FormattedDate {...customProps} />);
-    expect(screen.getByText(/1\/15\/2024/i)).toBeDefined();
+    expect(screen.getByText('Monday, January 15, 2024')).toBeDefined();
   });
 
   // Test with different locale
@@ -65,7 +66,7 @@ describe('FormattedDate component', () => {
       locale: 'es-ES',
     };
     render(<FormattedDate {...localeProps} />);
-    expect(screen.getByText(/1\/15\/2024/i)).toBeDefined();
+    expect(screen.getByText('1/15/2024')).toBeDefined();
   });
 
   // Test with string date input
@@ -75,7 +76,7 @@ describe('FormattedDate component', () => {
       date: '2024-01-15',
     };
     render(<FormattedDate {...stringDateProps} />);
-    expect(screen.getByText(/1\/15\/2024/i)).toBeDefined();
+    expect(screen.getByText('1/15/2024')).toBeDefined();
   });
 
   // Test with number date input (timestamp)
@@ -85,6 +86,6 @@ describe('FormattedDate component', () => {
       date: 1705276800000, // 2024-01-15 timestamp
     };
     render(<FormattedDate {...numberDateProps} />);
-    expect(screen.getByText(/1\/15\/2024/i)).toBeDefined();
+    expect(screen.getByText('1/15/2024')).toBeDefined();
   });
 }); 

@@ -1,0 +1,63 @@
+import { Meta, Canvas, Controls, Source } from '@storybook/addon-docs';
+import * as TranslatedHtmlStories from './TranslatedHtml.stories';
+
+<Meta of={TranslatedHtmlStories} />
+
+# TranslatedHtml
+
+The `TranslatedHtml` component renders translated content as HTML, allowing you to include markup within your translation keys while maintaining proper semantic structure.
+
+## Features
+
+- Renders translated content with embedded HTML markup
+- Supports dynamic content interpolation via translation options
+- Allows customization of the wrapper HTML tag
+- Maintains accessibility and semantic structure
+- Integrates with the translation system for consistent internationalization
+
+## Usage Guidelines
+
+- Use when translation keys contain HTML markup (links, formatting, mixed content)
+- Provide appropriate translation options for dynamic content
+- Choose semantic wrapper tags that match the content structure
+- Ensure HTML in translation keys is properly escaped and validated
+
+## Do
+
+- Use for translations that require HTML markup (links, emphasis, formatting)
+- Provide meaningful translation options for dynamic content
+- Choose appropriate wrapper tags for semantic structure
+- Validate HTML content in translation keys for security
+
+## Don't
+
+- Use for plain text translations (use `TranslatedText` instead)
+- Include unsafe HTML that could lead to XSS attacks
+- Overuse HTML in translation keys—prefer semantic structure
+- Forget to provide required translation options for dynamic content
+
+## Props
+
+<Controls of={TranslatedHtmlStories.Default} />
+
+### Examples
+
+## Basic Usage
+
+<Canvas of={TranslatedHtmlStories.Default} />
+
+## With Dynamic Content
+
+<Canvas of={TranslatedHtmlStories.WithOptions} />
+
+## Custom Wrapper Tag
+
+<Canvas of={TranslatedHtmlStories.CustomTag} />
+
+## With Styling
+
+<Canvas of={TranslatedHtmlStories.WithStyling} />
+
+### Source Code
+
+<Source of={TranslatedHtmlStories.Default} language='tsx' />

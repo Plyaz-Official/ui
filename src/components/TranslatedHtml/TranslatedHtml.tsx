@@ -1,5 +1,5 @@
 import React from "react";
-import { useTranslations } from "next-intl";
+import { useTranslation } from "@plyaz/translations/frontend";
 import type { AppTranslationKeys } from "@plyaz/translations";
 import type { TranslationOptions } from "@plyaz/types/translations";
 
@@ -39,7 +39,7 @@ const TranslatedHtml: React.FC<TranslatedHtmlProps> = ({
   className,
   tag = "div",
 }) => {
-  const t = useTranslations(namespace);
+  const { t } = useTranslation(namespace);
   const translated = t(translationKey, translationOptions as Record<string, string | number | Date>);
   return React.createElement(tag, { className }, translated);
 };
