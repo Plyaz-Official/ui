@@ -80,7 +80,7 @@ describe('FormattedNumber component ', () => {
           style: 'currency',
           currency: 'EUR',
         }}
-        locale="de-DE"
+        locale='de-DE'
       />
     );
     // German locale with EUR currency - expect 1.234,56 € (symbol at end)
@@ -101,4 +101,4 @@ describe('FormattedNumber component ', () => {
     );
     expect(screen.getByText(/1,234,567\.89/i)).toBeDefined();
   });
-}); 
+});

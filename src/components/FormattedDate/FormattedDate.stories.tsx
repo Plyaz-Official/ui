@@ -137,4 +137,4 @@ export const UserInteraction: Story = {
     await expect(duration).toBeLessThan(100);
     await expect(args.onClick).toBeCalled();
   },
-}; 
+};

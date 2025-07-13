@@ -1,7 +1,7 @@
-import React from "react";
-import { useTranslation } from "@plyaz/translations/frontend";
-import type { AppTranslationKeys } from "@plyaz/translations";
-import type { TranslationOptions } from "@plyaz/types/translations";
+import React from 'react';
+import { useTranslation } from '@plyaz/translations/frontend';
+import type { AppTranslationKeys } from '@plyaz/translations';
+import type { TranslationOptions } from '@plyaz/types/translations';
 
 interface TranslatedHtmlProps {
   translationKey: AppTranslationKeys;
@@ -13,22 +13,22 @@ interface TranslatedHtmlProps {
 
 /**
  * TranslatedHtml component renders translated content as HTML.
- * 
+ *
  * This component is useful when your translation keys contain HTML markup,
  * such as:
  * - Links: "Click <a href='/help'>here</a> for more information"
  * - Formatting: "This is <strong>important</strong> text"
  * - Mixed content: "Welcome to <em>Our App</em> - <a href='/docs'>Learn more</a>"
- * 
+ *
  * @example
  * // Translation key: "welcome_message" = "Welcome to <strong>Our App</strong>"
  * <TranslatedHtml translationKey="welcome_message" />
- * 
+ *
  * @example
  * // With dynamic content and HTML
  * // Translation key: "click_here" = "Click <a href='{url}'>{text}</a>"
- * <TranslatedHtml 
- *   translationKey="click_here" 
+ * <TranslatedHtml
+ *   translationKey="click_here"
  *   translationOptions={{ url: '/help', text: 'here' }}
  * />
  */
@@ -37,10 +37,13 @@ const TranslatedHtml: React.FC<TranslatedHtmlProps> = ({
   translationOptions,
   namespace,
   className,
-  tag = "div",
+  tag = 'div',
 }) => {
   const { t } = useTranslation(namespace);
-  const translated = t(translationKey, translationOptions as Record<string, string | number | Date>);
+  const translated = t(
+    translationKey,
+    translationOptions as Record<string, string | number | Date>
+  );
   return React.createElement(tag, { className }, translated);
 };
 

@@ -10,9 +10,9 @@ vi.mock('@plyaz/translations/frontend', () => ({
   useFormatting: () => ({
     formatDate: (date: Date | string | number, formatOptions?: Intl.DateTimeFormatOptions) => {
       const dateObj = date instanceof Date ? date : new Date(date);
-      return dateObj.toLocaleDateString('en-US', { 
+      return dateObj.toLocaleDateString('en-US', {
         timeZone: 'UTC',
-        ...formatOptions 
+        ...formatOptions,
       });
     },
   }),
@@ -88,4 +88,4 @@ describe('FormattedDate component', () => {
     render(<FormattedDate {...numberDateProps} />);
     expect(screen.getByText('1/15/2024')).toBeDefined();
   });
-}); 
+});

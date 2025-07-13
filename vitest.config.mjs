@@ -8,11 +8,8 @@ import { dirname } from "node:path";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-
-
 const base = createVitestConfig(__dirname);
 
 export default mergeConfig(base, {
   plugins: [tsconfigPaths(), react()],
-  
 });

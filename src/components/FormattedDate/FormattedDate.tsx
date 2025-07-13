@@ -1,10 +1,10 @@
-import React from "react";
-import { useFormatting } from "@plyaz/translations/frontend";
+import React from 'react';
+import { useFormatting } from '@plyaz/translations/frontend';
 
-import type { TextProps } from "../Text/Text";
-import Text from "../Text/Text";
+import type { TextProps } from '../Text/Text';
+import Text from '../Text/Text';
 
-interface FormattedDateProps extends Omit<TextProps, "children"> {
+interface FormattedDateProps extends Omit<TextProps, 'children'> {
   date: Date | string | number;
   formatOptions?: Intl.DateTimeFormatOptions;
   locale?: string;

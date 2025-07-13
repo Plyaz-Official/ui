@@ -99,7 +99,8 @@ export const WithStyling: Story = {
   parameters: {
     mockData: {
       translations: {
-        styled_content: 'This content has <span class="text-red-500 font-bold">styled elements</span> and <a href="/docs" class="text-blue-600 hover:underline">links</a>.',
+        styled_content:
+          'This content has <span class="text-red-500 font-bold">styled elements</span> and <a href="/docs" class="text-blue-600 hover:underline">links</a>.',
       },
     },
   },
@@ -108,12 +109,12 @@ export const WithStyling: Story = {
 export const ComplexContent: Story = {
   args: {
     translationKey: 'common.price',
-    translationOptions: { 
+    translationOptions: {
       interpolation: {
-      username: 'John',
-      count: "5",
-      link: '/profile'
-      }
+        username: 'John',
+        count: '5',
+        link: '/profile',
+      },
     },
     tag: 'article',
     className: 'bg-white dark:bg-black dark:text-white p-4 max-w-md',
@@ -121,7 +122,8 @@ export const ComplexContent: Story = {
   parameters: {
     mockData: {
       translations: {
-        complex_message: 'Hello <strong>{username}</strong>! You have <span class="text-green-600 font-semibold">{count}</span> new messages. <a href="{link}" class="text-blue-600 hover:underline">View profile</a>',
+        complex_message:
+          'Hello <strong>{username}</strong>! You have <span class="text-green-600 font-semibold">{count}</span> new messages. <a href="{link}" class="text-blue-600 hover:underline">View profile</a>',
       },
     },
   },
@@ -136,7 +138,8 @@ export const UserInteraction: Story = {
   parameters: {
     mockData: {
       translations: {
-        interactive_content: 'Click <button class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">this button</button> to interact',
+        interactive_content:
+          'Click <button class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">this button</button> to interact',
       },
     },
   },
@@ -149,4 +152,4 @@ export const UserInteraction: Story = {
     const duration = end - start;
     await expect(duration).toBeLessThan(100);
   },
-}; 
+};
