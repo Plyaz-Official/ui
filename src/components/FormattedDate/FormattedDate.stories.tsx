@@ -26,7 +26,7 @@ const meta: Meta<typeof FormattedDate> = {
     },
     locale: {
       control: 'select',
-      options: ['en-US', 'es-ES', 'fr-FR', 'de-DE', 'ja-JP'],
+      options: ['en', 'es', 'fr', 'it', 'pt-BR', 'pt-PT'],
       description: 'Locale for date formatting.',
     },
     element: {
@@ -93,7 +93,7 @@ export const DifferentLocales: Story = {
       month: 'long',
       day: 'numeric',
     },
-    locale: 'es-ES',
+    locale: 'es',
     element: 'p',
     size: 'base',
     variant: 'body',

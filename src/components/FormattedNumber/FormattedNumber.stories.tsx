@@ -25,7 +25,8 @@ const meta: Meta<typeof FormattedNumber> = {
       description: 'Options for number formatting (Intl.NumberFormatOptions).',
     },
     locale: {
-      control: { type: 'text' },
+      control: 'select',
+      options: ['en', 'es', 'fr', 'it', 'pt-BR', 'pt-PT'],
       description: 'Locale for number formatting.',
     },
     element: {
@@ -123,7 +124,7 @@ export const DifferentLocale: Story = {
       style: 'currency',
       currency: 'EUR',
     },
-    locale: 'de-DE',
+    locale: 'es',
     element: 'p',
     size: 'base',
     variant: 'body',
