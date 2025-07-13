@@ -17,11 +17,13 @@ const meta: Meta<typeof Grid> = {
   },
   argTypes: {
     cols: {
-      control: 'text',
+      control: 'select',
+      options: ['1', '2', '3', '4', '5', '6', '7', '8', '9'],
       description: 'CSS classes for grid columns.',
     },
     rows: {
-      control: 'text',
+      control: 'select',
+      options: ['1', '2', '3', '4', '5', '6', '7', '8', '9'],
       description: 'CSS classes for grid rows.',
     },
     gap: {
@@ -69,9 +71,9 @@ export const TwoColumnGrid: Story = {
         ))}
       </>
     ),
-    cols: 'grid-cols-2',
-    rows: 'grid-rows-2',
-    gap: 'gap-4',
+    cols: '1',
+    rows: '2',
+    gap: '4',
     className: 'bg-white dark:bg-black dark:text-white',
   },
 };
@@ -87,9 +89,9 @@ export const ThreeColumnGrid: Story = {
         ))}
       </>
     ),
-    cols: 'grid-cols-3',
-    rows: 'grid-rows-1',
-    gap: 'gap-6',
+    cols: '3',
+    rows: '1',
+    gap: '6',
     justify: 'center',
     className: 'bg-white dark:bg-black dark:text-white',
   },
@@ -106,9 +108,9 @@ export const UserInteraction: Story = {
         ))}
       </>
     ),
-    cols: 'grid-cols-3',
-    rows: 'grid-rows-1',
-    gap: 'gap-6',
+    cols: '3',
+    rows: '1',
+    gap: '6',
     justify: 'center',
     onClick: fn(),
   },

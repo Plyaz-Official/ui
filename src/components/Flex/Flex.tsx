@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import React from 'react';
 
 import { Box } from '@/components';
-import { ALIGN_MAPPER, JUASTIFY_MAPPER } from '@/constants/constant';
+import { ALIGN_MAPPER, GAP, JUASTIFY_MAPPER } from '@/constants/constant';
 import type { ElementType } from '@/types/type';
 
 const DIRECTION_MAPPER = {
@@ -19,7 +19,7 @@ const WRAP_MAPPER = {
 
 export interface FlexProps extends React.HTMLAttributes<HTMLElement> {
   children: React.ReactNode;
-  gap?: string;
+  gap?: keyof typeof GAP;
   direction?: keyof typeof DIRECTION_MAPPER;
   justify?: keyof typeof JUASTIFY_MAPPER;
   align?: keyof typeof ALIGN_MAPPER;
@@ -47,7 +47,7 @@ export const Flex = ({
         justify && JUASTIFY_MAPPER[justify],
         align && ALIGN_MAPPER[align],
         wrap && WRAP_MAPPER[wrap],
-        gap,
+        gap && GAP[gap],
         className
       )}
       {...props}

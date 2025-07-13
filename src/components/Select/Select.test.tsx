@@ -1,5 +1,6 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { beforeAll, describe, expect, vi } from 'vitest';
+import userEvent from '@testing-library/user-event';
 
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from './Select';
 
@@ -39,7 +40,9 @@ describe('Select component', () => {
           <SelectValue placeholder='Select a fruit' />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value='apple'>Apple</SelectItem>
+          <SelectItem value='apple' data-testid='apple'>
+            Apple
+          </SelectItem>
           <SelectItem value='banana'>Banana</SelectItem>
         </SelectContent>
       </Select>
@@ -47,8 +50,12 @@ describe('Select component', () => {
     const end = performance.now();
     const duration = end - start;
     expect(duration).toBeLessThan(100);
-    const trigger = screen.getByTestId('select');
-    expect(screen.getByText('Select a fruit')).toBeDefined();
-    await fireEvent.click(trigger);
+
+    screen.getByTestId('select');
+    expect(screen.getByTestId('apple')).toBeInTheDocument();
+
+    await userEvent.click(screen.getByTestId('apple'));
+
+    expect(screen.getByTestId('select')).toHaveTextContent('Apple');
   });
 });

@@ -4,6 +4,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 import { createVitestConfig } from "@plyaz/devtools/configs/vitest.config.mjs";
 import { resolve } from "node:path";
 import { URL } from "node:url";
+import path from 'path';
 
 const base = createVitestConfig(
   resolve(new URL("./src/", import.meta.url).pathname)
@@ -11,4 +12,10 @@ const base = createVitestConfig(
 
 export default mergeConfig(base, {
   plugins: [tsconfigPaths(), react()],
+  
+  resolve: {
+    alias: {
+      '@': path.resolve(new URL("./src", import.meta.url).pathname)
+    },
+  },
 });

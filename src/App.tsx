@@ -16,12 +16,12 @@ export type AppProps = {
 
 function App(): React.ReactElement {
   return (
-    <Flex className='flex min-h-screen items-center justify-center' direction='col' gap='gap-4'>
-      <Grid cols='grid-cols-2' element='main' gap='gap-2'>
-        <Box className='rounded bg-blue-500 p-4'>Item 1</Box>
-        <Box className='rounded bg-green-500 p-4'>Item 2</Box>
-        <Box className='rounded bg-red-500 p-4'>Item 3</Box>
-        <Box className='rounded bg-yellow-500 p-4'>Item 4</Box>
+    <Flex className='flex justify-center items-center min-h-screen' direction='col' gap='4'>
+      <Grid cols='2' element='main' gap='2'>
+        <Box className='bg-blue-500 p-4 rounded'>Item 1</Box>
+        <Box className='bg-green-500 p-4 rounded'>Item 2</Box>
+        <Box className='bg-red-500 p-4 rounded'>Item 3</Box>
+        <Box className='bg-yellow-500 p-4 rounded'>Item 4</Box>
       </Grid>
       <Select>
         <SelectTrigger className='w-[180px]'>

@@ -1,4 +1,3 @@
- 
 import path from 'path';
 
 import dts from 'vite-plugin-dts';
