@@ -1,7 +1,7 @@
 import React from "react";
-import { useTranslation } from "@plyaz/translations";
+import { useTranslations } from "next-intl";
+import type { AppTranslationKeys } from "@plyaz/translations";
 import type {  TranslationOptions } from "@plyaz/types/translations";
-import type { AppTranslationKeys } from "@plyaz/translations/locales";
 
 import type { TextProps } from "../Text/Text";
 import Text from "../Text/Text";
@@ -18,8 +18,8 @@ const TranslatedText: React.FC<TranslatedTextProps> = ({
   namespace,
   ...textProps
 }) => {
-  const { t } = useTranslation(namespace);
-  const translated = t(translationKey, translationOptions);
+  const t = useTranslations(namespace);
+  const translated = t(translationKey, translationOptions as Record<string, string | number | Date>);
   return <Text {...textProps}>{translated}</Text>;
 };
 

@@ -74,7 +74,7 @@ type Story = StoryObj<typeof TranslatedText>;
 
 export const Body: Story = {
   args: {
-    translationKey: "common.bodyText",
+    translationKey: "common.price",
     element: "p",
     size: "base",
     variant: "body",
@@ -84,7 +84,7 @@ export const Body: Story = {
 };
 export const Heading: Story = {
   args: {
-    translationKey: "common.headingText",
+    translationKey: "common.price",
     element: "h1",
     size: "2xl",
     variant: "heading",
@@ -94,7 +94,7 @@ export const Heading: Story = {
 };
 export const Caption: Story = {
   args: {
-    translationKey: "common.captionText",
+    translationKey: "common.price",
     element: "p",
     size: "sm",
     variant: "caption",
@@ -117,7 +117,7 @@ export const WithInterpolation: Story = {
 
 export const UserInteraction: Story = {
   args: {
-    translationKey: "common.clickMe",
+    translationKey: "common.price",
     element: "p",
     size: "sm",
     variant: "caption",

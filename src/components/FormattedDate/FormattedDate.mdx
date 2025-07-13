@@ -1,0 +1,59 @@
+import { Meta, Canvas, Controls, Source } from '@storybook/addon-docs';
+import * as FormattedDateStories from './FormattedDate.stories';
+
+<Meta of={FormattedDateStories} />
+
+# FormattedDate
+
+The `FormattedDate` component is a specialized text component that formats and displays dates with internationalization support. It extends the `Text` component to provide consistent date formatting across your application.
+
+## Features
+
+- Formats dates using the `@plyaz/translations` library for internationalization
+- Supports various date input types (Date object, string, or number)
+- Configurable date formatting options via `Intl.DateTimeFormatOptions`
+- Locale-aware formatting with fallback support
+- Inherits all `Text` component styling and semantic features
+
+## Usage Guidelines
+
+- Use `FormattedDate` instead of manually formatting dates to ensure consistency
+- Provide appropriate `formatOptions` for your use case (short, long, custom formats)
+- Set the `locale` prop to match your application's language requirements
+- Combine with layout primitives for structured date displays
+
+## Do
+
+- Use semantic date formatting that matches your application's locale
+- Provide clear `formatOptions` for consistent date display
+- Set appropriate locales for international applications
+- Use consistent date formats across your application
+
+## Don't
+
+- Manually format dates with inconsistent patterns
+- Hardcode date formats without considering internationalization
+- Use raw date strings without proper formatting
+- Ignore locale requirements for global applications
+
+## Props
+
+<Controls of={FormattedDateStories.Default} />
+
+### Examples
+
+## Basic Usage
+
+<Canvas of={FormattedDateStories.Default} />
+
+## Custom Format
+
+<Canvas of={FormattedDateStories.CustomFormat} />
+
+## Different Locales
+
+<Canvas of={FormattedDateStories.DifferentLocales} />
+
+## Source Code
+
+<Source of={FormattedDateStories.Default} language='tsx' />

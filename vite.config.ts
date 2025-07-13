@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/naming-convention */
+ 
 import path from 'path';
 
 import dts from 'vite-plugin-dts';
@@ -53,6 +53,9 @@ const config: Record<string, unknown> = {
       name: 'PlyazUI',
       fileName: (format: string) => `ui.${format}.js`,
       formats: ['es', 'cjs'],
+    },
+    rollupOptions: {
+      external: ['react', 'react-dom', 'next-intl'],
     },
   },
 };
