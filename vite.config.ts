@@ -53,9 +53,10 @@ const config: Record<string, unknown> = {
       fileName: (format: string) => `ui.${format}.js`,
       formats: ['es', 'cjs'],
     },
-   rollupOptions: {
-      external: ['react', 
-        'react-dom', 
+    rollupOptions: {
+      external: [
+        'react',
+        'react-dom',
         'next-intl',
         'react/jsx-runtime',
         'react/jsx-dev-runtime',
