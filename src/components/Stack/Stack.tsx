@@ -1,8 +1,8 @@
-import clsx from 'clsx';
 import React from 'react';
 
 import { Box } from '@/components';
 import type { ElementType } from '@/types/type';
+import { cn } from '@/lib/utils';
 
 export interface StackProps extends React.HTMLAttributes<HTMLElement> {
   children: React.ReactNode;
@@ -21,7 +21,7 @@ export const Stack = ({
 }: StackProps) => {
   const flexDirection = direction === 'vertical' ? 'flex-col' : 'flex-row';
   return (
-    <Box className={clsx('flex', flexDirection, spacing, className)} element={element} {...props}>
+    <Box className={cn('flex', flexDirection, spacing, className)} element={element} {...props}>
       {children}
     </Box>
   );

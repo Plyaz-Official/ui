@@ -1,5 +1,6 @@
 'use client';
-import { Box, Button, ExternalLink, Flex, Grid } from '@/components';
+
+import { Box, Button, ExternalLink, Flex, Grid, Heading } from '@/components';
 import './App.css';
 import './global.css';
 import {
@@ -35,7 +36,7 @@ function App(): React.ReactElement {
       </Select>
       <Button className='px-4 py-3'>Text</Button>
       <ExternalLink href='https:www.google.com'> This is the link</ExternalLink>
-      <Select open={true}>
+      <Select>
         <SelectTrigger className='w-[180px]'>
           <SelectValue placeholder='Select a fruit' />
         </SelectTrigger>
@@ -44,6 +45,9 @@ function App(): React.ReactElement {
           <SelectItem value='banana'>Banana</SelectItem>
         </SelectContent>
       </Select>
+      <Heading element='h2' size='3xl' className='font-bold text-2xl'>
+        Welcome to the App
+      </Heading>
     </Flex>
   );
 }
