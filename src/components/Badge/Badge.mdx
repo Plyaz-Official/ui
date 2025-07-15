@@ -1,0 +1,60 @@
+import { Meta, Canvas, Source, Controls } from '@storybook/addon-docs';
+import * as BadgeStories from './Badge.stories';
+
+<Meta of={BadgeStories} />
+
+# Badge
+
+The `Badge` component is used to highlight small pieces of information like statuses, categories, or labels. It’s lightweight and can be customized using the `variant` prop.
+
+## Features
+
+- Lightweight label or status indicator
+- Comes in multiple variants (`default`, `secondary`, `destructive`, `outline`)
+- Fully styleable using Tailwind utility classes
+- Accepts all standard `div` or `span` props
+- Works well inline with buttons, cards, and text
+
+## Usage Guidelines
+
+Badges support multiple `variant`s (like `default`, `secondary`, `destructive`, `outline`) that help differentiate meaning through color and tone. Use these variants consistently across your application based on their intent (e.g., `destructive` for critical alerts, `outline` for subtle contexts).
+
+Badges are **non-interactive by default** and should not be used as buttons unless wrapped with actionable elements explicitly.
+
+## Do
+
+- Use `Badge` to highlight status, category, or notification counts
+- Combine with icons or actions if needed
+- Use consistent color logic across your app (e.g., red = danger)
+
+## Don’t
+
+- Use `Badge` for large text or paragraphs
+- Overload the UI with too many badges
+- Use conflicting variants in close proximity
+
+## Props
+
+<Controls of={BadgeStories.Default} />
+
+### Examples
+
+### Default
+
+<Canvas of={BadgeStories.Default} />
+
+### Secondary
+
+<Canvas of={BadgeStories.Secondary} />
+
+### Destructive
+
+<Canvas of={BadgeStories.Destructive} />
+
+### Outline
+
+<Canvas of={BadgeStories.Outline} />
+
+### Sources
+
+<Source of={BadgeStories.Outline} language='tsx' />
