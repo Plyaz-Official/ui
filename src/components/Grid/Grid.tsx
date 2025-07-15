@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import React from 'react';
 
 import { Box } from '@/components';
@@ -10,6 +9,7 @@ import {
   ROW_NUMBER,
 } from '@/constants/constant';
 import type { ElementType } from '@/types/type';
+import { cn } from '@/lib/utils';
 
 export interface GridProps extends React.HTMLAttributes<HTMLElement> {
   children?: React.ReactNode;
@@ -36,7 +36,7 @@ export const Grid = ({
   return (
     <Box
       element={element}
-      className={clsx(
+      className={cn(
         'grid',
         cols && COLUMN_NUMBER[cols],
         rows && ROW_NUMBER[rows],
