@@ -4,14 +4,12 @@ import { describe, expect, it, vi } from 'vitest';
 import FormattedNumber from '@/components/FormattedNumber/FormattedNumber';
 import type { TEXT_WEIGHT_MAPPER, VARIANT_MAPPER } from '@/constants/constant';
 
-// Mock the @plyaz/translations/frontend module
-vi.mock('@plyaz/translations/frontend', () => ({
-  useFormatting: (locale?: string) => ({
-    formatNumber: (value: number, options?: Intl.NumberFormatOptions) => {
-      return new Intl.NumberFormat(locale ?? 'en-US', options).format(value);
-    },
-  }),
-}));
+// // Mock the @plyaz/translations/frontend module
+// vi.mock('@plyaz/translations', () => ({
+//   formatNumber: (value: number, options?: Intl.NumberFormatOptions) => {
+//     return new Intl.NumberFormat('en-US', options).format(value);
+//   },
+// }));
 
 type TextElement = 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 

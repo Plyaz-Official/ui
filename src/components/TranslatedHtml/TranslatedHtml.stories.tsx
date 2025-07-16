@@ -46,102 +46,55 @@ type Story = StoryObj<typeof TranslatedHtml>;
 
 export const Default: Story = {
   args: {
-    translationKey: 'common.price',
+    translationKey: 'common.hello',
     tag: 'div',
     className: 'bg-white dark:bg-black dark:text-white p-4',
-  },
-  parameters: {
-    mockData: {
-      translations: {
-        welcome_message: 'Welcome to <strong>Our App</strong>',
-      },
-    },
   },
 };
 
 export const WithOptions: Story = {
   args: {
-    translationKey: 'common.price',
-    translationOptions: { args: { url: '/help', text: 'here' } },
+    translationKey: 'common.greeting',
+    translationOptions: { args: { name: 'Martin' } },
     tag: 'p',
     className: 'bg-white dark:bg-black dark:text-white p-4',
-  },
-  parameters: {
-    mockData: {
-      translations: {
-        click_here: 'Click <a href="{url}">{text}</a> for more information',
-      },
-    },
   },
 };
 
 export const CustomTag: Story = {
   args: {
-    translationKey: 'common.price',
+    translationKey: 'common.farewell',
     tag: 'h2',
     className: 'bg-white dark:bg-black dark:text-white p-4',
-  },
-  parameters: {
-    mockData: {
-      translations: {
-        section_title: 'This is a <em>section</em> title',
-      },
-    },
   },
 };
 
 export const WithStyling: Story = {
   args: {
-    translationKey: 'common.price',
+    translationKey: 'common.hello',
     tag: 'div',
     className: 'bg-blue-50 dark:bg-blue-900 p-6 rounded-lg border',
-  },
-  parameters: {
-    mockData: {
-      translations: {
-        styled_content:
-          'This content has <span class="text-red-500 font-bold">styled elements</span> and <a href="/docs" class="text-blue-600 hover:underline">links</a>.',
-      },
-    },
   },
 };
 
 export const ComplexContent: Story = {
   args: {
-    translationKey: 'common.price',
+    translationKey: 'common.followers.other',
     translationOptions: {
-      interpolation: {
-        username: 'John',
-        count: '5',
-        link: '/profile',
+      args: {
+        count: '42',
       },
     },
     tag: 'article',
     className: 'bg-white dark:bg-black dark:text-white p-4 max-w-md',
   },
-  parameters: {
-    mockData: {
-      translations: {
-        complex_message:
-          'Hello <strong>{username}</strong>! You have <span class="text-green-600 font-semibold">{count}</span> new messages. <a href="{link}" class="text-blue-600 hover:underline">View profile</a>',
-      },
-    },
-  },
 };
 
 export const UserInteraction: Story = {
   args: {
-    translationKey: 'common.price',
+    translationKey: 'common.hello',
     tag: 'div',
     className: 'bg-white dark:bg-black dark:text-white p-4 cursor-pointer',
-  },
-  parameters: {
-    mockData: {
-      translations: {
-        interactive_content:
-          'Click <button class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">this button</button> to interact',
-      },
-    },
   },
   play: async ({ canvas }) => {
     const container = canvas.getByTestId('translated-html');
@@ -151,5 +104,41 @@ export const UserInteraction: Story = {
     const end = performance.now();
     const duration = end - start;
     await expect(duration).toBeLessThan(100);
+  },
+};
+
+export const WithPriceInterpolation: Story = {
+  args: {
+    translationKey: 'common.price',
+    translationOptions: { args: { price: '29.99' } },
+    tag: 'span',
+    className: 'bg-white dark:bg-black dark:text-white p-4',
+  },
+};
+
+export const WithDateInterpolation: Story = {
+  args: {
+    translationKey: 'common.ordered',
+    translationOptions: { 
+      args: { orderDate: '2024-01-15' }
+    },
+    tag: 'p',
+    className: 'bg-white dark:bg-black dark:text-white p-4',
+  },
+};
+
+export const WithFollowersZero: Story = {
+  args: {
+    translationKey: 'common.followers.zero',
+    tag: 'p',
+    className: 'bg-white dark:bg-black dark:text-white p-4',
+  },
+};
+
+export const WithFollowersOne: Story = {
+  args: {
+    translationKey: 'common.followers.one',
+    tag: 'p',
+    className: 'bg-white dark:bg-black dark:text-white p-4',
   },
 };

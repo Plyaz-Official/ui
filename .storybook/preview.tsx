@@ -1,7 +1,17 @@
 import type { Preview } from '@storybook/react';
+import { resources } from '@plyaz/translations';
+import { NextIntlClientProvider } from 'next-intl';
+
 import { autoDocsTemplate } from '../src/docs/DocTemplate';
+
 import { allModes } from './mode';
+
 import '../src/global.css';
+
+
+
+
+
 
 /**
  * This  globalType adds a light/dark mode menu in the Storybook toolbar,
@@ -33,7 +43,9 @@ const preview: Preview = {
       const { theme } = context.globals;
       return (
         <div className={theme}>
-          <Story />
+          <NextIntlClientProvider locale="en" messages={resources['en']}>
+            <Story />
+          </NextIntlClientProvider>
         </div>
       );
     },

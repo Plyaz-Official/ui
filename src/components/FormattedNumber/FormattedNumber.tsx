@@ -1,5 +1,5 @@
 import React from 'react';
-import { useFormatting } from '@plyaz/translations/frontend';
+import { formatNumber } from '@plyaz/translations';
 
 import type { TextProps } from '../Text/Text';
 import Text from '../Text/Text';
@@ -16,8 +16,7 @@ const FormattedNumber: React.FC<FormattedNumberProps> = ({
   locale,
   ...textProps
 }) => {
-  const { formatNumber } = useFormatting(locale);
-  const formattedNumber = formatNumber(value, formatOptions);
+  const formattedNumber = formatNumber(value, locale, formatOptions);
   return <Text {...textProps}>{formattedNumber}</Text>;
 };
 

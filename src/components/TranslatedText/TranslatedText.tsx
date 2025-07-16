@@ -21,7 +21,7 @@ const TranslatedText: React.FC<TranslatedTextProps> = ({
   const t = useTranslations(namespace);
   const translated = t(
     translationKey,
-    translationOptions as Record<string, string | number | Date>
+    translationOptions?.args as Record<string, string | number | Date>
   );
   return <Text {...textProps}>{translated}</Text>;
 };

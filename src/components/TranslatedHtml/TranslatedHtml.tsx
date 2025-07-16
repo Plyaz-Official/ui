@@ -42,7 +42,7 @@ const TranslatedHtml: React.FC<TranslatedHtmlProps> = ({
   const t = useTranslations(namespace);
   const translated = t(
     translationKey,
-    translationOptions as Record<string, string | number | Date>
+    translationOptions?.args as Record<string, string | number | Date>
   );
   return React.createElement(tag, { className }, translated);
 };

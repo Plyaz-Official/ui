@@ -60,7 +60,7 @@ type Story = StoryObj<typeof TranslatedText>;
 
 export const Body: Story = {
   args: {
-    translationKey: 'common.price',
+    translationKey: 'common.hello',
     element: 'p',
     size: 'base',
     variant: 'body',
@@ -70,7 +70,7 @@ export const Body: Story = {
 };
 export const Heading: Story = {
   args: {
-    translationKey: 'common.price',
+    translationKey: 'common.farewell',
     element: 'h1',
     size: '2xl',
     variant: 'heading',
@@ -80,7 +80,7 @@ export const Heading: Story = {
 };
 export const Caption: Story = {
   args: {
-    translationKey: 'common.price',
+    translationKey: 'common.hello',
     element: 'p',
     size: 'sm',
     variant: 'caption',
@@ -92,7 +92,7 @@ export const Caption: Story = {
 export const WithInterpolation: Story = {
   args: {
     translationKey: 'common.greeting',
-    translationOptions: { interpolation: { name: 'Martin' }, defaultValue: 'Hello, Martin!' },
+    translationOptions: { args: { name: 'Martin' } },
     element: 'span',
     size: 'lg',
     variant: 'body',
@@ -103,7 +103,7 @@ export const WithInterpolation: Story = {
 
 export const UserInteraction: Story = {
   args: {
-    translationKey: 'common.price',
+    translationKey: 'common.hello',
     element: 'p',
     size: 'sm',
     variant: 'caption',
@@ -118,5 +118,43 @@ export const UserInteraction: Story = {
     const duration = end - start;
     await expect(duration).toBeLessThan(100);
     await expect(args.onClick).toBeCalled();
+  },
+};
+
+export const WithPriceInterpolation: Story = {
+  args: {
+    translationKey: 'common.price',
+    translationOptions: { args: { price: '29.99' } },
+    element: 'span',
+    size: 'lg',
+    variant: 'body',
+    weight: 'semibold',
+    className: 'bg-white dark:bg-black dark:text-white',
+  },
+};
+
+export const WithDateInterpolation: Story = {
+  args: {
+    translationKey: 'common.ordered',
+    translationOptions: { 
+      args: { orderDate: '2024-01-15' }
+    },
+    element: 'p',
+    size: 'base',
+    variant: 'body',
+    weight: 'normal',
+    className: 'bg-white dark:bg-black dark:text-white',
+  },
+};
+
+export const WithFollowersCount: Story = {
+  args: {
+    translationKey: 'common.followers.other',
+    translationOptions: { args: { count: '42' } },
+    element: 'span',
+    size: 'base',
+    variant: 'body',
+    weight: 'normal',
+    className: 'bg-white dark:bg-black dark:text-white',
   },
 };

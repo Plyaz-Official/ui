@@ -1,5 +1,5 @@
 import React from 'react';
-import { useFormatting } from '@plyaz/translations/frontend';
+import { formatDate } from '@plyaz/translations';
 
 import type { TextProps } from '../Text/Text';
 import Text from '../Text/Text';
@@ -16,8 +16,7 @@ const FormattedDate: React.FC<FormattedDateProps> = ({
   locale,
   ...textProps
 }) => {
-  const { formatDate } = useFormatting(locale);
-  const formattedDate = formatDate(date, formatOptions);
+  const formattedDate = formatDate(date, locale, formatOptions);
   return <Text {...textProps}>{formattedDate}</Text>;
 };
 

@@ -5,17 +5,15 @@ import type { TEXT_WEIGHT_MAPPER, VARIANT_MAPPER } from '@/constants/constant';
 
 import FormattedDate from './FormattedDate';
 
-// Mock the useFormatting hook to return a predictable formatter
-vi.mock('@plyaz/translations/frontend', () => ({
-  useFormatting: () => ({
-    formatDate: (date: Date | string | number, formatOptions?: Intl.DateTimeFormatOptions) => {
-      const dateObj = date instanceof Date ? date : new Date(date);
-      return dateObj.toLocaleDateString('en-US', {
-        timeZone: 'UTC',
-        ...formatOptions,
-      });
-    },
-  }),
+// Mock the formatDate function to return a predictable formatter
+vi.mock('@plyaz/translations', () => ({
+  formatDate: (date: Date | string | number, locale?: string, formatOptions?: Intl.DateTimeFormatOptions) => {
+    const dateObj = date instanceof Date ? date : new Date(date);
+    return dateObj.toLocaleDateString('en-US', {
+      timeZone: 'UTC',
+      ...formatOptions,
+    });
+  },
 }));
 
 type TextElement = 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
