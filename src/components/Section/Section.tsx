@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { Box } from '@/components';
-import { cn } from '@/lib/utils';
 
 export interface SectionProps extends React.HTMLAttributes<HTMLElement> {
   className?: string;
@@ -10,7 +9,7 @@ export interface SectionProps extends React.HTMLAttributes<HTMLElement> {
 
 export const Section = ({ className = '', children, ...props }: SectionProps) => {
   return (
-    <Box element='section' className={cn(`mx-2 my-4 p-4 sm:p-6`, className)} {...props}>
+    <Box element='section' className={className} {...props}>
       {children}
     </Box>
   );
