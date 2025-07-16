@@ -1,10 +1,4 @@
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@plyaz/ui';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@plyaz/ui';
 
 type LanguageSelectorProps = {
   locale: string;
@@ -27,7 +21,7 @@ export default function LanguageSelector({
         <SelectValue placeholder={getLabel(locale)} />
       </SelectTrigger>
       <SelectContent>
-        {locales.map((cur) => (
+        {locales.map(cur => (
           <SelectItem key={cur} value={cur}>
             {getLabel(cur)}
           </SelectItem>

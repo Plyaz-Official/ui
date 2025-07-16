@@ -54,8 +54,9 @@ const config: Record<string, unknown> = {
       formats: ['es', 'cjs'],
     },
     rollupOptions: {
-      external: ['react', 
-        'react-dom', 
+      external: [
+        'react',
+        'react-dom',
         'next-intl',
         'react/jsx-runtime',
         'react/jsx-dev-runtime',

@@ -8,11 +8,6 @@ import { allModes } from './mode';
 
 import '../src/global.css';
 
-
-
-
-
-
 /**
  * This  globalType adds a light/dark mode menu in the Storybook toolbar,
  * allowing developers and designers to preview components under different themes.
@@ -43,7 +38,7 @@ const preview: Preview = {
       const { theme } = context.globals;
       return (
         <div className={theme}>
-          <NextIntlClientProvider locale="en" messages={resources['en']}>
+          <NextIntlClientProvider locale='en' messages={resources['en']}>
             <Story />
           </NextIntlClientProvider>
         </div>

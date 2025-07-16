@@ -119,8 +119,8 @@ export const WithPriceInterpolation: Story = {
 export const WithDateInterpolation: Story = {
   args: {
     translationKey: 'common.ordered',
-    translationOptions: { 
-      args: { orderDate: '2024-01-15' }
+    translationOptions: {
+      args: { orderDate: '2024-01-15' },
     },
     tag: 'p',
     className: 'bg-white dark:bg-black dark:text-white p-4',

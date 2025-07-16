@@ -13,7 +13,7 @@ const meta: Meta<typeof LanguageSelector> = {
     docs: {
       description: {
         component:
-          '`LanguageSelector` is a specialized Select component for switching between available locales. It provides a dropdown interface for users to change the application\'s language with proper routing and maintains the current page context during language changes.',
+          "`LanguageSelector` is a specialized Select component for switching between available locales. It provides a dropdown interface for users to change the application's language with proper routing and maintains the current page context during language changes.",
       },
     },
   },
@@ -62,9 +62,7 @@ export const Default: Story = {
     onChange: fn(),
     getLabel: mockGetLabel,
   },
-  render: args => (
-    <LanguageSelector {...args} />
-  ),
+  render: args => <LanguageSelector {...args} />,
 };
 
 // With different current locale
@@ -75,9 +73,7 @@ export const SpanishSelected: Story = {
     onChange: fn(),
     getLabel: mockGetLabel,
   },
-  render: args => (
-    <LanguageSelector {...args} />
-  ),
+  render: args => <LanguageSelector {...args} />,
 };
 
 // Disabled state (during transition)
@@ -89,9 +85,7 @@ export const Disabled: Story = {
     getLabel: mockGetLabel,
     disabled: true,
   },
-  render: args => (
-    <LanguageSelector {...args} />
-  ),
+  render: args => <LanguageSelector {...args} />,
 };
 
 // Minimal locales
@@ -102,9 +96,7 @@ export const MinimalLocales: Story = {
     onChange: fn(),
     getLabel: mockGetLabel,
   },
-  render: args => (
-    <LanguageSelector {...args} />
-  ),
+  render: args => <LanguageSelector {...args} />,
 };
 
 // Custom label function
@@ -115,9 +107,7 @@ export const CustomLabels: Story = {
     onChange: fn(),
     getLabel: (locale: string) => locale.toUpperCase(),
   },
-  render: args => (
-    <LanguageSelector {...args} />
-  ),
+  render: args => <LanguageSelector {...args} />,
 };
 
 // User interaction test
@@ -128,9 +118,7 @@ export const UserInteraction: Story = {
     onChange: fn(),
     getLabel: mockGetLabel,
   },
-  render: args => (
-    <LanguageSelector {...args} />
-  ),
+  render: args => <LanguageSelector {...args} />,
   play: async ({ canvasElement, args }) => {
     const button = canvasElement.querySelector('button');
     if (button) {
@@ -140,7 +128,7 @@ export const UserInteraction: Story = {
       const duration = end - start;
       const expectDuration = 200;
       await expect(duration).toBeLessThan(expectDuration);
-      
+
       // Test selecting a different locale
       const spanishOption = canvasElement.querySelector('[data-value="es"]');
       if (spanishOption) {
@@ -149,4 +137,4 @@ export const UserInteraction: Story = {
       }
     }
   },
-}; 
+};

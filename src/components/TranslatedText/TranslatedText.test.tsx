@@ -6,7 +6,12 @@ import TranslatedText from './TranslatedText';
 describe('TranslatedText component', () => {
   it('renders translated text', () => {
     render(
-      <TranslatedText translationKey='components.LanguageSelector.label' element='p' variant='body' weight='normal' />
+      <TranslatedText
+        translationKey='components.LanguageSelector.label'
+        element='p'
+        variant='body'
+        weight='normal'
+      />
     );
     expect(screen.getByText('Language')).toBeDefined();
   });
@@ -39,14 +44,25 @@ describe('TranslatedText component', () => {
 
   it('renders with namespace', () => {
     render(
-      <TranslatedText translationKey='components.LanguageSelector.label' namespace='components' element='span' variant='body' weight='normal' />
+      <TranslatedText
+        translationKey='components.LanguageSelector.label'
+        namespace='components'
+        element='span'
+        variant='body'
+        weight='normal'
+      />
     );
     expect(screen.getByText('Language')).toBeDefined();
   });
 
   it('renders with default element when no element is specified', () => {
     render(
-      <TranslatedText translationKey='components.LanguageSelector.label' element='p' variant='body' weight='normal' />
+      <TranslatedText
+        translationKey='components.LanguageSelector.label'
+        element='p'
+        variant='body'
+        weight='normal'
+      />
     );
     const el = screen.getByText('Language');
     expect(el.tagName.toLowerCase()).toBe('p');
