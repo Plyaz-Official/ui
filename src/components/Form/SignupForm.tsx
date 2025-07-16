@@ -1,8 +1,8 @@
-import clsx from 'clsx';
 import { useState } from 'react';
 
 import { Box } from '@/components/Box/Box';
 import { Heading } from '@/components/Heading/Heading';
+import { cn } from '@/lib/utils';
 
 export const SignupForm = () => {
   const [formFields, setFormFields] = useState({
@@ -39,8 +39,8 @@ export const SignupForm = () => {
   };
 
   return (
-    <Box className='mx-auto w-full max-w-md rounded bg-white p-6 shadow-md'>
-      <Heading element='h2' size='xl' className='mb-4 text-center font-bold'>
+    <Box className='bg-white shadow-md mx-auto p-6 rounded w-full max-w-md'>
+      <Heading element='h2' size='xl' className='mb-4 font-bold text-center'>
         Sign Up
       </Heading>
       <form onSubmit={handleSubmit} className='space-y-4'>
@@ -53,18 +53,15 @@ export const SignupForm = () => {
             type='name'
             value={formFields.name}
             onChange={handleChange}
-            className={clsx(
-              `
-                mt-1 block w-full rounded-md border px-4 py-2 shadow-sm
-                focus:border-blue-500 focus:ring-blue-500
-              `,
+            className={cn(
+              `block shadow-sm mt-1 px-4 py-2 border focus:border-blue-500 rounded-md focus:ring-blue-500 w-full`,
               {
                 'border-red-500': errors.name,
                 'border-gray-300': !errors.name,
               }
             )}
           />
-          {errors.name && <p className='mt-1 text-sm text-red-600'>{errors.name}</p>}
+          {errors.name && <p className='mt-1 text-red-600 text-sm'>{errors.name}</p>}
         </Box>
         <Box>
           <label htmlFor='email' className={`block text-sm font-medium text-gray-700`}>
@@ -82,7 +79,7 @@ export const SignupForm = () => {
               focus:border-blue-500 focus:ring-blue-500
             `}
           />
-          {errors.email && <p className='mt-1 text-sm text-red-600'>{errors.email}</p>}
+          {errors.email && <p className='mt-1 text-red-600 text-sm'>{errors.email}</p>}
         </Box>
 
         <Box>
@@ -101,7 +98,7 @@ export const SignupForm = () => {
               focus:border-blue-500 focus:ring-blue-500
             `}
           />
-          {errors.password && <p className='mt-1 text-sm text-red-600'>{errors.password}</p>}
+          {errors.password && <p className='mt-1 text-red-600 text-sm'>{errors.password}</p>}
         </Box>
 
         <button

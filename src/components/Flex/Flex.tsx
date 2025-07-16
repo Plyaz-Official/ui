@@ -1,9 +1,9 @@
-import clsx from 'clsx';
 import React from 'react';
 
 import { Box } from '@/components';
 import { ALIGN_MAPPER, GAP, JUASTIFY_MAPPER } from '@/constants/constant';
 import type { ElementType } from '@/types/type';
+import { cn } from '@/lib/utils';
 
 const DIRECTION_MAPPER = {
   row: 'flex-row',
@@ -41,7 +41,7 @@ export const Flex = ({
   return (
     <Box
       element={element}
-      className={clsx(
+      className={cn(
         'flex',
         direction && DIRECTION_MAPPER[direction],
         justify && JUASTIFY_MAPPER[justify],
