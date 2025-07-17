@@ -1,0 +1,48 @@
+import { Meta, Canvas, Controls, Source } from '@storybook/addon-docs';
+import * as CardStories from './Card.stories';
+
+<Meta of={CardStories} />
+
+# Card
+
+`Card` is a flexible, composable component used to group content and actions related to a single subject. It includes optional sections like `CardHeader`, `CardContent`, and `CardFooter`.
+
+## Features
+
+- Flexible layout with `CardHeader`, `CardContent`, and `CardFooter`
+- Styleable via Tailwind CSS utilities
+- Easily composable for notifications, dashboards, settings, etc.
+- Accepts all valid HTML props via `...props`
+
+## Usage Guidelines
+
+Cards are versatile UI containers used to group related information and actions. They're especially useful for summarizing content, encapsulating repeated elements (e.g., in grids), or visually segmenting dashboard and settings UIs.
+
+A `Card` typically consists of a `CardHeader` (for title and description), `CardContent` (for the main body), and an optional `CardFooter` (for actions like buttons or links). This layout supports clear hierarchy and helps users quickly scan content.
+
+Cards follow consistent padding, border, and background patterns across the UI for visual coherence. In dashboards or notification panels, cards help reduce cognitive load by chunking information.
+
+Use `Card` when content needs to be easily distinguished as a single unit — for example, user profile previews, payment summaries, product listings, or onboarding steps.
+
+### Do
+
+- Use `Card` for contained content blocks like alerts, summaries, or previews
+- Use `CardTitle` and `CardDescription` for clarity and hierarchy
+- Use `CardFooter` for actions or links
+
+### Don’t
+
+- Nest `Card` deeply inside scrollable containers
+- Use `Card` when a simple `div` with spacing suffices
+
+## Props
+
+<Controls of={CardStories.Default} />
+
+### Example
+
+### Notifications Card
+
+<Canvas of={CardStories.Default} />
+### Source
+<Source of={CardStories.Default} language='tsx' />
