@@ -10,8 +10,9 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/Card/Card';
+import type Notification from '.storybook/types';
 
-const notifications = [
+const notifications: Notification[] = [
   {
     title: 'Your call has been confirmed.',
     description: '1 hour ago',
