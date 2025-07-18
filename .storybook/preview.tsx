@@ -1,6 +1,11 @@
 import type { Preview } from '@storybook/react';
+import { resources } from '@plyaz/translations';
+import { NextIntlClientProvider } from 'next-intl';
+
 import { autoDocsTemplate } from '../src/docs/DocTemplate';
+
 import { allModes } from './mode';
+
 import '../src/global.css';
 
 /**
@@ -32,9 +37,11 @@ const preview: Preview = {
     (Story, context) => {
       const { theme } = context.globals;
       return (
-        <div className={theme}>
-          <Story />
-        </div>
+        <NextIntlClientProvider locale='en' messages={resources['en']}>
+          <div className={theme}>
+            <Story />
+          </div>
+        </NextIntlClientProvider>
       );
     },
   ],

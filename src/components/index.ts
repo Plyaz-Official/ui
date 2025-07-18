@@ -48,3 +48,9 @@ export {
   SelectTrigger,
   SelectValue,
 } from './Select/Select';
+
+export { default as TranslatedText } from './TranslatedText/TranslatedText';
+export { default as TranslatedHtml } from './TranslatedHtml/TranslatedHtml';
+export { default as FormattedDate } from './FormattedDate/FormattedDate';
+export { default as FormattedNumber } from './FormattedNumber/FormattedNumber';
+export { default as LanguageSelector } from './LanguageSelector/LanguageSelector';

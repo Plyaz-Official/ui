@@ -1,0 +1,82 @@
+import { Meta, Canvas, Controls, Source } from '@storybook/addon-docs';
+import * as FormattedNumberStories from './FormattedNumber.stories';
+
+<Meta of={FormattedNumberStories} />
+
+# FormattedNumber
+
+The `FormattedNumber` component is a specialized typography utility that displays numbers with proper internationalization formatting while extending the `Text` component's styling capabilities.
+
+## Features
+
+- Formats numbers using `Intl.NumberFormat` for proper internationalization
+- Supports currency, percentage, and decimal formatting
+- Extends `Text` component with all its styling and semantic capabilities
+- Configurable locale and formatting options
+- Maintains design system consistency through Tailwind CSS
+
+## Usage Guidelines
+
+- Use `FormattedNumber` for displaying monetary values, percentages, or large numbers
+- Specify appropriate `formatOptions` for the type of number being displayed
+- Set the correct `locale` for international applications
+- Combine with layout primitives for structured design
+- Use semantic HTML elements through the `element` prop
+
+## Do
+
+- Use currency formatting for monetary values with appropriate currency codes
+- Apply percentage formatting for ratios and rates
+- Set locale-specific formatting for international applications
+- Use consistent number formatting across your application
+- Leverage the `Text` component's styling props for visual consistency
+
+## Don't
+
+- Use raw number values without proper formatting
+- Mix different formatting styles inconsistently
+- Forget to specify currency codes for monetary values
+- Use inappropriate locales for your target audience
+- Override formatting with custom CSS when format options are available
+
+## Props
+
+<Controls of={FormattedNumberStories.Default} />
+
+### Examples
+
+## Basic Number Formatting
+
+### Default
+
+<Canvas of={FormattedNumberStories.Default} />
+
+### Large Number
+
+<Canvas of={FormattedNumberStories.LargeNumber} />
+
+## Currency Formatting
+
+### USD Currency
+
+<Canvas of={FormattedNumberStories.Currency} />
+
+### Different Locale (Spanish EUR)
+
+<Canvas of={FormattedNumberStories.DifferentLocale} />
+
+## Percentage Formatting
+
+### Percentage
+
+<Canvas of={FormattedNumberStories.Percentage} />
+
+## Interactive Example
+
+### User Interaction
+
+<Canvas of={FormattedNumberStories.UserInteraction} />
+
+### Source Code
+
+<Source of={FormattedNumberStories.Default} language='tsx' />

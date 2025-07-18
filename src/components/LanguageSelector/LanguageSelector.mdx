@@ -1,0 +1,74 @@
+import { Meta, Story, Source, Canvas, Controls } from '@storybook/addon-docs';
+import * as LanguageSelectorStories from './LanguageSelector.stories';
+
+<Meta of={LanguageSelectorStories} />
+
+# LanguageSelector
+
+`LanguageSelector` is a specialized Select component designed for switching between available locales in internationalized applications. It provides a dropdown interface for users to change the application's language with proper routing and maintains the current page context during language changes.
+
+This component is built on top of the base `Select` component and is specifically tailored for locale switching scenarios.
+
+## Features
+
+- Specialized Select component for locale switching
+- Built on Radix UI's accessible Select primitive
+- Supports React transitions for smooth locale changes
+- Maintains page context during language switches
+- Flexible label customization through `getLabel` function
+- Disabled state support during transitions
+
+## Usage Guidelines
+
+- Use `LanguageSelector` when you need to provide language/locale switching functionality
+- Always provide a `getLabel` function that returns user-friendly locale names
+- Handle the `disabled` state during locale transitions to prevent conflicts
+- Use with proper routing libraries (like `next-intl`) for seamless navigation
+
+## Do
+
+- Provide meaningful locale labels in the user's current language
+- Handle the `onChange` callback to trigger proper routing
+- Use the `disabled` prop during transition states
+- Pass all available locales from your routing configuration
+
+## Don't
+
+- Use for general selection purposes (use `Select` instead)
+- Hardcode locale labels—always use the `getLabel` function
+- Forget to handle the disabled state during transitions
+- Use without proper internationalization setup
+
+## Props
+
+<Controls of={LanguageSelectorStories.Default} />
+
+---
+
+### Examples
+
+## Variants
+
+### Default
+
+<Canvas of={LanguageSelectorStories.Default} />
+
+### Spanish Selected
+
+<Canvas of={LanguageSelectorStories.SpanishSelected} />
+
+### Disabled State
+
+<Canvas of={LanguageSelectorStories.Disabled} />
+
+### Minimal Locales
+
+<Canvas of={LanguageSelectorStories.MinimalLocales} />
+
+### Custom Labels
+
+<Canvas of={LanguageSelectorStories.CustomLabels} />
+
+## Source Code
+
+<Source of={LanguageSelectorStories.Default} language='tsx' />
