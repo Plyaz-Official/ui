@@ -49,9 +49,9 @@
     "pnpm": ">=8.0.0"
   },
   "dependencies": {
-    "@plyaz/translations": "^1.2.0",
-    "@plyaz/types": "^1.1.2",
     "@plyaz/devtools": "^1.7.2",
+    "@plyaz/translations": "^1.2.1",
+    "@plyaz/types": "^1.1.2",
     "@radix-ui/react-menubar": "^1.1.15",
     "@radix-ui/react-select": "^2.2.5",
     "@radix-ui/react-slot": "^1.2.3",
