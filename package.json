@@ -1,6 +1,6 @@
 {
   "name": "@plyaz/ui",
-  "version": "0.4.13",
+  "version": "0.5.2",
   "description": "A reusable, accessible, and themeable component library powering the Plyaz Web App interface. Built with performance and consistency in mind, @plyaz/ui delivers modular React components aligned with the Plyaz design system — enabling seamless development across fan-facing features, quests, NFTs, and loyalty flows in the Web3 ecosystem.",
   "type": "module",
   "files": [
@@ -52,6 +52,7 @@
     "@plyaz/translations": "^1.2.0",
     "@plyaz/types": "^1.1.2",
     "@plyaz/devtools": "^1.7.2",
+    "@radix-ui/react-menubar": "^1.1.15",
     "@radix-ui/react-select": "^2.2.5",
     "@radix-ui/react-slot": "^1.2.3",
     "class-variance-authority": "^0.7.1",

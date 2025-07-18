@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Button, ExternalLink, Flex, Grid, Heading } from '@/components';
+import { Box, Button, ExternalLink, Flex, Grid } from '@/components';
 import './App.css';
 import './global.css';
 import {
@@ -10,6 +10,16 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/Select/Select';
+import {
+  Menubar,
+  MenubarMenu,
+  MenubarTrigger,
+  MenubarContent,
+  MenubarSeparator,
+  MenubarItem,
+  MenubarShortcut,
+} from '@/components/MenuBar/Menubar';
+import { Badge } from '@/components/Badge/Badge';
 
 export type AppProps = {
   children?: React.ReactNode;
@@ -45,9 +55,23 @@ function App(): React.ReactElement {
           <SelectItem value='banana'>Banana</SelectItem>
         </SelectContent>
       </Select>
-      <Heading element='h2' size='3xl' className='font-bold text-2xl'>
-        Welcome to the App
-      </Heading>
+      <Menubar>
+        <MenubarMenu>
+          <MenubarTrigger>File</MenubarTrigger>
+          <MenubarContent>
+            <MenubarItem>
+              New Tab <MenubarShortcut>⌘T</MenubarShortcut>
+            </MenubarItem>
+            <MenubarItem>New Window</MenubarItem>
+            <MenubarSeparator />
+            <MenubarItem>Share</MenubarItem>
+            <MenubarSeparator />
+            <MenubarItem>Print</MenubarItem>
+          </MenubarContent>
+        </MenubarMenu>
+      </Menubar>
+
+      <Badge variant={'destructive'}>Error</Badge>
     </Flex>
   );
 }
