@@ -1,4 +1,4 @@
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@plyaz/ui';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components';
 
 type LanguageSelectorProps = {
   locale: string;

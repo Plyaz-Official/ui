@@ -37,11 +37,11 @@ const preview: Preview = {
     (Story, context) => {
       const { theme } = context.globals;
       return (
-        <div className={theme}>
-          <NextIntlClientProvider locale='en' messages={resources['en']}>
+        <NextIntlClientProvider locale='en' messages={resources['en']}>
+          <div className={theme}>
             <Story />
-          </NextIntlClientProvider>
-        </div>
+          </div>
+        </NextIntlClientProvider>
       );
     },
   ],

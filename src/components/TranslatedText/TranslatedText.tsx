@@ -3,8 +3,8 @@ import { useTranslations } from 'next-intl';
 import type { AppTranslationKeys } from '@plyaz/translations';
 import type { TranslationOptions } from '@plyaz/types/translations';
 
-import type { TextProps } from '../Text/Text';
-import Text from '../Text/Text';
+import type { TextProps } from '@/components/Text/Text';
+import Text from '@/components/Text/Text';
 
 interface TranslatedTextProps extends Omit<TextProps, 'children'> {
   translationKey: AppTranslationKeys;

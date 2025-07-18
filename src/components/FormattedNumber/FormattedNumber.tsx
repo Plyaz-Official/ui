@@ -1,8 +1,8 @@
 import React from 'react';
 import { formatNumber } from '@plyaz/translations';
 
-import type { TextProps } from '../Text/Text';
-import Text from '../Text/Text';
+import type { TextProps } from '@/components/Text/Text';
+import Text from '@/components/Text/Text';
 
 interface FormattedNumberProps extends Omit<TextProps, 'children'> {
   value: number;
