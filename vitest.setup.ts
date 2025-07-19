@@ -1,5 +1,5 @@
 import '@plyaz/devtools/configs/vitest.setup.mjs';
 import '@testing-library/jest-dom';
-import { mockNextIntl } from '@plyaz/translations';
+import { mockNextIntl } from '@plyaz/translations/testing';
 
 mockNextIntl();

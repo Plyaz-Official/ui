@@ -1,10 +1,10 @@
 import React from 'react';
+import type { Messages } from 'next-intl';
 import { useTranslations } from 'next-intl';
-import type { AppTranslationKeys } from '@plyaz/translations';
-import type { TranslationOptions } from '@plyaz/types/translations';
+import type { LeafPaths, TranslationOptions } from '@plyaz/types/translations';
 
 interface TranslatedHtmlProps {
-  translationKey: AppTranslationKeys;
+  translationKey: LeafPaths<Messages>;
   translationOptions?: TranslationOptions;
   namespace?: string;
   className?: string;
