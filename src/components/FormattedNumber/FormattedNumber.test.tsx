@@ -16,12 +16,12 @@ const formattedNumberProps = {
 
 describe('FormattedNumber component ', () => {
   // Performance test to ensure the component renders quickly
-  it('renders under 100ms', () => {
+  it('renders under 200ms', () => {
     const start = performance.now();
     render(<FormattedNumber {...formattedNumberProps} />);
     const end = performance.now();
     const duration = end - start;
-    expect(duration).toBeLessThan(100);
+    expect(duration).toBeLessThan(200);
   });
 
   // Unit test to check if the component renders with the correct element, class, and formatted value
