@@ -28,7 +28,7 @@ export const Text = ({
     <ELEMENT
       data-testid='text'
       className={cn(
-        'font-sans font-normal text-base',
+        'font-normal text-base',
         size && SIZES_MAPPER[size],
         weight && TEXT_WEIGHT_MAPPER[weight],
         variant && VARIANT_MAPPER[variant],
