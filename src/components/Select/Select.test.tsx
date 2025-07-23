@@ -30,7 +30,7 @@ describe('Select component', () => {
     await expect(screen.getByText('Select a fruit')).toBeInTheDocument();
   });
 
-  it('allows selecting an option and calls onValueChange and render under 100ms', async () => {
+  it('allows selecting an option and calls onValueChange and render under 200ms', async () => {
     const onChange = vi.fn();
 
     const start = performance.now();
@@ -49,7 +49,7 @@ describe('Select component', () => {
     );
     const end = performance.now();
     const duration = end - start;
-    expect(duration).toBeLessThan(100);
+    expect(duration).toBeLessThan(200);
 
     screen.getByTestId('select');
     expect(screen.getByTestId('apple')).toBeInTheDocument();

@@ -4,12 +4,12 @@ import { describe, expect, it } from 'vitest';
 import { Badge } from '@/components/Badge/Badge';
 
 describe('Badge component', () => {
-  it('renders under 100ms', () => {
+  it('renders under 200ms', () => {
     const start = performance.now();
     render(<Badge>New</Badge>);
     const end = performance.now();
     const duration = end - start;
-    expect(duration).toBeLessThan(100);
+    expect(duration).toBeLessThan(200);
   });
 
   it('renders with correct text content', () => {

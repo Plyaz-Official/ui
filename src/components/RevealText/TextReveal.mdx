@@ -1,0 +1,52 @@
+import { Meta, Canvas, Controls, Source } from "@storybook/addon-docs";
+import * as TextRevealStories from "./TextReveal.stories";
+
+<Meta of={TextRevealStories} />
+
+# TextReveal
+
+The `TextReveal` component animates words individually based on scroll progress. It’s designed for storytelling or expressive headers, giving users a smooth word-by-word reveal as they scroll.
+
+## Features
+
+- Scroll-based word-by-word animation
+- Uses `motion` from `framer-motion`
+- Accepts a string as children and splits it into animated words
+- Styled with Tailwind CSS for consistency and responsiveness
+- Integrates seamlessly with dark/light modes
+
+## Usage Guidelines
+
+- Wrap content you want to reveal dynamically with `TextReveal`
+- Ensure the `children` prop is a plain string
+- Use for headings, hero sections, or interactive intros
+
+## Do
+
+- Use for visually impactful scroll-based text transitions
+- Combine with large headers or narrative sections
+- Use `className` to control layout and styling
+
+## Don’t
+
+- Pass non-string children (it will throw an error)
+- Use for small body text or inline content
+- Place inside very short scroll areas (it relies on scroll progress)
+
+## Props
+
+<Controls of={TextRevealStories.Base} />
+
+### Examples
+
+## Default Usage
+
+<Canvas of={TextRevealStories.Base} />
+
+## Custom Styling
+
+<Canvas of={TextRevealStories.CustomStyle} />
+
+### Source Code
+
+<Source of={TextRevealStories.Base} language="tsx" />

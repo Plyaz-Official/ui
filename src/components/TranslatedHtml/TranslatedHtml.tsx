@@ -44,7 +44,7 @@ const TranslatedHtml: React.FC<TranslatedHtmlProps> = ({
     translationKey,
     translationOptions?.args as Record<string, string | number | Date>
   );
-  return React.createElement(tag, { className }, translated);
+  return React.createElement(tag, { className, 'data-testid': 'translated-html' }, translated);
 };
 
 export default TranslatedHtml;
