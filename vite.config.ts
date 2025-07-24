@@ -64,6 +64,7 @@ const config: Record<string, unknown> = {
         '@radix-ui/react-select',
         'clsx',
         'lucide-react',
+        'motion',
       ],
     },
   },
