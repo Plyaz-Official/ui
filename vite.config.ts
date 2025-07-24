@@ -65,6 +65,7 @@ const config: Record<string, unknown> = {
         'clsx',
         'lucide-react',
         'motion',
+        'tw-animate-css'
       ],
     },
   },
