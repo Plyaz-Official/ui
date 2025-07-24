@@ -7,18 +7,16 @@
     "dist",
     "global.css"
   ],
-  "main": "./dist/ui.umd.cjs",
-  "module": "./dist/ui.js",
   "exports": {
     ".": {
       "types": "./dist/types/components/index.d.ts",
-      "import": "./dist/ui.es.js",
-      "require": "./dist/ui.cjs.js"
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.cjs.js"
     },
     "./client": {
       "types": "./dist/types/components/client.d.ts",
-      "import": "./dist/ui.es.js",
-      "require": "./dist/ui.cjs.js"
+      "import": "./dist/client.es.js",
+      "require": "./dist/client.cjs.js"
     }
   },
   "scripts": {

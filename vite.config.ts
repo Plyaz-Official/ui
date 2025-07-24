@@ -48,9 +48,12 @@ const config: Record<string, unknown> = {
   build: {
     ...baseConfig.build,
     lib: {
-      entry: path.resolve(__dirname, 'src/main.ts'),
+      entry: {
+        index: path.resolve(__dirname, 'src/main.ts'),
+        client: path.resolve(__dirname, 'src/components/client.ts'),
+      },
       name: 'PlyazUI',
-      fileName: (format: string) => `ui.${format}.js`,
+      fileName: (format: string, name: string) => `${name}.${format}.js`,
       formats: ['es', 'cjs'],
     },
     rollupOptions: {
