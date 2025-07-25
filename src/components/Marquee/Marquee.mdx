@@ -1,0 +1,63 @@
+import { Meta, Canvas, Controls, Source } from '@storybook/addon-docs';
+import * as MarqueeStories from './Marquee.stories';
+
+<Meta of={MarqueeStories} />
+
+# Marquee
+
+The `Marquee` component creates a seamless, continuously-scrolling banner. It can scroll horizontally **or vertically**, supports reversing the animation direction, pausing on hover, and repeating its children a configurable number of times.
+
+## Features
+
+- Smooth CSS animation for infinite scrolling
+- Horizontal **and** vertical modes
+- Optional reverse direction
+- Optional pause on hover for accessibility
+- Configurable `repeat` count to control how many copies of the content are rendered (helps avoid visible gaps)
+- Fully styleable via Tailwind utility classes through `className`
+- Accepts any React nodes as content (text, icons, images, etc.)
+
+## Usage Guidelines
+
+- Keep marquee content short so the animation feels natural and avoids visual clutter.
+- Use `pauseOnHover` for interactive or critical content so users can read at their own pace.
+- Increase `repeat` when the total width/height of the content is shorter than the viewport to prevent gaps.
+- Consider vertical mode for tickers or sidebar news feeds.
+
+## Do
+
+- Combine with icons or emoji for engaging, eye-catching banners.
+- Use reverse direction to create symmetrical marquees side by side.
+- Use Tailwind classes to adjust spacing via the CSS variables `--gap` and `--duration` if needed.
+
+## Don’t
+
+- Place large blocks of text inside a marquee.
+- Animate essential information without providing a paused state.
+- Overuse marquees—too many can be distracting.
+
+## Props
+
+<Controls of={MarqueeStories.Base} />
+
+### Examples
+
+#### Default
+
+<Canvas of={MarqueeStories.Base} />
+
+#### Vertical
+
+<Canvas of={MarqueeStories.Vertical} />
+
+#### Pause on Hover
+
+<Canvas of={MarqueeStories.PauseOnHover} />
+
+#### Reverse
+
+<Canvas of={MarqueeStories.Reverse} />
+
+### Source Code
+
+<Source of={MarqueeStories.Base} language='tsx' />
