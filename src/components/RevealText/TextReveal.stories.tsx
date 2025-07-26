@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { TextReveal } from './TextReveal';
 
 const meta: Meta<typeof TextReveal> = {
-  title: 'Components/TextReveal',
+  title: 'Magic UI/TextReveal',
   component: TextReveal,
   argTypes: {
     children: {
