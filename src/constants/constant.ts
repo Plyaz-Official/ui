@@ -18,9 +18,9 @@ export const ALIGN_MAPPER = {
   stretch: 'items-stretch',
 };
 export const VARIANT_MAPPER = {
-  body: 'font-sans',
-  heading: 'font-sans',
-  caption: 'font-sans',
+  body: 'font-general',
+  heading: 'font-general',
+  caption: 'font-general',
 };
 
 export const SIZES_MAPPER = {
