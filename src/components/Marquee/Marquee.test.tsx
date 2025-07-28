@@ -23,4 +23,4 @@ describe('Marquee', () => {
     const verticalGroup = root.querySelector('.animate-marquee-vertical');
     expect(verticalGroup).toBeTruthy();
   });
-}); 
+});
