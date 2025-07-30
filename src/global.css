@@ -1,5 +1,5 @@
 @import url('https://api.fontshare.com/v2/css?f[]=general-sans@1&display=swap');
-@import url('animations.css');
+@import './animations.css';
 @import 'tailwindcss';
 @source inline("border-strong border-subtle hover:fill-accent-icon-hover hover:stroke-accent-icon-hover hover:bg-accent-hover hover:bg-accent-foreground-hover");
 @source inline("{hover:,focus:,}bg-background {hover:,focus:,}text-background");
@@ -73,6 +73,8 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
   --animate-aurora: aurora 8s ease-in-out infinite alternate;
+  --animate-marquee: marquee var(--duration) infinite linear;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
   --font-general: 'General Sans', sans-serif;
 }
 :root {
