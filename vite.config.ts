@@ -4,7 +4,7 @@ import dts from 'vite-plugin-dts';
 import { visualizer } from 'rollup-plugin-visualizer';
 import type { PluginOption } from 'vite';
 
-import baseConfig from './node_modules/@plyaz/devtools/vite.config';
+import baseConfig from './node_modules/@plyaz/devtools/configs/vite.config';
 
 baseConfig.plugins?.push(
   visualizer({
