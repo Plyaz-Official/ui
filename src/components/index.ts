@@ -48,6 +48,20 @@ export {
   SelectValue,
 } from './Select/Select';
 
+export {
+  AlertDialog,
+  AlertDialogPortal,
+  AlertDialogOverlay,
+  AlertDialogTrigger,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogFooter,
+  AlertDialogTitle,
+  AlertDialogDescription,
+  AlertDialogAction,
+  AlertDialogCancel,
+} from './AlertDialog/AlertDialog';
+
 export { default as TranslatedText } from './TranslatedText/TranslatedText';
 export { default as TranslatedHtml } from './TranslatedHtml/TranslatedHtml';
 export { default as FormattedDate } from './FormattedDate/FormattedDate';

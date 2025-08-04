@@ -1,0 +1,62 @@
+import { Meta, Story, Canvas, Controls, Source } from '@storybook/addon-docs';
+import * as AlertDialogStories from './AlertDialog.stories';
+
+<Meta of={AlertDialogStories} />
+
+# Alert Dialog
+
+`AlertDialog` is a modal dialog component used to capture user confirmation before executing critical or potentially destructive actions.
+
+## Features
+
+- Modal-based confirmation interface
+- Composed of accessible and customizable subcomponents:
+  - `AlertDialogTrigger`
+  - `AlertDialogContent`
+  - `AlertDialogHeader`
+  - `AlertDialogTitle`
+  - `AlertDialogDescription`
+  - `AlertDialogFooter`
+  - `AlertDialogAction`
+  - `AlertDialogCancel`
+- Fully keyboard accessible
+- Customizable layout and styles
+
+
+## Usage Guidelines
+
+- Use `AlertDialog` for actions that require a deliberate decision (e.g., delete, logout).
+- Keep the dialog short and precise.
+- Always provide a way to cancel the dialog.
+- Do not use it for trivial confirmations.
+
+## Do
+
+- Use it to confirm irreversible or sensitive operations
+- Provide clear action labels like “Delete” or “Continue”
+- Respect user focus and accessibility
+
+## Don’t
+
+- Use for non-critical interactions
+- Overload the dialog with too much text
+- Forget to make actions clear (don’t just say “Yes”/“No”)
+
+---
+
+
+## Examples
+
+### Default Alert Dialog
+
+<Canvas of={AlertDialogStories.Default} />
+
+<Source of={AlertDialogStories.Default} language="tsx" />
+
+---
+
+### Interaction Test
+
+This story simulates a user opening and closing the dialog via keyboard and mouse.
+
+<Canvas of={AlertDialogStories.ShouldOpenClose} />
