@@ -11,7 +11,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from '@/components';
+} from '@/components/client';
 
 /**
  * A modal dialog that interrupts the user with important content and expects
