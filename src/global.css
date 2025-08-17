@@ -1,6 +1,7 @@
 @import url('https://api.fontshare.com/v2/css?f[]=general-sans@1&display=swap');
 @import './animations.css';
 @import 'tailwindcss';
+@import './blog.css';
 @source inline("border-strong border-subtle hover:fill-accent-icon-hover hover:stroke-accent-icon-hover hover:bg-accent-hover hover:bg-accent-foreground-hover");
 @source inline("{hover:,focus:,}bg-background {hover:,focus:,}text-background");
 @source inline("{hover:,focus:,}bg-foreground {hover:,focus:,}text-foreground");
