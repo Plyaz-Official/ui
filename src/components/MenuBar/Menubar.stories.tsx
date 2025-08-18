@@ -167,11 +167,13 @@ export const UserInteraction: Story = {
     const performanceDuration = 300;
     await expect(end - start).toBeLessThan(performanceDuration);
     const items = await screen.findAllByRole('menuitem');
-    await expect(items).toHaveLength(2);
+    const EXPECTED_LENGTH = 2;
+    await expect(items).toHaveLength(EXPECTED_LENGTH);
     if (button) {
       await userEvent.click(button);
       await expect(args.onClick).toBeCalled();
     }
-    await userEvent.click(items[0], { delay: 100 });
+     const EXPECTED_DURATION = 100;
+    await userEvent.click(items[0], { delay: EXPECTED_DURATION });
   },
 };
