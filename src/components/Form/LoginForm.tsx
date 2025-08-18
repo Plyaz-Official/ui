@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Box } from '@/components/Box/Box';
 import { Heading } from '@/components/Heading/Heading';
 
+const PASSWORD_LENGTH = 6;
 export const LoginForm = () => {
   const [formFields, setFormFields] = useState({ email: '', password: '' });
   const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
@@ -18,7 +19,7 @@ export const LoginForm = () => {
 
     if (!formFields.email) newErrors.email = 'Email is required';
     if (!formFields.password) newErrors.password = 'Password is required';
-    else if (formFields.password.length < 6)
+    else if (formFields.password.length < PASSWORD_LENGTH)
       newErrors.password = 'Password must be at least 6 characters';
 
     setErrors(newErrors);
@@ -30,13 +31,13 @@ export const LoginForm = () => {
   };
 
   return (
-    <Box className='mx-auto w-full max-w-md rounded bg-white p-6 shadow-md'>
-      <Heading element='h2' size='xl' className='mb-4 text-center font-bold'>
+    <Box className='bg-white shadow-md mx-auto p-6 rounded w-full max-w-md'>
+      <Heading element='h2' size='xl' className='mb-4 font-bold text-center'>
         Login
       </Heading>
       <form onSubmit={handleSubmit} className='space-y-4'>
         <Box>
-          <label htmlFor='email' className='block text-sm font-medium text-gray-700'>
+          <label htmlFor='email' className='block font-medium text-gray-700 text-sm'>
             Email
           </label>
           <input
@@ -51,11 +52,11 @@ export const LoginForm = () => {
               focus:border-blue-500 focus:ring-blue-500
             `}
           />
-          {errors.email && <p className='mt-1 text-sm text-red-600'>{errors.email}</p>}
+          {errors.email && <p className='mt-1 text-red-600 text-sm'>{errors.email}</p>}
         </Box>
 
         <Box>
-          <label htmlFor='password' className='block text-sm font-medium text-gray-700'>
+          <label htmlFor='password' className='block font-medium text-gray-700 text-sm'>
             Password
           </label>
           <input
@@ -70,7 +71,7 @@ export const LoginForm = () => {
               focus:border-blue-500 focus:ring-blue-500
             `}
           />
-          {errors.password && <p className='mt-1 text-sm text-red-600'>{errors.password}</p>}
+          {errors.password && <p className='mt-1 text-red-600 text-sm'>{errors.password}</p>}
         </Box>
 
         <button

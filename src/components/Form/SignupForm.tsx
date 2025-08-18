@@ -4,6 +4,8 @@ import { Box } from '@/components/Box/Box';
 import { Heading } from '@/components/Heading/Heading';
 import { cn } from '@/lib/utils';
 
+const PASSWORD_LENGTH = 6;
+
 export const SignupForm = () => {
   const [formFields, setFormFields] = useState({
     email: '',
@@ -27,7 +29,7 @@ export const SignupForm = () => {
     if (!formFields.name) newErrors.name = 'Name is required';
     if (!formFields.email) newErrors.email = 'Email is required';
     if (!formFields.password) newErrors.password = 'Password is required';
-    else if (formFields.password.length < 6)
+    else if (formFields.password.length < PASSWORD_LENGTH)
       newErrors.password = 'Password must be at least 6 characters';
 
     setErrors(newErrors);
@@ -45,7 +47,7 @@ export const SignupForm = () => {
       </Heading>
       <form onSubmit={handleSubmit} className='space-y-4'>
         <Box>
-          <label htmlFor='name' className='block text-sm font-medium text-gray-700'>
+          <label htmlFor='name' className='block font-medium text-gray-700 text-sm'>
             Name
           </label>
           <input
@@ -64,7 +66,7 @@ export const SignupForm = () => {
           {errors.name && <p className='mt-1 text-red-600 text-sm'>{errors.name}</p>}
         </Box>
         <Box>
-          <label htmlFor='email' className='block text-sm font-medium text-gray-700'>
+          <label htmlFor='email' className='block font-medium text-gray-700 text-sm'>
             Email
           </label>
           <input
@@ -83,7 +85,7 @@ export const SignupForm = () => {
         </Box>
 
         <Box>
-          <label htmlFor='password' className='block text-sm font-medium text-gray-700'>
+          <label htmlFor='password' className='block font-medium text-gray-700 text-sm'>
             Password
           </label>
           <input

@@ -51,9 +51,9 @@ export const Default: Story = {
     className: 'bg-gray-100 p-4 rounded dark:bg-black dark:text-white',
     children: (
       <>
-        <Box className='rounded bg-red-400 p-4 text-white'>Item 1</Box>
-        <Box className='rounded bg-blue-400 p-4 text-white'>Item 2</Box>
-        <Box className='rounded bg-green-400 p-4 text-white'>Item 3</Box>
+        <Box className='bg-red-400 p-4 rounded text-white'>Item 1</Box>
+        <Box className='bg-blue-400 p-4 rounded text-white'>Item 2</Box>
+        <Box className='bg-green-400 p-4 rounded text-white'>Item 3</Box>
       </>
     ),
   },
@@ -66,9 +66,9 @@ export const Vertical: Story = {
     className: 'bg-gray-200 p-4 rounded dark:bg-black dark:text-white',
     children: (
       <>
-        <Box className='rounded bg-purple-500 p-3 text-white'>Item A</Box>
-        <Box className='rounded bg-purple-600 p-3 text-white'>Item B</Box>
-        <Box className='rounded bg-purple-700 p-3 text-white'>Item C</Box>
+        <Box className='bg-purple-500 p-3 rounded text-white'>Item A</Box>
+        <Box className='bg-purple-600 p-3 rounded text-white'>Item B</Box>
+        <Box className='bg-purple-700 p-3 rounded text-white'>Item C</Box>
       </>
     ),
   },
@@ -82,9 +82,9 @@ export const UserInteraction: Story = {
     onClick: fn(),
     children: (
       <>
-        <Box className='rounded bg-purple-500 p-3 text-white'>Item A</Box>
-        <Box className='rounded bg-purple-600 p-3 text-white'>Item B</Box>
-        <Box className='rounded bg-purple-700 p-3 text-white'>Item C</Box>
+        <Box className='bg-purple-500 p-3 rounded text-white'>Item A</Box>
+        <Box className='bg-purple-600 p-3 rounded text-white'>Item B</Box>
+        <Box className='bg-purple-700 p-3 rounded text-white'>Item C</Box>
       </>
     ),
   },
@@ -95,7 +95,8 @@ export const UserInteraction: Story = {
     await userEvent.click(container);
     const end = performance.now();
     const duration = end - start;
-    await expect(duration).toBeLessThan(100);
+    const EXPECTED_DURATION = 100;
+    await expect(duration).toBeLessThan(EXPECTED_DURATION);
     await expect(args.onClick).toBeCalled();
   },
 };

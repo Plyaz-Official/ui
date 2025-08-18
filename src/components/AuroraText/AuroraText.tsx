@@ -9,6 +9,7 @@ interface AuroraTextProps {
   speed?: number;
 }
 
+const ANIMATION_DELAY = 10;
 export const AuroraText = memo(
   ({
     children,
@@ -20,7 +21,7 @@ export const AuroraText = memo(
       backgroundImage: `linear-gradient(135deg, ${colors.join(', ')}, ${colors[0]})`,
       WebkitBackgroundClip: 'text',
       WebkitTextFillColor: 'transparent',
-      animationDuration: `${10 / speed}s`,
+      animationDuration: `${ANIMATION_DELAY / speed}s`,
     };
 
     return (
