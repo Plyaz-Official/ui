@@ -5,7 +5,7 @@
   "type": "module",
   "files": [
     "dist",
-    "global.css"
+    "styles/"
   ],
   "exports": {
     ".": {

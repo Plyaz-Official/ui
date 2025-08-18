@@ -5,15 +5,15 @@ import { cn } from '@/lib/utils';
 
 type TextElement = 'span' | 'p' | 'strong' | 'em' | 'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
-export interface TextProps extends React.HTMLAttributes<HTMLElement> {
-  className?: string;
+
+export type TextProps<T extends TextElement='p'> = {
+ className?: string;
   children: React.ReactNode;
   element: TextElement;
   weight: keyof typeof TEXT_WEIGHT_MAPPER;
   variant: keyof typeof VARIANT_MAPPER;
   size?: keyof typeof SIZES_MAPPER;
-}
-
+} & React.ComponentProps<T>
 export const Text = ({
   className,
   children,
