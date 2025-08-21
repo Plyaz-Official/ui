@@ -80,7 +80,7 @@ export const Ghost: Story = {
 export const Link: Story = {
   args: {
     children: 'Link Button',
-    variant: 'link',
+    variant: 'ghost',
   },
 };
 

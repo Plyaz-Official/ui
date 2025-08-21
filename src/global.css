@@ -1,7 +1,7 @@
-@import url('https://api.fontshare.com/v2/css?f[]=general-sans@1&display=swap');
 @import 'tailwindcss';
 @import 'tw-animate-css';
 @custom-variant dark (&:where(.dark, .dark *));
+
 @import "../styles/animations.css";
 @import '../styles/blog.css';
 @import '../styles/main.css';

@@ -173,7 +173,7 @@ export const UserInteraction: Story = {
       await userEvent.click(button);
       await expect(args.onClick).toBeCalled();
     }
-     const EXPECTED_DURATION = 100;
+    const EXPECTED_DURATION = 100;
     await userEvent.click(items[0], { delay: EXPECTED_DURATION });
   },
 };

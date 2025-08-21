@@ -3,6 +3,10 @@
 import { Box, Button, ExternalLink, Flex, Grid } from '@/components';
 import './App.css';
 import './global.css';
+import '/fonts/GeneralSans-Bold.woff2';
+import '/fonts/GeneralSans-Medium.woff2';
+import '/fonts/GeneralSans-Regular.woff2';
+import '/fonts/GeneralSans-Semibold.woff2';
 import {
   Select,
   SelectContent,
