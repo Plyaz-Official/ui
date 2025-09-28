@@ -1,21 +1,12 @@
 import '@plyaz/devtools/configs/vitest.setup.mjs';
 import '@testing-library/jest-dom';
 import { mockNextIntl } from '@plyaz/translations/testing';
-import { beforeEach, vi } from 'vitest';
+import { beforeEach } from 'vitest';
+import { AnimationUtils } from '@plyaz/testing';
 
 mockNextIntl();
 
 // Mock IntersectionObserver and ResizeObserver
 beforeEach(() => {
-  global.IntersectionObserver = vi.fn().mockImplementation(() => ({
-    observe: vi.fn(),
-    unobserve: vi.fn(),
-    disconnect: vi.fn(),
-  }));
-
-  global.ResizeObserver = vi.fn().mockImplementation(() => ({
-    observe: vi.fn(),
-    unobserve: vi.fn(),
-    disconnect: vi.fn(),
-  }));
+  AnimationUtils.setupObserverMocks();
 });
