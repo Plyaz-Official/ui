@@ -275,8 +275,8 @@ export const WithCustomMax: Story = {
 };
 
 const UserInteractionComponent = () => {
-  const FIVE_HUNDRED = NUMERIC_CONSTANTS.FIVE_HUNDRED;
-  const [progress, setProgress] = useState<number>(FIVE_HUNDRED);
+  const FIFTY = NUMERIC_CONSTANTS.FIFTY;
+  const [progress, setProgress] = useState<number>(FIFTY);
 
   return (
     <div className='space-y-4'>
@@ -286,11 +286,11 @@ const UserInteractionComponent = () => {
       </div>
       <Progress value={progress} />
       <div className='flex gap-2'>
-        <Button onClick={() => setProgress(Math.max(0, progress - 10))} disabled={progress === 0}>
+        <Button onClick={() => setProgress(Math.max(0, Math.min(100, progress - 10)))} disabled={progress === 0}>
           Decrease
         </Button>
         <Button
-          onClick={() => setProgress(Math.min(100, progress + 10))}
+          onClick={() => setProgress(Math.min(100, Math.max(0, progress + 10)))}
           disabled={progress === 100}
         >
           Increase
