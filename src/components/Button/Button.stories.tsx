@@ -105,7 +105,7 @@ export const UserInteraction: Story = {
     onClick: fn(),
   },
   play: async ({ args, canvas }) => {
-    const canvasElement = await canvas.findByTestId('button');
+    const canvasElement = await canvas.findByRole('button');
     // Interaction performance test
     const start = performance.now();
     await userEvent.click(canvasElement);

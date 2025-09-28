@@ -311,7 +311,7 @@ const UserInteractionComponent = () => {
 export const UserInteraction: Story = {
   render: () => <UserInteractionComponent />,
   play: async ({ canvas }) => {
-    const firstSlot = await canvas.findByTestId('input-otp-slot');
+    const firstSlot = await canvas.findByRole('textbox');
     await userEvent.click(firstSlot);
     await userEvent.keyboard('1');
     await expect(canvas.getByDisplayValue('1')).toBeInTheDocument();

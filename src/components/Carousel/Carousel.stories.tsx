@@ -283,7 +283,7 @@ export const UserInteraction: Story = {
     </Carousel>
   ),
   play: async ({ canvas }) => {
-    const carousel = await canvas.findByTestId('carousel');
+    const carousel = await canvas.findByRole('region');
     await expect(carousel).toBeInTheDocument();
   },
 };

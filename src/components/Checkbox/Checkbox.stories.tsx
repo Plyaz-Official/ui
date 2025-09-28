@@ -242,7 +242,7 @@ export const UserInteraction: Story = {
     onCheckedChange: fn(),
   },
   play: async ({ args, canvas }) => {
-    const checkbox = await canvas.findByTestId('checkbox');
+    const checkbox = await canvas.findByRole('checkbox');
     await userEvent.click(checkbox);
     await expect(args.onCheckedChange).toBeCalled();
   },
