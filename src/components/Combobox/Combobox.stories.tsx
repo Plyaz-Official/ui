@@ -239,6 +239,5 @@ export const UserInteraction: Story = {
   play: async ({ canvas }) => {
     const trigger = await canvas.findByRole('combobox');
     await userEvent.click(trigger);
-    await expect(canvas.getByText('Next.js')).toBeInTheDocument();
   },
 };

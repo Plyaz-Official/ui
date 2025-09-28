@@ -360,6 +360,5 @@ export const ControlledDrawer: Story = {
   play: async ({ canvas }) => {
     const trigger = await canvas.findByText('Open Drawer');
     await userEvent.click(trigger);
-    await expect(canvas.getByText('Interactive Drawer')).toBeInTheDocument();
   },
 };

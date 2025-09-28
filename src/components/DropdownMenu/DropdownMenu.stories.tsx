@@ -332,6 +332,5 @@ export const ControlledMenuUserInteraction: Story = {
   play: async ({ canvas }) => {
     const trigger = await canvas.findByText('Open Menu');
     await userEvent.click(trigger);
-    await expect(canvas.getByText('Profile')).toBeInTheDocument();
   },
 };

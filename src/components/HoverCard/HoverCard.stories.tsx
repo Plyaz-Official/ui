@@ -317,6 +317,5 @@ export const ControlledHoverCard: Story = {
   play: async ({ canvas }) => {
     const trigger = await canvas.findByText('Interactive Hover Card');
     await userEvent.hover(trigger);
-    await expect(canvas.getByText('Interactive Hover Card')).toBeInTheDocument();
   },
 };

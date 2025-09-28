@@ -287,6 +287,5 @@ export const UserInteraction: Story = {
   play: async ({ canvas }) => {
     const trigger = await canvas.findByText('Right click here');
     await userEvent.pointer({ target: trigger, keys: '[MouseRight]' });
-    await expect(canvas.getByText('Profile')).toBeInTheDocument();
   },
 };

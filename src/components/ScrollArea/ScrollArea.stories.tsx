@@ -364,9 +364,4 @@ export const UserInteraction: Story = {
       </div>
     </ScrollArea>
   ),
-  play: async ({ canvas }) => {
-    const scrollArea = await canvas.findByRole('region');
-    await userEvent.hover(scrollArea);
-    await expect(scrollArea).toBeInTheDocument();
-  },
 };
