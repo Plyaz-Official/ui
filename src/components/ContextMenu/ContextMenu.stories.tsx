@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { expect, userEvent, fn } from '@storybook/test';
+import { userEvent, fn } from '@storybook/test';
 import { useState } from 'react';
 import { Copy, CreditCard, Edit, MoreHorizontal, Settings, Trash2, User } from 'lucide-react';
 

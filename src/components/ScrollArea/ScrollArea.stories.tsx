@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { expect, userEvent } from '@storybook/test';
 import { useState } from 'react';
 
 import { ScrollArea, ScrollBar } from '@/components';
