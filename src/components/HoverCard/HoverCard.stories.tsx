@@ -230,7 +230,7 @@ export const WithCustomStyling: Story = {
       </HoverCardTrigger>
       <HoverCardContent className='w-80 bg-gradient-to-b from-background to-muted/20 border-2 border-primary/20'>
         <div className='space-y-1'>
-          <h4 className='text-sm font-semibold text-primary'>Custom Styled Hover Card</h4>
+          <h4 className='text-sm font-semibold text-accent'>Custom Styled Hover Card</h4>
           <p className='text-sm text-muted-foreground'>
             This hover card has custom styling applied.
           </p>

@@ -101,15 +101,15 @@ export const Status: Story = {
   render: () => (
     <div className='flex gap-2'>
       <Badge variant='default'>
-        <div className='h-2 w-2 rounded-full bg-green-500' />
+        <div className='h-2 w-2 rounded-full bg-accent' />
         Online
       </Badge>
       <Badge variant='secondary'>
-        <div className='h-2 w-2 rounded-full bg-yellow-500' />
+        <div className='h-2 w-2 rounded-full bg-muted-foreground' />
         Away
       </Badge>
       <Badge variant='destructive'>
-        <div className='h-2 w-2 rounded-full bg-red-500' />
+        <div className='h-2 w-2 rounded-full bg-destructive' />
         Offline
       </Badge>
     </div>
@@ -128,7 +128,7 @@ export const Count: Story = {
 
 export const CustomStyling: Story = {
   render: () => (
-    <Badge className='bg-gradient-to-r from-purple-500 to-pink-500 text-white border-0'>
+    <Badge className='bg-primary text-primary-foreground border-0'>
       <Star className='h-3 w-3' />
       Premium
     </Badge>

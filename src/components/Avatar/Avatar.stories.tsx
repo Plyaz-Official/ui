@@ -75,7 +75,7 @@ export const CustomFallback: Story = {
   render: () => (
     <Avatar>
       <AvatarImage src='/broken-image.jpg' alt='Broken image' />
-      <AvatarFallback className='bg-blue-500 text-white font-bold'>JS</AvatarFallback>
+      <AvatarFallback className='bg-primary text-primary-foreground font-bold'>JS</AvatarFallback>
     </Avatar>
   ),
 };
@@ -105,7 +105,7 @@ export const WithStatus: Story = {
         <AvatarImage src='https://github.com/shadcn.png' alt='@shadcn' />
         <AvatarFallback>CN</AvatarFallback>
       </Avatar>
-      <div className='absolute -bottom-1 -right-1 size-3 rounded-full bg-green-500 border-2 border-background' />
+      <div className='absolute -bottom-1 -right-1 size-3 rounded-full bg-accent border-2 border-background' />
     </div>
   ),
 };

@@ -226,7 +226,7 @@ export const Indeterminate: Story = {
 export const CustomStyling: Story = {
   render: () => (
     <div className='flex items-center space-x-2'>
-      <Checkbox id='custom' className='border-2 border-blue-500 data-[state=checked]:bg-blue-500' />
+      <Checkbox id='custom' className='border-2 border-primary data-[state=checked]:bg-primary' />
       <label
         htmlFor='custom'
         className='text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70'

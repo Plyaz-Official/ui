@@ -215,7 +215,7 @@ export const CustomStyling: Story = {
       </DialogTrigger>
       <DialogContent className='max-w-md bg-gradient-to-b from-background to-muted/20 border-2 border-primary/20'>
         <DialogHeader>
-          <DialogTitle className='text-primary'>Custom Styled Dialog</DialogTitle>
+          <DialogTitle className='text-accent'>Custom Styled Dialog</DialogTitle>
           <DialogDescription>This dialog has custom styling applied.</DialogDescription>
         </DialogHeader>
         <DialogFooter>

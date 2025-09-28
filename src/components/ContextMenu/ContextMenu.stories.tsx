@@ -253,12 +253,12 @@ export const WithCustomStyling: Story = {
         Right click here
       </ContextMenuTrigger>
       <ContextMenuContent className='w-64 bg-gradient-to-b from-background to-muted/20 border-2 border-primary/20'>
-        <ContextMenuItem className='hover:bg-primary/10'>
-          <User className='mr-2 h-4 w-4 text-primary' />
+        <ContextMenuItem className='hover:bg-accent/10'>
+          <User className='mr-2 h-4 w-4 text-accent' />
           <span>Profile</span>
         </ContextMenuItem>
-        <ContextMenuItem className='hover:bg-primary/10'>
-          <Settings className='mr-2 h-4 w-4 text-primary' />
+        <ContextMenuItem className='hover:bg-accent/10'>
+          <Settings className='mr-2 h-4 w-4 text-accent' />
           <span>Settings</span>
         </ContextMenuItem>
       </ContextMenuContent>

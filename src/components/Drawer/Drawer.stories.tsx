@@ -286,7 +286,7 @@ export const CustomStyling: Story = {
       </DrawerTrigger>
       <DrawerContent className='bg-gradient-to-b from-background to-muted/20 border-2 border-primary/20'>
         <DrawerHeader>
-          <DrawerTitle className='text-primary'>Custom Styled Drawer</DrawerTitle>
+          <DrawerTitle className='text-accent'>Custom Styled Drawer</DrawerTitle>
           <DrawerDescription>This drawer has custom styling applied.</DrawerDescription>
         </DrawerHeader>
         <div className='p-4'>

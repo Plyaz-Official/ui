@@ -271,11 +271,11 @@ export const CustomStyling: Story = {
         <Button variant='outline'>Open Custom Menu</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className='bg-gradient-to-b from-background to-muted/20 border-2 border-primary/20'>
-        <DropdownMenuLabel className='text-primary'>Custom Menu</DropdownMenuLabel>
+        <DropdownMenuLabel className='text-accent'>Custom Menu</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem className='hover:bg-primary/10'>Custom Item 1</DropdownMenuItem>
-        <DropdownMenuItem className='hover:bg-primary/10'>Custom Item 2</DropdownMenuItem>
-        <DropdownMenuItem className='hover:bg-primary/10'>Custom Item 3</DropdownMenuItem>
+        <DropdownMenuItem className='hover:bg-accent/10'>Custom Item 1</DropdownMenuItem>
+        <DropdownMenuItem className='hover:bg-accent/10'>Custom Item 2</DropdownMenuItem>
+        <DropdownMenuItem className='hover:bg-accent/10'>Custom Item 3</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   ),

@@ -38,23 +38,23 @@ const meta: Meta<typeof Progress> = {
 export default meta;
 
 export const Default: Story = {
-  render: () => <Progress value={33} className='bg-blue-100' />,
+  render: () => <Progress value={33} />,
 };
 
 export const HalfProgress: Story = {
-  render: () => <Progress value={NUMERIC_CONSTANTS.FIFTY} className='bg-blue-100' />,
+  render: () => <Progress value={NUMERIC_CONSTANTS.FIFTY} />,
 };
 
 export const AlmostComplete: Story = {
-  render: () => <Progress value={90} className='bg-blue-100' />,
+  render: () => <Progress value={90} />,
 };
 
 export const Complete: Story = {
-  render: () => <Progress value={100} className='bg-blue-100' />,
+  render: () => <Progress value={100} />,
 };
 
 export const ZeroProgress: Story = {
-  render: () => <Progress value={0} className='bg-blue-100' />,
+  render: () => <Progress value={0} />,
 };
 
 const AnimatedProgressComponent = () => {
@@ -66,7 +66,7 @@ const AnimatedProgressComponent = () => {
     return () => clearTimeout(timer);
   }, [FIVE_HUNDRED, SIXTY_SIX]);
 
-  return <Progress value={progress} className='bg-blue-100' />;
+  return <Progress value={progress} />;
 };
 
 export const AnimatedProgress: Story = {
@@ -74,19 +74,19 @@ export const AnimatedProgress: Story = {
 };
 
 export const WithCustomStyling: Story = {
-  render: () => <Progress value={75} className='h-4 bg-gradient-to-r from-blue-100 to-blue-200' />,
+  render: () => <Progress value={75} className='h-4' />,
 };
 
 export const WithCustomIndicator: Story = {
-  render: () => <Progress value={60} className='h-3 bg-gray-200' />,
+  render: () => <Progress value={60} className='h-3' />,
 };
 
 export const LargeSize: Story = {
-  render: () => <Progress value={40} className='h-6 bg-blue-100' />,
+  render: () => <Progress value={40} className='h-6' />,
 };
 
 export const SmallSize: Story = {
-  render: () => <Progress value={80} className='h-1 bg-blue-100' />,
+  render: () => <Progress value={80} className='h-1' />,
 };
 
 export const WithLabel: Story = {
@@ -134,15 +134,15 @@ export const WithCustomColors: Story = {
     <div className='space-y-4'>
       <div>
         <div className='text-sm mb-1'>Success Progress</div>
-        <Progress value={80} className='bg-green-100' />
+        <Progress value={80} className='bg-accent' />
       </div>
       <div>
         <div className='text-sm mb-1'>Warning Progress</div>
-        <Progress value={60} className='bg-yellow-100' />
+        <Progress value={60} className='bg-muted' />
       </div>
       <div>
         <div className='text-sm mb-1'>Error Progress</div>
-        <Progress value={30} className='bg-red-100' />
+        <Progress value={30} className='bg-destructive' />
       </div>
     </div>
   ),

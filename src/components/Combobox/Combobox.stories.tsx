@@ -140,7 +140,7 @@ export const CustomStyling: Story = {
     searchPlaceholder: 'Search framework...',
     emptyText: 'No framework found.',
     className: 'w-[300px]',
-    triggerClassName: 'border-blue-500',
+    triggerClassName: 'border-primary',
     contentClassName: 'w-[300px]',
   },
 };
