@@ -1,8 +1,9 @@
 import { Meta, Canvas, Controls, Source } from '@storybook/addon-docs';
+import * as SeparatorStories from './Separator.stories';
 
 import { Separator } from '@/components';
 
-<Meta title='Components/Separator' />
+<Meta of={SeparatorStories} />
 
 # Separator
 
@@ -21,7 +22,7 @@ The `Separator` component provides a visual separator between content sections. 
 
 ### Basic Usage
 
-<Canvas of={Separator} />
+<Canvas of={SeparatorStories.Default} />
 
 <Source
   language="tsx"
@@ -30,19 +31,17 @@ import { Separator } from '@/components';
 
 function BasicSeparator() {
 return (
-<div className="space-y-4">
-<div>Content above</div>
-<Separator />
-<div>Content below</div>
+
+<div className='space-y-4'>
+  <div>Content above</div>
+  <Separator />
+  <div>Content below</div>
 </div>
-);
-}
-`}
-/>
+); } `} />
 
 ### Horizontal Separator
 
-<Canvas of={Separator} />
+<Canvas of={SeparatorStories.Horizontal} />
 
 <Source
   language="tsx"
@@ -51,19 +50,17 @@ import { Separator } from '@/components';
 
 function HorizontalSeparator() {
 return (
-<div className="space-y-4">
-<div>Content above</div>
-<Separator orientation="horizontal" />
-<div>Content below</div>
+
+<div className='space-y-4'>
+  <div>Content above</div>
+  <Separator orientation='horizontal' />
+  <div>Content below</div>
 </div>
-);
-}
-`}
-/>
+); } `} />
 
 ### Vertical Separator
 
-<Canvas of={Separator} />
+<Canvas of={SeparatorStories.Vertical} />
 
 <Source
   language="tsx"
@@ -72,19 +69,17 @@ import { Separator } from '@/components';
 
 function VerticalSeparator() {
 return (
-<div className="flex h-20 items-center space-x-4">
-<div>Left content</div>
-<Separator orientation="vertical" />
-<div>Right content</div>
+
+<div className='flex h-20 items-center space-x-4'>
+  <div>Left content</div>
+  <Separator orientation='vertical' />
+  <div>Right content</div>
 </div>
-);
-}
-`}
-/>
+); } `} />
 
 ### With Custom Styling
 
-<Canvas of={Separator} />
+<Canvas of={SeparatorStories.WithCustomStyling} />
 
 <Source
   language="tsx"
@@ -93,180 +88,17 @@ import { Separator } from '@/components';
 
 function CustomStyledSeparator() {
 return (
-<div className="space-y-4">
-<div>Content above</div>
-<Separator className="bg-primary h-0.5" />
-<div>Content below</div>
+
+<div className='space-y-4'>
+  <div>Content above</div>
+  <Separator className='bg-primary h-0.5' />
+  <div>Content below</div>
 </div>
-);
-}
-`}
-/>
-
-### With Thick Separator
-
-<Canvas of={Separator} />
-
-<Source
-  language="tsx"
-  code={`
-import { Separator } from '@/components';
-
-function ThickSeparator() {
-return (
-<div className="space-y-4">
-<div>Content above</div>
-<Separator className="h-2 bg-primary" />
-<div>Content below</div>
-</div>
-);
-}
-`}
-/>
-
-### With Dashed Separator
-
-<Canvas of={Separator} />
-
-<Source
-  language="tsx"
-  code={`
-import { Separator } from '@/components';
-
-function DashedSeparator() {
-return (
-<div className="space-y-4">
-<div>Content above</div>
-<Separator className="border-dashed border-t-2 border-primary" />
-<div>Content below</div>
-</div>
-);
-}
-`}
-/>
-
-### With Dotted Separator
-
-<Canvas of={Separator} />
-
-<Source
-  language="tsx"
-  code={`
-import { Separator } from '@/components';
-
-function DottedSeparator() {
-return (
-<div className="space-y-4">
-<div>Content above</div>
-<Separator className="border-dotted border-t-2 border-primary" />
-<div>Content below</div>
-</div>
-);
-}
-`}
-/>
-
-### With Gradient Separator
-
-<Canvas of={Separator} />
-
-<Source
-  language="tsx"
-  code={`
-import { Separator } from '@/components';
-
-function GradientSeparator() {
-return (
-<div className="space-y-4">
-<div>Content above</div>
-<Separator className="h-1 bg-gradient-to-r from-primary to-secondary" />
-<div>Content below</div>
-</div>
-);
-}
-`}
-/>
-
-### With Multiple Separators
-
-<Canvas of={Separator} />
-
-<Source
-  language="tsx"
-  code={`
-import { Separator } from '@/components';
-
-function MultipleSeparators() {
-return (
-<div className="space-y-4">
-<div>Section 1</div>
-<Separator />
-<div>Section 2</div>
-<Separator />
-<div>Section 3</div>
-<Separator />
-<div>Section 4</div>
-</div>
-);
-}
-`}
-/>
-
-### With Vertical Separators
-
-<Canvas of={Separator} />
-
-<Source
-  language="tsx"
-  code={`
-import { Separator } from '@/components';
-
-function VerticalSeparators() {
-return (
-<div className="flex h-20 items-center space-x-4">
-<div>Item 1</div>
-<Separator orientation="vertical" />
-<div>Item 2</div>
-<Separator orientation="vertical" />
-<div>Item 3</div>
-<Separator orientation="vertical" />
-<div>Item 4</div>
-</div>
-);
-}
-`}
-/>
-
-### With Mixed Orientations
-
-<Canvas of={Separator} />
-
-<Source
-  language="tsx"
-  code={`
-import { Separator } from '@/components';
-
-function MixedOrientations() {
-return (
-<div className="space-y-4">
-<div>Horizontal separator below</div>
-<Separator orientation="horizontal" />
-<div className="flex h-20 items-center space-x-4">
-<div>Vertical separator to the right</div>
-<Separator orientation="vertical" />
-<div>Content after vertical separator</div>
-</div>
-<Separator orientation="horizontal" />
-<div>Content after horizontal separator</div>
-</div>
-);
-}
-`}
-/>
+); } `} />
 
 ### With Custom Colors
 
-<Canvas of={Separator} />
+<Canvas of={SeparatorStories.WithCustomColors} />
 
 <Source
   language="tsx"
@@ -275,238 +107,20 @@ import { Separator } from '@/components';
 
 function CustomColors() {
 return (
-<div className="space-y-4">
-<div>Red separator</div>
-<Separator className="bg-red-500" />
-<div>Blue separator</div>
-<Separator className="bg-blue-500" />
-<div>Green separator</div>
-<Separator className="bg-green-500" />
+
+<div className='space-y-4'>
+  <div>Red separator</div>
+  <Separator className='bg-red-500' />
+  <div>Blue separator</div>
+  <Separator className='bg-blue-500' />
+  <div>Green separator</div>
+  <Separator className='bg-green-500' />
 </div>
-);
-}
-`}
-/>
-
-### With Custom Sizes
-
-<Canvas of={Separator} />
-
-<Source
-  language="tsx"
-  code={`
-import { Separator } from '@/components';
-
-function CustomSizes() {
-return (
-<div className="space-y-4">
-<div>Thin separator (1px)</div>
-<Separator className="h-px" />
-<div>Medium separator (4px)</div>
-<Separator className="h-1" />
-<div>Thick separator (8px)</div>
-<Separator className="h-2" />
-</div>
-);
-}
-`}
-/>
-
-### With Vertical Sizes
-
-<Canvas of={Separator} />
-
-<Source
-  language="tsx"
-  code={`
-import { Separator } from '@/components';
-
-function VerticalSizes() {
-return (
-<div className="flex h-20 items-center space-x-4">
-<div>Thin vertical</div>
-<Separator orientation="vertical" className="w-px" />
-<div>Medium vertical</div>
-<Separator orientation="vertical" className="w-1" />
-<div>Thick vertical</div>
-<Separator orientation="vertical" className="w-2" />
-</div>
-);
-}
-`}
-/>
-
-### With Spacing
-
-<Canvas of={Separator} />
-
-<Source
-  language="tsx"
-  code={`
-import { Separator } from '@/components';
-
-function SpacingSeparator() {
-return (
-<div className="space-y-8">
-<div>Content with large spacing</div>
-<Separator className="my-8" />
-<div>Content with large spacing</div>
-</div>
-);
-}
-`}
-/>
-
-### With Margins
-
-<Canvas of={Separator} />
-
-<Source
-  language="tsx"
-  code={`
-import { Separator } from '@/components';
-
-function MarginSeparator() {
-return (
-<div>
-<div>Content above</div>
-<Separator className="mx-8" />
-<div>Content below</div>
-</div>
-);
-}
-`}
-/>
-
-### With Padding
-
-<Canvas of={Separator} />
-
-<Source
-  language="tsx"
-  code={`
-import { Separator } from '@/components';
-
-function PaddingSeparator() {
-return (
-<div>
-<div>Content above</div>
-<Separator className="py-4" />
-<div>Content below</div>
-</div>
-);
-}
-`}
-/>
-
-### With Rounded Corners
-
-<Canvas of={Separator} />
-
-<Source
-  language="tsx"
-  code={`
-import { Separator } from '@/components';
-
-function RoundedSeparator() {
-return (
-<div className="space-y-4">
-<div>Content above</div>
-<Separator className="h-2 rounded-full" />
-<div>Content below</div>
-</div>
-);
-}
-`}
-/>
-
-### With Opacity
-
-<Canvas of={Separator} />
-
-<Source
-  language="tsx"
-  code={`
-import { Separator } from '@/components';
-
-function OpacitySeparator() {
-return (
-<div className="space-y-4">
-<div>Content above</div>
-<Separator className="opacity-50" />
-<div>Content below</div>
-</div>
-);
-}
-`}
-/>
-
-### With Shadow
-
-<Canvas of={Separator} />
-
-<Source
-  language="tsx"
-  code={`
-import { Separator } from '@/components';
-
-function ShadowSeparator() {
-return (
-<div className="space-y-4">
-<div>Content above</div>
-<Separator className="shadow-lg" />
-<div>Content below</div>
-</div>
-);
-}
-`}
-/>
-
-### With Border
-
-<Canvas of={Separator} />
-
-<Source
-  language="tsx"
-  code={`
-import { Separator } from '@/components';
-
-function BorderSeparator() {
-return (
-<div className="space-y-4">
-<div>Content above</div>
-<Separator className="border border-primary" />
-<div>Content below</div>
-</div>
-);
-}
-`}
-/>
-
-### With Background
-
-<Canvas of={Separator} />
-
-<Source
-  language="tsx"
-  code={`
-import { Separator } from '@/components';
-
-function BackgroundSeparator() {
-return (
-<div className="space-y-4">
-<div>Content above</div>
-<Separator className="bg-primary/20" />
-<div>Content below</div>
-</div>
-);
-}
-`}
-/>
+); } `} />
 
 ### With Text
 
-<Canvas of={Separator} />
+<Canvas of={SeparatorStories.WithText} />
 
 <Source
   language="tsx"
@@ -515,133 +129,19 @@ import { Separator } from '@/components';
 
 function TextSeparator() {
 return (
-<div className="flex items-center space-x-4">
-<div>Left content</div>
-<Separator className="flex-1" />
-<span className="text-sm text-muted-foreground">OR</span>
-<Separator className="flex-1" />
-<div>Right content</div>
+
+<div className='flex items-center space-x-4'>
+  <div>Left content</div>
+  <Separator className='flex-1' />
+  <span className='text-sm text-muted-foreground'>OR</span>
+  <Separator className='flex-1' />
+  <div>Right content</div>
 </div>
-);
-}
-`}
-/>
-
-### With Icon
-
-<Canvas of={Separator} />
-
-<Source
-  language="tsx"
-  code={`
-import { Separator } from '@/components';
-
-function IconSeparator() {
-return (
-<div className="flex items-center space-x-4">
-<div>Left content</div>
-<Separator className="flex-1" />
-<div className="text-muted-foreground">•</div>
-<Separator className="flex-1" />
-<div>Right content</div>
-</div>
-);
-}
-`}
-/>
-
-### With Form Sections
-
-<Canvas of={Separator} />
-
-<Source
-  language="tsx"
-  code={`
-import { Separator } from '@/components';
-
-function FormSections() {
-return (
-<form className="space-y-4">
-<div>
-<label className="block text-sm font-medium">Name</label>
-<input type="text" className="w-full p-2 border rounded" />
-</div>
-<Separator />
-<div>
-<label className="block text-sm font-medium">Email</label>
-<input type="email" className="w-full p-2 border rounded" />
-</div>
-<Separator />
-<div>
-<label className="block text-sm font-medium">Message</label>
-<textarea className="w-full p-2 border rounded" rows={3} />
-</div>
-</form>
-);
-}
-`}
-/>
-
-### With List Items
-
-<Canvas of={Separator} />
-
-<Source
-  language="tsx"
-  code={`
-import { Separator } from '@/components';
-
-function ListItems() {
-return (
-<ul className="space-y-2">
-<li>List item 1</li>
-<Separator />
-<li>List item 2</li>
-<Separator />
-<li>List item 3</li>
-<Separator />
-<li>List item 4</li>
-</ul>
-);
-}
-`}
-/>
-
-### With Card Sections
-
-<Canvas of={Separator} />
-
-<Source
-  language="tsx"
-  code={`
-import { Separator } from '@/components';
-
-function CardSections() {
-return (
-<div className="border rounded-lg p-4 space-y-4">
-<div>
-<h3 className="font-semibold">Card Title</h3>
-<p className="text-sm text-muted-foreground">Card description</p>
-</div>
-<Separator />
-<div>
-<h4 className="font-medium">Section 1</h4>
-<p className="text-sm">Content for section 1</p>
-</div>
-<Separator />
-<div>
-<h4 className="font-medium">Section 2</h4>
-<p className="text-sm">Content for section 2</p>
-</div>
-</div>
-);
-}
-`}
-/>
+); } `} />
 
 ### With Navigation
 
-<Canvas of={Separator} />
+<Canvas of={SeparatorStories.WithNavigation} />
 
 <Source
   language="tsx"
@@ -650,189 +150,25 @@ import { Separator } from '@/components';
 
 function Navigation() {
 return (
-<nav className="flex items-center space-x-4">
-<a href="#" className="text-sm font-medium">Home</a>
-<Separator orientation="vertical" />
-<a href="#" className="text-sm font-medium">About</a>
-<Separator orientation="vertical" />
-<a href="#" className="text-sm font-medium">Contact</a>
+
+<nav className='flex items-center space-x-4'>
+  <a href='#' className='text-sm font-medium'>
+    Home
+  </a>
+  <Separator orientation='vertical' />
+  <a href='#' className='text-sm font-medium'>
+    About
+  </a>
+  <Separator orientation='vertical' />
+  <a href='#' className='text-sm font-medium'>
+    Contact
+  </a>
 </nav>
-);
-}
-`}
-/>
-
-### With Breadcrumbs
-
-<Canvas of={Separator} />
-
-<Source
-  language="tsx"
-  code={`
-import { Separator } from '@/components';
-
-function Breadcrumbs() {
-return (
-<nav className="flex items-center space-x-2 text-sm">
-<a href="#" className="text-muted-foreground hover:text-foreground">Home</a>
-<Separator orientation="vertical" className="h-4" />
-<a href="#" className="text-muted-foreground hover:text-foreground">Products</a>
-<Separator orientation="vertical" className="h-4" />
-<span className="text-foreground">Current Page</span>
-</nav>
-);
-}
-`}
-/>
-
-### With Table Rows
-
-<Canvas of={Separator} />
-
-<Source
-  language="tsx"
-  code={`
-import { Separator } from '@/components';
-
-function TableRows() {
-return (
-<div className="space-y-2">
-<div className="flex justify-between">
-<span>Row 1</span>
-<span>Value 1</span>
-</div>
-<Separator />
-<div className="flex justify-between">
-<span>Row 2</span>
-<span>Value 2</span>
-</div>
-<Separator />
-<div className="flex justify-between">
-<span>Row 3</span>
-<span>Value 3</span>
-</div>
-</div>
-);
-}
-`}
-/>
-
-### With Responsive Design
-
-<Canvas of={Separator} />
-
-<Source
-  language="tsx"
-  code={`
-import { Separator } from '@/components';
-
-function ResponsiveSeparator() {
-return (
-<div className="space-y-4">
-<div>Content above</div>
-<Separator className="hidden md:block" />
-<div className="block md:hidden">
-<Separator orientation="vertical" className="h-4" />
-</div>
-<div>Content below</div>
-</div>
-);
-}
-`}
-/>
-
-### With Animation
-
-<Canvas of={Separator} />
-
-<Source
-  language="tsx"
-  code={`
-import { Separator } from '@/components';
-
-function AnimatedSeparator() {
-return (
-<div className="space-y-4">
-<div>Content above</div>
-<Separator className="animate-pulse" />
-<div>Content below</div>
-</div>
-);
-}
-`}
-/>
-
-### With Hover Effect
-
-<Canvas of={Separator} />
-
-<Source
-  language="tsx"
-  code={`
-import { Separator } from '@/components';
-
-function HoverSeparator() {
-return (
-<div className="space-y-4">
-<div>Content above</div>
-<Separator className="hover:bg-primary transition-colors" />
-<div>Content below</div>
-</div>
-);
-}
-`}
-/>
-
-### With Focus Indicator
-
-<Canvas of={Separator} />
-
-<Source
-  language="tsx"
-  code={`
-import { Separator } from '@/components';
-
-function FocusSeparator() {
-return (
-<div className="space-y-4">
-<div>Content above</div>
-<Separator className="focus:bg-primary focus:outline-none" tabIndex={0} />
-<div>Content below</div>
-</div>
-);
-}
-`}
-/>
-
-### With Accessibility
-
-<Canvas of={Separator} />
-
-<Source
-  language="tsx"
-  code={`
-import { Separator } from '@/components';
-
-function AccessibleSeparator() {
-return (
-<div className="space-y-4">
-<div>Content above</div>
-<Separator decorative={false} aria-label="Section separator" />
-<div>Content below</div>
-</div>
-);
-}
-`}
-/>
+); } `} />
 
 ## Props
 
-| Prop          | Type                           | Default        | Description                                                           |
-| ------------- | ------------------------------ | -------------- | --------------------------------------------------------------------- |
-| `orientation` | `"horizontal" \| "vertical"`   | `"horizontal"` | The orientation of the separator                                      |
-| `decorative`  | `boolean`                      | `true`         | Whether the separator is decorative (not announced by screen readers) |
-| `className`   | `string`                       | -              | Additional CSS classes to apply to the separator                      |
-| `...props`    | `SeparatorPrimitive.RootProps` | -              | Additional props passed to the Radix UI Separator root                |
+<Controls of={SeparatorStories.Default} />
 
 ## Styling
 

@@ -41,46 +41,46 @@ const DefaultComponent = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 10;
 
-    return (
-      <Pagination>
-        <PaginationContent>
-          <PaginationItem>
-            <PaginationPrevious
-              href="#"
-              onClick={(e) => {
+  return (
+    <Pagination>
+      <PaginationContent>
+        <PaginationItem>
+          <PaginationPrevious
+            href='#'
+            onClick={e => {
+              e.preventDefault();
+              if (currentPage > 1) setCurrentPage(currentPage - 1);
+            }}
+            className={currentPage === 1 ? 'pointer-events-none opacity-50' : ''}
+          />
+        </PaginationItem>
+        {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
+          <PaginationItem key={page}>
+            <PaginationLink
+              href='#'
+              isActive={currentPage === page}
+              onClick={e => {
                 e.preventDefault();
-                if (currentPage > 1) setCurrentPage(currentPage - 1);
+                setCurrentPage(page);
               }}
-              className={currentPage === 1 ? 'pointer-events-none opacity-50' : ''}
-            />
+            >
+              {page}
+            </PaginationLink>
           </PaginationItem>
-          {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-            <PaginationItem key={page}>
-              <PaginationLink
-                href="#"
-                isActive={currentPage === page}
-                onClick={(e) => {
-                  e.preventDefault();
-                  setCurrentPage(page);
-                }}
-              >
-                {page}
-              </PaginationLink>
-            </PaginationItem>
-          ))}
-          <PaginationItem>
-            <PaginationNext
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                if (currentPage < totalPages) setCurrentPage(currentPage + 1);
-              }}
-              className={currentPage === totalPages ? 'pointer-events-none opacity-50' : ''}
-            />
-          </PaginationItem>
-        </PaginationContent>
-      </Pagination>
-    );
+        ))}
+        <PaginationItem>
+          <PaginationNext
+            href='#'
+            onClick={e => {
+              e.preventDefault();
+              if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+            }}
+            className={currentPage === totalPages ? 'pointer-events-none opacity-50' : ''}
+          />
+        </PaginationItem>
+      </PaginationContent>
+    </Pagination>
+  );
 };
 
 export const Default: Story = {
@@ -96,7 +96,11 @@ const WithEllipsisComponent = () => {
     const range = [];
     const rangeWithDots = [];
 
-    for (let i = Math.max(2, currentPage - delta); i <= Math.min(totalPages - 1, currentPage + delta); i++) {
+    for (
+      let i = Math.max(2, currentPage - delta);
+      i <= Math.min(totalPages - 1, currentPage + delta);
+      i++
+    ) {
       range.push(i);
     }
 
@@ -122,8 +126,8 @@ const WithEllipsisComponent = () => {
       <PaginationContent>
         <PaginationItem>
           <PaginationPrevious
-            href="#"
-            onClick={(e) => {
+            href='#'
+            onClick={e => {
               e.preventDefault();
               if (currentPage > 1) setCurrentPage(currentPage - 1);
             }}
@@ -136,9 +140,9 @@ const WithEllipsisComponent = () => {
               <PaginationEllipsis />
             ) : (
               <PaginationLink
-                href="#"
+                href='#'
                 isActive={currentPage === page}
-                onClick={(e) => {
+                onClick={e => {
                   e.preventDefault();
                   setCurrentPage(page as number);
                 }}
@@ -150,8 +154,8 @@ const WithEllipsisComponent = () => {
         ))}
         <PaginationItem>
           <PaginationNext
-            href="#"
-            onClick={(e) => {
+            href='#'
+            onClick={e => {
               e.preventDefault();
               if (currentPage < totalPages) setCurrentPage(currentPage + 1);
             }}
@@ -176,20 +180,20 @@ const SimpleComponent = () => {
       <PaginationContent>
         <PaginationItem>
           <PaginationPrevious
-            href="#"
-            onClick={(e) => {
+            href='#'
+            onClick={e => {
               e.preventDefault();
               if (currentPage > 1) setCurrentPage(currentPage - 1);
             }}
             className={currentPage === 1 ? 'pointer-events-none opacity-50' : ''}
           />
         </PaginationItem>
-        {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+        {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
           <PaginationItem key={page}>
             <PaginationLink
-              href="#"
+              href='#'
               isActive={currentPage === page}
-              onClick={(e) => {
+              onClick={e => {
                 e.preventDefault();
                 setCurrentPage(page);
               }}
@@ -200,8 +204,8 @@ const SimpleComponent = () => {
         ))}
         <PaginationItem>
           <PaginationNext
-            href="#"
-            onClick={(e) => {
+            href='#'
+            onClick={e => {
               e.preventDefault();
               if (currentPage < totalPages) setCurrentPage(currentPage + 1);
             }}
@@ -226,8 +230,8 @@ const FirstPageComponent = () => {
       <PaginationContent>
         <PaginationItem>
           <PaginationPrevious
-            href="#"
-            onClick={(e) => {
+            href='#'
+            onClick={e => {
               e.preventDefault();
               if (currentPage > 1) setCurrentPage(currentPage - 1);
             }}
@@ -236,9 +240,9 @@ const FirstPageComponent = () => {
         </PaginationItem>
         <PaginationItem>
           <PaginationLink
-            href="#"
+            href='#'
             isActive={currentPage === 1}
-            onClick={(e) => {
+            onClick={e => {
               e.preventDefault();
               setCurrentPage(1);
             }}
@@ -248,8 +252,8 @@ const FirstPageComponent = () => {
         </PaginationItem>
         <PaginationItem>
           <PaginationLink
-            href="#"
-            onClick={(e) => {
+            href='#'
+            onClick={e => {
               e.preventDefault();
               setCurrentPage(2);
             }}
@@ -259,8 +263,8 @@ const FirstPageComponent = () => {
         </PaginationItem>
         <PaginationItem>
           <PaginationLink
-            href="#"
-            onClick={(e) => {
+            href='#'
+            onClick={e => {
               e.preventDefault();
               setCurrentPage(NUMERIC_CONSTANTS.THREE);
             }}
@@ -273,8 +277,8 @@ const FirstPageComponent = () => {
         </PaginationItem>
         <PaginationItem>
           <PaginationLink
-            href="#"
-            onClick={(e) => {
+            href='#'
+            onClick={e => {
               e.preventDefault();
               setCurrentPage(totalPages);
             }}
@@ -284,8 +288,8 @@ const FirstPageComponent = () => {
         </PaginationItem>
         <PaginationItem>
           <PaginationNext
-            href="#"
-            onClick={(e) => {
+            href='#'
+            onClick={e => {
               e.preventDefault();
               if (currentPage < totalPages) setCurrentPage(currentPage + 1);
             }}
@@ -310,8 +314,8 @@ const LastPageComponent = () => {
       <PaginationContent>
         <PaginationItem>
           <PaginationPrevious
-            href="#"
-            onClick={(e) => {
+            href='#'
+            onClick={e => {
               e.preventDefault();
               if (currentPage > 1) setCurrentPage(currentPage - 1);
             }}
@@ -320,8 +324,8 @@ const LastPageComponent = () => {
         </PaginationItem>
         <PaginationItem>
           <PaginationLink
-            href="#"
-            onClick={(e) => {
+            href='#'
+            onClick={e => {
               e.preventDefault();
               setCurrentPage(1);
             }}
@@ -334,8 +338,8 @@ const LastPageComponent = () => {
         </PaginationItem>
         <PaginationItem>
           <PaginationLink
-            href="#"
-            onClick={(e) => {
+            href='#'
+            onClick={e => {
               e.preventDefault();
               setCurrentPage(8);
             }}
@@ -343,22 +347,22 @@ const LastPageComponent = () => {
             8
           </PaginationLink>
         </PaginationItem>
-          <PaginationItem>
-            <PaginationLink
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                setCurrentPage(NUMERIC_CONSTANTS.NINE);
-              }}
-            >
-              9
-            </PaginationLink>
-          </PaginationItem>
         <PaginationItem>
           <PaginationLink
-            href="#"
+            href='#'
+            onClick={e => {
+              e.preventDefault();
+              setCurrentPage(NUMERIC_CONSTANTS.NINE);
+            }}
+          >
+            9
+          </PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink
+            href='#'
             isActive={currentPage === 10}
-            onClick={(e) => {
+            onClick={e => {
               e.preventDefault();
               setCurrentPage(10);
             }}
@@ -368,8 +372,8 @@ const LastPageComponent = () => {
         </PaginationItem>
         <PaginationItem>
           <PaginationNext
-            href="#"
-            onClick={(e) => {
+            href='#'
+            onClick={e => {
               e.preventDefault();
               if (currentPage < totalPages) setCurrentPage(currentPage + 1);
             }}
@@ -394,8 +398,8 @@ const MiddlePageComponent = () => {
       <PaginationContent>
         <PaginationItem>
           <PaginationPrevious
-            href="#"
-            onClick={(e) => {
+            href='#'
+            onClick={e => {
               e.preventDefault();
               if (currentPage > 1) setCurrentPage(currentPage - 1);
             }}
@@ -404,8 +408,8 @@ const MiddlePageComponent = () => {
         </PaginationItem>
         <PaginationItem>
           <PaginationLink
-            href="#"
-            onClick={(e) => {
+            href='#'
+            onClick={e => {
               e.preventDefault();
               setCurrentPage(1);
             }}
@@ -418,8 +422,8 @@ const MiddlePageComponent = () => {
         </PaginationItem>
         <PaginationItem>
           <PaginationLink
-            href="#"
-            onClick={(e) => {
+            href='#'
+            onClick={e => {
               e.preventDefault();
               setCurrentPage(NUMERIC_CONSTANTS.FOUR);
             }}
@@ -429,9 +433,9 @@ const MiddlePageComponent = () => {
         </PaginationItem>
         <PaginationItem>
           <PaginationLink
-            href="#"
+            href='#'
             isActive={currentPage === NUMERIC_CONSTANTS.FIVE}
-            onClick={(e) => {
+            onClick={e => {
               e.preventDefault();
               setCurrentPage(NUMERIC_CONSTANTS.FIVE);
             }}
@@ -441,8 +445,8 @@ const MiddlePageComponent = () => {
         </PaginationItem>
         <PaginationItem>
           <PaginationLink
-            href="#"
-            onClick={(e) => {
+            href='#'
+            onClick={e => {
               e.preventDefault();
               setCurrentPage(6);
             }}
@@ -455,8 +459,8 @@ const MiddlePageComponent = () => {
         </PaginationItem>
         <PaginationItem>
           <PaginationLink
-            href="#"
-            onClick={(e) => {
+            href='#'
+            onClick={e => {
               e.preventDefault();
               setCurrentPage(totalPages);
             }}
@@ -466,8 +470,8 @@ const MiddlePageComponent = () => {
         </PaginationItem>
         <PaginationItem>
           <PaginationNext
-            href="#"
-            onClick={(e) => {
+            href='#'
+            onClick={e => {
               e.preventDefault();
               if (currentPage < totalPages) setCurrentPage(currentPage + 1);
             }}
@@ -490,12 +494,12 @@ const WithoutPreviousNextComponent = () => {
   return (
     <Pagination>
       <PaginationContent>
-        {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+        {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
           <PaginationItem key={page}>
             <PaginationLink
-              href="#"
+              href='#'
               isActive={currentPage === page}
-              onClick={(e) => {
+              onClick={e => {
                 e.preventDefault();
                 setCurrentPage(page);
               }}
@@ -518,24 +522,24 @@ const WithCustomStylingComponent = () => {
   const totalPages = NUMERIC_CONSTANTS.FIVE;
 
   return (
-    <Pagination className="bg-muted/20 p-4 rounded-lg">
+    <Pagination className='bg-muted/20 p-4 rounded-lg'>
       <PaginationContent>
         <PaginationItem>
           <PaginationPrevious
-            href="#"
-            onClick={(e) => {
+            href='#'
+            onClick={e => {
               e.preventDefault();
               if (currentPage > 1) setCurrentPage(currentPage - 1);
             }}
             className={currentPage === 1 ? 'pointer-events-none opacity-50' : ''}
           />
         </PaginationItem>
-        {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+        {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
           <PaginationItem key={page}>
             <PaginationLink
-              href="#"
+              href='#'
               isActive={currentPage === page}
-              onClick={(e) => {
+              onClick={e => {
                 e.preventDefault();
                 setCurrentPage(page);
               }}
@@ -547,8 +551,8 @@ const WithCustomStylingComponent = () => {
         ))}
         <PaginationItem>
           <PaginationNext
-            href="#"
-            onClick={(e) => {
+            href='#'
+            onClick={e => {
               e.preventDefault();
               if (currentPage < totalPages) setCurrentPage(currentPage + 1);
             }}
@@ -573,7 +577,11 @@ const LargeDatasetComponent = () => {
     const range = [];
     const rangeWithDots = [];
 
-    for (let i = Math.max(2, currentPage - delta); i <= Math.min(totalPages - 1, currentPage + delta); i++) {
+    for (
+      let i = Math.max(2, currentPage - delta);
+      i <= Math.min(totalPages - 1, currentPage + delta);
+      i++
+    ) {
       range.push(i);
     }
 
@@ -599,8 +607,8 @@ const LargeDatasetComponent = () => {
       <PaginationContent>
         <PaginationItem>
           <PaginationPrevious
-            href="#"
-            onClick={(e) => {
+            href='#'
+            onClick={e => {
               e.preventDefault();
               if (currentPage > 1) setCurrentPage(currentPage - 1);
             }}
@@ -613,9 +621,9 @@ const LargeDatasetComponent = () => {
               <PaginationEllipsis />
             ) : (
               <PaginationLink
-                href="#"
+                href='#'
                 isActive={currentPage === page}
-                onClick={(e) => {
+                onClick={e => {
                   e.preventDefault();
                   setCurrentPage(page as number);
                 }}
@@ -627,8 +635,8 @@ const LargeDatasetComponent = () => {
         ))}
         <PaginationItem>
           <PaginationNext
-            href="#"
-            onClick={(e) => {
+            href='#'
+            onClick={e => {
               e.preventDefault();
               if (currentPage < totalPages) setCurrentPage(currentPage + 1);
             }}
@@ -653,20 +661,20 @@ const UserInteractionComponent = () => {
       <PaginationContent>
         <PaginationItem>
           <PaginationPrevious
-            href="#"
-            onClick={(e) => {
+            href='#'
+            onClick={e => {
               e.preventDefault();
               if (currentPage > 1) setCurrentPage(currentPage - 1);
             }}
             className={currentPage === 1 ? 'pointer-events-none opacity-50' : ''}
           />
         </PaginationItem>
-        {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+        {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
           <PaginationItem key={page}>
             <PaginationLink
-              href="#"
+              href='#'
               isActive={currentPage === page}
-              onClick={(e) => {
+              onClick={e => {
                 e.preventDefault();
                 setCurrentPage(page);
               }}
@@ -677,8 +685,8 @@ const UserInteractionComponent = () => {
         ))}
         <PaginationItem>
           <PaginationNext
-            href="#"
-            onClick={(e) => {
+            href='#'
+            onClick={e => {
               e.preventDefault();
               if (currentPage < totalPages) setCurrentPage(currentPage + 1);
             }}

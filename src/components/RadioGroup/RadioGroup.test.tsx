@@ -8,8 +8,8 @@ describe('RadioGroup component', () => {
     const start = performance.now();
     render(
       <RadioGroup>
-        <RadioGroupItem value="option1" />
-        <RadioGroupItem value="option2" />
+        <RadioGroupItem value='option1' />
+        <RadioGroupItem value='option2' />
       </RadioGroup>
     );
     const end = performance.now();
@@ -20,8 +20,8 @@ describe('RadioGroup component', () => {
   it('renders radio group with items', () => {
     render(
       <RadioGroup>
-        <RadioGroupItem value="option1" />
-        <RadioGroupItem value="option2" />
+        <RadioGroupItem value='option1' />
+        <RadioGroupItem value='option2' />
       </RadioGroup>
     );
 

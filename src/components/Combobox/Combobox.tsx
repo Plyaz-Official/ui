@@ -1,10 +1,10 @@
-"use client"
+'use client';
 
-import * as React from "react"
-import { CheckIcon, ChevronsUpDownIcon } from "lucide-react"
+import * as React from 'react';
+import { CheckIcon, ChevronsUpDownIcon } from 'lucide-react';
 
-import { cn } from "@/lib/utils"
-import { Button } from "@/components"
+import { cn } from '@/lib/utils';
+import { Button } from '@/components';
 import {
   Command,
   CommandEmpty,
@@ -12,56 +12,52 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "@/components/Command/Command"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/Popover/Popover"
+} from '@/components/Command/Command';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/Popover/Popover';
 
 export interface ComboboxOption {
-  value: string
-  label: string
-  disabled?: boolean
+  value: string;
+  label: string;
+  disabled?: boolean;
 }
 
 export interface ComboboxProps {
-  options: ComboboxOption[]
-  value?: string
-  onValueChange?: (value: string) => void
-  placeholder?: string
-  searchPlaceholder?: string
-  emptyText?: string
-  disabled?: boolean
-  className?: string
-  triggerClassName?: string
-  contentClassName?: string
-  buttonVariant?: React.ComponentProps<typeof Button>["variant"]
-  buttonSize?: React.ComponentProps<typeof Button>["size"]
+  options: ComboboxOption[];
+  value?: string;
+  onValueChange?: (value: string) => void;
+  placeholder?: string;
+  searchPlaceholder?: string;
+  emptyText?: string;
+  disabled?: boolean;
+  className?: string;
+  triggerClassName?: string;
+  contentClassName?: string;
+  buttonVariant?: React.ComponentProps<typeof Button>['variant'];
+  buttonSize?: React.ComponentProps<typeof Button>['size'];
 }
 
 function Combobox({
   options,
   value,
   onValueChange,
-  placeholder = "Select option...",
-  searchPlaceholder = "Search...",
-  emptyText = "No option found.",
+  placeholder = 'Select option...',
+  searchPlaceholder = 'Search...',
+  emptyText = 'No option found.',
   disabled = false,
   triggerClassName,
   contentClassName,
-  buttonVariant = "outline",
-  buttonSize = "default",
+  buttonVariant = 'outline',
+  buttonSize = 'default',
 }: ComboboxProps) {
-  const [open, setOpen] = React.useState(false)
+  const [open, setOpen] = React.useState(false);
 
-  const selectedOption = options.find((option) => option.value === value)
+  const selectedOption = options.find(option => option.value === value);
 
   const handleSelect = (currentValue: string) => {
-    const newValue = currentValue === value ? "" : currentValue
-    onValueChange?.(newValue)
-    setOpen(false)
-  }
+    const newValue = currentValue === value ? '' : currentValue;
+    onValueChange?.(newValue);
+    setOpen(false);
+  };
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -69,25 +65,22 @@ function Combobox({
         <Button
           variant={buttonVariant}
           size={buttonSize}
-          role="combobox"
+          role='combobox'
           aria-expanded={open}
           disabled={disabled}
-          className={cn(
-            "w-full justify-between",
-            triggerClassName
-          )}
+          className={cn('w-full justify-between', triggerClassName)}
         >
           {selectedOption ? selectedOption.label : placeholder}
-          <ChevronsUpDownIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+          <ChevronsUpDownIcon className='ml-2 h-4 w-4 shrink-0 opacity-50' />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className={cn("w-full p-0", contentClassName)}>
+      <PopoverContent className={cn('w-full p-0', contentClassName)}>
         <Command>
           <CommandInput placeholder={searchPlaceholder} />
           <CommandList>
             <CommandEmpty>{emptyText}</CommandEmpty>
             <CommandGroup>
-              {options.map((option) => (
+              {options.map(option => (
                 <CommandItem
                   key={option.value}
                   value={option.value}
@@ -96,8 +89,8 @@ function Combobox({
                 >
                   <CheckIcon
                     className={cn(
-                      "mr-2 h-4 w-4",
-                      value === option.value ? "opacity-100" : "opacity-0"
+                      'mr-2 h-4 w-4',
+                      value === option.value ? 'opacity-100' : 'opacity-0'
                     )}
                   />
                   {option.label}
@@ -108,7 +101,7 @@ function Combobox({
         </Command>
       </PopoverContent>
     </Popover>
-  )
+  );
 }
 
-export { Combobox }
+export { Combobox };

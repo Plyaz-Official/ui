@@ -1,0 +1,75 @@
+import { Meta, Story, Source, Canvas, Controls } from '@storybook/addon-docs';
+import * as PopoverStories from './Popover.stories';
+
+<Meta of={PopoverStories} />
+
+# Popover
+
+`Popover` is a floating panel component that appears on top of the page content when triggered. It's built on top of Radix UI's Popover primitive and provides a flexible way to display contextual information or actions.
+
+ShadCN's Popover is built on top of the Radix UI `popover` behavior and integrates seamlessly with Tailwind for customization and positioning.
+
+## Features
+
+- Multiple positioning options (`top`, `bottom`, `left`, `right`)
+- Keyboard accessible by default
+- Focus management and escape key handling
+- Fully customizable with Tailwind CSS
+- Portal rendering for proper z-index layering
+
+## Usage Guidelines
+
+- Use `PopoverTrigger` to define the element that opens the popover
+- Use `PopoverContent` to define the content that appears in the popover
+- Use `PopoverAnchor` for custom positioning if needed
+- Prefer descriptive labels for accessibility
+
+## Do
+
+- Use for contextual information that doesn't require immediate attention
+- Keep popover content concise and focused
+- Provide clear visual indicators for the trigger element
+- Use appropriate positioning to avoid content cutoff
+
+## Don't
+
+- Use for critical information that users must see
+- Nest popovers inside other popovers
+- Forget to handle keyboard navigation
+- Make popover content too large or complex
+
+## Props
+
+<Controls of={PopoverStories.Default} />
+
+### Examples
+
+## Basic Usage
+
+### Default
+
+<Canvas of={PopoverStories.Default} />
+
+### With Custom Content
+
+<Canvas of={PopoverStories.WithCustomContent} />
+
+### Different Positions
+
+<Canvas of={PopoverStories.TopPosition} />
+
+<Canvas of={PopoverStories.BottomPosition} />
+
+<Canvas of={PopoverStories.LeftPosition} />
+
+<Canvas of={PopoverStories.RightPosition} />
+
+### With Form
+
+<Canvas of={PopoverStories.WithForm} />
+
+---
+
+## Source Code
+
+<Source of={PopoverStories.Default} language='tsx' />

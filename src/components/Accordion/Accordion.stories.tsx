@@ -38,20 +38,18 @@ export default meta;
 
 export const Default: Story = {
   render: () => (
-    <Accordion type="single" collapsible className="w-full">
-      <AccordionItem value="item-1">
+    <Accordion type='single' collapsible className='w-full'>
+      <AccordionItem value='item-1'>
         <AccordionTrigger>Is it accessible?</AccordionTrigger>
-        <AccordionContent>
-          Yes. It adheres to the WAI-ARIA design pattern.
-        </AccordionContent>
+        <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
       </AccordionItem>
-      <AccordionItem value="item-2">
+      <AccordionItem value='item-2'>
         <AccordionTrigger>Is it styled?</AccordionTrigger>
         <AccordionContent>
           Yes. It comes with default styles that matches the other components&apos; aesthetic.
         </AccordionContent>
       </AccordionItem>
-      <AccordionItem value="item-3">
+      <AccordionItem value='item-3'>
         <AccordionTrigger>Is it animated?</AccordionTrigger>
         <AccordionContent>
           Yes. It&apos;s animated by default, but you can disable it if you prefer.
@@ -63,20 +61,18 @@ export const Default: Story = {
 
 export const Multiple: Story = {
   render: () => (
-    <Accordion type="multiple" className="w-full">
-      <AccordionItem value="item-1">
+    <Accordion type='multiple' className='w-full'>
+      <AccordionItem value='item-1'>
         <AccordionTrigger>Is it accessible?</AccordionTrigger>
-        <AccordionContent>
-          Yes. It adheres to the WAI-ARIA design pattern.
-        </AccordionContent>
+        <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
       </AccordionItem>
-      <AccordionItem value="item-2">
+      <AccordionItem value='item-2'>
         <AccordionTrigger>Is it styled?</AccordionTrigger>
         <AccordionContent>
           Yes. It comes with default styles that matches the other components&apos; aesthetic.
         </AccordionContent>
       </AccordionItem>
-      <AccordionItem value="item-3">
+      <AccordionItem value='item-3'>
         <AccordionTrigger>Is it animated?</AccordionTrigger>
         <AccordionContent>
           Yes. It&apos;s animated by default, but you can disable it if you prefer.
@@ -88,13 +84,13 @@ export const Multiple: Story = {
 
 export const CustomContent: Story = {
   render: () => (
-    <Accordion type="single" collapsible className="w-full">
-      <AccordionItem value="item-1">
+    <Accordion type='single' collapsible className='w-full'>
+      <AccordionItem value='item-1'>
         <AccordionTrigger>What is React?</AccordionTrigger>
         <AccordionContent>
-          <div className="space-y-2">
+          <div className='space-y-2'>
             <p>React is a JavaScript library for building user interfaces.</p>
-            <ul className="list-disc list-inside space-y-1">
+            <ul className='list-disc list-inside space-y-1'>
               <li>Component-based architecture</li>
               <li>Virtual DOM for performance</li>
               <li>Declarative programming model</li>
@@ -102,12 +98,12 @@ export const CustomContent: Story = {
           </div>
         </AccordionContent>
       </AccordionItem>
-      <AccordionItem value="item-2">
+      <AccordionItem value='item-2'>
         <AccordionTrigger>What is TypeScript?</AccordionTrigger>
         <AccordionContent>
-          <div className="space-y-2">
+          <div className='space-y-2'>
             <p>TypeScript is a typed superset of JavaScript.</p>
-            <ul className="list-disc list-inside space-y-1">
+            <ul className='list-disc list-inside space-y-1'>
               <li>Static type checking</li>
               <li>Better IDE support</li>
               <li>Enhanced code quality</li>
@@ -121,8 +117,8 @@ export const CustomContent: Story = {
 
 export const UserInteraction: Story = {
   render: () => (
-    <Accordion type="single" collapsible className="w-full">
-      <AccordionItem value="item-1">
+    <Accordion type='single' collapsible className='w-full'>
+      <AccordionItem value='item-1'>
         <AccordionTrigger>Click to expand</AccordionTrigger>
         <AccordionContent>
           This content is revealed when you click the trigger above.
@@ -133,6 +129,8 @@ export const UserInteraction: Story = {
   play: async ({ canvas }) => {
     const trigger = await canvas.findByText('Click to expand');
     await userEvent.click(trigger);
-    await expect(canvas.getByText('This content is revealed when you click the trigger above.')).toBeInTheDocument();
+    await expect(
+      canvas.getByText('This content is revealed when you click the trigger above.')
+    ).toBeInTheDocument();
   },
 };

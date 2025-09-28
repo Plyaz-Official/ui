@@ -1,557 +1,64 @@
-import { Meta, Canvas, Controls, Source } from '@storybook/addon-docs';
+import { Meta, Story, Source, Canvas, Controls } from '@storybook/addon-docs';
+import * as TooltipStories from './Tooltip.stories';
 
-import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from '@/components';
-
-<Meta title='Components/Tooltip' />
+<Meta of={TooltipStories} />
 
 # Tooltip
 
-The `Tooltip` component provides contextual information when users hover over or focus on an element. It is built with Radix UI and styled with Tailwind CSS, offering a flexible and accessible tooltip solution.
+`Tooltip` is a component used for displaying contextual information when users hover over or focus on an element. It supports multiple positioning options and can be styled using Tailwind CSS utility classes.
+
+ShadCN's Tooltip is built on top of the Radix UI tooltip behavior and integrates seamlessly with Tailwind for customization and responsiveness.
 
 ## Features
 
-- **Contextual Information**: Provides helpful information on hover or focus
-- **Accessibility**: Built with Radix UI primitives for full accessibility support
-- **Customizable**: Supports custom styling and theming
-- **Responsive**: Adapts to different screen sizes and positions
-- **Keyboard Navigation**: Full keyboard support for navigation
-- **Touch Support**: Optimized for touch devices
+- Multiple positioning options (`top`, `right`, `bottom`, `left`)
+- Supports alignment (`start`, `center`, `end`)
+- Keyboard accessible by default
+- Fully customizable with Tailwind CSS
 
-## Usage
+## Usage Guidelines
 
-### Basic Usage
+- Use `side` to define the position of the tooltip.
+- Combine with icon components from `lucide-react` if needed.
+- Prefer descriptive content for accessibility.
+- Avoid nesting interactive elements inside tooltips.
 
-<Canvas of={Tooltip} />
+## Do
 
-<Source
-  language="tsx"
-  code={`
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components';
+- Use `side="top"` for buttons in top navigation
+- Use `side="right"` for buttons in left sidebar
+- Apply Tailwind classes when you need layout/styling tweaks
 
-function BasicTooltip() {
-return (
+## Don't
 
-<Tooltip>
-  <TooltipTrigger asChild>
-    <button>Hover me</button>
-  </TooltipTrigger>
-  <TooltipContent>
-    <p>This is a tooltip</p>
-  </TooltipContent>
-</Tooltip>
-); } `} />
-
-### With Text
-
-<Canvas of={Tooltip} />
-
-<Source
-  language="tsx"
-  code={`
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components';
-
-function TextTooltip() {
-return (
-
-<Tooltip>
-  <TooltipTrigger asChild>
-    <button>Hover me</button>
-  </TooltipTrigger>
-  <TooltipContent>
-    <p>This is a tooltip</p>
-  </TooltipContent>
-</Tooltip>
-); } `} />
-
-### With Long Text
-
-<Canvas of={Tooltip} />
-
-<Source
-  language="tsx"
-  code={`
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components';
-
-function LongTextTooltip() {
-return (
-
-<Tooltip>
-  <TooltipTrigger asChild>
-    <button>Hover me</button>
-  </TooltipTrigger>
-  <TooltipContent>
-    <p>This is a longer tooltip that demonstrates how the tooltip handles extended text content.</p>
-  </TooltipContent>
-</Tooltip>
-); } `} />
-
-### With Custom Delay
-
-<Canvas of={Tooltip} />
-
-<Source
-  language="tsx"
-  code={`
-import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from '@/components';
-
-function CustomDelayTooltip() {
-return (
-
-<TooltipProvider delayDuration={500}>
-  <Tooltip>
-    <TooltipTrigger asChild>
-      <button>Hover me</button>
-    </TooltipTrigger>
-    <TooltipContent>
-      <p>This tooltip has a 500ms delay</p>
-    </TooltipContent>
-  </Tooltip>
-</TooltipProvider>
-); } `} />
-
-### With Custom Styling
-
-<Canvas of={Tooltip} />
-
-<Source
-  language="tsx"
-  code={`
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components';
-
-function CustomStyledTooltip() {
-return (
-
-<Tooltip>
-  <TooltipTrigger asChild>
-    <button>Hover me</button>
-  </TooltipTrigger>
-  <TooltipContent className='bg-blue-500 text-white'>
-    <p>Custom styled tooltip</p>
-  </TooltipContent>
-</Tooltip>
-); } `} />
-
-### With Side Positioning
-
-<Canvas of={Tooltip} />
-
-<Source
-  language="tsx"
-  code={`
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components';
-
-function SidePositioningTooltip() {
-return (
-
-<div className='flex flex-wrap gap-4'>
-  <Tooltip>
-    <TooltipTrigger asChild>
-      <button>Top</button>
-    </TooltipTrigger>
-    <TooltipContent side='top'>
-      <p>Tooltip on top</p>
-    </TooltipContent>
-  </Tooltip>
-
-  <Tooltip>
-    <TooltipTrigger asChild>
-      <button>Right</button>
-    </TooltipTrigger>
-    <TooltipContent side='right'>
-      <p>Tooltip on right</p>
-    </TooltipContent>
-  </Tooltip>
-
-  <Tooltip>
-    <TooltipTrigger asChild>
-      <button>Bottom</button>
-    </TooltipTrigger>
-    <TooltipContent side='bottom'>
-      <p>Tooltip on bottom</p>
-    </TooltipContent>
-  </Tooltip>
-
-  <Tooltip>
-    <TooltipTrigger asChild>
-      <button>Left</button>
-    </TooltipTrigger>
-    <TooltipContent side='left'>
-      <p>Tooltip on left</p>
-    </TooltipContent>
-  </Tooltip>
-</div>
-); } `} />
-
-### With Align Positioning
-
-<Canvas of={Tooltip} />
-
-<Source
-  language="tsx"
-  code={`
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components';
-
-function AlignPositioningTooltip() {
-return (
-
-<div className='flex flex-wrap gap-4'>
-  <Tooltip>
-    <TooltipTrigger asChild>
-      <button>Start</button>
-    </TooltipTrigger>
-    <TooltipContent side='top' align='start'>
-      <p>Aligned to start</p>
-    </TooltipContent>
-  </Tooltip>
-
-  <Tooltip>
-    <TooltipTrigger asChild>
-      <button>Center</button>
-    </TooltipTrigger>
-    <TooltipContent side='top' align='center'>
-      <p>Aligned to center</p>
-    </TooltipContent>
-  </Tooltip>
-
-  <Tooltip>
-    <TooltipTrigger asChild>
-      <button>End</button>
-    </TooltipTrigger>
-    <TooltipContent side='top' align='end'>
-      <p>Aligned to end</p>
-    </TooltipContent>
-  </Tooltip>
-</div>
-); } `} />
-
-### With Side Offset
-
-<Canvas of={Tooltip} />
-
-<Source
-  language="tsx"
-  code={`
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components';
-
-function SideOffsetTooltip() {
-return (
-
-<div className='flex flex-wrap gap-4'>
-  <Tooltip>
-    <TooltipTrigger asChild>
-      <button>Small Offset</button>
-    </TooltipTrigger>
-    <TooltipContent sideOffset={5}>
-      <p>Small offset (5px)</p>
-    </TooltipContent>
-  </Tooltip>
-
-  <Tooltip>
-    <TooltipTrigger asChild>
-      <button>Large Offset</button>
-    </TooltipTrigger>
-    <TooltipContent sideOffset={20}>
-      <p>Large offset (20px)</p>
-    </TooltipContent>
-  </Tooltip>
-</div>
-); } `} />
-
-### With Multiple Tooltips
-
-<Canvas of={Tooltip} />
-
-<Source
-  language="tsx"
-  code={`
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components';
-
-function MultipleTooltips() {
-return (
-
-<div className='flex gap-4'>
-  <Tooltip>
-    <TooltipTrigger asChild>
-      <button>Email</button>
-    </TooltipTrigger>
-    <TooltipContent>
-      <p>Send email</p>
-    </TooltipContent>
-  </Tooltip>
-
-  <Tooltip>
-    <TooltipTrigger asChild>
-      <button>Phone</button>
-    </TooltipTrigger>
-    <TooltipContent>
-      <p>Call phone</p>
-    </TooltipContent>
-  </Tooltip>
-
-  <Tooltip>
-    <TooltipTrigger asChild>
-      <button>Settings</button>
-    </TooltipTrigger>
-    <TooltipContent>
-      <p>Open settings</p>
-    </TooltipContent>
-  </Tooltip>
-</div>
-); } `} />
-
-### With Disabled
-
-<Canvas of={Tooltip} />
-
-<Source
-  language="tsx"
-  code={`
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components';
-
-function DisabledTooltip() {
-return (
-
-<Tooltip>
-  <TooltipTrigger asChild>
-    <button disabled>Disabled</button>
-  </TooltipTrigger>
-  <TooltipContent>
-    <p>This tooltip won't show on disabled button</p>
-  </TooltipContent>
-</Tooltip>
-); } `} />
-
-### With Controlled State
-
-<Canvas of={Tooltip} />
-
-<Source
-  language="tsx"
-  code={`
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components';
-import { useState } from 'react';
-
-function ControlledTooltip() {
-const [open, setOpen] = useState(false);
-
-return (
-
-<div className='space-y-4'>
-  <Tooltip open={open} onOpenChange={setOpen}>
-    <TooltipTrigger asChild>
-      <button>Controlled</button>
-    </TooltipTrigger>
-    <TooltipContent>
-      <p>Controlled tooltip</p>
-    </TooltipContent>
-  </Tooltip>
-
-  <div className='flex gap-2'>
-    <button onClick={() => setOpen(true)}>Show Tooltip</button>
-    <button onClick={() => setOpen(false)}>Hide Tooltip</button>
-  </div>
-</div>
-); } `} />
-
-### With Rich Content
-
-<Canvas of={Tooltip} />
-
-<Source
-  language="tsx"
-  code={`
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components';
-
-function RichContentTooltip() {
-return (
-
-<Tooltip>
-  <TooltipTrigger asChild>
-    <button>Rich Content</button>
-  </TooltipTrigger>
-  <TooltipContent>
-    <div className='space-y-1'>
-      <p className='font-semibold'>Rich Tooltip</p>
-      <p className='text-xs opacity-80'>This tooltip contains multiple elements</p>
-    </div>
-  </TooltipContent>
-</Tooltip>
-); } `} />
-
-### With Keyboard Navigation
-
-<Canvas of={Tooltip} />
-
-<Source
-  language="tsx"
-  code={`
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components';
-
-function KeyboardTooltip() {
-return (
-
-<div className='flex gap-4'>
-  <Tooltip>
-    <TooltipTrigger asChild>
-      <button>Tab to focus</button>
-    </TooltipTrigger>
-    <TooltipContent>
-      <p>Focus this button to see the tooltip</p>
-    </TooltipContent>
-  </Tooltip>
-
-  <Tooltip>
-    <TooltipTrigger asChild>
-      <button>Then tab here</button>
-    </TooltipTrigger>
-    <TooltipContent>
-      <p>This tooltip also shows on focus</p>
-    </TooltipContent>
-  </Tooltip>
-</div>
-); } `} />
-
-### With Accessibility
-
-<Canvas of={Tooltip} />
-
-<Source
-  language="tsx"
-  code={`
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components';
-
-function AccessibleTooltip() {
-return (
-
-<Tooltip>
-  <TooltipTrigger asChild>
-    <button aria-describedby='tooltip-description'>Accessible</button>
-  </TooltipTrigger>
-  <TooltipContent>
-    <p id='tooltip-description'>This tooltip provides additional context</p>
-  </TooltipContent>
-</Tooltip>
-); } `} />
-
-### With Performance
-
-<Canvas of={Tooltip} />
-
-<Source
-  language="tsx"
-  code={`
-import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from '@/components';
-
-function PerformanceTooltip() {
-return (
-
-<TooltipProvider delayDuration={100}>
-  <div className='flex flex-wrap gap-2'>
-    {Array.from({ length: 20 }, (_, i) => (
-      <Tooltip key={i}>
-        <TooltipTrigger asChild>
-          <button>{i + 1}</button>
-        </TooltipTrigger>
-        <TooltipContent>
-          <p>Tooltip {i + 1}</p>
-        </TooltipContent>
-      </Tooltip>
-    ))}
-  </div>
-</TooltipProvider>
-); } `} />
-
-### With User Interaction
-
-<Canvas of={Tooltip} />
-
-<Source
-  language="tsx"
-  code={`
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components';
-import { useState } from 'react';
-
-function InteractiveTooltip() {
-const [showCount, setShowCount] = useState(0);
-
-return (
-
-<div className='space-y-4'>
-  <Tooltip
-    onOpenChange={open => {
-      if (open) setShowCount(prev => prev + 1);
-    }}
-  >
-    <TooltipTrigger asChild>
-      <button>Interactive</button>
-    </TooltipTrigger>
-    <TooltipContent>
-      <p>Interactive tooltip</p>
-    </TooltipContent>
-  </Tooltip>
-
-  <p className='text-sm text-muted-foreground'>Tooltip shown {showCount} times</p>
-</div>
-); } `} />
+- Overuse tooltips in complex UI
+- Nest interactive elements inside tooltips
+- Forget to provide meaningful content
 
 ## Props
 
-| Component         | Prop                      | Type                                      | Default    | Description                                                   |
-| ----------------- | ------------------------- | ----------------------------------------- | ---------- | ------------------------------------------------------------- |
-| `TooltipProvider` | `delayDuration`           | `number`                                  | `0`        | The delay duration in milliseconds before showing the tooltip |
-| `TooltipProvider` | `skipDelayDuration`       | `number`                                  | `0`        | The delay duration in milliseconds before hiding the tooltip  |
-| `TooltipProvider` | `disableHoverableContent` | `boolean`                                 | `false`    | Whether to disable hoverable content                          |
-| `Tooltip`         | `open`                    | `boolean`                                 | -          | Whether the tooltip is open                                   |
-| `Tooltip`         | `defaultOpen`             | `boolean`                                 | `false`    | Whether the tooltip is open by default                        |
-| `Tooltip`         | `onOpenChange`            | `(open: boolean) => void`                 | -          | Called when the open state changes                            |
-| `TooltipContent`  | `side`                    | `"top" \| "right" \| "bottom" \| "left"`  | `"top"`    | The side of the tooltip                                       |
-| `TooltipContent`  | `align`                   | `"start" \| "center" \| "end"`            | `"center"` | The alignment of the tooltip                                  |
-| `TooltipContent`  | `sideOffset`              | `number`                                  | `0`        | The offset from the side                                      |
-| `TooltipContent`  | `alignOffset`             | `number`                                  | `0`        | The offset from the alignment                                 |
-| `TooltipContent`  | `collisionBoundary`       | `Element \| null`                         | -          | The collision boundary element                                |
-| `TooltipContent`  | `collisionPadding`        | `number \| Partial<Record<Side, number>>` | `0`        | The collision padding                                         |
-| `TooltipContent`  | `arrowPadding`            | `number`                                  | `0`        | The padding between the arrow and the edge                    |
-| `TooltipContent`  | `sticky`                  | `"partial" \| "always"`                   | -          | The sticky behavior of the tooltip                            |
-| `TooltipContent`  | `hideWhenDetached`        | `boolean`                                 | `false`    | Whether to hide the tooltip when detached                     |
-| `TooltipContent`  | `className`               | `string`                                  | -          | Additional CSS classes to apply to the tooltip                |
-| `...props`        | -                         | `TooltipPrimitive.RootProps`              | -          | Additional props passed to the Radix UI Tooltip root          |
+<Controls of={TooltipStories.Default} />
 
-## Styling
+### Examples
 
-The `Tooltip` component uses Tailwind CSS classes and can be customized with additional classes:
+## Basic Tooltip
 
-```tsx
-<TooltipContent className='bg-blue-500 text-white' />
-<TooltipContent side='right' className='ml-2' />
-<TooltipContent sideOffset={10} className='mt-2' />
-```
+<Canvas of={TooltipStories.Default} />
 
-## Accessibility
+## With Text
 
-The `Tooltip` component is built with Radix UI primitives and provides:
+<Canvas of={TooltipStories.WithText} />
 
-- **Keyboard Navigation**: Full keyboard support for navigation
-- **Screen Reader Support**: Proper ARIA attributes and roles
-- **Focus Management**: Focus indicators and proper focus handling
-- **Touch Support**: Optimized for touch devices
-- **State Announcements**: Announces state changes to screen readers
+## With Custom Styling
 
-## Performance
+<Canvas of={TooltipStories.WithCustomStyling} />
 
-The `Tooltip` component is optimized for performance:
+## With Positioning
 
-- **Efficient Rendering**: Only re-renders when necessary
-- **Smooth Animations**: Provides smooth state transitions
-- **Memory Efficient**: Minimal memory usage
-- **Responsive**: Adapts to different screen sizes and positions
+<Canvas of={TooltipStories.WithPositioning} />
 
-## Best Practices
+---
 
-1. **Use appropriate content**: Keep tooltip content concise and helpful
-2. **Handle state changes**: Use `onOpenChange` for controlled state
-3. **Test with keyboard**: Ensure keyboard navigation works properly
-4. **Consider mobile**: Test on mobile devices for touch interactions
-5. **Use controlled state**: Use controlled state for complex interactions
-6. **Provide visual feedback**: Show clear visual feedback for tooltip state
-7. **Group related tooltips**: Group related tooltips logically
-8. **Use consistent positioning**: Use consistent positioning within groups
+## Source Code
+
+<Source of={TooltipStories.Default} language='tsx' />

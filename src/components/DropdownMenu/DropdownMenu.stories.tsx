@@ -17,8 +17,8 @@ import {
   DropdownMenuSub,
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
- Button } from '@/components';
-
+  Button,
+} from '@/components';
 
 type Story = StoryObj<typeof DropdownMenu>;
 
@@ -52,7 +52,7 @@ export const Default: Story = {
   render: () => (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline">Open Menu</Button>
+        <Button variant='outline'>Open Menu</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuItem>Profile</DropdownMenuItem>
@@ -69,7 +69,7 @@ export const WithLabels: Story = {
   render: () => (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline">Open Menu</Button>
+        <Button variant='outline'>Open Menu</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuLabel>My Account</DropdownMenuLabel>
@@ -88,7 +88,7 @@ export const WithShortcuts: Story = {
   render: () => (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline">Open Menu</Button>
+        <Button variant='outline'>Open Menu</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuItem>
@@ -117,7 +117,7 @@ export const WithGroups: Story = {
   render: () => (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline">Open Menu</Button>
+        <Button variant='outline'>Open Menu</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuGroup>
@@ -144,33 +144,24 @@ const WithCheckboxesComponent = () => {
   const [showPanel, setShowPanel] = useState(false);
 
   return (
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button variant="outline">Open Menu</Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent>
-          <DropdownMenuLabel>Appearance</DropdownMenuLabel>
-          <DropdownMenuSeparator />
-          <DropdownMenuCheckboxItem
-            checked={showStatusBar}
-            onCheckedChange={setShowStatusBar}
-          >
-            Status Bar
-          </DropdownMenuCheckboxItem>
-          <DropdownMenuCheckboxItem
-            checked={showActivityBar}
-            onCheckedChange={setShowActivityBar}
-          >
-            Activity Bar
-          </DropdownMenuCheckboxItem>
-          <DropdownMenuCheckboxItem
-            checked={showPanel}
-            onCheckedChange={setShowPanel}
-          >
-            Panel
-          </DropdownMenuCheckboxItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant='outline'>Open Menu</Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent>
+        <DropdownMenuLabel>Appearance</DropdownMenuLabel>
+        <DropdownMenuSeparator />
+        <DropdownMenuCheckboxItem checked={showStatusBar} onCheckedChange={setShowStatusBar}>
+          Status Bar
+        </DropdownMenuCheckboxItem>
+        <DropdownMenuCheckboxItem checked={showActivityBar} onCheckedChange={setShowActivityBar}>
+          Activity Bar
+        </DropdownMenuCheckboxItem>
+        <DropdownMenuCheckboxItem checked={showPanel} onCheckedChange={setShowPanel}>
+          Panel
+        </DropdownMenuCheckboxItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 };
 
@@ -182,20 +173,20 @@ const WithRadioGroupsComponent = () => {
   const [position, setPosition] = useState('bottom');
 
   return (
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button variant="outline">Open Menu</Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent>
-          <DropdownMenuLabel>Panel Position</DropdownMenuLabel>
-          <DropdownMenuSeparator />
-          <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
-            <DropdownMenuRadioItem value="top">Top</DropdownMenuRadioItem>
-            <DropdownMenuRadioItem value="bottom">Bottom</DropdownMenuRadioItem>
-            <DropdownMenuRadioItem value="right">Right</DropdownMenuRadioItem>
-          </DropdownMenuRadioGroup>
-        </DropdownMenuContent>
-      </DropdownMenu>
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant='outline'>Open Menu</Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent>
+        <DropdownMenuLabel>Panel Position</DropdownMenuLabel>
+        <DropdownMenuSeparator />
+        <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
+          <DropdownMenuRadioItem value='top'>Top</DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value='bottom'>Bottom</DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value='right'>Right</DropdownMenuRadioItem>
+        </DropdownMenuRadioGroup>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 };
 
@@ -207,7 +198,7 @@ export const WithSubMenus: Story = {
   render: () => (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline">Open Menu</Button>
+        <Button variant='outline'>Open Menu</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuItem>New File</DropdownMenuItem>
@@ -232,13 +223,13 @@ export const DestructiveItems: Story = {
   render: () => (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline">Open Menu</Button>
+        <Button variant='outline'>Open Menu</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuItem>Edit</DropdownMenuItem>
         <DropdownMenuItem>Duplicate</DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem variant="destructive">Delete</DropdownMenuItem>
+        <DropdownMenuItem variant='destructive'>Delete</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   ),
@@ -248,24 +239,24 @@ export const WithIcons: Story = {
   render: () => (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline">Open Menu</Button>
+        <Button variant='outline'>Open Menu</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuItem>
-          <span className="mr-2">👤</span>
+          <span className='mr-2'>👤</span>
           Profile
         </DropdownMenuItem>
         <DropdownMenuItem>
-          <span className="mr-2">⚙️</span>
+          <span className='mr-2'>⚙️</span>
           Settings
         </DropdownMenuItem>
         <DropdownMenuItem>
-          <span className="mr-2">❓</span>
+          <span className='mr-2'>❓</span>
           Help
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem>
-          <span className="mr-2">🚪</span>
+          <span className='mr-2'>🚪</span>
           Logout
         </DropdownMenuItem>
       </DropdownMenuContent>
@@ -277,20 +268,14 @@ export const CustomStyling: Story = {
   render: () => (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline">Open Custom Menu</Button>
+        <Button variant='outline'>Open Custom Menu</Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="bg-gradient-to-b from-background to-muted/20 border-2 border-primary/20">
-        <DropdownMenuLabel className="text-primary">Custom Menu</DropdownMenuLabel>
+      <DropdownMenuContent className='bg-gradient-to-b from-background to-muted/20 border-2 border-primary/20'>
+        <DropdownMenuLabel className='text-primary'>Custom Menu</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem className="hover:bg-primary/10">
-          Custom Item 1
-        </DropdownMenuItem>
-        <DropdownMenuItem className="hover:bg-primary/10">
-          Custom Item 2
-        </DropdownMenuItem>
-        <DropdownMenuItem className="hover:bg-primary/10">
-          Custom Item 3
-        </DropdownMenuItem>
+        <DropdownMenuItem className='hover:bg-primary/10'>Custom Item 1</DropdownMenuItem>
+        <DropdownMenuItem className='hover:bg-primary/10'>Custom Item 2</DropdownMenuItem>
+        <DropdownMenuItem className='hover:bg-primary/10'>Custom Item 3</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   ),
@@ -300,22 +285,22 @@ const ControlledMenuComponent = () => {
   const [open, setOpen] = useState(false);
 
   return (
-      <div className="space-y-4">
-        <div className="flex gap-2">
-          <Button onClick={() => setOpen(true)}>Open Menu</Button>
-          <Button onClick={() => setOpen(false)}>Close Menu</Button>
-        </div>
-        <DropdownMenu open={open} onOpenChange={setOpen}>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline">Controlled Menu</Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent>
-            <DropdownMenuItem>Item 1</DropdownMenuItem>
-            <DropdownMenuItem>Item 2</DropdownMenuItem>
-            <DropdownMenuItem>Item 3</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+    <div className='space-y-4'>
+      <div className='flex gap-2'>
+        <Button onClick={() => setOpen(true)}>Open Menu</Button>
+        <Button onClick={() => setOpen(false)}>Close Menu</Button>
       </div>
+      <DropdownMenu open={open} onOpenChange={setOpen}>
+        <DropdownMenuTrigger asChild>
+          <Button variant='outline'>Controlled Menu</Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent>
+          <DropdownMenuItem>Item 1</DropdownMenuItem>
+          <DropdownMenuItem>Item 2</DropdownMenuItem>
+          <DropdownMenuItem>Item 3</DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </div>
   );
 };
 
@@ -327,7 +312,9 @@ export const UserInteraction: Story = {
   render: () => (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" onClick={() => {}}>Open Menu</Button>
+        <Button variant='outline' onClick={() => {}}>
+          Open Menu
+        </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuItem onClick={() => {}}>Profile</DropdownMenuItem>

@@ -49,8 +49,8 @@ export const Default: Story = {
   render: () => (
     <Tooltip>
       <TooltipTrigger asChild>
-        <Button variant="outline">
-          <HelpCircle className="h-4 w-4" />
+        <Button variant='outline'>
+          <HelpCircle className='h-4 w-4' />
         </Button>
       </TooltipTrigger>
       <TooltipContent>
@@ -77,12 +77,14 @@ export const WithLongText: Story = {
   render: () => (
     <Tooltip>
       <TooltipTrigger asChild>
-        <Button variant="outline">
-          <Info className="h-4 w-4" />
+        <Button variant='outline'>
+          <Info className='h-4 w-4' />
         </Button>
       </TooltipTrigger>
       <TooltipContent>
-        <p>This is a longer tooltip that demonstrates how the tooltip handles extended text content.</p>
+        <p>
+          This is a longer tooltip that demonstrates how the tooltip handles extended text content.
+        </p>
       </TooltipContent>
     </Tooltip>
   ),
@@ -93,8 +95,8 @@ export const WithCustomDelay: Story = {
     <TooltipProvider delayDuration={500}>
       <Tooltip>
         <TooltipTrigger asChild>
-          <Button variant="outline">
-            <Settings className="h-4 w-4" />
+          <Button variant='outline'>
+            <Settings className='h-4 w-4' />
           </Button>
         </TooltipTrigger>
         <TooltipContent>
@@ -109,52 +111,52 @@ export const WithCustomStyling: Story = {
   render: () => (
     <Tooltip>
       <TooltipTrigger asChild>
-        <Button variant="outline">
-          <User className="h-4 w-4" />
+        <Button variant='outline'>
+          <User className='h-4 w-4' />
         </Button>
       </TooltipTrigger>
-      <TooltipContent className="bg-blue-500 text-white">
+      <TooltipContent className='bg-blue-500 text-white'>
         <p>Custom styled tooltip</p>
       </TooltipContent>
     </Tooltip>
   ),
 };
 
-export const WithSidePositioning: Story = {
+export const WithPositioning: Story = {
   render: () => (
-    <div className="flex flex-wrap gap-4">
+    <div className='flex flex-wrap gap-4'>
       <Tooltip>
         <TooltipTrigger asChild>
-          <Button variant="outline">Top</Button>
+          <Button variant='outline'>Top</Button>
         </TooltipTrigger>
-        <TooltipContent side="top">
+        <TooltipContent side='top'>
           <p>Tooltip on top</p>
         </TooltipContent>
       </Tooltip>
-      
+
       <Tooltip>
         <TooltipTrigger asChild>
-          <Button variant="outline">Right</Button>
+          <Button variant='outline'>Right</Button>
         </TooltipTrigger>
-        <TooltipContent side="right">
+        <TooltipContent side='right'>
           <p>Tooltip on right</p>
         </TooltipContent>
       </Tooltip>
-      
+
       <Tooltip>
         <TooltipTrigger asChild>
-          <Button variant="outline">Bottom</Button>
+          <Button variant='outline'>Bottom</Button>
         </TooltipTrigger>
-        <TooltipContent side="bottom">
+        <TooltipContent side='bottom'>
           <p>Tooltip on bottom</p>
         </TooltipContent>
       </Tooltip>
-      
+
       <Tooltip>
         <TooltipTrigger asChild>
-          <Button variant="outline">Left</Button>
+          <Button variant='outline'>Left</Button>
         </TooltipTrigger>
-        <TooltipContent side="left">
+        <TooltipContent side='left'>
           <p>Tooltip on left</p>
         </TooltipContent>
       </Tooltip>
@@ -162,57 +164,33 @@ export const WithSidePositioning: Story = {
   ),
 };
 
-export const WithAlignPositioning: Story = {
+export const WithAlignment: Story = {
   render: () => (
-    <div className="flex flex-wrap gap-4">
+    <div className='flex flex-wrap gap-4'>
       <Tooltip>
         <TooltipTrigger asChild>
-          <Button variant="outline">Start</Button>
+          <Button variant='outline'>Start</Button>
         </TooltipTrigger>
-        <TooltipContent side="top" align="start">
+        <TooltipContent side='top' align='start'>
           <p>Aligned to start</p>
         </TooltipContent>
       </Tooltip>
-      
+
       <Tooltip>
         <TooltipTrigger asChild>
-          <Button variant="outline">Center</Button>
+          <Button variant='outline'>Center</Button>
         </TooltipTrigger>
-        <TooltipContent side="top" align="center">
+        <TooltipContent side='top' align='center'>
           <p>Aligned to center</p>
         </TooltipContent>
       </Tooltip>
-      
-      <Tooltip>
-        <TooltipTrigger asChild>
-          <Button variant="outline">End</Button>
-        </TooltipTrigger>
-        <TooltipContent side="top" align="end">
-          <p>Aligned to end</p>
-        </TooltipContent>
-      </Tooltip>
-    </div>
-  ),
-};
 
-export const WithSideOffset: Story = {
-  render: () => (
-    <div className="flex flex-wrap gap-4">
       <Tooltip>
         <TooltipTrigger asChild>
-          <Button variant="outline">Small Offset</Button>
+          <Button variant='outline'>End</Button>
         </TooltipTrigger>
-        <TooltipContent sideOffset={5}>
-          <p>Small offset (5px)</p>
-        </TooltipContent>
-      </Tooltip>
-      
-      <Tooltip>
-        <TooltipTrigger asChild>
-          <Button variant="outline">Large Offset</Button>
-        </TooltipTrigger>
-        <TooltipContent sideOffset={20}>
-          <p>Large offset (20px)</p>
+        <TooltipContent side='top' align='end'>
+          <p>Aligned to end</p>
         </TooltipContent>
       </Tooltip>
     </div>
@@ -221,33 +199,33 @@ export const WithSideOffset: Story = {
 
 export const WithMultipleTooltips: Story = {
   render: () => (
-    <div className="flex gap-4">
+    <div className='flex gap-4'>
       <Tooltip>
         <TooltipTrigger asChild>
-          <Button variant="outline">
-            <Mail className="h-4 w-4" />
+          <Button variant='outline'>
+            <Mail className='h-4 w-4' />
           </Button>
         </TooltipTrigger>
         <TooltipContent>
           <p>Send email</p>
         </TooltipContent>
       </Tooltip>
-      
+
       <Tooltip>
         <TooltipTrigger asChild>
-          <Button variant="outline">
-            <Phone className="h-4 w-4" />
+          <Button variant='outline'>
+            <Phone className='h-4 w-4' />
           </Button>
         </TooltipTrigger>
         <TooltipContent>
           <p>Call phone</p>
         </TooltipContent>
       </Tooltip>
-      
+
       <Tooltip>
         <TooltipTrigger asChild>
-          <Button variant="outline">
-            <Settings className="h-4 w-4" />
+          <Button variant='outline'>
+            <Settings className='h-4 w-4' />
           </Button>
         </TooltipTrigger>
         <TooltipContent>
@@ -263,7 +241,7 @@ export const WithDisabled: Story = {
     <Tooltip>
       <TooltipTrigger asChild>
         <Button disabled>
-          <HelpCircle className="h-4 w-4" />
+          <HelpCircle className='h-4 w-4' />
         </Button>
       </TooltipTrigger>
       <TooltipContent>
@@ -275,25 +253,25 @@ export const WithDisabled: Story = {
 
 const WithControlledStateComponent = () => {
   const [open, setOpen] = useState(false);
-  
+
   return (
-    <div className="space-y-4">
+    <div className='space-y-4'>
       <Tooltip open={open} onOpenChange={setOpen}>
         <TooltipTrigger asChild>
-          <Button variant="outline">
-            <Info className="h-4 w-4" />
+          <Button variant='outline'>
+            <Info className='h-4 w-4' />
           </Button>
         </TooltipTrigger>
         <TooltipContent>
           <p>Controlled tooltip</p>
         </TooltipContent>
       </Tooltip>
-      
-      <div className="flex gap-2">
-        <Button onClick={() => setOpen(true)} size="sm">
+
+      <div className='flex gap-2'>
+        <Button onClick={() => setOpen(true)} size='sm'>
           Show Tooltip
         </Button>
-        <Button onClick={() => setOpen(false)} size="sm" variant="outline">
+        <Button onClick={() => setOpen(false)} size='sm' variant='outline'>
           Hide Tooltip
         </Button>
       </div>
@@ -309,101 +287,41 @@ export const WithRichContent: Story = {
   render: () => (
     <Tooltip>
       <TooltipTrigger asChild>
-        <Button variant="outline">
-          <Info className="h-4 w-4" />
+        <Button variant='outline'>
+          <Info className='h-4 w-4' />
         </Button>
       </TooltipTrigger>
       <TooltipContent>
-        <div className="space-y-1">
-          <p className="font-semibold">Rich Tooltip</p>
-          <p className="text-xs opacity-80">This tooltip contains multiple elements</p>
+        <div className='space-y-1'>
+          <p className='font-semibold'>Rich Tooltip</p>
+          <p className='text-xs opacity-80'>This tooltip contains multiple elements</p>
         </div>
       </TooltipContent>
     </Tooltip>
   ),
 };
 
-export const WithKeyboardNavigation: Story = {
-  render: () => (
-    <div className="flex gap-4">
-      <Tooltip>
-        <TooltipTrigger asChild>
-          <Button variant="outline">Tab to focus</Button>
-        </TooltipTrigger>
-        <TooltipContent>
-          <p>Focus this button to see the tooltip</p>
-        </TooltipContent>
-      </Tooltip>
-      
-      <Tooltip>
-        <TooltipTrigger asChild>
-          <Button variant="outline">Then tab here</Button>
-        </TooltipTrigger>
-        <TooltipContent>
-          <p>This tooltip also shows on focus</p>
-        </TooltipContent>
-      </Tooltip>
-    </div>
-  ),
-};
-
-export const WithAccessibility: Story = {
-  render: () => (
-    <Tooltip>
-      <TooltipTrigger asChild>
-        <Button variant="outline" aria-describedby="tooltip-description">
-          <HelpCircle className="h-4 w-4" />
-        </Button>
-      </TooltipTrigger>
-      <TooltipContent>
-        <p id="tooltip-description">This tooltip provides additional context</p>
-      </TooltipContent>
-    </Tooltip>
-  ),
-};
-
-export const WithPerformance: Story = {
-  render: () => (
-    <TooltipProvider delayDuration={100}>
-      <div className="flex flex-wrap gap-2">
-        {Array.from({ length: 20 }, (_, i) => (
-          <Tooltip key={i}>
-            <TooltipTrigger asChild>
-              <Button variant="outline" size="sm">
-                {i + 1}
-              </Button>
-            </TooltipTrigger>
-            <TooltipContent>
-              <p>Tooltip {i + 1}</p>
-            </TooltipContent>
-          </Tooltip>
-        ))}
-      </div>
-    </TooltipProvider>
-  ),
-};
-
 const WithUserInteractionComponent = () => {
   const [showCount, setShowCount] = useState(0);
-  
+
   return (
-    <div className="space-y-4">
-      <Tooltip onOpenChange={(open) => {
-        if (open) setShowCount(prev => prev + 1);
-      }}>
+    <div className='space-y-4'>
+      <Tooltip
+        onOpenChange={open => {
+          if (open) setShowCount(prev => prev + 1);
+        }}
+      >
         <TooltipTrigger asChild>
-          <Button variant="outline">
-            <HelpCircle className="h-4 w-4" />
+          <Button variant='outline'>
+            <HelpCircle className='h-4 w-4' />
           </Button>
         </TooltipTrigger>
         <TooltipContent>
           <p>Interactive tooltip</p>
         </TooltipContent>
       </Tooltip>
-      
-      <p className="text-sm text-muted-foreground">
-        Tooltip shown {showCount} times
-      </p>
+
+      <p className='text-sm text-muted-foreground'>Tooltip shown {showCount} times</p>
     </div>
   );
 };

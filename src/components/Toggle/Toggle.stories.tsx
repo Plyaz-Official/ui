@@ -53,24 +53,14 @@ export default meta;
 
 export const Default: Story = {
   render: () => (
-    <Toggle aria-label="Toggle italic">
+    <Toggle aria-label='Toggle italic'>
       <Italic />
     </Toggle>
   ),
 };
 
 export const WithText: Story = {
-  render: () => (
-    <Toggle>Toggle</Toggle>
-  ),
-};
-
-export const WithIcon: Story = {
-  render: () => (
-    <Toggle aria-label="Toggle bold">
-      <Bold />
-    </Toggle>
-  ),
+  render: () => <Toggle>Toggle</Toggle>,
 };
 
 export const WithIconAndText: Story = {
@@ -84,7 +74,7 @@ export const WithIconAndText: Story = {
 
 export const Outline: Story = {
   render: () => (
-    <Toggle variant="outline" aria-label="Toggle italic">
+    <Toggle variant='outline' aria-label='Toggle italic'>
       <Italic />
     </Toggle>
   ),
@@ -92,7 +82,7 @@ export const Outline: Story = {
 
 export const Small: Story = {
   render: () => (
-    <Toggle size="sm" aria-label="Toggle italic">
+    <Toggle size='sm' aria-label='Toggle italic'>
       <Italic />
     </Toggle>
   ),
@@ -100,7 +90,7 @@ export const Small: Story = {
 
 export const Large: Story = {
   render: () => (
-    <Toggle size="lg" aria-label="Toggle italic">
+    <Toggle size='lg' aria-label='Toggle italic'>
       <Italic />
     </Toggle>
   ),
@@ -108,7 +98,7 @@ export const Large: Story = {
 
 export const Disabled: Story = {
   render: () => (
-    <Toggle disabled aria-label="Toggle italic">
+    <Toggle disabled aria-label='Toggle italic'>
       <Italic />
     </Toggle>
   ),
@@ -116,7 +106,7 @@ export const Disabled: Story = {
 
 export const Pressed: Story = {
   render: () => (
-    <Toggle pressed aria-label="Toggle italic">
+    <Toggle pressed aria-label='Toggle italic'>
       <Italic />
     </Toggle>
   ),
@@ -124,9 +114,9 @@ export const Pressed: Story = {
 
 export const WithCustomStyling: Story = {
   render: () => (
-    <Toggle 
-      className="bg-blue-500 text-white hover:bg-blue-600 data-[state=on]:bg-blue-700" 
-      aria-label="Toggle italic"
+    <Toggle
+      className='bg-blue-500 text-white hover:bg-blue-600 data-[state=on]:bg-blue-700'
+      aria-label='Toggle italic'
     >
       <Italic />
     </Toggle>
@@ -137,28 +127,16 @@ const TextFormattingGroupComponent = () => {
   const [bold, setBold] = useState(false);
   const [italic, setItalic] = useState(false);
   const [underline, setUnderline] = useState(false);
-  
+
   return (
-    <div className="flex items-center gap-1">
-      <Toggle 
-        pressed={bold} 
-        onPressedChange={setBold} 
-        aria-label="Toggle bold"
-      >
+    <div className='flex items-center gap-1'>
+      <Toggle pressed={bold} onPressedChange={setBold} aria-label='Toggle bold'>
         <Bold />
       </Toggle>
-      <Toggle 
-        pressed={italic} 
-        onPressedChange={setItalic} 
-        aria-label="Toggle italic"
-      >
+      <Toggle pressed={italic} onPressedChange={setItalic} aria-label='Toggle italic'>
         <Italic />
       </Toggle>
-      <Toggle 
-        pressed={underline} 
-        onPressedChange={setUnderline} 
-        aria-label="Toggle underline"
-      >
+      <Toggle pressed={underline} onPressedChange={setUnderline} aria-label='Toggle underline'>
         <Underline />
       </Toggle>
     </div>
@@ -171,27 +149,27 @@ export const TextFormattingGroup: Story = {
 
 const AlignmentGroupComponent = () => {
   const [alignment, setAlignment] = useState('left');
-  
+
   return (
-    <div className="flex items-center gap-1">
-      <Toggle 
-        pressed={alignment === 'left'} 
-        onPressedChange={() => setAlignment('left')} 
-        aria-label="Align left"
+    <div className='flex items-center gap-1'>
+      <Toggle
+        pressed={alignment === 'left'}
+        onPressedChange={() => setAlignment('left')}
+        aria-label='Align left'
       >
         <AlignLeft />
       </Toggle>
-      <Toggle 
-        pressed={alignment === 'center'} 
-        onPressedChange={() => setAlignment('center')} 
-        aria-label="Align center"
+      <Toggle
+        pressed={alignment === 'center'}
+        onPressedChange={() => setAlignment('center')}
+        aria-label='Align center'
       >
         <AlignCenter />
       </Toggle>
-      <Toggle 
-        pressed={alignment === 'right'} 
-        onPressedChange={() => setAlignment('right')} 
-        aria-label="Align right"
+      <Toggle
+        pressed={alignment === 'right'}
+        onPressedChange={() => setAlignment('right')}
+        aria-label='Align right'
       >
         <AlignRight />
       </Toggle>
@@ -203,59 +181,25 @@ export const AlignmentGroup: Story = {
   render: () => <AlignmentGroupComponent />,
 };
 
-const WithLabelsComponent = () => {
-  const [bold, setBold] = useState(false);
-  const [italic, setItalic] = useState(false);
-  
-  return (
-    <div className="space-y-4">
-      <div className="flex items-center gap-2">
-        <Toggle 
-          pressed={bold} 
-          onPressedChange={setBold} 
-          aria-label="Toggle bold"
-        >
-          <Bold />
-        </Toggle>
-        <span className="text-sm">Bold</span>
-      </div>
-      <div className="flex items-center gap-2">
-        <Toggle 
-          pressed={italic} 
-          onPressedChange={setItalic} 
-          aria-label="Toggle italic"
-        >
-          <Italic />
-        </Toggle>
-        <span className="text-sm">Italic</span>
-      </div>
-    </div>
-  );
-};
-
-export const WithLabels: Story = {
-  render: () => <WithLabelsComponent />,
-};
-
 const WithTooltipsComponent = () => {
   const [bold, setBold] = useState(false);
   const [italic, setItalic] = useState(false);
-  
+
   return (
-    <div className="flex items-center gap-1">
-      <Toggle 
-        pressed={bold} 
-        onPressedChange={setBold} 
-        aria-label="Toggle bold"
-        title="Bold (Ctrl+B)"
+    <div className='flex items-center gap-1'>
+      <Toggle
+        pressed={bold}
+        onPressedChange={setBold}
+        aria-label='Toggle bold'
+        title='Bold (Ctrl+B)'
       >
         <Bold />
       </Toggle>
-      <Toggle 
-        pressed={italic} 
-        onPressedChange={setItalic} 
-        aria-label="Toggle italic"
-        title="Italic (Ctrl+I)"
+      <Toggle
+        pressed={italic}
+        onPressedChange={setItalic}
+        aria-label='Toggle italic'
+        title='Italic (Ctrl+I)'
       >
         <Italic />
       </Toggle>
@@ -267,145 +211,21 @@ export const WithTooltips: Story = {
   render: () => <WithTooltipsComponent />,
 };
 
-const WithKeyboardShortcutsComponent = () => {
-  const [bold, setBold] = useState(false);
-  const [italic, setItalic] = useState(false);
-  
-  return (
-    <div className="flex items-center gap-1">
-      <Toggle 
-        pressed={bold} 
-        onPressedChange={setBold} 
-        aria-label="Toggle bold"
-        onKeyDown={(e) => {
-          if (e.ctrlKey && e.key === 'b') {
-            e.preventDefault();
-            setBold(!bold);
-          }
-        }}
-      >
-        <Bold />
-      </Toggle>
-      <Toggle 
-        pressed={italic} 
-        onPressedChange={setItalic} 
-        aria-label="Toggle italic"
-        onKeyDown={(e) => {
-          if (e.ctrlKey && e.key === 'i') {
-            e.preventDefault();
-            setItalic(!italic);
-          }
-        }}
-      >
-        <Italic />
-      </Toggle>
-    </div>
-  );
-};
-
-export const WithKeyboardShortcuts: Story = {
-  render: () => <WithKeyboardShortcutsComponent />,
-};
-
-export const WithAccessibility: Story = {
-  render: () => (
-    <div className="space-y-4">
-      <div>
-        <label htmlFor="text-formatting" className="text-sm font-medium">Text Formatting</label>
-        <div className="flex items-center gap-1 mt-2">
-          <Toggle 
-            aria-label="Toggle bold formatting" 
-            aria-describedby="bold-description"
-          >
-            <Bold />
-          </Toggle>
-          <Toggle 
-            aria-label="Toggle italic formatting" 
-            aria-describedby="italic-description"
-          >
-            <Italic />
-          </Toggle>
-          <Toggle 
-            aria-label="Toggle underline formatting" 
-            aria-describedby="underline-description"
-          >
-            <Underline />
-          </Toggle>
-        </div>
-        <div className="text-xs text-muted-foreground mt-1">
-          <p id="bold-description">Makes text bold</p>
-          <p id="italic-description">Makes text italic</p>
-          <p id="underline-description">Makes text underlined</p>
-        </div>
-      </div>
-    </div>
-  ),
-};
-
-const WithPerformanceComponent = () => {
-  const [toggles, setToggles] = useState({
-    bold: false,
-    italic: false,
-    underline: false,
-  });
-  
-  const handleToggle = (key: keyof typeof toggles) => {
-    setToggles(prev => ({
-      ...prev,
-      [key]: !prev[key]
-    }));
-  };
-  
-  return (
-    <div className="flex items-center gap-1">
-      <Toggle 
-        pressed={toggles.bold} 
-        onPressedChange={() => handleToggle('bold')} 
-        aria-label="Toggle bold"
-      >
-        <Bold />
-      </Toggle>
-      <Toggle 
-        pressed={toggles.italic} 
-        onPressedChange={() => handleToggle('italic')} 
-        aria-label="Toggle italic"
-      >
-        <Italic />
-      </Toggle>
-      <Toggle 
-        pressed={toggles.underline} 
-        onPressedChange={() => handleToggle('underline')} 
-        aria-label="Toggle underline"
-      >
-        <Underline />
-      </Toggle>
-    </div>
-  );
-};
-
-export const WithPerformance: Story = {
-  render: () => <WithPerformanceComponent />,
-};
-
 const WithUserInteractionComponent = () => {
   const [bold, setBold] = useState(false);
   const [clickCount, setClickCount] = useState(0);
-  
+
   const handleToggle = (pressed: boolean) => {
     setBold(pressed);
     setClickCount(prev => prev + 1);
   };
-  
+
   return (
-    <div className="space-y-4">
-      <Toggle 
-        pressed={bold} 
-        onPressedChange={handleToggle} 
-        aria-label="Toggle bold"
-      >
+    <div className='space-y-4'>
+      <Toggle pressed={bold} onPressedChange={handleToggle} aria-label='Toggle bold'>
         <Bold />
       </Toggle>
-      <div className="text-sm text-muted-foreground space-y-1">
+      <div className='text-sm text-muted-foreground space-y-1'>
         <p>Bold: {bold ? 'On' : 'Off'}</p>
         <p>Clicks: {clickCount}</p>
       </div>

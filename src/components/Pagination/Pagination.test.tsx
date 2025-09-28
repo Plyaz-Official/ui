@@ -1,12 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-import {
-  Pagination,
-  PaginationContent,
-  PaginationItem,
-  PaginationLink,
-} from './Pagination';
+import { Pagination, PaginationContent, PaginationItem, PaginationLink } from './Pagination';
 
 describe('Pagination component', () => {
   it('renders under 100ms', () => {
@@ -15,7 +10,7 @@ describe('Pagination component', () => {
       <Pagination>
         <PaginationContent>
           <PaginationItem>
-            <PaginationLink href="#" isActive>
+            <PaginationLink href='#' isActive>
               1
             </PaginationLink>
           </PaginationItem>
@@ -32,7 +27,7 @@ describe('Pagination component', () => {
       <Pagination>
         <PaginationContent>
           <PaginationItem>
-            <PaginationLink href="#" isActive>
+            <PaginationLink href='#' isActive>
               1
             </PaginationLink>
           </PaginationItem>

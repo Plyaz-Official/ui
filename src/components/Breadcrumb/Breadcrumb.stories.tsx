@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { expect } from '@storybook/test';
+import { expect, fn } from '@storybook/test';
 import { Home } from 'lucide-react';
 
 import {
@@ -41,11 +41,11 @@ export const Default: Story = {
     <Breadcrumb>
       <BreadcrumbList>
         <BreadcrumbItem>
-          <BreadcrumbLink href="/">Home</BreadcrumbLink>
+          <BreadcrumbLink href='/'>Home</BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbLink href="/components">Components</BreadcrumbLink>
+          <BreadcrumbLink href='/components'>Components</BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
@@ -61,18 +61,18 @@ export const WithIcons: Story = {
     <Breadcrumb>
       <BreadcrumbList>
         <BreadcrumbItem>
-          <BreadcrumbLink href="/" className="flex items-center gap-1">
-            <Home className="h-4 w-4" />
+          <BreadcrumbLink href='/' className='flex items-center gap-1'>
+            <Home className='h-4 w-4' />
             Home
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbLink href="/products">Products</BreadcrumbLink>
+          <BreadcrumbLink href='/products'>Products</BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbLink href="/products/electronics">Electronics</BreadcrumbLink>
+          <BreadcrumbLink href='/products/electronics'>Electronics</BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
@@ -88,23 +88,23 @@ export const LongPath: Story = {
     <Breadcrumb>
       <BreadcrumbList>
         <BreadcrumbItem>
-          <BreadcrumbLink href="/">Home</BreadcrumbLink>
+          <BreadcrumbLink href='/'>Home</BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbLink href="/dashboard">Dashboard</BreadcrumbLink>
+          <BreadcrumbLink href='/dashboard'>Dashboard</BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbLink href="/dashboard/projects">Projects</BreadcrumbLink>
+          <BreadcrumbLink href='/dashboard/projects'>Projects</BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbLink href="/dashboard/projects/web">Web Development</BreadcrumbLink>
+          <BreadcrumbLink href='/dashboard/projects/web'>Web Development</BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbLink href="/dashboard/projects/web/frontend">Frontend</BreadcrumbLink>
+          <BreadcrumbLink href='/dashboard/projects/web/frontend'>Frontend</BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
@@ -120,7 +120,7 @@ export const WithEllipsis: Story = {
     <Breadcrumb>
       <BreadcrumbList>
         <BreadcrumbItem>
-          <BreadcrumbLink href="/">Home</BreadcrumbLink>
+          <BreadcrumbLink href='/'>Home</BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
@@ -128,7 +128,7 @@ export const WithEllipsis: Story = {
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbLink href="/products">Products</BreadcrumbLink>
+          <BreadcrumbLink href='/products'>Products</BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
@@ -144,16 +144,16 @@ export const CustomSeparator: Story = {
     <Breadcrumb>
       <BreadcrumbList>
         <BreadcrumbItem>
-          <BreadcrumbLink href="/">Home</BreadcrumbLink>
+          <BreadcrumbLink href='/'>Home</BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator>
-          <span className="text-muted-foreground">/</span>
+          <span className='text-muted-foreground'>/</span>
         </BreadcrumbSeparator>
         <BreadcrumbItem>
-          <BreadcrumbLink href="/about">About</BreadcrumbLink>
+          <BreadcrumbLink href='/about'>About</BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator>
-          <span className="text-muted-foreground">/</span>
+          <span className='text-muted-foreground'>/</span>
         </BreadcrumbSeparator>
         <BreadcrumbItem>
           <BreadcrumbPage>Team</BreadcrumbPage>
@@ -190,17 +190,17 @@ export const AsChild: Story = {
 export const Responsive: Story = {
   render: () => (
     <Breadcrumb>
-      <BreadcrumbList className="text-xs sm:text-sm">
+      <BreadcrumbList className='text-xs sm:text-sm'>
         <BreadcrumbItem>
-          <BreadcrumbLink href="/">Home</BreadcrumbLink>
+          <BreadcrumbLink href='/'>Home</BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbLink href="/dashboard">Dashboard</BreadcrumbLink>
+          <BreadcrumbLink href='/dashboard'>Dashboard</BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbLink href="/dashboard/settings">Settings</BreadcrumbLink>
+          <BreadcrumbLink href='/dashboard/settings'>Settings</BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
@@ -216,13 +216,13 @@ export const UserInteraction: Story = {
     <Breadcrumb>
       <BreadcrumbList>
         <BreadcrumbItem>
-          <BreadcrumbLink href="/" onClick={fn()}>
+          <BreadcrumbLink href='/' onClick={fn()}>
             Home
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbLink href="/products" onClick={fn()}>
+          <BreadcrumbLink href='/products' onClick={fn()}>
             Products
           </BreadcrumbLink>
         </BreadcrumbItem>
