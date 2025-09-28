@@ -1,0 +1,116 @@
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import * as RadioGroupStories from './RadioGroup.stories';
+
+<Meta of={RadioGroupStories} />
+
+# RadioGroup
+
+The `RadioGroup` component is a set of radio buttons that allows users to select a single option from multiple choices. It provides a way to create mutually exclusive selections. Built with Radix UI and styled with Tailwind CSS.
+
+## Features
+
+- **Mutually Exclusive Selection**: Only one option can be selected at a time
+- **Keyboard Navigation**: Full keyboard support for accessibility
+- **Customizable Styling**: Flexible styling with Tailwind CSS classes
+- **Form Integration**: Works seamlessly with forms and validation
+- **Accessibility**: Built with ARIA attributes and screen reader support
+
+## Usage
+
+### Basic Usage
+
+<Canvas of={RadioGroupStories.Default} />
+
+```tsx
+import { RadioGroup, RadioGroupItem, Label } from '@/components';
+
+<RadioGroup defaultValue='option1'>
+  <div className='flex items-center space-x-2'>
+    <RadioGroupItem value='option1' id='option1' />
+    <Label htmlFor='option1'>Option 1</Label>
+  </div>
+  <div className='flex items-center space-x-2'>
+    <RadioGroupItem value='option2' id='option2' />
+    <Label htmlFor='option2'>Option 2</Label>
+  </div>
+</RadioGroup>;
+```
+
+### With Descriptions
+
+<Canvas of={RadioGroupStories.WithDescriptions} />
+
+### With Form Integration
+
+<Canvas of={RadioGroupStories.WithForm} />
+
+### Controlled Component
+
+<Canvas of={RadioGroupStories.WithControlledValue} />
+
+## API Reference
+
+### RadioGroup Props
+
+| Prop            | Type                         | Default      | Description                          |
+| --------------- | ---------------------------- | ------------ | ------------------------------------ |
+| `value`         | `string`                     | -            | The current value of the radio group |
+| `defaultValue`  | `string`                     | -            | The default value of the radio group |
+| `onValueChange` | `(value: string) => void`    | -            | Called when the value changes        |
+| `disabled`      | `boolean`                    | `false`      | Whether the radio group is disabled  |
+| `name`          | `string`                     | -            | The name of the radio group          |
+| `required`      | `boolean`                    | `false`      | Whether the radio group is required  |
+| `orientation`   | `"horizontal" \| "vertical"` | `"vertical"` | The orientation of the radio group   |
+| `dir`           | `"ltr" \| "rtl"`             | -            | The direction of the radio group     |
+
+### RadioGroupItem Props
+
+| Prop        | Type      | Default | Description                        |
+| ----------- | --------- | ------- | ---------------------------------- |
+| `value`     | `string`  | -       | The value of the radio item        |
+| `disabled`  | `boolean` | `false` | Whether the radio item is disabled |
+| `id`        | `string`  | -       | The id of the radio item           |
+| `className` | `string`  | -       | Additional CSS classes             |
+
+## Accessibility
+
+The RadioGroup component follows WAI-ARIA guidelines:
+
+- Uses `role="radiogroup"` for the container
+- Uses `role="radio"` for individual items
+- Provides proper keyboard navigation
+- Supports screen readers with appropriate ARIA attributes
+- Maintains focus management
+
+## Styling
+
+The component uses Tailwind CSS for styling and can be customized with additional classes:
+
+```tsx
+<RadioGroup className='space-y-4'>
+  <div className='flex items-center space-x-2 p-3 border rounded-lg hover:bg-accent/50'>
+    <RadioGroupItem value='option1' id='option1' />
+    <Label htmlFor='option1'>Option 1</Label>
+  </div>
+</RadioGroup>
+```
+
+## Examples
+
+### With Icons
+
+<Canvas of={RadioGroupStories.WithIcons} />
+
+### With Pricing
+
+<Canvas of={RadioGroupStories.WithPricing} />
+
+### With Validation
+
+<Canvas of={RadioGroupStories.WithValidation} />
+
+### Disabled States
+
+<Canvas of={RadioGroupStories.Disabled} />
+
+<Canvas of={RadioGroupStories.PartiallyDisabled} />

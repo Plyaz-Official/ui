@@ -1,0 +1,676 @@
+import { Meta, Canvas, Controls, Source } from '@storybook/addon-docs';
+
+import { Toaster } from '@/components';
+
+<Meta title='Components/Toaster' />
+
+# Toaster
+
+The `Toaster` component provides toast notifications with theme support. It is built with Sonner and styled with Tailwind CSS, offering a flexible and accessible toast solution.
+
+## Features
+
+- **Toast Notifications**: Provides toast notifications for user feedback
+- **Theme Support**: Automatically adapts to light/dark themes
+- **Accessibility**: Built with Sonner for full accessibility support
+- **Customizable**: Supports custom styling and theming
+- **Responsive**: Adapts to different screen sizes and orientations
+- **Keyboard Navigation**: Full keyboard support for navigation
+- **Touch Support**: Optimized for touch devices
+
+## Usage
+
+### Basic Usage
+
+<Canvas of={Toaster} />
+
+<Source
+  language="tsx"
+  code={`
+import { Toaster } from '@/components';
+import { toast } from 'sonner';
+
+function BasicToaster() {
+return (
+<div className="space-y-4">
+<Toaster />
+<button
+onClick={() => toast('Hello World!')}
+className="px-4 py-2 bg-primary text-primary-foreground rounded-md" >
+Show Toast
+</button>
+</div>
+);
+}
+`}
+/>
+
+### With Theme
+
+<Canvas of={Toaster} />
+
+<Source
+  language="tsx"
+  code={`
+import { Toaster } from '@/components';
+import { toast } from 'sonner';
+
+function ThemeToaster() {
+return (
+<div className="space-y-4">
+<Toaster theme="light" />
+<button
+onClick={() => toast('Light theme toast!')}
+className="px-4 py-2 bg-primary text-primary-foreground rounded-md" >
+Light Theme
+</button>
+</div>
+);
+}
+`}
+/>
+
+### With Position
+
+<Canvas of={Toaster} />
+
+<Source
+  language="tsx"
+  code={`
+import { Toaster } from '@/components';
+import { toast } from 'sonner';
+
+function PositionToaster() {
+return (
+<div className="space-y-4">
+<Toaster position="top-right" />
+<button
+onClick={() => toast('Top right toast!')}
+className="px-4 py-2 bg-primary text-primary-foreground rounded-md" >
+Top Right
+</button>
+</div>
+);
+}
+`}
+/>
+
+### With Expand
+
+<Canvas of={Toaster} />
+
+<Source
+  language="tsx"
+  code={`
+import { Toaster } from '@/components';
+import { toast } from 'sonner';
+
+function ExpandToaster() {
+return (
+<div className="space-y-4">
+<Toaster expand />
+<button
+onClick={() => toast('Expanded toast!')}
+className="px-4 py-2 bg-primary text-primary-foreground rounded-md" >
+Expanded
+</button>
+</div>
+);
+}
+`}
+/>
+
+### With Rich Colors
+
+<Canvas of={Toaster} />
+
+<Source
+  language="tsx"
+  code={`
+import { Toaster } from '@/components';
+import { toast } from 'sonner';
+
+function RichColorToaster() {
+return (
+<div className="space-y-4">
+<Toaster richColors />
+<div className="space-x-2">
+<button
+onClick={() => toast.success('Success toast!')}
+className="px-4 py-2 bg-green-500 text-white rounded-md" >
+Success
+</button>
+<button
+onClick={() => toast.error('Error toast!')}
+className="px-4 py-2 bg-red-500 text-white rounded-md" >
+Error
+</button>
+<button
+onClick={() => toast.warning('Warning toast!')}
+className="px-4 py-2 bg-yellow-500 text-white rounded-md" >
+Warning
+</button>
+<button
+onClick={() => toast.info('Info toast!')}
+className="px-4 py-2 bg-blue-500 text-white rounded-md" >
+Info
+</button>
+</div>
+</div>
+);
+}
+`}
+/>
+
+### With Close Button
+
+<Canvas of={Toaster} />
+
+<Source
+  language="tsx"
+  code={`
+import { Toaster } from '@/components';
+import { toast } from 'sonner';
+
+function CloseButtonToaster() {
+return (
+<div className="space-y-4">
+<Toaster closeButton />
+<button
+onClick={() => toast('Toast with close button!')}
+className="px-4 py-2 bg-primary text-primary-foreground rounded-md" >
+With Close Button
+</button>
+</div>
+);
+}
+`}
+/>
+
+### With Custom Styling
+
+<Canvas of={Toaster} />
+
+<Source
+  language="tsx"
+  code={`
+import { Toaster } from '@/components';
+import { toast } from 'sonner';
+
+function CustomStyledToaster() {
+return (
+<div className="space-y-4">
+<Toaster className="custom-toaster" />
+<button
+onClick={() => toast('Custom styled toast!')}
+className="px-4 py-2 bg-primary text-primary-foreground rounded-md" >
+Custom Styled
+</button>
+</div>
+);
+}
+`}
+/>
+
+### With Multiple Toasts
+
+<Canvas of={Toaster} />
+
+<Source
+  language="tsx"
+  code={`
+import { Toaster } from '@/components';
+import { toast } from 'sonner';
+
+function MultipleToastToaster() {
+return (
+<div className="space-y-4">
+<Toaster />
+<button
+onClick={() => {
+toast('First toast!');
+toast('Second toast!');
+toast('Third toast!');
+}}
+className="px-4 py-2 bg-primary text-primary-foreground rounded-md" >
+Multiple Toasts
+</button>
+</div>
+);
+}
+`}
+/>
+
+### With Different Types
+
+<Canvas of={Toaster} />
+
+<Source
+  language="tsx"
+  code={`
+import { Toaster } from '@/components';
+import { toast } from 'sonner';
+
+function DifferentTypeToaster() {
+return (
+<div className="space-y-4">
+<Toaster />
+<div className="space-x-2">
+<button
+onClick={() => toast('Default toast!')}
+className="px-4 py-2 bg-primary text-primary-foreground rounded-md" >
+Default
+</button>
+<button
+onClick={() => toast.success('Success toast!')}
+className="px-4 py-2 bg-green-500 text-white rounded-md" >
+Success
+</button>
+<button
+onClick={() => toast.error('Error toast!')}
+className="px-4 py-2 bg-red-500 text-white rounded-md" >
+Error
+</button>
+<button
+onClick={() => toast.warning('Warning toast!')}
+className="px-4 py-2 bg-yellow-500 text-white rounded-md" >
+Warning
+</button>
+<button
+onClick={() => toast.info('Info toast!')}
+className="px-4 py-2 bg-blue-500 text-white rounded-md" >
+Info
+</button>
+</div>
+</div>
+);
+}
+`}
+/>
+
+### With Actions
+
+<Canvas of={Toaster} />
+
+<Source
+  language="tsx"
+  code={`
+import { Toaster } from '@/components';
+import { toast } from 'sonner';
+
+function ActionToaster() {
+return (
+<div className="space-y-4">
+<Toaster />
+<button
+onClick={() => toast('Toast with action!', {
+action: {
+label: 'Undo',
+onClick: () => toast('Undone!'),
+},
+})}
+className="px-4 py-2 bg-primary text-primary-foreground rounded-md" >
+With Action
+</button>
+</div>
+);
+}
+`}
+/>
+
+### With Description
+
+<Canvas of={Toaster} />
+
+<Source
+  language="tsx"
+  code={`
+import { Toaster } from '@/components';
+import { toast } from 'sonner';
+
+function DescriptionToaster() {
+return (
+<div className="space-y-4">
+<Toaster />
+<button
+onClick={() => toast('Toast with description!', {
+description: 'This is a longer description that provides more context.',
+})}
+className="px-4 py-2 bg-primary text-primary-foreground rounded-md" >
+With Description
+</button>
+</div>
+);
+}
+`}
+/>
+
+### With Duration
+
+<Canvas of={Toaster} />
+
+<Source
+  language="tsx"
+  code={`
+import { Toaster } from '@/components';
+import { toast } from 'sonner';
+
+function DurationToaster() {
+return (
+<div className="space-y-4">
+<Toaster />
+<div className="space-x-2">
+<button
+onClick={() => toast('Short duration toast!', { duration: 1000 })}
+className="px-4 py-2 bg-primary text-primary-foreground rounded-md" >
+Short Duration
+</button>
+<button
+onClick={() => toast('Long duration toast!', { duration: 10000 })}
+className="px-4 py-2 bg-primary text-primary-foreground rounded-md" >
+Long Duration
+</button>
+</div>
+</div>
+);
+}
+`}
+/>
+
+### With Promise
+
+<Canvas of={Toaster} />
+
+<Source
+  language="tsx"
+  code={`
+import { Toaster } from '@/components';
+import { toast } from 'sonner';
+
+function PromiseToaster() {
+return (
+<div className="space-y-4">
+<Toaster />
+<button
+onClick={() => {
+const promise = new Promise((resolve) => {
+setTimeout(() => resolve('Promise resolved!'), 2000);
+});
+
+          toast.promise(promise, {
+            loading: 'Loading...',
+            success: 'Success!',
+            error: 'Error!',
+          });
+        }}
+        className="px-4 py-2 bg-primary text-primary-foreground rounded-md"
+      >
+        Promise Toast
+      </button>
+    </div>
+
+);
+}
+`}
+/>
+
+### With Custom Content
+
+<Canvas of={Toaster} />
+
+<Source
+  language="tsx"
+  code={`
+import { Toaster } from '@/components';
+import { toast } from 'sonner';
+
+function CustomContentToaster() {
+return (
+<div className="space-y-4">
+<Toaster />
+<button
+onClick={() => toast(
+<div className="flex items-center space-x-2">
+<div className="w-2 h-2 bg-green-500 rounded-full" />
+<span>Custom content toast!</span>
+</div>
+)}
+className="px-4 py-2 bg-primary text-primary-foreground rounded-md" >
+Custom Content
+</button>
+</div>
+);
+}
+`}
+/>
+
+### With Loading
+
+<Canvas of={Toaster} />
+
+<Source
+  language="tsx"
+  code={`
+import { Toaster } from '@/components';
+import { toast } from 'sonner';
+
+function LoadingToaster() {
+return (
+<div className="space-y-4">
+<Toaster />
+<div className="space-x-2">
+<button
+onClick={() => toast.loading('Loading...', {
+id: 'loading-toast',
+})}
+className="px-4 py-2 bg-primary text-primary-foreground rounded-md" >
+Loading Toast
+</button>
+<button
+onClick={() => toast.dismiss('loading-toast')}
+className="px-4 py-2 bg-secondary text-secondary-foreground rounded-md" >
+Dismiss
+</button>
+</div>
+</div>
+);
+}
+`}
+/>
+
+### With Dismiss
+
+<Canvas of={Toaster} />
+
+<Source
+  language="tsx"
+  code={`
+import { Toaster } from '@/components';
+import { toast } from 'sonner';
+
+function DismissToaster() {
+return (
+<div className="space-y-4">
+<Toaster />
+<div className="space-x-2">
+<button
+onClick={() => toast('Dismissible toast!', { id: 'dismissible' })}
+className="px-4 py-2 bg-primary text-primary-foreground rounded-md" >
+Show Toast
+</button>
+<button
+onClick={() => toast.dismiss('dismissible')}
+className="px-4 py-2 bg-secondary text-secondary-foreground rounded-md" >
+Dismiss
+</button>
+<button
+onClick={() => toast.dismiss()}
+className="px-4 py-2 bg-destructive text-destructive-foreground rounded-md" >
+Dismiss All
+</button>
+</div>
+</div>
+);
+}
+`}
+/>
+
+### With Keyboard Navigation
+
+<Canvas of={Toaster} />
+
+<Source
+  language="tsx"
+  code={`
+import { Toaster } from '@/components';
+import { toast } from 'sonner';
+
+function KeyboardToaster() {
+return (
+<div className="space-y-4">
+<Toaster />
+<button
+onClick={() => toast('Keyboard accessible toast!')}
+className="px-4 py-2 bg-primary text-primary-foreground rounded-md" >
+Keyboard Accessible
+</button>
+</div>
+);
+}
+`}
+/>
+
+### With Accessibility
+
+<Canvas of={Toaster} />
+
+<Source
+  language="tsx"
+  code={`
+import { Toaster } from '@/components';
+import { toast } from 'sonner';
+
+function AccessibleToaster() {
+return (
+<div className="space-y-4">
+<Toaster />
+<button
+onClick={() => toast('Accessible toast!', {
+'aria-label': 'Important notification',
+})}
+className="px-4 py-2 bg-primary text-primary-foreground rounded-md" >
+Accessible Toast
+</button>
+</div>
+);
+}
+`}
+/>
+
+### With Performance
+
+<Canvas of={Toaster} />
+
+<Source
+  language="tsx"
+  code={`
+import { Toaster } from '@/components';
+import { toast } from 'sonner';
+
+function PerformanceToaster() {
+return (
+<div className="space-y-4">
+<Toaster />
+<button
+onClick={() => {
+for (let i = 0; i < 10; i++) {
+toast(\`Toast \${i + 1}\`);
+}
+}}
+className="px-4 py-2 bg-primary text-primary-foreground rounded-md" >
+Multiple Toasts
+</button>
+</div>
+);
+}
+`}
+/>
+
+### With User Interaction
+
+<Canvas of={Toaster} />
+
+<Source
+  language="tsx"
+  code={`
+import { Toaster } from '@/components';
+import { toast } from 'sonner';
+
+function InteractiveToaster() {
+return (
+<div className="space-y-4">
+<Toaster />
+<button
+onClick={() => toast('Interactive toast!', {
+action: {
+label: 'Click me',
+onClick: () => toast('Action clicked!'),
+},
+})}
+className="px-4 py-2 bg-primary text-primary-foreground rounded-md" >
+Interactive Toast
+</button>
+</div>
+);
+}
+`}
+/>
+
+## Props
+
+| Prop          | Type                                                                                              | Default          | Description                                    |
+| ------------- | ------------------------------------------------------------------------------------------------- | ---------------- | ---------------------------------------------- |
+| `theme`       | `"light" \| "dark" \| "system"`                                                                   | `"system"`       | The theme of the toaster                       |
+| `position`    | `"top-left" \| "top-center" \| "top-right" \| "bottom-left" \| "bottom-center" \| "bottom-right"` | `"bottom-right"` | The position of the toaster                    |
+| `expand`      | `boolean`                                                                                         | `false`          | Whether to expand the toaster                  |
+| `richColors`  | `boolean`                                                                                         | `false`          | Whether to use rich colors                     |
+| `closeButton` | `boolean`                                                                                         | `false`          | Whether to show close button                   |
+| `className`   | `string`                                                                                          | -                | Additional CSS classes to apply to the toaster |
+| `...props`    | `ToasterProps`                                                                                    | -                | Additional props passed to the Sonner Toaster  |
+
+## Styling
+
+The `Toaster` component uses Tailwind CSS classes and can be customized with additional classes:
+
+```tsx
+<Toaster className='custom-toaster' />
+```
+
+## Accessibility
+
+The `Toaster` component is built with Sonner and provides:
+
+- **Keyboard Navigation**: Full keyboard support for navigation
+- **Screen Reader Support**: Proper ARIA attributes and roles
+- **Focus Management**: Focus indicators and proper focus handling
+- **Touch Support**: Optimized for touch devices
+- **Announcements**: Announces toast notifications to screen readers
+
+## Performance
+
+The `Toaster` component is optimized for performance:
+
+- **Efficient Rendering**: Only re-renders when necessary
+- **Smooth Animations**: Provides smooth toast animations
+- **Memory Efficient**: Minimal memory usage
+- **Responsive**: Adapts to different screen sizes and orientations
+
+## Best Practices
+
+1. **Use appropriate toast types**: Choose the right toast type for your message
+2. **Provide meaningful content**: Ensure toast content is clear and actionable
+3. **Handle user interactions**: Use actions for interactive toasts
+4. **Test with keyboard**: Ensure keyboard navigation works properly
+5. **Consider mobile**: Test on mobile devices for touch interactions
+6. **Use controlled state**: Use controlled state for complex interactions
+7. **Provide visual feedback**: Show clear visual feedback for user actions

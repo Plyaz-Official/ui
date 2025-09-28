@@ -1,0 +1,119 @@
+import { Meta, Story, Source, Canvas, Controls } from '@storybook/addon-docs';
+import * as CalendarStories from './Calendar.stories';
+
+<Meta of={CalendarStories} />
+
+# Calendar
+
+`Calendar` is a date picker component built with react-day-picker. It provides a flexible and accessible way to select dates, date ranges, and multiple dates. Styled with Tailwind CSS and integrated with the design system.
+
+The calendar component supports various selection modes, custom styling, and accessibility features.
+
+## Features
+
+- Multiple selection modes (`single`, `range`, `multiple`)
+- Customizable appearance with Tailwind CSS
+- Accessible with proper ARIA attributes
+- Support for disabled dates and date ranges
+- Flexible layout options
+- Week number support
+
+## Usage Guidelines
+
+- Use `mode="single"` for selecting one date
+- Use `mode="range"` for selecting date ranges
+- Use `mode="multiple"` for selecting multiple dates
+- Set `showOutsideDays={false}` to hide previous/next month days
+- Use `captionLayout="dropdown"` for month/year dropdowns
+
+## Do
+
+- Use appropriate selection modes for your use case
+- Provide clear visual feedback for selected dates
+- Use disabled dates for unavailable dates
+- Consider accessibility when customizing
+
+## Don't
+
+- Use complex date logic without proper testing
+- Forget to handle edge cases in date selection
+- Make the calendar too small to interact with
+- Override accessibility features
+
+## Props
+
+<Controls of={CalendarStories.Default} />
+
+### Examples
+
+## Basic Usage
+
+### Default Calendar
+
+<Canvas of={CalendarStories.Default} />
+
+### Range Selection
+
+<Canvas of={CalendarStories.Range} />
+
+### Multiple Selection
+
+<Canvas of={CalendarStories.Multiple} />
+
+## With Data
+
+### With Selected Date
+
+<Canvas of={CalendarStories.WithSelectedDate} />
+
+### With Date Range
+
+<Canvas of={CalendarStories.WithDateRange} />
+
+### With Multiple Dates
+
+<Canvas of={CalendarStories.WithMultipleDates} />
+
+## Constraints
+
+### With Disabled Dates
+
+<Canvas of={CalendarStories.WithDisabledDates} />
+
+### With Min/Max Dates
+
+<Canvas of={CalendarStories.WithMinMaxDates} />
+
+## Layout Options
+
+### Dropdown Layout
+
+<Canvas of={CalendarStories.DropdownLayout} />
+
+### Without Outside Days
+
+<Canvas of={CalendarStories.WithoutOutsideDays} />
+
+### Custom Button Variant
+
+<Canvas of={CalendarStories.CustomButtonVariant} />
+
+### With Week Numbers
+
+<Canvas of={CalendarStories.WithWeekNumbers} />
+
+## Customization
+
+### Custom Styling
+
+<Canvas of={CalendarStories.WithCustomClassNames} />
+
+### User Interaction
+
+<Canvas of={CalendarStories.UserInteraction} />
+
+---
+
+## Source Code
+
+<Source of={CalendarStories.Default} language='tsx' />

@@ -1,0 +1,101 @@
+import { Meta, Story, Source, Canvas, Controls } from '@storybook/addon-docs';
+import * as PaginationStories from './Pagination.stories';
+
+<Meta of={PaginationStories} />
+
+# Pagination
+
+`Pagination` is a navigation component that allows users to navigate through multiple pages of content. It provides a way to display page numbers and navigation controls. Built with Tailwind CSS and styled components.
+
+The pagination component provides a powerful way to create navigation controls with proper accessibility and user experience.
+
+## Features
+
+- Page number navigation
+- Previous and next buttons
+- Ellipsis for large datasets
+- Accessible with proper ARIA attributes
+- Customizable styling and behavior
+- Keyboard navigation support
+- Responsive design
+
+## Usage Guidelines
+
+- Use pagination for large datasets
+- Keep the number of visible pages reasonable
+- Provide clear navigation controls
+- Consider accessibility requirements
+- Use appropriate styling for different states
+
+## Do
+
+- Use pagination for large datasets
+- Keep navigation clear and intuitive
+- Consider accessibility
+- Use appropriate styling
+- Provide clear feedback
+
+## Don't
+
+- Use pagination for small datasets
+- Make navigation too complex
+- Forget to handle edge cases
+- Overuse in your interface
+
+## Props
+
+<Controls of={PaginationStories.Default} />
+
+### Examples
+
+## Basic Usage
+
+### Default Pagination
+
+<Canvas of={PaginationStories.Default} />
+
+### With Ellipsis
+
+<Canvas of={PaginationStories.WithEllipsis} />
+
+### Simple
+
+<Canvas of={PaginationStories.Simple} />
+
+### First Page
+
+<Canvas of={PaginationStories.FirstPage} />
+
+## Advanced Features
+
+### Last Page
+
+<Canvas of={PaginationStories.LastPage} />
+
+### Middle Page
+
+<Canvas of={PaginationStories.MiddlePage} />
+
+### Without Previous Next
+
+<Canvas of={PaginationStories.WithoutPreviousNext} />
+
+### With Custom Styling
+
+<Canvas of={PaginationStories.WithCustomStyling} />
+
+## Large Datasets
+
+### Large Dataset
+
+<Canvas of={PaginationStories.LargeDataset} />
+
+### User Interaction
+
+<Canvas of={PaginationStories.UserInteraction} />
+
+---
+
+## Source Code
+
+<Source of={PaginationStories.Default} language='tsx' />

@@ -1,0 +1,95 @@
+import { Meta, Story, Source, Canvas, Controls } from '@storybook/addon-docs';
+import * as ContextMenuStories from './ContextMenu.stories';
+
+<Meta of={ContextMenuStories} />
+
+# ContextMenu
+
+`ContextMenu` is a right-click menu that appears when users interact with elements. It provides a contextual set of actions and options. Built with Radix UI and styled with Tailwind CSS.
+
+The context menu component provides a powerful way to add contextual actions to any element with proper keyboard navigation and accessibility.
+
+## Features
+
+- Right-click activation
+- Keyboard navigation support
+- Accessible with proper ARIA attributes
+- Support for sub-menus and groups
+- Checkbox and radio items
+- Customizable styling and behavior
+
+## Usage Guidelines
+
+- Use context menus for contextual actions
+- Keep menu items organized and logical
+- Use separators to group related items
+- Provide clear, descriptive labels
+- Consider keyboard accessibility
+
+## Do
+
+- Use context menus for contextual actions
+- Keep menu items organized and logical
+- Use separators to group related items
+- Provide clear, descriptive labels
+
+## Don't
+
+- Use context menus for primary navigation
+- Make menu items too long or complex
+- Forget to provide keyboard alternatives
+- Overuse context menus in simple interfaces
+
+## Props
+
+<Controls of={ContextMenuStories.Default} />
+
+### Examples
+
+## Basic Usage
+
+### Default ContextMenu
+
+<Canvas of={ContextMenuStories.Default} />
+
+### With Destructive Action
+
+<Canvas of={ContextMenuStories.WithDestructiveAction} />
+
+### With Checkbox Items
+
+<Canvas of={ContextMenuStories.WithCheckboxItems} />
+
+### With Radio Items
+
+<Canvas of={ContextMenuStories.WithRadioItems} />
+
+## Advanced Usage
+
+### With Sub Menu
+
+<Canvas of={ContextMenuStories.WithSubMenu} />
+
+### With Groups
+
+<Canvas of={ContextMenuStories.WithGroups} />
+
+### With Disabled Items
+
+<Canvas of={ContextMenuStories.WithDisabledItems} />
+
+## Customization
+
+### Custom Styling
+
+<Canvas of={ContextMenuStories.WithCustomStyling} />
+
+### User Interaction
+
+<Canvas of={ContextMenuStories.UserInteraction} />
+
+---
+
+## Source Code
+
+<Source of={ContextMenuStories.Default} language='tsx' />

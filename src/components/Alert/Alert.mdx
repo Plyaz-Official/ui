@@ -1,0 +1,86 @@
+import { Meta, Story, Source, Canvas, Controls } from '@storybook/addon-docs';
+import * as AlertStories from './Alert.stories';
+
+<Meta of={AlertStories} />
+
+# Alert
+
+`Alert` is a component used to display important messages to users. It supports different variants and can include icons, titles, and descriptions. Built with class-variance-authority and styled with Tailwind CSS for seamless integration.
+
+The alert component provides a consistent way to communicate different types of information to users, from success messages to error notifications.
+
+## Features
+
+- Multiple variants (`default`, `destructive`)
+- Support for icons from Lucide React
+- Accessible with proper ARIA roles
+- Flexible content with title and description
+- Fully customizable with Tailwind CSS
+
+## Usage Guidelines
+
+- Use `variant="default"` for general information
+- Use `variant="destructive"` for errors and warnings
+- Include meaningful icons to enhance visual communication
+- Keep titles concise and descriptive
+- Use descriptions for additional context
+
+## Do
+
+- Use alerts for important messages that require user attention
+- Include appropriate icons for visual clarity
+- Keep content scannable and concise
+- Use destructive variant sparingly for critical issues
+
+## Don't
+
+- Use alerts for non-critical information
+- Overuse the destructive variant
+- Make alerts too long or complex
+- Forget to include proper ARIA attributes
+
+## Props
+
+<Controls of={AlertStories.Default} />
+
+### Examples
+
+## Basic Usage
+
+### Default Alert
+
+<Canvas of={AlertStories.Default} />
+
+### Destructive Alert
+
+<Canvas of={AlertStories.Destructive} />
+
+### With Icon
+
+<Canvas of={AlertStories.WithIcon} />
+
+### Warning Alert
+
+<Canvas of={AlertStories.Warning} />
+
+### Without Icon
+
+<Canvas of={AlertStories.WithoutIcon} />
+
+### Long Content
+
+<Canvas of={AlertStories.LongContent} />
+
+### Custom Styling
+
+<Canvas of={AlertStories.CustomStyling} />
+
+### User Interaction
+
+<Canvas of={AlertStories.UserInteraction} />
+
+---
+
+## Source Code
+
+<Source of={AlertStories.Default} language='tsx' />

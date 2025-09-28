@@ -1,0 +1,110 @@
+import { Meta, Story, Source, Canvas, Controls } from '@storybook/addon-docs';
+import * as DropdownMenuStories from './DropdownMenu.stories';
+
+<Meta of={DropdownMenuStories} />
+
+# DropdownMenu
+
+`DropdownMenu` is a menu that appears when a user interacts with a trigger element. It provides a way to display a list of actions or options in a compact format. Built with Radix UI and styled with Tailwind CSS.
+
+The dropdown menu component provides a powerful way to create contextual menus with proper focus management and accessibility.
+
+## Features
+
+- Contextual menu with trigger element
+- Focus management and keyboard navigation
+- Accessible with proper ARIA attributes
+- Support for controlled and uncontrolled modes
+- Multiple item types (regular, checkbox, radio)
+- Sub-menus and groups
+- Keyboard shortcuts support
+- Responsive design with proper animations
+
+## Usage Guidelines
+
+- Use dropdown menus for contextual actions
+- Keep menu items focused and concise
+- Provide clear labels and descriptions
+- Use appropriate item types for different actions
+- Consider keyboard navigation
+
+## Do
+
+- Use dropdown menus for contextual actions
+- Provide clear labels and descriptions
+- Use appropriate item types
+- Consider keyboard navigation
+- Group related items together
+
+## Don't
+
+- Use dropdown menus for simple confirmations (use dialogs)
+- Make menus too complex or cluttered
+- Forget to handle keyboard navigation
+- Overuse dropdown menus in your interface
+
+## Props
+
+<Controls of={DropdownMenuStories.Default} />
+
+### Examples
+
+## Basic Usage
+
+### Default DropdownMenu
+
+<Canvas of={DropdownMenuStories.Default} />
+
+### With Labels
+
+<Canvas of={DropdownMenuStories.WithLabels} />
+
+### With Shortcuts
+
+<Canvas of={DropdownMenuStories.WithShortcuts} />
+
+### With Groups
+
+<Canvas of={DropdownMenuStories.WithGroups} />
+
+## Advanced Features
+
+### With Checkboxes
+
+<Canvas of={DropdownMenuStories.WithCheckboxes} />
+
+### With Radio Groups
+
+<Canvas of={DropdownMenuStories.WithRadioGroups} />
+
+### With Sub Menus
+
+<Canvas of={DropdownMenuStories.WithSubMenus} />
+
+### Destructive Items
+
+<Canvas of={DropdownMenuStories.DestructiveItems} />
+
+### With Icons
+
+<Canvas of={DropdownMenuStories.WithIcons} />
+
+## Customization
+
+### Custom Styling
+
+<Canvas of={DropdownMenuStories.CustomStyling} />
+
+### Controlled Menu
+
+<Canvas of={DropdownMenuStories.ControlledMenu} />
+
+### User Interaction
+
+<Canvas of={DropdownMenuStories.UserInteraction} />
+
+---
+
+## Source Code
+
+<Source of={DropdownMenuStories.Default} language='tsx' />

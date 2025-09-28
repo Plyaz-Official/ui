@@ -1,0 +1,95 @@
+import { Meta, Story, Source, Canvas, Controls } from '@storybook/addon-docs';
+import * as DialogStories from './Dialog.stories';
+
+<Meta of={DialogStories} />
+
+# Dialog
+
+`Dialog` is a modal dialog that appears on top of the page content. It provides a way to display important information or collect user input without navigating away from the current page. Built with Radix UI and styled with Tailwind CSS.
+
+The dialog component provides a powerful way to create modal interfaces with proper focus management and accessibility.
+
+## Features
+
+- Modal overlay with backdrop
+- Focus management and keyboard navigation
+- Accessible with proper ARIA attributes
+- Customizable close behavior
+- Support for controlled and uncontrolled modes
+- Responsive design
+
+## Usage Guidelines
+
+- Use dialogs for important information or user input
+- Keep dialog content focused and concise
+- Provide clear actions (Cancel/Confirm)
+- Use appropriate dialog sizes for content
+- Consider mobile responsiveness
+
+## Do
+
+- Use dialogs for modal interactions
+- Provide clear dialog titles and descriptions
+- Use appropriate dialog sizes
+- Include clear action buttons
+
+## Don't
+
+- Use dialogs for simple confirmations (use alerts)
+- Make dialogs too large or complex
+- Forget to handle keyboard navigation
+- Overuse dialogs in your interface
+
+## Props
+
+<Controls of={DialogStories.Default} />
+
+### Examples
+
+## Basic Usage
+
+### Default Dialog
+
+<Canvas of={DialogStories.Default} />
+
+### Without Close Button
+
+<Canvas of={DialogStories.WithoutCloseButton} />
+
+### Large Dialog
+
+<Canvas of={DialogStories.LargeDialog} />
+
+## Forms and Input
+
+### Form Dialog
+
+<Canvas of={DialogStories.FormDialog} />
+
+### Alert Dialog
+
+<Canvas of={DialogStories.AlertDialog} />
+
+## Customization
+
+### Custom Styling
+
+<Canvas of={DialogStories.CustomStyling} />
+
+### Multiple Dialogs
+
+<Canvas of={DialogStories.MultipleDialogs} />
+
+### Controlled Dialog
+
+<Canvas of={DialogStories.ControlledDialog} />
+
+### User Interaction
+
+<Canvas of={DialogStories.UserInteraction} />
+
+---
+
+## Source Code
+
+<Source of={DialogStories.Default} language='tsx' />

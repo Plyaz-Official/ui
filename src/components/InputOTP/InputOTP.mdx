@@ -1,0 +1,109 @@
+import { Meta, Story, Source, Canvas, Controls } from '@storybook/addon-docs';
+import * as InputOTPStories from './InputOTP.stories';
+
+<Meta of={InputOTPStories} />
+
+# InputOTP
+
+`InputOTP` is a one-time password input field that allows users to enter a code digit by digit. It provides a secure and user-friendly way to input verification codes. Built with input-otp and styled with Tailwind CSS.
+
+The input OTP component provides a powerful way to create secure verification inputs with proper focus management and accessibility.
+
+## Features
+
+- Digit-by-digit input for OTP codes
+- Focus management and keyboard navigation
+- Accessible with proper ARIA attributes
+- Support for different lengths and formats
+- Customizable styling and behavior
+- Paste functionality for complete codes
+- Mask functionality for security
+
+## Usage Guidelines
+
+- Use for verification codes and OTP inputs
+- Keep the length appropriate for your use case
+- Provide clear instructions to users
+- Consider accessibility and keyboard navigation
+- Use appropriate validation
+
+## Do
+
+- Use for OTP and verification codes
+- Provide clear instructions
+- Use appropriate length
+- Consider accessibility
+- Validate input properly
+
+## Don't
+
+- Use for regular text input
+- Make the length too long or short
+- Forget to handle validation
+- Overuse in your interface
+
+## Props
+
+<Controls of={InputOTPStories.Default} />
+
+### Examples
+
+## Basic Usage
+
+### Default InputOTP
+
+<Canvas of={InputOTPStories.Default} />
+
+### With Separator
+
+<Canvas of={InputOTPStories.WithSeparator} />
+
+### Four Digits
+
+<Canvas of={InputOTPStories.FourDigits} />
+
+### Eight Digits
+
+<Canvas of={InputOTPStories.EightDigits} />
+
+## Advanced Features
+
+### Disabled
+
+<Canvas of={InputOTPStories.Disabled} />
+
+### With Initial Value
+
+<Canvas of={InputOTPStories.WithInitialValue} />
+
+### With Custom Styling
+
+<Canvas of={InputOTPStories.WithCustomStyling} />
+
+### With Validation
+
+<Canvas of={InputOTPStories.WithValidation} />
+
+## Forms and Integration
+
+### With Form
+
+<Canvas of={InputOTPStories.WithForm} />
+
+### With Auto Focus
+
+<Canvas of={InputOTPStories.WithAutoFocus} />
+
+### With Mask
+
+<Canvas of={InputOTPStories.WithMask} />
+
+### User Interaction
+
+<Canvas of={InputOTPStories.UserInteraction} />
+
+---
+
+## Source Code
+
+<Source of={InputOTPStories.Default} language='tsx' />

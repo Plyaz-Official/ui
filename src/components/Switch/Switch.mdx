@@ -1,0 +1,740 @@
+import { Meta, Canvas, Controls, Source } from '@storybook/addon-docs';
+
+import { Switch } from '@/components';
+
+<Meta title='Components/Switch' />
+
+# Switch
+
+The `Switch` component provides a toggle switch control for boolean values. It is built with Radix UI and styled with Tailwind CSS, offering a flexible and accessible switch solution.
+
+## Features
+
+- **Toggle Control**: Provides a toggle switch for boolean values
+- **Accessibility**: Built with Radix UI primitives for full accessibility support
+- **Customizable**: Supports custom styling and theming
+- **Responsive**: Adapts to different screen sizes and orientations
+- **Keyboard Navigation**: Full keyboard support for navigation
+- **Touch Support**: Optimized for touch devices
+
+## Usage
+
+### Basic Usage
+
+<Canvas of={Switch} />
+
+<Source
+  language="tsx"
+  code={`
+import { Switch } from '@/components';
+
+function BasicSwitch() {
+return <Switch />;
+}
+`}
+/>
+
+### Checked
+
+<Canvas of={Switch} />
+
+<Source
+  language="tsx"
+  code={`
+import { Switch } from '@/components';
+
+function CheckedSwitch() {
+return <Switch checked />;
+}
+`}
+/>
+
+### Default Checked
+
+<Canvas of={Switch} />
+
+<Source
+  language="tsx"
+  code={`
+import { Switch } from '@/components';
+
+function DefaultCheckedSwitch() {
+return <Switch defaultChecked />;
+}
+`}
+/>
+
+### Disabled
+
+<Canvas of={Switch} />
+
+<Source
+  language="tsx"
+  code={`
+import { Switch } from '@/components';
+
+function DisabledSwitch() {
+return <Switch disabled />;
+}
+`}
+/>
+
+### Disabled Checked
+
+<Canvas of={Switch} />
+
+<Source
+  language="tsx"
+  code={`
+import { Switch } from '@/components';
+
+function DisabledCheckedSwitch() {
+return <Switch disabled checked />;
+}
+`}
+/>
+
+### With Label
+
+<Canvas of={Switch} />
+
+<Source
+  language="tsx"
+  code={`
+import { Switch } from '@/components';
+import { useState } from 'react';
+
+function LabeledSwitch() {
+const [checked, setChecked] = useState(false);
+
+return (
+<div className="flex items-center space-x-2">
+<Switch
+        id="airplane-mode"
+        checked={checked}
+        onCheckedChange={setChecked}
+      />
+<label
+        htmlFor="airplane-mode"
+        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+      >
+Airplane Mode
+</label>
+</div>
+);
+}
+`}
+/>
+
+### With Description
+
+<Canvas of={Switch} />
+
+<Source
+  language="tsx"
+  code={`
+import { Switch } from '@/components';
+import { useState } from 'react';
+
+function DescriptionSwitch() {
+const [checked, setChecked] = useState(false);
+
+return (
+<div className="flex items-start space-x-2">
+<Switch
+        id="notifications"
+        checked={checked}
+        onCheckedChange={setChecked}
+      />
+<div className="grid gap-1.5 leading-none">
+<label
+          htmlFor="notifications"
+          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+        >
+Email notifications
+</label>
+<p className="text-xs text-muted-foreground">
+Receive emails about your account activity.
+</p>
+</div>
+</div>
+);
+}
+`}
+/>
+
+### With Form
+
+<Canvas of={Switch} />
+
+<Source
+  language="tsx"
+  code={`
+import { Switch } from '@/components';
+import { useState } from 'react';
+
+function FormSwitch() {
+const [formData, setFormData] = useState({
+notifications: false,
+marketing: true,
+updates: false,
+});
+
+return (
+<form className="space-y-4">
+<div className="flex items-center space-x-2">
+<Switch
+id="notifications"
+checked={formData.notifications}
+onCheckedChange={(checked) => setFormData(prev => ({ ...prev, notifications: checked }))}
+/>
+<label htmlFor="notifications" className="text-sm font-medium">
+Push Notifications
+</label>
+</div>
+
+      <div className="flex items-center space-x-2">
+        <Switch
+          id="marketing"
+          checked={formData.marketing}
+          onCheckedChange={(checked) => setFormData(prev => ({ ...prev, marketing: checked }))}
+        />
+        <label htmlFor="marketing" className="text-sm font-medium">
+          Marketing Emails
+        </label>
+      </div>
+
+      <div className="flex items-center space-x-2">
+        <Switch
+          id="updates"
+          checked={formData.updates}
+          onCheckedChange={(checked) => setFormData(prev => ({ ...prev, updates: checked }))}
+        />
+        <label htmlFor="updates" className="text-sm font-medium">
+          Product Updates
+        </label>
+      </div>
+
+      <div className="text-sm text-muted-foreground">
+        Current state: {JSON.stringify(formData)}
+      </div>
+    </form>
+
+);
+}
+`}
+/>
+
+### With Custom Colors
+
+<Canvas of={Switch} />
+
+<Source
+  language="tsx"
+  code={`
+import { Switch } from '@/components';
+
+function CustomColorSwitch() {
+return (
+<div className="space-y-6">
+<div>
+<label className="text-sm font-medium">Default</label>
+<Switch />
+</div>
+<div>
+<label className="text-sm font-medium">Primary</label>
+<Switch 
+          className="data-[state=checked]:bg-primary"
+        />
+</div>
+<div>
+<label className="text-sm font-medium">Secondary</label>
+<Switch 
+          className="data-[state=checked]:bg-secondary"
+        />
+</div>
+<div>
+<label className="text-sm font-medium">Accent</label>
+<Switch 
+          className="data-[state=checked]:bg-accent"
+        />
+</div>
+<div>
+<label className="text-sm font-medium">Destructive</label>
+<Switch 
+          className="data-[state=checked]:bg-destructive"
+        />
+</div>
+</div>
+);
+}
+`}
+/>
+
+### With Custom Sizes
+
+<Canvas of={Switch} />
+
+<Source
+  language="tsx"
+  code={`
+import { Switch } from '@/components';
+
+function CustomSizeSwitch() {
+return (
+<div className="space-y-6">
+<div>
+<label className="text-sm font-medium">Small</label>
+<Switch 
+          className="h-3 w-6 [&>[data-slot=switch-thumb]]:size-3"
+        />
+</div>
+<div>
+<label className="text-sm font-medium">Default</label>
+<Switch />
+</div>
+<div>
+<label className="text-sm font-medium">Large</label>
+<Switch 
+          className="h-6 w-12 [&>[data-slot=switch-thumb]]:size-5"
+        />
+</div>
+</div>
+);
+}
+`}
+/>
+
+### With Custom Thumb
+
+<Canvas of={Switch} />
+
+<Source
+  language="tsx"
+  code={`
+import { Switch } from '@/components';
+
+function CustomThumbSwitch() {
+return (
+<div className="space-y-6">
+<div>
+<label className="text-sm font-medium">Default</label>
+<Switch />
+</div>
+<div>
+<label className="text-sm font-medium">Rounded</label>
+<Switch 
+          className="[&>[data-slot=switch-thumb]]:rounded-lg"
+        />
+</div>
+<div>
+<label className="text-sm font-medium">Square</label>
+<Switch 
+          className="[&>[data-slot=switch-thumb]]:rounded-none"
+        />
+</div>
+</div>
+);
+}
+`}
+/>
+
+### With Custom Track
+
+<Canvas of={Switch} />
+
+<Source
+  language="tsx"
+  code={`
+import { Switch } from '@/components';
+
+function CustomTrackSwitch() {
+return (
+<div className="space-y-6">
+<div>
+<label className="text-sm font-medium">Default</label>
+<Switch />
+</div>
+<div>
+<label className="text-sm font-medium">Rounded</label>
+<Switch 
+          className="rounded-lg"
+        />
+</div>
+<div>
+<label className="text-sm font-medium">Square</label>
+<Switch 
+          className="rounded-none"
+        />
+</div>
+</div>
+);
+}
+`}
+/>
+
+### With Custom Styling
+
+<Canvas of={Switch} />
+
+<Source
+  language="tsx"
+  code={`
+import { Switch } from '@/components';
+
+function CustomStyledSwitch() {
+return (
+<div className="space-y-6">
+<div>
+<label className="text-sm font-medium">Bordered</label>
+<Switch 
+          className="border border-primary"
+        />
+</div>
+<div>
+<label className="text-sm font-medium">Shadowed</label>
+<Switch 
+          className="shadow-lg"
+        />
+</div>
+<div>
+<label className="text-sm font-medium">Glowing</label>
+<Switch 
+          className="shadow-primary/50 shadow-lg"
+        />
+</div>
+</div>
+);
+}
+`}
+/>
+
+### With States
+
+<Canvas of={Switch} />
+
+<Source
+  language="tsx"
+  code={`
+import { Switch } from '@/components';
+
+function StateSwitch() {
+return (
+<div className="space-y-6">
+<div>
+<label className="text-sm font-medium">Unchecked</label>
+<Switch checked={false} />
+</div>
+<div>
+<label className="text-sm font-medium">Checked</label>
+<Switch checked={true} />
+</div>
+<div>
+<label className="text-sm font-medium">Disabled Unchecked</label>
+<Switch disabled checked={false} />
+</div>
+<div>
+<label className="text-sm font-medium">Disabled Checked</label>
+<Switch disabled checked={true} />
+</div>
+</div>
+);
+}
+`}
+/>
+
+### With Controlled State
+
+<Canvas of={Switch} />
+
+<Source
+  language="tsx"
+  code={`
+import { Switch } from '@/components';
+import { useState } from 'react';
+
+function ControlledSwitch() {
+const [checked, setChecked] = useState(false);
+
+return (
+<div className="space-y-4">
+<div className="flex items-center space-x-2">
+<Switch
+          checked={checked}
+          onCheckedChange={setChecked}
+        />
+<label className="text-sm font-medium">
+Controlled Switch
+</label>
+</div>
+<div className="text-sm text-muted-foreground">
+Current state: {checked ? 'On' : 'Off'}
+</div>
+<div className="space-x-2">
+<button
+onClick={() => setChecked(true)}
+className="px-3 py-1 text-xs bg-primary text-primary-foreground rounded" >
+Turn On
+</button>
+<button
+onClick={() => setChecked(false)}
+className="px-3 py-1 text-xs bg-secondary text-secondary-foreground rounded" >
+Turn Off
+</button>
+</div>
+</div>
+);
+}
+`}
+/>
+
+### With Uncontrolled State
+
+<Canvas of={Switch} />
+
+<Source
+  language="tsx"
+  code={`
+import { Switch } from '@/components';
+
+function UncontrolledSwitch() {
+return (
+<div className="space-y-4">
+<div className="flex items-center space-x-2">
+<Switch defaultChecked />
+<label className="text-sm font-medium">
+Uncontrolled Switch
+</label>
+</div>
+<div className="text-sm text-muted-foreground">
+This switch starts checked and maintains its own state.
+</div>
+</div>
+);
+}
+`}
+/>
+
+### With Keyboard Navigation
+
+<Canvas of={Switch} />
+
+<Source
+  language="tsx"
+  code={`
+import { Switch } from '@/components';
+import { useState } from 'react';
+
+function KeyboardSwitch() {
+const [checked, setChecked] = useState(false);
+
+return (
+<div className="space-y-4">
+<div className="flex items-center space-x-2">
+<Switch
+          checked={checked}
+          onCheckedChange={setChecked}
+        />
+<label className="text-sm font-medium">
+Keyboard Accessible (Tab to focus, Space to toggle)
+</label>
+</div>
+<div className="text-sm text-muted-foreground">
+Current state: {checked ? 'On' : 'Off'}
+</div>
+</div>
+);
+}
+`}
+/>
+
+### With Touch Support
+
+<Canvas of={Switch} />
+
+<Source
+  language="tsx"
+  code={`
+import { Switch } from '@/components';
+import { useState } from 'react';
+
+function TouchSwitch() {
+const [checked, setChecked] = useState(false);
+
+return (
+<div className="space-y-4">
+<div className="flex items-center space-x-2">
+<Switch
+          checked={checked}
+          onCheckedChange={setChecked}
+        />
+<label className="text-sm font-medium">
+Touch and tap to toggle
+</label>
+</div>
+<div className="text-sm text-muted-foreground">
+Current state: {checked ? 'On' : 'Off'}
+</div>
+</div>
+);
+}
+`}
+/>
+
+### With Accessibility
+
+<Canvas of={Switch} />
+
+<Source
+  language="tsx"
+  code={`
+import { Switch } from '@/components';
+
+function AccessibleSwitch() {
+return (
+<div className="space-y-4">
+<div className="flex items-center space-x-2">
+<Switch
+          id="accessibility-switch"
+          aria-label="Toggle accessibility features"
+          aria-describedby="accessibility-description"
+        />
+<label htmlFor="accessibility-switch" className="text-sm font-medium">
+Accessibility Features
+</label>
+</div>
+<p id="accessibility-description" className="text-sm text-muted-foreground">
+This switch is accessible with screen readers and keyboard navigation.
+</p>
+</div>
+);
+}
+`}
+/>
+
+### With Performance
+
+<Canvas of={Switch} />
+
+<Source
+  language="tsx"
+  code={`
+import { Switch } from '@/components';
+import { useState } from 'react';
+
+function PerformanceSwitch() {
+const [checked, setChecked] = useState(false);
+
+return (
+<div className="space-y-4">
+<div className="flex items-center space-x-2">
+<Switch
+          checked={checked}
+          onCheckedChange={setChecked}
+        />
+<label className="text-sm font-medium">
+Performance Optimized
+</label>
+</div>
+<div className="text-sm text-muted-foreground">
+Current state: {checked ? 'On' : 'Off'} (Renders efficiently)
+</div>
+</div>
+);
+}
+`}
+/>
+
+### With User Interaction
+
+<Canvas of={Switch} />
+
+<Source
+  language="tsx"
+  code={`
+import { Switch } from '@/components';
+import { useState } from 'react';
+
+function InteractiveSwitch() {
+const [checked, setChecked] = useState(false);
+const [clickCount, setClickCount] = useState(0);
+
+const handleCheckedChange = (newChecked: boolean) => {
+setChecked(newChecked);
+setClickCount(prev => prev + 1);
+};
+
+return (
+<div className="space-y-4">
+<div className="flex items-center space-x-2">
+<Switch
+          checked={checked}
+          onCheckedChange={handleCheckedChange}
+        />
+<label className="text-sm font-medium">
+Interactive Switch
+</label>
+</div>
+<div className="text-sm text-muted-foreground">
+Current state: {checked ? 'On' : 'Off'}
+</div>
+<div className="text-sm text-muted-foreground">
+Toggle count: {clickCount}
+</div>
+</div>
+);
+}
+`}
+/>
+
+## Props
+
+| Prop              | Type                         | Default | Description                                         |
+| ----------------- | ---------------------------- | ------- | --------------------------------------------------- |
+| `checked`         | `boolean`                    | -       | The checked state of the switch                     |
+| `defaultChecked`  | `boolean`                    | -       | The default checked state of the switch             |
+| `disabled`        | `boolean`                    | `false` | Whether the switch is disabled                      |
+| `required`        | `boolean`                    | `false` | Whether the switch is required                      |
+| `name`            | `string`                     | -       | The name of the switch                              |
+| `value`           | `string`                     | -       | The value of the switch                             |
+| `id`              | `string`                     | -       | The id of the switch                                |
+| `className`       | `string`                     | -       | Additional CSS classes to apply to the switch       |
+| `onCheckedChange` | `(checked: boolean) => void` | -       | Called when the checked state changes               |
+| `...props`        | `SwitchPrimitive.RootProps`  | -       | Additional props passed to the Radix UI Switch root |
+
+## Styling
+
+The `Switch` component uses Tailwind CSS classes and can be customized with additional classes:
+
+```tsx
+<Switch className='data-[state=checked]:bg-primary [&>[data-slot=switch-thumb]]:size-5' />
+```
+
+## Accessibility
+
+The `Switch` component is built with Radix UI primitives and provides:
+
+- **Keyboard Navigation**: Full keyboard support for navigation
+- **Screen Reader Support**: Proper ARIA attributes and roles
+- **Focus Management**: Focus indicators and proper focus handling
+- **Touch Support**: Optimized for touch devices
+- **State Announcements**: Announces state changes to screen readers
+
+## Performance
+
+The `Switch` component is optimized for performance:
+
+- **Efficient Rendering**: Only re-renders when necessary
+- **Smooth Animations**: Provides smooth state transitions
+- **Memory Efficient**: Minimal memory usage
+- **Responsive**: Adapts to different screen sizes and orientations
+
+## Best Practices
+
+1. **Use appropriate labels**: Always provide clear labels for switches
+2. **Handle state changes**: Use `onCheckedChange` for controlled state
+3. **Test with keyboard**: Ensure keyboard navigation works properly
+4. **Consider mobile**: Test on mobile devices for touch interactions
+5. **Use controlled state**: Use controlled state for complex interactions
+6. **Provide visual feedback**: Show clear visual feedback for state changes
+7. **Group related switches**: Group related switches together logically

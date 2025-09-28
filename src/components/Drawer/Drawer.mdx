@@ -1,0 +1,103 @@
+import { Meta, Story, Source, Canvas, Controls } from '@storybook/addon-docs';
+import * as DrawerStories from './Drawer.stories';
+
+<Meta of={DrawerStories} />
+
+# Drawer
+
+`Drawer` is a slide-out panel that appears from the edge of the screen. It provides a way to display additional content or navigation without taking up the full screen. Built with Vaul and styled with Tailwind CSS.
+
+The drawer component provides a powerful way to create slide-out interfaces with proper touch gestures and accessibility.
+
+## Features
+
+- Slide-out panel from any direction (top, bottom, left, right)
+- Touch gesture support for mobile devices
+- Focus management and keyboard navigation
+- Accessible with proper ARIA attributes
+- Support for controlled and uncontrolled modes
+- Responsive design with proper animations
+
+## Usage Guidelines
+
+- Use drawers for additional content or navigation
+- Choose appropriate direction based on content and context
+- Keep drawer content focused and concise
+- Provide clear actions (Cancel/Confirm)
+- Consider mobile touch interactions
+
+## Do
+
+- Use drawers for slide-out content
+- Choose appropriate direction for your use case
+- Provide clear navigation or actions
+- Consider mobile touch interactions
+
+## Don't
+
+- Use drawers for simple confirmations (use dialogs)
+- Make drawers too complex or cluttered
+- Forget to handle touch gestures
+- Overuse drawers in your interface
+
+## Props
+
+<Controls of={DrawerStories.Default} />
+
+### Examples
+
+## Basic Usage
+
+### Default Drawer
+
+<Canvas of={DrawerStories.Default} />
+
+### Bottom Drawer
+
+<Canvas of={DrawerStories.BottomDrawer} />
+
+### Top Drawer
+
+<Canvas of={DrawerStories.TopDrawer} />
+
+### Left Drawer
+
+<Canvas of={DrawerStories.LeftDrawer} />
+
+### Right Drawer
+
+<Canvas of={DrawerStories.RightDrawer} />
+
+## Forms and Input
+
+### Form Drawer
+
+<Canvas of={DrawerStories.FormDrawer} />
+
+### Navigation Drawer
+
+<Canvas of={DrawerStories.NavigationDrawer} />
+
+## Customization
+
+### Large Content Drawer
+
+<Canvas of={DrawerStories.LargeContentDrawer} />
+
+### Custom Styling
+
+<Canvas of={DrawerStories.CustomStyling} />
+
+### Controlled Drawer
+
+<Canvas of={DrawerStories.ControlledDrawer} />
+
+### User Interaction
+
+<Canvas of={DrawerStories.UserInteraction} />
+
+---
+
+## Source Code
+
+<Source of={DrawerStories.Default} language='tsx' />

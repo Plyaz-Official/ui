@@ -83,6 +83,32 @@ export const GAP = {
   '9': 'gap-9',
 };
 
+// Number constants
+export const NUMERIC_CONSTANTS = {
+  ONE: 1,
+  TWO: 2,
+  THREE: 3,
+  FOUR: 4,
+  FIVE: 5,
+  SIX: 6,
+  SEVEN: 7,
+  EIGHT: 8,
+  NINE: 9,
+  TEN: 10,
+  TWENTY: 20,
+  TWENTY_FIVE: 25,
+  THIRTY: 30,
+  THIRTY_THREE: 33,
+  FIFTY: 50,
+  SIXTY: 60,
+  SIXTY_SIX: 66,
+  SEVENTY_FIVE: 75,
+  EIGHTY: 80,
+  ONE_HUNDRED: 100,
+  TWO_HUNDRED: 200,
+  FIVE_HUNDRED: 500,
+} as const;
+
 export const buttonVariants = cva(
   `inline-flex justify-center items-center gap-2 disabled:opacity-50 aria-invalid:border-destructive focus-visible:border-ring rounded-md outline-none aria-invalid:ring-destructive/20 focus-visible:ring-[3px] focus-visible:ring-ring/50 dark:aria-invalid:ring-destructive/40 [&_svg:not([class*='size-'])]:size-4 font-medium text-sm whitespace-nowrap transition-all [&_svg]:pointer-events-none disabled:pointer-events-none shrink-0 [&_svg]:shrink-0`,
   {
@@ -157,3 +183,8 @@ export const badgeVariants = cva(
     },
   }
 );
+
+// Toaster component classes
+export const TOASTER_CLASSES = {
+  toaster: 'toaster',
+} as const;

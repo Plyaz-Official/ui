@@ -1,0 +1,779 @@
+import { Meta, Canvas, Controls, Source } from '@storybook/addon-docs';
+
+import { Skeleton } from '@/components';
+
+<Meta title='Components/Skeleton' />
+
+# Skeleton
+
+The `Skeleton` component provides a loading placeholder with a pulsing animation. It is styled with Tailwind CSS and can be customized for different content shapes and sizes.
+
+## Features
+
+- **Loading Placeholder**: Provides a visual placeholder while content is loading
+- **Pulsing Animation**: Includes a smooth pulsing animation to indicate loading state
+- **Customizable**: Supports custom styling and theming
+- **Flexible Shapes**: Can be styled to match different content shapes
+- **Accessible**: Supports accessibility attributes for screen readers
+- **Responsive**: Adapts to different screen sizes and orientations
+
+## Usage
+
+### Basic Usage
+
+<Canvas of={Skeleton} />
+
+<Source
+  language="tsx"
+  code={`
+import { Skeleton } from '@/components';
+
+function BasicSkeleton() {
+return <Skeleton className="h-4 w-[250px]" />;
+}
+`}
+/>
+
+### Circle
+
+<Canvas of={Skeleton} />
+
+<Source
+  language="tsx"
+  code={`
+import { Skeleton } from '@/components';
+
+function CircleSkeleton() {
+return <Skeleton className="h-12 w-12 rounded-full" />;
+}
+`}
+/>
+
+### Rectangle
+
+<Canvas of={Skeleton} />
+
+<Source
+  language="tsx"
+  code={`
+import { Skeleton } from '@/components';
+
+function RectangleSkeleton() {
+return <Skeleton className="h-4 w-[350px]" />;
+}
+`}
+/>
+
+### Square
+
+<Canvas of={Skeleton} />
+
+<Source
+  language="tsx"
+  code={`
+import { Skeleton } from '@/components';
+
+function SquareSkeleton() {
+return <Skeleton className="h-12 w-12" />;
+}
+`}
+/>
+
+### Card
+
+<Canvas of={Skeleton} />
+
+<Source
+  language="tsx"
+  code={`
+import { Skeleton } from '@/components';
+
+function CardSkeleton() {
+return (
+<div className="flex items-center space-x-4">
+<Skeleton className="h-12 w-12 rounded-full" />
+<div className="space-y-2">
+<Skeleton className="h-4 w-[250px]" />
+<Skeleton className="h-4 w-[200px]" />
+</div>
+</div>
+);
+}
+`}
+/>
+
+### Avatar
+
+<Canvas of={Skeleton} />
+
+<Source
+  language="tsx"
+  code={`
+import { Skeleton } from '@/components';
+
+function AvatarSkeleton() {
+return (
+<div className="flex items-center space-x-4">
+<Skeleton className="h-12 w-12 rounded-full" />
+<div className="space-y-2">
+<Skeleton className="h-4 w-[250px]" />
+<Skeleton className="h-4 w-[200px]" />
+</div>
+</div>
+);
+}
+`}
+/>
+
+### Button
+
+<Canvas of={Skeleton} />
+
+<Source
+  language="tsx"
+  code={`
+import { Skeleton } from '@/components';
+
+function ButtonSkeleton() {
+return (
+<div className="flex items-center space-x-2">
+<Skeleton className="h-10 w-20" />
+<Skeleton className="h-10 w-24" />
+<Skeleton className="h-10 w-16" />
+</div>
+);
+}
+`}
+/>
+
+### Form
+
+<Canvas of={Skeleton} />
+
+<Source
+  language="tsx"
+  code={`
+import { Skeleton } from '@/components';
+
+function FormSkeleton() {
+return (
+<div className="space-y-4">
+<div className="space-y-2">
+<Skeleton className="h-4 w-[100px]" />
+<Skeleton className="h-10 w-full" />
+</div>
+<div className="space-y-2">
+<Skeleton className="h-4 w-[120px]" />
+<Skeleton className="h-10 w-full" />
+</div>
+<div className="space-y-2">
+<Skeleton className="h-4 w-[80px]" />
+<Skeleton className="h-20 w-full" />
+</div>
+<Skeleton className="h-10 w-[100px]" />
+</div>
+);
+}
+`}
+/>
+
+### Table
+
+<Canvas of={Skeleton} />
+
+<Source
+  language="tsx"
+  code={`
+import { Skeleton } from '@/components';
+
+function TableSkeleton() {
+return (
+<div className="space-y-3">
+<div className="flex space-x-4">
+<Skeleton className="h-4 w-[100px]" />
+<Skeleton className="h-4 w-[150px]" />
+<Skeleton className="h-4 w-[200px]" />
+<Skeleton className="h-4 w-[80px]" />
+</div>
+<div className="flex space-x-4">
+<Skeleton className="h-4 w-[100px]" />
+<Skeleton className="h-4 w-[150px]" />
+<Skeleton className="h-4 w-[200px]" />
+<Skeleton className="h-4 w-[80px]" />
+</div>
+<div className="flex space-x-4">
+<Skeleton className="h-4 w-[100px]" />
+<Skeleton className="h-4 w-[150px]" />
+<Skeleton className="h-4 w-[200px]" />
+<Skeleton className="h-4 w-[80px]" />
+</div>
+</div>
+);
+}
+`}
+/>
+
+### List
+
+<Canvas of={Skeleton} />
+
+<Source
+  language="tsx"
+  code={`
+import { Skeleton } from '@/components';
+
+function ListSkeleton() {
+return (
+<div className="space-y-3">
+{Array.from({ length: 5 }, (\_, i) => (
+<div key={i} className="flex items-center space-x-4">
+<Skeleton className="h-10 w-10 rounded-full" />
+<div className="space-y-2">
+<Skeleton className="h-4 w-[200px]" />
+<Skeleton className="h-3 w-[150px]" />
+</div>
+</div>
+))}
+</div>
+);
+}
+`}
+/>
+
+### Grid
+
+<Canvas of={Skeleton} />
+
+<Source
+  language="tsx"
+  code={`
+import { Skeleton } from '@/components';
+
+function GridSkeleton() {
+return (
+<div className="grid grid-cols-3 gap-4">
+{Array.from({ length: 6 }, (\_, i) => (
+<div key={i} className="space-y-2">
+<Skeleton className="h-[200px] w-full" />
+<Skeleton className="h-4 w-full" />
+<Skeleton className="h-4 w-3/4" />
+</div>
+))}
+</div>
+);
+}
+`}
+/>
+
+### Profile
+
+<Canvas of={Skeleton} />
+
+<Source
+  language="tsx"
+  code={`
+import { Skeleton } from '@/components';
+
+function ProfileSkeleton() {
+return (
+<div className="space-y-4">
+<div className="flex items-center space-x-4">
+<Skeleton className="h-20 w-20 rounded-full" />
+<div className="space-y-2">
+<Skeleton className="h-6 w-[200px]" />
+<Skeleton className="h-4 w-[150px]" />
+</div>
+</div>
+<div className="space-y-2">
+<Skeleton className="h-4 w-full" />
+<Skeleton className="h-4 w-full" />
+<Skeleton className="h-4 w-3/4" />
+</div>
+</div>
+);
+}
+`}
+/>
+
+### Article
+
+<Canvas of={Skeleton} />
+
+<Source
+  language="tsx"
+  code={`
+import { Skeleton } from '@/components';
+
+function ArticleSkeleton() {
+return (
+<div className="space-y-4">
+<Skeleton className="h-8 w-3/4" />
+<div className="space-y-2">
+<Skeleton className="h-4 w-full" />
+<Skeleton className="h-4 w-full" />
+<Skeleton className="h-4 w-5/6" />
+</div>
+<Skeleton className="h-[200px] w-full" />
+<div className="space-y-2">
+<Skeleton className="h-4 w-full" />
+<Skeleton className="h-4 w-full" />
+<Skeleton className="h-4 w-4/5" />
+</div>
+</div>
+);
+}
+`}
+/>
+
+### Dashboard
+
+<Canvas of={Skeleton} />
+
+<Source
+  language="tsx"
+  code={`
+import { Skeleton } from '@/components';
+
+function DashboardSkeleton() {
+return (
+<div className="space-y-6">
+<div className="grid grid-cols-4 gap-4">
+<div className="space-y-2">
+<Skeleton className="h-4 w-[100px]" />
+<Skeleton className="h-8 w-[80px]" />
+</div>
+<div className="space-y-2">
+<Skeleton className="h-4 w-[100px]" />
+<Skeleton className="h-8 w-[80px]" />
+</div>
+<div className="space-y-2">
+<Skeleton className="h-4 w-[100px]" />
+<Skeleton className="h-8 w-[80px]" />
+</div>
+<div className="space-y-2">
+<Skeleton className="h-4 w-[100px]" />
+<Skeleton className="h-8 w-[80px]" />
+</div>
+</div>
+<div className="grid grid-cols-2 gap-6">
+<Skeleton className="h-[300px] w-full" />
+<Skeleton className="h-[300px] w-full" />
+</div>
+</div>
+);
+}
+`}
+/>
+
+### Custom Colors
+
+<Canvas of={Skeleton} />
+
+<Source
+  language="tsx"
+  code={`
+import { Skeleton } from '@/components';
+
+function CustomColorsSkeleton() {
+return (
+<div className="space-y-4">
+<Skeleton className="h-4 w-[250px] bg-primary/20" />
+<Skeleton className="h-4 w-[250px] bg-secondary/20" />
+<Skeleton className="h-4 w-[250px] bg-accent/20" />
+<Skeleton className="h-4 w-[250px] bg-muted/20" />
+</div>
+);
+}
+`}
+/>
+
+### Custom Sizes
+
+<Canvas of={Skeleton} />
+
+<Source
+  language="tsx"
+  code={`
+import { Skeleton } from '@/components';
+
+function CustomSizesSkeleton() {
+return (
+<div className="space-y-4">
+<Skeleton className="h-2 w-[250px]" />
+<Skeleton className="h-4 w-[250px]" />
+<Skeleton className="h-6 w-[250px]" />
+<Skeleton className="h-8 w-[250px]" />
+<Skeleton className="h-12 w-[250px]" />
+</div>
+);
+}
+`}
+/>
+
+### Custom Animations
+
+<Canvas of={Skeleton} />
+
+<Source
+  language="tsx"
+  code={`
+import { Skeleton } from '@/components';
+
+function CustomAnimationsSkeleton() {
+return (
+<div className="space-y-4">
+<Skeleton className="h-4 w-[250px] animate-pulse" />
+<Skeleton className="h-4 w-[250px] animate-bounce" />
+<Skeleton className="h-4 w-[250px] animate-spin" />
+<Skeleton className="h-4 w-[250px] animate-ping" />
+</div>
+);
+}
+`}
+/>
+
+### Custom Shapes
+
+<Canvas of={Skeleton} />
+
+<Source
+  language="tsx"
+  code={`
+import { Skeleton } from '@/components';
+
+function CustomShapesSkeleton() {
+return (
+<div className="space-y-4">
+<Skeleton className="h-4 w-[250px] rounded-none" />
+<Skeleton className="h-4 w-[250px] rounded-sm" />
+<Skeleton className="h-4 w-[250px] rounded-md" />
+<Skeleton className="h-4 w-[250px] rounded-lg" />
+<Skeleton className="h-4 w-[250px] rounded-xl" />
+<Skeleton className="h-4 w-[250px] rounded-full" />
+</div>
+);
+}
+`}
+/>
+
+### Multiple Skeletons
+
+<Canvas of={Skeleton} />
+
+<Source
+  language="tsx"
+  code={`
+import { Skeleton } from '@/components';
+
+function MultipleSkeletons() {
+return (
+<div className="space-y-4">
+<div className="flex space-x-4">
+<Skeleton className="h-4 w-[100px]" />
+<Skeleton className="h-4 w-[150px]" />
+<Skeleton className="h-4 w-[200px]" />
+</div>
+<div className="flex space-x-4">
+<Skeleton className="h-4 w-[120px]" />
+<Skeleton className="h-4 w-[180px]" />
+<Skeleton className="h-4 w-[160px]" />
+</div>
+<div className="flex space-x-4">
+<Skeleton className="h-4 w-[140px]" />
+<Skeleton className="h-4 w-[110px]" />
+<Skeleton className="h-4 w-[190px]" />
+</div>
+</div>
+);
+}
+`}
+/>
+
+### Nested Skeletons
+
+<Canvas of={Skeleton} />
+
+<Source
+  language="tsx"
+  code={`
+import { Skeleton } from '@/components';
+
+function NestedSkeletons() {
+return (
+<div className="space-y-4">
+<div className="border rounded-lg p-4 space-y-3">
+<Skeleton className="h-6 w-[200px]" />
+<div className="space-y-2">
+<Skeleton className="h-4 w-full" />
+<Skeleton className="h-4 w-3/4" />
+</div>
+<div className="flex space-x-2">
+<Skeleton className="h-8 w-20" />
+<Skeleton className="h-8 w-24" />
+</div>
+</div>
+</div>
+);
+}
+`}
+/>
+
+### Responsive Skeletons
+
+<Canvas of={Skeleton} />
+
+<Source
+  language="tsx"
+  code={`
+import { Skeleton } from '@/components';
+
+function ResponsiveSkeletons() {
+return (
+<div className="space-y-4">
+<Skeleton className="h-4 w-full sm:w-[250px] md:w-[300px] lg:w-[350px]" />
+<Skeleton className="h-4 w-full sm:w-[200px] md:w-[250px] lg:w-[300px]" />
+<Skeleton className="h-4 w-full sm:w-[150px] md:w-[200px] lg:w-[250px]" />
+</div>
+);
+}
+`}
+/>
+
+### Loading State
+
+<Canvas of={Skeleton} />
+
+<Source
+  language="tsx"
+  code={`
+import { Skeleton } from '@/components';
+import { useState, useEffect } from 'react';
+
+function LoadingStateSkeleton() {
+const [loading, setLoading] = useState(true);
+
+useEffect(() => {
+const timer = setTimeout(() => setLoading(false), 3000);
+return () => clearTimeout(timer);
+}, []);
+
+if (loading) {
+return (
+<div className="space-y-4">
+<Skeleton className="h-6 w-[200px]" />
+<div className="space-y-2">
+<Skeleton className="h-4 w-full" />
+<Skeleton className="h-4 w-3/4" />
+</div>
+<Skeleton className="h-10 w-[100px]" />
+</div>
+);
+}
+
+return (
+<div className="space-y-4">
+<h2 className="text-xl font-semibold">Loaded Content</h2>
+<p className="text-gray-600">
+This content has finished loading and replaced the skeleton.
+</p>
+<button className="px-4 py-2 bg-blue-500 text-white rounded">
+Action Button
+</button>
+</div>
+);
+}
+`}
+/>
+
+### Interactive Skeletons
+
+<Canvas of={Skeleton} />
+
+<Source
+  language="tsx"
+  code={`
+import { Skeleton } from '@/components';
+import { useState } from 'react';
+
+function InteractiveSkeletons() {
+const [showSkeleton, setShowSkeleton] = useState(true);
+
+return (
+<div className="space-y-4">
+<button
+onClick={() => setShowSkeleton(!showSkeleton)}
+className="px-4 py-2 bg-blue-500 text-white rounded" >
+{showSkeleton ? 'Show Content' : 'Show Skeleton'}
+</button>
+
+      {showSkeleton ? (
+        <div className="space-y-4">
+          <Skeleton className="h-6 w-[200px]" />
+          <div className="space-y-2">
+            <Skeleton className="h-4 w-full" />
+            <Skeleton className="h-4 w-3/4" />
+          </div>
+          <Skeleton className="h-10 w-[100px]" />
+        </div>
+      ) : (
+        <div className="space-y-4">
+          <h2 className="text-xl font-semibold">Real Content</h2>
+          <p className="text-gray-600">
+            This is the actual content that was loading.
+          </p>
+          <button className="px-4 py-2 bg-green-500 text-white rounded">
+            Success Button
+          </button>
+        </div>
+      )}
+    </div>
+
+);
+}
+`}
+/>
+
+### Custom Styling
+
+<Canvas of={Skeleton} />
+
+<Source
+  language="tsx"
+  code={`
+import { Skeleton } from '@/components';
+
+function CustomStylingSkeleton() {
+return (
+<div className="space-y-4">
+<Skeleton className="h-4 w-[250px] border-2 border-primary" />
+<Skeleton className="h-4 w-[250px] shadow-lg" />
+<Skeleton className="h-4 w-[250px] bg-gradient-to-r from-primary to-secondary" />
+<Skeleton className="h-4 w-[250px] opacity-50" />
+</div>
+);
+}
+`}
+/>
+
+### Accessibility
+
+<Canvas of={Skeleton} />
+
+<Source
+  language="tsx"
+  code={`
+import { Skeleton } from '@/components';
+
+function AccessibilitySkeleton() {
+return (
+<div className="space-y-4">
+<Skeleton 
+        className="h-4 w-[250px]" 
+        role="status" 
+        aria-label="Loading content"
+      />
+<Skeleton 
+        className="h-4 w-[200px]" 
+        role="status" 
+        aria-label="Loading description"
+      />
+<Skeleton 
+        className="h-10 w-20" 
+        role="status" 
+        aria-label="Loading button"
+      />
+</div>
+);
+}
+`}
+/>
+
+### Performance
+
+<Canvas of={Skeleton} />
+
+<Source
+  language="tsx"
+  code={`
+import { Skeleton } from '@/components';
+
+function PerformanceSkeleton() {
+return (
+<div className="space-y-4">
+{Array.from({ length: 100 }, (\_, i) => (
+<Skeleton key={i} className="h-4 w-[250px]" />
+))}
+</div>
+);
+}
+`}
+/>
+
+### User Interaction
+
+<Canvas of={Skeleton} />
+
+<Source
+  language="tsx"
+  code={`
+import { Skeleton } from '@/components';
+
+function UserInteractionSkeleton() {
+return (
+<div className="space-y-4">
+<Skeleton
+className="h-4 w-[250px] cursor-pointer hover:bg-accent/80"
+onClick={() => alert('Skeleton clicked!')}
+/>
+<Skeleton
+className="h-4 w-[200px] cursor-pointer hover:bg-accent/80"
+onClick={() => alert('Another skeleton clicked!')}
+/>
+</div>
+);
+}
+`}
+/>
+
+## Props
+
+| Prop        | Type                                   | Default | Description                                     |
+| ----------- | -------------------------------------- | ------- | ----------------------------------------------- |
+| `children`  | `ReactNode`                            | -       | The content to be displayed inside the skeleton |
+| `className` | `string`                               | -       | Additional CSS classes to apply to the skeleton |
+| `...props`  | `React.HTMLAttributes<HTMLDivElement>` | -       | Additional props passed to the div element      |
+
+## Styling
+
+The `Skeleton` component uses Tailwind CSS classes and can be customized with additional classes:
+
+```tsx
+<Skeleton className='h-4 w-[250px] bg-primary/20 rounded-lg' />
+```
+
+## Accessibility
+
+The `Skeleton` component provides accessibility support:
+
+- **Screen Reader Support**: Use `role="status"` and `aria-label` for screen readers
+- **Loading State**: Indicates content is loading
+- **Focus Management**: Can be made focusable with `tabIndex`
+
+## Performance
+
+The `Skeleton` component is optimized for performance:
+
+- **Lightweight**: Minimal DOM footprint
+- **Efficient Rendering**: Optimized for smooth animations
+- **Memory Efficient**: Minimal memory usage
+- **Responsive**: Adapts to different screen sizes and orientations
+
+## Best Practices
+
+1. **Use appropriate sizes**: Match skeleton dimensions to actual content
+2. **Provide meaningful labels**: Use `aria-label` for screen readers
+3. **Handle loading states**: Show skeletons while content is loading
+4. **Test with screen readers**: Ensure accessibility works properly
+5. **Consider mobile**: Test on mobile devices for touch interactions
+6. **Use consistent styling**: Maintain visual consistency across skeletons
+7. **Provide fallbacks**: Always have a fallback for failed loads
