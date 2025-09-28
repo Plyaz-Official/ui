@@ -1,0 +1,103 @@
+import { Meta, Story, Source, Canvas, Controls } from '@storybook/addon-docs';
+import * as ComboboxStories from './Combobox.stories';
+
+<Meta of={ComboboxStories} />
+
+# Combobox
+
+`Combobox` is a searchable select input that combines the functionality of a text input and a dropdown. It allows users to search through options and select one. Built with Radix UI primitives and styled with Tailwind CSS.
+
+The combobox component provides a powerful way to handle large lists of options with search functionality and keyboard navigation.
+
+## Features
+
+- Searchable options with real-time filtering
+- Keyboard navigation support
+- Accessible with proper ARIA attributes
+- Customizable styling and behavior
+- Support for disabled options
+- Controlled and uncontrolled modes
+
+## Usage Guidelines
+
+- Use comboboxes for large lists of options (10+ items)
+- Provide clear placeholder text
+- Use meaningful option labels
+- Consider grouping related options
+- Provide helpful empty states
+
+## Do
+
+- Use comboboxes for searchable selections
+- Provide clear, descriptive option labels
+- Use appropriate placeholder text
+- Consider keyboard accessibility
+
+## Don't
+
+- Use comboboxes for simple yes/no choices
+- Make option labels too long or complex
+- Forget to handle empty states
+- Overuse comboboxes for simple selections
+
+## Props
+
+<Controls of={ComboboxStories.Default} />
+
+### Examples
+
+## Basic Usage
+
+### Default Combobox
+
+<Canvas of={ComboboxStories.Default} />
+
+### With Value
+
+<Canvas of={ComboboxStories.WithValue} />
+
+### With Many Options
+
+<Canvas of={ComboboxStories.WithManyOptions} />
+
+### Disabled
+
+<Canvas of={ComboboxStories.Disabled} />
+
+### With Disabled Options
+
+<Canvas of={ComboboxStories.WithDisabledOptions} />
+
+## Customization
+
+### Custom Styling
+
+<Canvas of={ComboboxStories.CustomStyling} />
+
+### Different Variants
+
+<Canvas of={ComboboxStories.DifferentVariants} />
+
+### Different Sizes
+
+<Canvas of={ComboboxStories.DifferentSizes} />
+
+## Advanced Usage
+
+### Controlled
+
+<Canvas of={ComboboxStories.Controlled} />
+
+### With Custom Empty Text
+
+<Canvas of={ComboboxStories.WithCustomEmptyText} />
+
+### User Interaction
+
+<Canvas of={ComboboxStories.UserInteraction} />
+
+---
+
+## Source Code
+
+<Source of={ComboboxStories.Default} language='tsx' />

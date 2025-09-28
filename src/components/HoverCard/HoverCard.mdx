@@ -1,0 +1,104 @@
+import { Meta, Story, Source, Canvas, Controls } from '@storybook/addon-docs';
+import * as HoverCardStories from './HoverCard.stories';
+
+<Meta of={HoverCardStories} />
+
+# HoverCard
+
+`HoverCard` is a card that appears when a user hovers over a trigger element. It provides a way to display additional information or content without taking up permanent space. Built with Radix UI and styled with Tailwind CSS.
+
+The hover card component provides a powerful way to create contextual information displays with proper hover management and accessibility.
+
+## Features
+
+- Contextual information display on hover
+- Focus management and keyboard navigation
+- Accessible with proper ARIA attributes
+- Support for controlled and uncontrolled modes
+- Customizable delays and alignments
+- Responsive design with proper animations
+
+## Usage Guidelines
+
+- Use hover cards for additional information or context
+- Keep content concise and relevant
+- Provide clear and useful information
+- Use appropriate delays for better UX
+- Consider mobile touch interactions
+
+## Do
+
+- Use hover cards for contextual information
+- Keep content concise and relevant
+- Use appropriate delays
+- Consider accessibility
+- Provide clear information
+
+## Don't
+
+- Use hover cards for critical information
+- Make content too complex or long
+- Forget to handle mobile interactions
+- Overuse hover cards in your interface
+
+## Props
+
+<Controls of={HoverCardStories.Default} />
+
+### Examples
+
+## Basic Usage
+
+### Default HoverCard
+
+<Canvas of={HoverCardStories.Default} />
+
+### With Image
+
+<Canvas of={HoverCardStories.WithImage} />
+
+### With Avatar
+
+<Canvas of={HoverCardStories.WithAvatar} />
+
+### With Stats
+
+<Canvas of={HoverCardStories.WithStats} />
+
+## Advanced Features
+
+### With Actions
+
+<Canvas of={HoverCardStories.WithActions} />
+
+### With Custom Delay
+
+<Canvas of={HoverCardStories.WithCustomDelay} />
+
+### With Different Alignments
+
+<Canvas of={HoverCardStories.WithDifferentAlignments} />
+
+### With Long Content
+
+<Canvas of={HoverCardStories.WithLongContent} />
+
+## Customization
+
+### Custom Styling
+
+<Canvas of={HoverCardStories.CustomStyling} />
+
+### Controlled HoverCard
+
+<Canvas of={HoverCardStories.ControlledHoverCard} />
+
+### User Interaction
+
+<Canvas of={HoverCardStories.UserInteraction} />
+
+---
+
+## Source Code
+
+<Source of={HoverCardStories.Default} language='tsx' />

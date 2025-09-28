@@ -1,0 +1,858 @@
+import { Meta, Canvas, Controls, Source } from '@storybook/addon-docs';
+
+import { Slider } from '@/components';
+
+<Meta title='Components/Slider' />
+
+# Slider
+
+The `Slider` component provides a range input control for selecting values. It is built with Radix UI and styled with Tailwind CSS, offering a flexible and accessible slider solution.
+
+## Features
+
+- **Range Input**: Provides a visual range input control for selecting values
+- **Accessibility**: Built with Radix UI primitives for full accessibility support
+- **Flexible Values**: Supports single values, ranges, and multiple values
+- **Customizable**: Supports custom styling and theming
+- **Responsive**: Adapts to different screen sizes and orientations
+- **Keyboard Navigation**: Full keyboard support for navigation
+- **Touch Support**: Optimized for touch devices
+
+## Usage
+
+### Basic Usage
+
+<Canvas of={Slider} />
+
+<Source
+  language="tsx"
+  code={`
+import { Slider } from '@/components';
+
+function BasicSlider() {
+return <Slider defaultValue={[50]} max={100} step={1} />;
+}
+`}
+/>
+
+### With Value
+
+<Canvas of={Slider} />
+
+<Source
+  language="tsx"
+  code={`
+import { Slider } from '@/components';
+
+function ValueSlider() {
+return <Slider value={[75]} max={100} step={1} />;
+}
+`}
+/>
+
+### Range
+
+<Canvas of={Slider} />
+
+<Source
+  language="tsx"
+  code={`
+import { Slider } from '@/components';
+
+function RangeSlider() {
+return <Slider defaultValue={[20, 80]} max={100} step={1} />;
+}
+`}
+/>
+
+### Custom Min Max
+
+<Canvas of={Slider} />
+
+<Source
+  language="tsx"
+  code={`
+import { Slider } from '@/components';
+
+function CustomMinMaxSlider() {
+return <Slider defaultValue={[25]} min={10} max={50} step={1} />;
+}
+`}
+/>
+
+### Custom Step
+
+<Canvas of={Slider} />
+
+<Source
+  language="tsx"
+  code={`
+import { Slider } from '@/components';
+
+function CustomStepSlider() {
+return <Slider defaultValue={[30]} max={100} step={5} />;
+}
+`}
+/>
+
+### Vertical
+
+<Canvas of={Slider} />
+
+<Source
+  language="tsx"
+  code={`
+import { Slider } from '@/components';
+
+function VerticalSlider() {
+return (
+<div className="h-64">
+<Slider
+        defaultValue={[50]}
+        max={100}
+        step={1}
+        orientation="vertical"
+        className="h-full"
+      />
+</div>
+);
+}
+`}
+/>
+
+### Disabled
+
+<Canvas of={Slider} />
+
+<Source
+  language="tsx"
+  code={`
+import { Slider } from '@/components';
+
+function DisabledSlider() {
+return <Slider defaultValue={[50]} max={100} step={1} disabled />;
+}
+`}
+/>
+
+### With Labels
+
+<Canvas of={Slider} />
+
+<Source
+  language="tsx"
+  code={`
+import { Slider } from '@/components';
+import { useState } from 'react';
+
+function LabeledSlider() {
+const [value, setValue] = useState([50]);
+
+return (
+<div className="space-y-4">
+<div className="flex justify-between text-sm text-muted-foreground">
+<span>0</span>
+<span>50</span>
+<span>100</span>
+</div>
+<Slider
+        value={value}
+        onValueChange={setValue}
+        max={100}
+        step={1}
+        className="w-full"
+      />
+<div className="text-center text-sm">
+Current value: {value[0]}
+</div>
+</div>
+);
+}
+`}
+/>
+
+### With Custom Labels
+
+<Canvas of={Slider} />
+
+<Source
+  language="tsx"
+  code={`
+import { Slider } from '@/components';
+import { useState } from 'react';
+
+function CustomLabeledSlider() {
+const [value, setValue] = useState([25]);
+
+return (
+<div className="space-y-4">
+<div className="flex justify-between text-sm text-muted-foreground">
+<span>Low</span>
+<span>Medium</span>
+<span>High</span>
+</div>
+<Slider
+        value={value}
+        onValueChange={setValue}
+        max={100}
+        step={1}
+        className="w-full"
+      />
+<div className="text-center text-sm">
+Level: {value[0] <= 33 ? 'Low' : value[0] <= 66 ? 'Medium' : 'High'}
+</div>
+</div>
+);
+}
+`}
+/>
+
+### With Marks
+
+<Canvas of={Slider} />
+
+<Source
+  language="tsx"
+  code={`
+import { Slider } from '@/components';
+import { useState } from 'react';
+
+function MarkedSlider() {
+const [value, setValue] = useState([50]);
+const marks = [0, 25, 50, 75, 100];
+
+return (
+<div className="space-y-4">
+<div className="relative">
+<Slider
+          value={value}
+          onValueChange={setValue}
+          max={100}
+          step={1}
+          className="w-full"
+        />
+<div className="absolute top-6 left-0 right-0 flex justify-between">
+{marks.map((mark) => (
+<div
+key={mark}
+className="flex flex-col items-center"
+style={{ left: \`\${mark}%\`, transform: 'translateX(-50%)' }} >
+<div className="w-1 h-3 bg-muted-foreground rounded-full" />
+<span className="text-xs text-muted-foreground mt-1">{mark}</span>
+</div>
+))}
+</div>
+</div>
+<div className="text-center text-sm">
+Value: {value[0]}
+</div>
+</div>
+);
+}
+`}
+/>
+
+### With Custom Colors
+
+<Canvas of={Slider} />
+
+<Source
+  language="tsx"
+  code={`
+import { Slider } from '@/components';
+
+function CustomColorSlider() {
+return (
+<div className="space-y-6">
+<div>
+<label className="text-sm font-medium">Primary</label>
+<Slider defaultValue={[50]} max={100} step={1} />
+</div>
+<div>
+<label className="text-sm font-medium">Secondary</label>
+<Slider 
+          defaultValue={[50]} 
+          max={100} 
+          step={1}
+          className="[&_[data-slot=slider-range]]:bg-secondary"
+        />
+</div>
+<div>
+<label className="text-sm font-medium">Accent</label>
+<Slider 
+          defaultValue={[50]} 
+          max={100} 
+          step={1}
+          className="[&_[data-slot=slider-range]]:bg-accent"
+        />
+</div>
+<div>
+<label className="text-sm font-medium">Destructive</label>
+<Slider 
+          defaultValue={[50]} 
+          max={100} 
+          step={1}
+          className="[&_[data-slot=slider-range]]:bg-destructive"
+        />
+</div>
+</div>
+);
+}
+`}
+/>
+
+### With Custom Sizes
+
+<Canvas of={Slider} />
+
+<Source
+  language="tsx"
+  code={`
+import { Slider } from '@/components';
+
+function CustomSizeSlider() {
+return (
+<div className="space-y-6">
+<div>
+<label className="text-sm font-medium">Small</label>
+<Slider 
+          defaultValue={[50]} 
+          max={100} 
+          step={1}
+          className="[&_[data-slot=slider-track]]:h-1 [&_[data-slot=slider-thumb]]:size-3"
+        />
+</div>
+<div>
+<label className="text-sm font-medium">Medium</label>
+<Slider defaultValue={[50]} max={100} step={1} />
+</div>
+<div>
+<label className="text-sm font-medium">Large</label>
+<Slider 
+          defaultValue={[50]} 
+          max={100} 
+          step={1}
+          className="[&_[data-slot=slider-track]]:h-2 [&_[data-slot=slider-thumb]]:size-6"
+        />
+</div>
+</div>
+);
+}
+`}
+/>
+
+### With Custom Thumb
+
+<Canvas of={Slider} />
+
+<Source
+  language="tsx"
+  code={`
+import { Slider } from '@/components';
+
+function CustomThumbSlider() {
+return (
+<div className="space-y-6">
+<div>
+<label className="text-sm font-medium">Default</label>
+<Slider defaultValue={[50]} max={100} step={1} />
+</div>
+<div>
+<label className="text-sm font-medium">Rounded</label>
+<Slider 
+          defaultValue={[50]} 
+          max={100} 
+          step={1}
+          className="[&_[data-slot=slider-thumb]]:rounded-lg"
+        />
+</div>
+<div>
+<label className="text-sm font-medium">Square</label>
+<Slider 
+          defaultValue={[50]} 
+          max={100} 
+          step={1}
+          className="[&_[data-slot=slider-thumb]]:rounded-none"
+        />
+</div>
+</div>
+);
+}
+`}
+/>
+
+### With Custom Track
+
+<Canvas of={Slider} />
+
+<Source
+  language="tsx"
+  code={`
+import { Slider } from '@/components';
+
+function CustomTrackSlider() {
+return (
+<div className="space-y-6">
+<div>
+<label className="text-sm font-medium">Default</label>
+<Slider defaultValue={[50]} max={100} step={1} />
+</div>
+<div>
+<label className="text-sm font-medium">Rounded</label>
+<Slider 
+          defaultValue={[50]} 
+          max={100} 
+          step={1}
+          className="[&_[data-slot=slider-track]]:rounded-lg"
+        />
+</div>
+<div>
+<label className="text-sm font-medium">Square</label>
+<Slider 
+          defaultValue={[50]} 
+          max={100} 
+          step={1}
+          className="[&_[data-slot=slider-track]]:rounded-none"
+        />
+</div>
+</div>
+);
+}
+`}
+/>
+
+### With Custom Range
+
+<Canvas of={Slider} />
+
+<Source
+  language="tsx"
+  code={`
+import { Slider } from '@/components';
+
+function CustomRangeSlider() {
+return (
+<div className="space-y-6">
+<div>
+<label className="text-sm font-medium">Default</label>
+<Slider defaultValue={[50]} max={100} step={1} />
+</div>
+<div>
+<label className="text-sm font-medium">Gradient</label>
+<Slider 
+          defaultValue={[50]} 
+          max={100} 
+          step={1}
+          className="[&_[data-slot=slider-range]]:bg-gradient-to-r from-primary to-secondary"
+        />
+</div>
+<div>
+<label className="text-sm font-medium">Pattern</label>
+<Slider 
+          defaultValue={[50]} 
+          max={100} 
+          step={1}
+          className="[&_[data-slot=slider-range]]:bg-stripes"
+        />
+</div>
+</div>
+);
+}
+`}
+/>
+
+### With Custom Styling
+
+<Canvas of={Slider} />
+
+<Source
+  language="tsx"
+  code={`
+import { Slider } from '@/components';
+
+function CustomStyledSlider() {
+return (
+<div className="space-y-6">
+<div>
+<label className="text-sm font-medium">Bordered</label>
+<Slider 
+          defaultValue={[50]} 
+          max={100} 
+          step={1}
+          className="[&_[data-slot=slider-track]]:border [&_[data-slot=slider-track]]:border-primary"
+        />
+</div>
+<div>
+<label className="text-sm font-medium">Shadowed</label>
+<Slider 
+          defaultValue={[50]} 
+          max={100} 
+          step={1}
+          className="[&_[data-slot=slider-track]]:shadow-lg [&_[data-slot=slider-thumb]]:shadow-lg"
+        />
+</div>
+<div>
+<label className="text-sm font-medium">Glowing</label>
+<Slider 
+          defaultValue={[50]} 
+          max={100} 
+          step={1}
+          className="[&_[data-slot=slider-thumb]]:shadow-primary/50 [&_[data-slot=slider-thumb]]:shadow-lg"
+        />
+</div>
+</div>
+);
+}
+`}
+/>
+
+### With Multiple Values
+
+<Canvas of={Slider} />
+
+<Source
+  language="tsx"
+  code={`
+import { Slider } from '@/components';
+import { useState } from 'react';
+
+function MultipleValueSlider() {
+const [value, setValue] = useState([20, 80]);
+
+return (
+<div className="space-y-4">
+<Slider
+        value={value}
+        onValueChange={setValue}
+        max={100}
+        step={1}
+        className="w-full"
+      />
+<div className="flex justify-between text-sm">
+<span>Min: {value[0]}</span>
+<span>Max: {value[1]}</span>
+</div>
+</div>
+);
+}
+`}
+/>
+
+### With Three Values
+
+<Canvas of={Slider} />
+
+<Source
+  language="tsx"
+  code={`
+import { Slider } from '@/components';
+import { useState } from 'react';
+
+function ThreeValueSlider() {
+const [value, setValue] = useState([20, 50, 80]);
+
+return (
+<div className="space-y-4">
+<Slider
+        value={value}
+        onValueChange={setValue}
+        max={100}
+        step={1}
+        className="w-full"
+      />
+<div className="flex justify-between text-sm">
+<span>Low: {value[0]}</span>
+<span>Mid: {value[1]}</span>
+<span>High: {value[2]}</span>
+</div>
+</div>
+);
+}
+`}
+/>
+
+### With Form
+
+<Canvas of={Slider} />
+
+<Source
+  language="tsx"
+  code={`
+import { Slider } from '@/components';
+import { useState } from 'react';
+
+function FormSlider() {
+const [formData, setFormData] = useState({
+volume: [50],
+brightness: [75],
+contrast: [60],
+});
+
+return (
+<form className="space-y-6">
+<div className="space-y-2">
+<label className="text-sm font-medium">Volume</label>
+<Slider
+value={formData.volume}
+onValueChange={(value) => setFormData(prev => ({ ...prev, volume: value }))}
+max={100}
+step={1}
+className="w-full"
+/>
+<div className="text-sm text-muted-foreground">
+{formData.volume[0]}%
+</div>
+</div>
+
+      <div className="space-y-2">
+        <label className="text-sm font-medium">Brightness</label>
+        <Slider
+          value={formData.brightness}
+          onValueChange={(value) => setFormData(prev => ({ ...prev, brightness: value }))}
+          max={100}
+          step={1}
+          className="w-full"
+        />
+        <div className="text-sm text-muted-foreground">
+          {formData.brightness[0]}%
+        </div>
+      </div>
+
+      <div className="space-y-2">
+        <label className="text-sm font-medium">Contrast</label>
+        <Slider
+          value={formData.contrast}
+          onValueChange={(value) => setFormData(prev => ({ ...prev, contrast: value }))}
+          max={100}
+          step={1}
+          className="w-full"
+        />
+        <div className="text-sm text-muted-foreground">
+          {formData.contrast[0]}%
+        </div>
+      </div>
+    </form>
+
+);
+}
+`}
+/>
+
+### With Keyboard Navigation
+
+<Canvas of={Slider} />
+
+<Source
+  language="tsx"
+  code={`
+import { Slider } from '@/components';
+import { useState } from 'react';
+
+function KeyboardSlider() {
+const [value, setValue] = useState([50]);
+
+return (
+<div className="space-y-4">
+<div className="text-sm text-muted-foreground">
+Use arrow keys to navigate, Page Up/Page Down for larger steps
+</div>
+<Slider
+        value={value}
+        onValueChange={setValue}
+        max={100}
+        step={1}
+        className="w-full"
+      />
+<div className="text-center text-sm">
+Value: {value[0]}
+</div>
+</div>
+);
+}
+`}
+/>
+
+### With Touch Support
+
+<Canvas of={Slider} />
+
+<Source
+  language="tsx"
+  code={`
+import { Slider } from '@/components';
+import { useState } from 'react';
+
+function TouchSlider() {
+const [value, setValue] = useState([50]);
+
+return (
+<div className="space-y-4">
+<div className="text-sm text-muted-foreground">
+Touch and drag to change value
+</div>
+<Slider
+        value={value}
+        onValueChange={setValue}
+        max={100}
+        step={1}
+        className="w-full"
+      />
+<div className="text-center text-sm">
+Value: {value[0]}
+</div>
+</div>
+);
+}
+`}
+/>
+
+### With Accessibility
+
+<Canvas of={Slider} />
+
+<Source
+  language="tsx"
+  code={`
+import { Slider } from '@/components';
+
+function AccessibleSlider() {
+return (
+<div className="space-y-4">
+<Slider
+        defaultValue={[50]}
+        max={100}
+        step={1}
+        aria-label="Volume control"
+        className="w-full"
+      />
+<div className="text-sm text-muted-foreground">
+This slider is accessible with screen readers and keyboard navigation
+</div>
+</div>
+);
+}
+`}
+/>
+
+### With Performance
+
+<Canvas of={Slider} />
+
+<Source
+  language="tsx"
+  code={`
+import { Slider } from '@/components';
+import { useState } from 'react';
+
+function PerformanceSlider() {
+const [value, setValue] = useState([50]);
+
+return (
+<div className="space-y-4">
+<Slider
+        value={value}
+        onValueChange={setValue}
+        max={100}
+        step={1}
+        className="w-full"
+      />
+<div className="text-center text-sm">
+Value: {value[0]} (Renders efficiently)
+</div>
+</div>
+);
+}
+`}
+/>
+
+### With User Interaction
+
+<Canvas of={Slider} />
+
+<Source
+  language="tsx"
+  code={`
+import { Slider } from '@/components';
+import { useState } from 'react';
+
+function InteractiveSlider() {
+const [value, setValue] = useState([50]);
+const [isDragging, setIsDragging] = useState(false);
+
+return (
+<div className="space-y-4">
+<Slider
+value={value}
+onValueChange={setValue}
+onValueCommit={() => setIsDragging(false)}
+onPointerDown={() => setIsDragging(true)}
+max={100}
+step={1}
+className="w-full"
+/>
+<div className="text-center text-sm">
+Value: {value[0]} {isDragging && '(Dragging)'}
+</div>
+</div>
+);
+}
+`}
+/>
+
+## Props
+
+| Prop            | Type                         | Default        | Description                                         |
+| --------------- | ---------------------------- | -------------- | --------------------------------------------------- |
+| `defaultValue`  | `number[]`                   | -              | The default value of the slider                     |
+| `value`         | `number[]`                   | -              | The controlled value of the slider                  |
+| `min`           | `number`                     | `0`            | The minimum value of the slider                     |
+| `max`           | `number`                     | `100`          | The maximum value of the slider                     |
+| `step`          | `number`                     | `1`            | The step value of the slider                        |
+| `orientation`   | `"horizontal" \| "vertical"` | `"horizontal"` | The orientation of the slider                       |
+| `disabled`      | `boolean`                    | `false`        | Whether the slider is disabled                      |
+| `className`     | `string`                     | -              | Additional CSS classes to apply to the slider       |
+| `onValueChange` | `(value: number[]) => void`  | -              | Called when the value changes                       |
+| `onValueCommit` | `(value: number[]) => void`  | -              | Called when the value is committed                  |
+| `...props`      | `SliderPrimitive.RootProps`  | -              | Additional props passed to the Radix UI Slider root |
+
+## Styling
+
+The `Slider` component uses Tailwind CSS classes and can be customized with additional classes:
+
+```tsx
+<Slider
+  defaultValue={[50]}
+  max={100}
+  step={1}
+  className='[&_[data-slot=slider-range]]:bg-primary [&_[data-slot=slider-thumb]]:size-6'
+/>
+```
+
+## Accessibility
+
+The `Slider` component is built with Radix UI primitives and provides:
+
+- **Keyboard Navigation**: Full keyboard support for navigation
+- **Screen Reader Support**: Proper ARIA attributes and roles
+- **Focus Management**: Focus indicators and proper focus handling
+- **Touch Support**: Optimized for touch devices
+- **Value Announcements**: Announces value changes to screen readers
+
+## Performance
+
+The `Slider` component is optimized for performance:
+
+- **Efficient Rendering**: Only re-renders when necessary
+- **Smooth Animations**: Provides smooth value transitions
+- **Memory Efficient**: Minimal memory usage
+- **Responsive**: Adapts to different screen sizes and orientations
+
+## Best Practices
+
+1. **Use appropriate step values**: Choose step values that make sense for your use case
+2. **Provide meaningful labels**: Use `aria-label` for screen readers
+3. **Handle value changes**: Use `onValueChange` for real-time updates
+4. **Test with keyboard**: Ensure keyboard navigation works properly
+5. **Consider mobile**: Test on mobile devices for touch interactions
+6. **Use controlled state**: Use controlled state for complex interactions
+7. **Provide visual feedback**: Show current values and ranges clearly

@@ -1,0 +1,107 @@
+import { Meta, Story, Source, Canvas, Controls } from '@storybook/addon-docs';
+import * as CheckboxStories from './Checkbox.stories';
+
+<Meta of={CheckboxStories} />
+
+# Checkbox
+
+`Checkbox` is a form control that allows users to select one or more options from a set. Built with Radix UI and styled with Tailwind CSS, it provides accessible keyboard navigation and screen reader support.
+
+The checkbox component provides a consistent way to handle boolean selections and multi-select scenarios.
+
+## Features
+
+- Accessible keyboard navigation
+- Screen reader support with proper ARIA attributes
+- Support for controlled and uncontrolled states
+- Customizable styling with Tailwind CSS
+- Indeterminate state support
+- Form integration
+
+## Usage Guidelines
+
+- Use checkboxes for multiple selections
+- Use radio buttons for single selections
+- Always provide clear labels
+- Use indeterminate state for "select all" scenarios
+- Consider grouping related checkboxes
+
+## Do
+
+- Use checkboxes for optional selections
+- Provide clear, descriptive labels
+- Use indeterminate state for select all functionality
+- Group related checkboxes logically
+
+## Don't
+
+- Use checkboxes for mutually exclusive options (use radio buttons)
+- Make checkboxes too small to interact with
+- Forget to provide labels for accessibility
+- Use checkboxes for critical actions without confirmation
+
+## Props
+
+<Controls of={CheckboxStories.Default} />
+
+### Examples
+
+## Basic Usage
+
+### Default Checkbox
+
+<Canvas of={CheckboxStories.Default} />
+
+### Checked State
+
+<Canvas of={CheckboxStories.Checked} />
+
+### Unchecked State
+
+<Canvas of={CheckboxStories.Unchecked} />
+
+### Disabled State
+
+<Canvas of={CheckboxStories.Disabled} />
+
+### Disabled Checked
+
+<Canvas of={CheckboxStories.DisabledChecked} />
+
+### Required
+
+<Canvas of={CheckboxStories.Required} />
+
+## With Labels
+
+### With Label
+
+<Canvas of={CheckboxStories.WithLabel} />
+
+### With Label Checked
+
+<Canvas of={CheckboxStories.WithLabelChecked} />
+
+## Advanced Usage
+
+### Multiple Checkboxes
+
+<Canvas of={CheckboxStories.MultipleCheckboxes} />
+
+### Indeterminate State
+
+<Canvas of={CheckboxStories.Indeterminate} />
+
+### Custom Styling
+
+<Canvas of={CheckboxStories.CustomStyling} />
+
+### User Interaction
+
+<Canvas of={CheckboxStories.UserInteraction} />
+
+---
+
+## Source Code
+
+<Source of={CheckboxStories.Default} language='tsx' />

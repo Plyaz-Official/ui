@@ -1,0 +1,90 @@
+import { Meta, Story, Source, Canvas, Controls } from '@storybook/addon-docs';
+import * as CommandStories from './Command.stories';
+
+<Meta of={CommandStories} />
+
+# Command
+
+`Command` is a command palette interface that provides a searchable list of commands. It's built with CMDK and styled with Tailwind CSS, perfect for implementing command palettes, search interfaces, and keyboard navigation.
+
+The command component provides a powerful way to create searchable command interfaces with keyboard navigation and accessibility features.
+
+## Features
+
+- Searchable command interface
+- Keyboard navigation support
+- Accessible with proper ARIA attributes
+- Support for groups and separators
+- Customizable styling and behavior
+- Dialog mode for command palettes
+
+## Usage Guidelines
+
+- Use command palettes for quick actions and navigation
+- Provide clear, descriptive command names
+- Use groups to organize related commands
+- Include keyboard shortcuts when appropriate
+- Consider the user's mental model when organizing commands
+
+## Do
+
+- Use command palettes for power users
+- Provide clear, searchable command names
+- Use groups to organize related commands
+- Include keyboard shortcuts
+- Make commands discoverable
+
+## Don't
+
+- Use command palettes for simple actions
+- Make command names too generic
+- Forget to provide search functionality
+- Overuse command palettes in simple interfaces
+
+## Props
+
+<Controls of={CommandStories.Default} />
+
+### Examples
+
+## Basic Usage
+
+### Default Command
+
+<Canvas of={CommandStories.Default} />
+
+### With Groups
+
+<Canvas of={CommandStories.WithGroups} />
+
+### With Shortcuts
+
+<Canvas of={CommandStories.WithShortcuts} />
+
+### With Disabled Items
+
+<Canvas of={CommandStories.WithDisabledItems} />
+
+## Customization
+
+### Custom Styling
+
+<Canvas of={CommandStories.WithCustomStyling} />
+
+### Command Dialog
+
+<Canvas of={CommandStories.CommandDialogStory} />
+
+### With Search
+
+<Canvas of={CommandStories.WithSearch} />
+
+### User Interaction
+
+<Canvas of={CommandStories.UserInteraction} />
+
+---
+
+## Source Code
+
+<Source of={CommandStories.Default} language='tsx' />

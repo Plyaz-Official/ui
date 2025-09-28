@@ -1,0 +1,607 @@
+import { Meta, Canvas, Controls, Source } from '@storybook/addon-docs';
+
+import { ScrollArea, ScrollBar } from '@/components';
+
+<Meta title='Components/ScrollArea' />
+
+# ScrollArea
+
+The `ScrollArea` component provides a customizable scrollable area with custom scrollbars. It is built with Radix UI and styled with Tailwind CSS, offering a clean and accessible scrolling experience.
+
+## Features
+
+- **Custom Scrollbars**: Provides styled scrollbars that match your design system
+- **Accessibility**: Built with Radix UI primitives for full accessibility support
+- **Responsive**: Adapts to different screen sizes and orientations
+- **Customizable**: Supports custom styling and theming
+- **Performance**: Optimized for smooth scrolling performance
+- **Keyboard Navigation**: Full keyboard support for navigation
+- **Touch Support**: Optimized for touch devices
+
+## Usage
+
+### Basic Usage
+
+<Canvas of={ScrollArea} />
+
+<Source
+  language="tsx"
+  code={`
+import { ScrollArea } from '@/components';
+
+function BasicScrollArea() {
+return (
+<ScrollArea className="h-72 w-48 rounded-md border">
+<div className="p-4">
+<h4 className="mb-4 text-sm font-medium leading-none">Tags</h4>
+{Array.from({ length: 50 }, (\_, i) => (
+<div key={i} className="text-sm">
+v1.2.0-beta.{i + 1}
+</div>
+))}
+</div>
+</ScrollArea>
+);
+}
+`}
+/>
+
+### With Horizontal Scroll
+
+<Canvas of={ScrollArea} />
+
+<Source
+  language="tsx"
+  code={`
+import { ScrollArea, ScrollBar } from '@/components';
+
+function HorizontalScrollArea() {
+return (
+<ScrollArea className="h-32 w-48 rounded-md border">
+<div className="flex w-max space-x-4 p-4">
+{Array.from({ length: 20 }, (\_, i) => (
+<div key={i} className="shrink-0">
+<div className="h-16 w-16 rounded-md bg-muted flex items-center justify-center">
+{i + 1}
+</div>
+</div>
+))}
+</div>
+<ScrollBar orientation="horizontal" />
+</ScrollArea>
+);
+}
+`}
+/>
+
+### With Both Scrollbars
+
+<Canvas of={ScrollArea} />
+
+<Source
+  language="tsx"
+  code={`
+import { ScrollArea, ScrollBar } from '@/components';
+
+function BothScrollbarsArea() {
+return (
+<ScrollArea className="h-72 w-48 rounded-md border">
+<div className="p-4">
+<h4 className="mb-4 text-sm font-medium leading-none">Both Scrollbars</h4>
+<div className="flex w-max space-x-4">
+{Array.from({ length: 10 }, (_, i) => (
+<div key={i} className="shrink-0">
+<div className="h-32 w-32 rounded-md bg-muted flex items-center justify-center mb-2">
+{i + 1}
+</div>
+{Array.from({ length: 20 }, (_, j) => (
+<div key={j} className="text-sm">
+Item {j + 1}
+</div>
+))}
+</div>
+))}
+</div>
+</div>
+<ScrollBar orientation="horizontal" />
+</ScrollArea>
+);
+}
+`}
+/>
+
+### With Custom Styling
+
+<Canvas of={ScrollArea} />
+
+<Source
+  language="tsx"
+  code={`
+import { ScrollArea } from '@/components';
+
+function CustomStyledScrollArea() {
+return (
+<ScrollArea className="h-72 w-48 rounded-md border border-primary">
+<div className="p-4">
+<h4 className="mb-4 text-sm font-medium leading-none text-primary">Custom Styled</h4>
+{Array.from({ length: 50 }, (\_, i) => (
+<div key={i} className="text-sm p-2 rounded hover:bg-accent">
+Custom item {i + 1}
+</div>
+))}
+</div>
+</ScrollArea>
+);
+}
+`}
+/>
+
+### With List Items
+
+<Canvas of={ScrollArea} />
+
+<Source
+  language="tsx"
+  code={`
+import { ScrollArea } from '@/components';
+
+function ListScrollArea() {
+return (
+<ScrollArea className="h-72 w-48 rounded-md border">
+<div className="p-4">
+<h4 className="mb-4 text-sm font-medium leading-none">List Items</h4>
+<ul className="space-y-2">
+{Array.from({ length: 30 }, (\_, i) => (
+<li key={i} className="flex items-center space-x-2">
+<div className="h-2 w-2 rounded-full bg-primary" />
+<span className="text-sm">List item {i + 1}</span>
+</li>
+))}
+</ul>
+</div>
+</ScrollArea>
+);
+}
+`}
+/>
+
+### With Table Content
+
+<Canvas of={ScrollArea} />
+
+<Source
+  language="tsx"
+  code={`
+import { ScrollArea } from '@/components';
+
+function TableScrollArea() {
+return (
+<ScrollArea className="h-72 w-full rounded-md border">
+<div className="p-4">
+<h4 className="mb-4 text-sm font-medium leading-none">Table Content</h4>
+<table className="w-full">
+<thead>
+<tr className="border-b">
+<th className="text-left p-2">Name</th>
+<th className="text-left p-2">Status</th>
+<th className="text-left p-2">Date</th>
+</tr>
+</thead>
+<tbody>
+{Array.from({ length: 50 }, (\_, i) => (
+<tr key={i} className="border-b">
+<td className="p-2">User {i + 1}</td>
+<td className="p-2">
+<span className={\`px-2 py-1 rounded text-xs \${
+i % 3 === 0 ? 'bg-green-100 text-green-800' :
+i % 3 === 1 ? 'bg-yellow-100 text-yellow-800' :
+'bg-red-100 text-red-800'
+}\`}>
+{i % 3 === 0 ? 'Active' : i % 3 === 1 ? 'Pending' : 'Inactive'}
+</span>
+</td>
+<td className="p-2">2024-01-{String(i + 1).padStart(2, '0')}</td>
+</tr>
+))}
+</tbody>
+</table>
+</div>
+</ScrollArea>
+);
+}
+`}
+/>
+
+### With Form Content
+
+<Canvas of={ScrollArea} />
+
+<Source
+  language="tsx"
+  code={`
+import { ScrollArea } from '@/components';
+
+function FormScrollArea() {
+return (
+<ScrollArea className="h-72 w-80 rounded-md border">
+<div className="p-4">
+<h4 className="mb-4 text-sm font-medium leading-none">Form Content</h4>
+<form className="space-y-4">
+{Array.from({ length: 15 }, (\_, i) => (
+<div key={i}>
+<label className="block text-sm font-medium mb-1">
+Field {i + 1}
+</label>
+<input
+type="text"
+className="w-full p-2 border rounded-md"
+placeholder={\`Enter value for field \${i + 1}\`}
+/>
+</div>
+))}
+</form>
+</div>
+</ScrollArea>
+);
+}
+`}
+/>
+
+### With Nested Scroll Areas
+
+<Canvas of={ScrollArea} />
+
+<Source
+  language="tsx"
+  code={`
+import { ScrollArea } from '@/components';
+
+function NestedScrollAreas() {
+return (
+<ScrollArea className="h-48 w-80 rounded-md border">
+<div className="p-4">
+<h4 className="mb-4 text-sm font-medium leading-none">Outer Scroll Area</h4>
+<ScrollArea className="h-32 w-72 rounded-md border">
+<div className="p-4">
+<h5 className="mb-2 text-sm font-medium">Inner Scroll Area</h5>
+{Array.from({ length: 20 }, (_, i) => (
+<div key={i} className="text-sm">
+Nested item {i + 1}
+</div>
+))}
+</div>
+</ScrollArea>
+{Array.from({ length: 10 }, (_, i) => (
+<div key={i} className="text-sm mt-2">
+Outer item {i + 1}
+</div>
+))}
+</div>
+</ScrollArea>
+);
+}
+`}
+/>
+
+### With Different Sizes
+
+<Canvas of={ScrollArea} />
+
+<Source
+  language="tsx"
+  code={`
+import { ScrollArea } from '@/components';
+
+function DifferentSizesScrollArea() {
+return (
+<div className="space-y-4">
+<div>
+<h4 className="mb-2 text-sm font-medium">Small (h-32 w-48)</h4>
+<ScrollArea className="h-32 w-48 rounded-md border">
+<div className="p-4">
+{Array.from({ length: 20 }, (_, i) => (
+<div key={i} className="text-sm">
+Small item {i + 1}
+</div>
+))}
+</div>
+</ScrollArea>
+</div>
+<div>
+<h4 className="mb-2 text-sm font-medium">Medium (h-48 w-64)</h4>
+<ScrollArea className="h-48 w-64 rounded-md border">
+<div className="p-4">
+{Array.from({ length: 30 }, (_, i) => (
+<div key={i} className="text-sm">
+Medium item {i + 1}
+</div>
+))}
+</div>
+</ScrollArea>
+</div>
+<div>
+<h4 className="mb-2 text-sm font-medium">Large (h-72 w-80)</h4>
+<ScrollArea className="h-72 w-80 rounded-md border">
+<div className="p-4">
+{Array.from({ length: 50 }, (\_, i) => (
+<div key={i} className="text-sm">
+Large item {i + 1}
+</div>
+))}
+</div>
+</ScrollArea>
+</div>
+</div>
+);
+}
+`}
+/>
+
+### With Custom Scrollbar
+
+<Canvas of={ScrollArea} />
+
+<Source
+  language="tsx"
+  code={`
+import { ScrollArea, ScrollBar } from '@/components';
+
+function CustomScrollbarArea() {
+return (
+<ScrollArea className="h-72 w-48 rounded-md border">
+<div className="p-4">
+<h4 className="mb-4 text-sm font-medium leading-none">Custom Scrollbar</h4>
+{Array.from({ length: 50 }, (\_, i) => (
+<div key={i} className="text-sm">
+Item {i + 1}
+</div>
+))}
+</div>
+<ScrollBar className="w-3 bg-muted" />
+</ScrollArea>
+);
+}
+`}
+/>
+
+### With Horizontal Only
+
+<Canvas of={ScrollArea} />
+
+<Source
+  language="tsx"
+  code={`
+import { ScrollArea, ScrollBar } from '@/components';
+
+function HorizontalOnlyScrollArea() {
+return (
+<ScrollArea className="h-32 w-80 rounded-md border">
+<div className="flex w-max space-x-4 p-4">
+{Array.from({ length: 25 }, (\_, i) => (
+<div key={i} className="shrink-0">
+<div className="h-16 w-16 rounded-md bg-muted flex items-center justify-center">
+{i + 1}
+</div>
+</div>
+))}
+</div>
+<ScrollBar orientation="horizontal" />
+</ScrollArea>
+);
+}
+`}
+/>
+
+### With Vertical Only
+
+<Canvas of={ScrollArea} />
+
+<Source
+  language="tsx"
+  code={`
+import { ScrollArea } from '@/components';
+
+function VerticalOnlyScrollArea() {
+return (
+<ScrollArea className="h-72 w-48 rounded-md border">
+<div className="p-4">
+<h4 className="mb-4 text-sm font-medium leading-none">Vertical Only</h4>
+{Array.from({ length: 50 }, (\_, i) => (
+<div key={i} className="text-sm">
+Item {i + 1}
+</div>
+))}
+</div>
+</ScrollArea>
+);
+}
+`}
+/>
+
+### With Focus Management
+
+<Canvas of={ScrollArea} />
+
+<Source
+  language="tsx"
+  code={`
+import { ScrollArea } from '@/components';
+
+function FocusManagementScrollArea() {
+return (
+<ScrollArea className="h-72 w-48 rounded-md border">
+<div className="p-4">
+<h4 className="mb-4 text-sm font-medium leading-none">Focus Management</h4>
+{Array.from({ length: 30 }, (\_, i) => (
+<button
+            key={i}
+            className="block w-full text-left p-2 rounded hover:bg-accent focus:bg-accent focus:outline-none"
+          >
+Focusable item {i + 1}
+</button>
+))}
+</div>
+</ScrollArea>
+);
+}
+`}
+/>
+
+### With Keyboard Navigation
+
+<Canvas of={ScrollArea} />
+
+<Source
+  language="tsx"
+  code={`
+import { ScrollArea } from '@/components';
+
+function KeyboardNavigationScrollArea() {
+return (
+<ScrollArea className="h-72 w-48 rounded-md border">
+<div className="p-4">
+<h4 className="mb-4 text-sm font-medium leading-none">Keyboard Navigation</h4>
+{Array.from({ length: 30 }, (\_, i) => (
+<div
+            key={i}
+            tabIndex={0}
+            className="p-2 rounded hover:bg-accent focus:bg-accent focus:outline-none"
+          >
+Navigable item {i + 1}
+</div>
+))}
+</div>
+</ScrollArea>
+);
+}
+`}
+/>
+
+### With Dynamic Content
+
+<Canvas of={ScrollArea} />
+
+<Source
+  language="tsx"
+  code={`
+import { ScrollArea } from '@/components';
+import { useState } from 'react';
+
+function DynamicContentScrollArea() {
+const [items, setItems] = useState(10);
+
+const addItem = () => setItems(prev => prev + 1);
+const removeItem = () => setItems(prev => Math.max(1, prev - 1));
+
+return (
+<div className="space-y-4">
+<div className="flex gap-2">
+<button
+          onClick={addItem}
+          className="px-3 py-1 text-sm bg-primary text-primary-foreground rounded hover:bg-primary/90"
+        >
+Add Item
+</button>
+<button
+          onClick={removeItem}
+          className="px-3 py-1 text-sm border rounded hover:bg-accent"
+        >
+Remove Item
+</button>
+</div>
+<ScrollArea className="h-72 w-48 rounded-md border">
+<div className="p-4">
+<h4 className="mb-4 text-sm font-medium leading-none">Dynamic Content</h4>
+{Array.from({ length: items }, (\_, i) => (
+<div key={i} className="text-sm">
+Dynamic item {i + 1}
+</div>
+))}
+</div>
+</ScrollArea>
+</div>
+);
+}
+`}
+/>
+
+### With Loading State
+
+<Canvas of={ScrollArea} />
+
+<Source
+  language="tsx"
+  code={`
+import { ScrollArea } from '@/components';
+
+function LoadingStateScrollArea() {
+return (
+<ScrollArea className="h-72 w-48 rounded-md border">
+<div className="p-4">
+<h4 className="mb-4 text-sm font-medium leading-none">Loading State</h4>
+{Array.from({ length: 20 }, (\_, i) => (
+<div key={i} className="flex items-center space-x-2 mb-2">
+<div className="h-4 w-4 bg-muted rounded animate-pulse" />
+<div className="h-4 w-32 bg-muted rounded animate-pulse" />
+</div>
+))}
+</div>
+</ScrollArea>
+);
+}
+`}
+/>
+
+## Props
+
+### ScrollArea
+
+| Prop        | Type                            | Default | Description                                             |
+| ----------- | ------------------------------- | ------- | ------------------------------------------------------- |
+| `children`  | `ReactNode`                     | -       | The content to be displayed inside the scroll area      |
+| `className` | `string`                        | -       | Additional CSS classes to apply to the scroll area      |
+| `...props`  | `ScrollAreaPrimitive.RootProps` | -       | Additional props passed to the Radix UI ScrollArea root |
+
+### ScrollBar
+
+| Prop          | Type                                           | Default      | Description                                                  |
+| ------------- | ---------------------------------------------- | ------------ | ------------------------------------------------------------ |
+| `orientation` | `"vertical" \| "horizontal"`                   | `"vertical"` | The orientation of the scrollbar                             |
+| `className`   | `string`                                       | -            | Additional CSS classes to apply to the scrollbar             |
+| `...props`    | `ScrollAreaPrimitive.ScrollAreaScrollbarProps` | -            | Additional props passed to the Radix UI ScrollArea scrollbar |
+
+## Styling
+
+The `ScrollArea` component uses Tailwind CSS classes and can be customized with additional classes:
+
+```tsx
+<ScrollArea className='h-96 w-64 border-2 border-primary rounded-lg'>
+  <div className='p-4'>{/* Content */}</div>
+</ScrollArea>
+```
+
+## Accessibility
+
+The `ScrollArea` component is built with Radix UI primitives and provides:
+
+- **Keyboard Navigation**: Full keyboard support for scrolling and navigation
+- **Screen Reader Support**: Proper ARIA attributes and roles
+- **Focus Management**: Focus indicators and proper focus handling
+- **Touch Support**: Optimized for touch devices
+
+## Performance
+
+The `ScrollArea` component is optimized for performance:
+
+- **Virtual Scrolling**: Efficiently handles large amounts of content
+- **Smooth Scrolling**: Provides smooth scrolling animations
+- **Memory Efficient**: Only renders visible content
+- **Responsive**: Adapts to different screen sizes and orientations
+
+## Best Practices
+
+1. **Use appropriate sizes**: Set reasonable height and width constraints
+2. **Provide meaningful content**: Ensure content is accessible and meaningful
+3. **Handle loading states**: Show loading indicators for dynamic content
+4. **Test with keyboard**: Ensure keyboard navigation works properly
+5. **Consider mobile**: Test on mobile devices for touch interactions

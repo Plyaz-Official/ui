@@ -1,0 +1,91 @@
+import { Meta, Story, Source, Canvas, Controls } from '@storybook/addon-docs';
+import * as AvatarStories from './Avatar.stories';
+
+<Meta of={AvatarStories} />
+
+# Avatar
+
+`Avatar` is a component used to display user profile pictures or initials. It supports fallback content when images fail to load and can be customized with different sizes and styles. Built with Radix UI and styled with Tailwind CSS for seamless integration.
+
+The avatar component provides a consistent way to display user identity across your application, with automatic fallback handling and flexible styling options.
+
+## Features
+
+- Automatic fallback when images fail to load
+- Support for custom sizes and styling
+- Accessible with proper alt text support
+- Flexible content with initials or custom fallback
+- Fully customizable with Tailwind CSS
+
+## Usage Guidelines
+
+- Always provide meaningful alt text for images
+- Use initials or short text for fallback content
+- Choose appropriate sizes for your context
+- Consider accessibility when using custom fallback content
+
+## Do
+
+- Use clear, recognizable images for avatars
+- Keep fallback text short (1-3 characters)
+- Use consistent sizing across your application
+- Provide meaningful alt text
+
+## Don't
+
+- Use overly complex fallback content
+- Forget to handle image loading failures
+- Use inappropriate or offensive images
+- Make avatars too small to be recognizable
+
+## Props
+
+<Controls of={AvatarStories.Default} />
+
+### Examples
+
+## Basic Usage
+
+### Default Avatar
+
+<Canvas of={AvatarStories.Default} />
+
+### With Fallback
+
+<Canvas of={AvatarStories.WithFallback} />
+
+### Only Fallback
+
+<Canvas of={AvatarStories.OnlyFallback} />
+
+### Size Variants
+
+### Large Avatar
+
+<Canvas of={AvatarStories.Large} />
+
+### Small Avatar
+
+<Canvas of={AvatarStories.Small} />
+
+### Custom Fallback
+
+<Canvas of={AvatarStories.CustomFallback} />
+
+### Multiple Avatars
+
+<Canvas of={AvatarStories.MultipleAvatars} />
+
+### With Status
+
+<Canvas of={AvatarStories.WithStatus} />
+
+### User Interaction
+
+<Canvas of={AvatarStories.UserInteraction} />
+
+---
+
+## Source Code
+
+<Source of={AvatarStories.Default} language='tsx' />

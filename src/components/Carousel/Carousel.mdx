@@ -1,0 +1,93 @@
+import { Meta, Story, Source, Canvas, Controls } from '@storybook/addon-docs';
+import * as CarouselStories from './Carousel.stories';
+
+<Meta of={CarouselStories} />
+
+# Carousel
+
+`Carousel` is a flexible carousel/slider component built with Embla Carousel. It supports horizontal and vertical orientations, keyboard navigation, and customizable controls. Perfect for displaying image galleries, testimonials, or any scrollable content.
+
+The carousel component provides a smooth, accessible way to navigate through content with touch, mouse, and keyboard support.
+
+## Features
+
+- Horizontal and vertical orientations
+- Keyboard navigation (arrow keys)
+- Touch/swipe support
+- Customizable controls and styling
+- Accessible with proper ARIA attributes
+- API for programmatic control
+
+## Usage Guidelines
+
+- Use `orientation="horizontal"` for left-right navigation
+- Use `orientation="vertical"` for up-down navigation
+- Include navigation buttons for better UX
+- Consider using the API for advanced interactions
+- Keep carousel items consistent in size
+
+## Do
+
+- Use carousels for related content that doesn't need to be visible simultaneously
+- Provide clear navigation controls
+- Use appropriate orientation for your content
+- Consider accessibility when customizing
+
+## Don't
+
+- Use carousels for critical information that users need to see at once
+- Make carousel items too different in size
+- Forget to provide alternative navigation methods
+- Overuse carousels in your interface
+
+## Props
+
+<Controls of={CarouselStories.Default} />
+
+### Examples
+
+## Basic Usage
+
+### Default Carousel
+
+<Canvas of={CarouselStories.Default} />
+
+### With Images
+
+<Canvas of={CarouselStories.WithImages} />
+
+### Vertical Orientation
+
+<Canvas of={CarouselStories.Vertical} />
+
+### Multiple Slides
+
+<Canvas of={CarouselStories.MultipleSlides} />
+
+## Customization
+
+### With Custom Controls
+
+<Canvas of={CarouselStories.WithCustomControls} />
+
+### With API
+
+<Canvas of={CarouselStories.WithApi} />
+
+### With Autoplay
+
+<Canvas of={CarouselStories.WithAutoplay} />
+
+### With Dots
+
+<Canvas of={CarouselStories.WithDots} />
+
+### User Interaction
+
+<Canvas of={CarouselStories.UserInteraction} />
+
+---
+
+## Source Code
+
+<Source of={CarouselStories.Default} language='tsx' />

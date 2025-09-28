@@ -1,0 +1,70 @@
+import { Meta, Story, Source, Canvas, Controls } from '@storybook/addon-docs';
+import * as AccordionStories from './Accordion.stories';
+
+<Meta of={AccordionStories} />
+
+# Accordion
+
+`Accordion` is a vertically stacked set of interactive headings that each reveal a section of content. It's built on top of Radix UI's accordion primitive and styled with Tailwind CSS for seamless integration.
+
+The accordion component supports both single and multiple selection modes, with smooth animations and full keyboard accessibility.
+
+## Features
+
+- Single or multiple selection modes
+- Smooth expand/collapse animations
+- Keyboard accessible (Arrow keys, Enter, Space)
+- Fully customizable with Tailwind CSS
+- Collapsible option for single mode
+
+## Usage Guidelines
+
+- Use `type="single"` for exclusive selection (only one item open at a time)
+- Use `type="multiple"` to allow multiple items to be open simultaneously
+- Set `collapsible={true}` to allow closing the last open item in single mode
+- Provide meaningful trigger text for accessibility
+- Keep content concise and scannable
+
+## Do
+
+- Use accordions for organizing related content that doesn't need to be visible simultaneously
+- Provide clear, descriptive trigger text
+- Keep content sections reasonably sized
+- Use single mode for sequential information
+
+## Don't
+
+- Use accordions for critical information that users need to see at once
+- Nest accordions inside other accordions
+- Make trigger text too long or vague
+- Use multiple mode when single mode would be more appropriate
+
+## Props
+
+<Controls of={AccordionStories.Default} />
+
+### Examples
+
+## Basic Usage
+
+### Default Accordion
+
+<Canvas of={AccordionStories.Default} />
+
+### Multiple Selection
+
+<Canvas of={AccordionStories.Multiple} />
+
+### Custom Content
+
+<Canvas of={AccordionStories.CustomContent} />
+
+### User Interaction
+
+<Canvas of={AccordionStories.UserInteraction} />
+
+---
+
+## Source Code
+
+<Source of={AccordionStories.Default} language='tsx' />

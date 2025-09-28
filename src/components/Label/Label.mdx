@@ -1,0 +1,112 @@
+import { Meta, Story, Source, Canvas, Controls } from '@storybook/addon-docs';
+import * as LabelStories from './Label.stories';
+
+<Meta of={LabelStories} />
+
+# Label
+
+`Label` is a text label that can be associated with form controls. It provides accessible labeling for inputs and other interactive elements. Built with Radix UI and styled with Tailwind CSS.
+
+The label component provides a powerful way to create accessible form labels with proper association and styling.
+
+## Features
+
+- Accessible labeling for form controls
+- Proper association with form elements
+- Support for disabled states
+- Customizable styling and behavior
+- Keyboard navigation support
+- Screen reader friendly
+
+## Usage Guidelines
+
+- Use labels for all form controls
+- Keep labels concise and descriptive
+- Use appropriate styling for different states
+- Consider accessibility requirements
+- Use proper association with form elements
+
+## Do
+
+- Use labels for all form controls
+- Keep labels concise and descriptive
+- Use appropriate styling
+- Consider accessibility
+- Associate with form elements
+
+## Don't
+
+- Use labels for decorative text
+- Make labels too long or complex
+- Forget to associate with form elements
+- Overuse in your interface
+
+## Props
+
+<Controls of={LabelStories.Default} />
+
+### Examples
+
+## Basic Usage
+
+### Default Label
+
+<Canvas of={LabelStories.Default} />
+
+### With Input
+
+<Canvas of={LabelStories.WithInput} />
+
+### With Checkbox
+
+<Canvas of={LabelStories.WithCheckbox} />
+
+### Required
+
+<Canvas of={LabelStories.Required} />
+
+## Advanced Features
+
+### With Description
+
+<Canvas of={LabelStories.WithDescription} />
+
+### Disabled
+
+<Canvas of={LabelStories.Disabled} />
+
+### With Custom Styling
+
+<Canvas of={LabelStories.WithCustomStyling} />
+
+### With Icon
+
+<Canvas of={LabelStories.WithIcon} />
+
+## States and Validation
+
+### With Error
+
+<Canvas of={LabelStories.WithError} />
+
+### With Help Text
+
+<Canvas of={LabelStories.WithHelpText} />
+
+### Multiple Labels
+
+<Canvas of={LabelStories.MultipleLabels} />
+
+### With Form Group
+
+<Canvas of={LabelStories.WithFormGroup} />
+
+### User Interaction
+
+<Canvas of={LabelStories.UserInteraction} />
+
+---
+
+## Source Code
+
+<Source of={LabelStories.Default} language='tsx' />

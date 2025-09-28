@@ -1,0 +1,134 @@
+import { Meta, Story, Source, Canvas, Controls } from '@storybook/addon-docs';
+import * as ProgressStories from './Progress.stories';
+
+<Meta of={ProgressStories} />
+
+# Progress
+
+`Progress` is a visual indicator that shows the completion status of a task or process. It provides a way to display progress with a customizable bar. Built with Radix UI and styled with Tailwind CSS.
+
+The progress component provides a powerful way to create visual feedback for long-running operations and multi-step processes.
+
+## Features
+
+- Visual progress indication
+- Customizable styling and colors
+- Accessible with proper ARIA attributes
+- Support for different value ranges
+- Smooth animations and transitions
+- Responsive design
+
+## Usage Guidelines
+
+- Use progress bars for long-running operations
+- Provide clear feedback to users
+- Use appropriate colors for different states
+- Consider accessibility requirements
+- Keep progress updates smooth
+
+## Do
+
+- Use progress bars for long operations
+- Provide clear feedback
+- Use appropriate colors
+- Consider accessibility
+- Keep updates smooth
+
+## Don't
+
+- Use progress bars for short operations
+- Make progress bars too complex
+- Forget to handle edge cases
+- Overuse in your interface
+
+## Props
+
+<Controls of={ProgressStories.Default} />
+
+### Examples
+
+## Basic Usage
+
+### Default Progress
+
+<Canvas of={ProgressStories.Default} />
+
+### Half Progress
+
+<Canvas of={ProgressStories.HalfProgress} />
+
+### Almost Complete
+
+<Canvas of={ProgressStories.AlmostComplete} />
+
+### Complete
+
+<Canvas of={ProgressStories.Complete} />
+
+### Zero Progress
+
+<Canvas of={ProgressStories.ZeroProgress} />
+
+## Advanced Features
+
+### Animated Progress
+
+<Canvas of={ProgressStories.AnimatedProgress} />
+
+### With Custom Styling
+
+<Canvas of={ProgressStories.WithCustomStyling} />
+
+### With Custom Indicator
+
+<Canvas of={ProgressStories.WithCustomIndicator} />
+
+### Large Size
+
+<Canvas of={ProgressStories.LargeSize} />
+
+### Small Size
+
+<Canvas of={ProgressStories.SmallSize} />
+
+## Forms and Integration
+
+### With Label
+
+<Canvas of={ProgressStories.WithLabel} />
+
+### With Multiple Steps
+
+<Canvas of={ProgressStories.WithMultipleSteps} />
+
+### With Custom Colors
+
+<Canvas of={ProgressStories.WithCustomColors} />
+
+### Interactive Progress
+
+<Canvas of={ProgressStories.InteractiveProgress} />
+
+## Loading and Simulation
+
+### Simulated Loading
+
+<Canvas of={ProgressStories.SimulatedLoading} />
+
+### With Steps
+
+<Canvas of={ProgressStories.WithSteps} />
+
+### With Custom Max
+
+<Canvas of={ProgressStories.WithCustomMax} />
+
+### User Interaction
+
+<Canvas of={ProgressStories.UserInteraction} />
+
+---
+
+## Source Code
+
+<Source of={ProgressStories.Default} language='tsx' />

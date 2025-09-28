@@ -1,0 +1,86 @@
+import { Meta, Story, Source, Canvas, Controls } from '@storybook/addon-docs';
+import * as BreadcrumbStories from './Breadcrumb.stories';
+
+<Meta of={BreadcrumbStories} />
+
+# Breadcrumb
+
+`Breadcrumb` is a component used to display navigation hierarchy and help users understand their current location within a website or application. It provides a trail of links showing the path from the home page to the current page.
+
+The breadcrumb component is built with accessibility in mind and provides proper ARIA attributes for screen readers.
+
+## Features
+
+- Accessible navigation with proper ARIA attributes
+- Support for custom separators and ellipsis
+- Flexible rendering with `asChild` prop
+- Responsive design with proper spacing
+- Support for icons and custom content
+
+## Usage Guidelines
+
+- Use breadcrumbs for deep navigation hierarchies
+- Keep breadcrumb text concise and descriptive
+- Always include a home link as the first item
+- Use the current page as the last item (non-clickable)
+- Consider using ellipsis for very long paths
+
+## Do
+
+- Use breadcrumbs for sites with deep navigation
+- Keep text short and clear
+- Include proper ARIA labels
+- Use consistent separators
+
+## Don't
+
+- Use breadcrumbs for shallow navigation (1-2 levels)
+- Make breadcrumb text too long
+- Forget to mark the current page
+- Use breadcrumbs as the primary navigation
+
+## Props
+
+<Controls of={BreadcrumbStories.Default} />
+
+### Examples
+
+## Basic Usage
+
+### Default Breadcrumb
+
+<Canvas of={BreadcrumbStories.Default} />
+
+### With Icons
+
+<Canvas of={BreadcrumbStories.WithIcons} />
+
+### Long Path
+
+<Canvas of={BreadcrumbStories.LongPath} />
+
+### With Ellipsis
+
+<Canvas of={BreadcrumbStories.WithEllipsis} />
+
+### Custom Separator
+
+<Canvas of={BreadcrumbStories.CustomSeparator} />
+
+### As Child
+
+<Canvas of={BreadcrumbStories.AsChild} />
+
+### Responsive
+
+<Canvas of={BreadcrumbStories.Responsive} />
+
+### User Interaction
+
+<Canvas of={BreadcrumbStories.UserInteraction} />
+
+---
+
+## Source Code
+
+<Source of={BreadcrumbStories.Default} language='tsx' />
