@@ -111,7 +111,7 @@ export const WithCustomStyling: Story = {
   render: () => (
     <ScrollArea className='h-72 w-48 rounded-md border border-primary'>
       <div className='p-4'>
-        <h4 className='mb-4 text-sm font-medium leading-none text-primary'>Custom Styled</h4>
+        <h4 className='mb-4 text-sm font-medium leading-none text-accent'>Custom Styled</h4>
         {Array.from({ length: 50 }, (_, i) => (
           <div key={i} className='text-sm p-2 rounded hover:bg-accent'>
             Custom item {i + 1}
@@ -130,7 +130,7 @@ export const WithListItems: Story = {
         <ul className='space-y-2'>
           {Array.from({ length: NUMERIC_CONSTANTS.THIRTY }, (_, i) => (
             <li key={i} className='flex items-center space-x-2'>
-              <div className='h-2 w-2 rounded-full bg-primary' />
+              <div className='h-2 w-2 rounded-full bg-accent' />
               <span className='text-sm'>List item {i + 1}</span>
             </li>
           ))}

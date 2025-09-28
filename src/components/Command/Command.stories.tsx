@@ -168,12 +168,12 @@ export const WithCustomStyling: Story = {
       <CommandList>
         <CommandEmpty>No results found.</CommandEmpty>
         <CommandGroup heading='Custom Styled Group'>
-          <CommandItem className='hover:bg-primary/10'>
-            <Calendar className='mr-2 h-4 w-4 text-primary' />
+          <CommandItem className='hover:bg-accent/10'>
+            <Calendar className='mr-2 h-4 w-4 text-accent' />
             <span>Calendar</span>
           </CommandItem>
-          <CommandItem className='hover:bg-primary/10'>
-            <Smile className='mr-2 h-4 w-4 text-primary' />
+          <CommandItem className='hover:bg-accent/10'>
+            <Smile className='mr-2 h-4 w-4 text-accent' />
             <span>Search Emoji</span>
           </CommandItem>
         </CommandGroup>

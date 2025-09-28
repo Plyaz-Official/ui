@@ -158,10 +158,10 @@ export const WithCustomClassNames: Story = {
   args: {
     mode: 'single',
     showOutsideDays: true,
-    className: 'border-2 border-blue-200 rounded-lg',
+    className: 'border-2 border-primary rounded-lg',
     classNames: {
-      day: 'hover:bg-blue-50',
-      today: 'bg-blue-100 text-blue-900',
+      day: 'hover:bg-accent',
+      today: 'bg-accent text-accent-foreground',
     },
   },
 };
