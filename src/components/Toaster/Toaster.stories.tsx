@@ -163,22 +163,6 @@ export const WithCloseButton: Story = {
   ),
 };
 
-export const WithCustomStyling: Story = {
-  render: () => (
-    <div className="space-y-4">
-      <Toaster className="custom-toaster" />
-      <div className="space-x-2">
-        <button
-          onClick={() => toast('Custom styled toast!')}
-          className="px-4 py-2 bg-primary text-primary-foreground rounded-md"
-        >
-          Custom Styled
-        </button>
-      </div>
-    </div>
-  ),
-};
-
 export const WithMultipleToasts: Story = {
   render: () => (
     <div className="space-y-4">
