@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { expect, userEvent } from '@storybook/test';
+import { userEvent } from '@storybook/test';
 import { useState } from 'react';
 
 import { HoverCard, HoverCardContent, HoverCardTrigger, Button } from '@/components';
