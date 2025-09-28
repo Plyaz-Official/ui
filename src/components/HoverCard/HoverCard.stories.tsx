@@ -315,7 +315,7 @@ export const UserInteraction: Story = {
 export const ControlledHoverCard: Story = {
   render: () => <ControlledHoverCardComponent />,
   play: async ({ canvas }) => {
-    const trigger = await canvas.findByText('Interactive Hover Card');
+    const trigger = await canvas.findByText('Controlled Hover Card');
     await userEvent.hover(trigger);
   },
 };
