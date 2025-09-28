@@ -118,7 +118,7 @@ export const UserInteraction: Story = {
     </Avatar>
   ),
   play: async ({ canvas }) => {
-    const avatar = await canvas.findByTestId('avatar');
+    const avatar = await canvas.findByRole('img');
     await expect(avatar).toBeInTheDocument();
   },
 };

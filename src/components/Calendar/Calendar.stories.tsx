@@ -173,7 +173,7 @@ export const UserInteraction: Story = {
     onSelect: fn(),
   },
   play: async ({ canvas }) => {
-    const calendar = await canvas.findByTestId('calendar');
+    const calendar = await canvas.findByRole('grid');
     await expect(calendar).toBeInTheDocument();
   },
 };

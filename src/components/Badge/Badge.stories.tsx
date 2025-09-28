@@ -152,7 +152,7 @@ export const UserInteraction: Story = {
     onClick: fn(),
   },
   play: async ({ args, canvas }) => {
-    const badge = await canvas.findByTestId('badge');
+    const badge = await canvas.findByText('Clickable Badge');
     await userEvent.click(badge);
     await expect(args.onClick).toBeCalled();
   },

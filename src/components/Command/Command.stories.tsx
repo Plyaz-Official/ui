@@ -294,7 +294,7 @@ export const UserInteraction: Story = {
     </Command>
   ),
   play: async ({ canvas }) => {
-    const command = await canvas.findByTestId('command');
+    const command = await canvas.findByRole('combobox');
     await expect(command).toBeInTheDocument();
   },
 };
