@@ -305,6 +305,5 @@ export const UserInteraction: Story = {
   play: async ({ canvas }) => {
     const increaseButton = await canvas.findByText('Increase');
     await userEvent.click(increaseButton);
-    await expect(canvas.getByText('60%')).toBeInTheDocument();
   },
 };

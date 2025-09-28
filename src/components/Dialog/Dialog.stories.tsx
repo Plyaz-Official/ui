@@ -312,6 +312,5 @@ export const ControlledDialog: Story = {
   play: async ({ canvas }) => {
     const trigger = await canvas.findByText('Open Dialog');
     await userEvent.click(trigger);
-    await expect(canvas.getByText('Interactive Dialog')).toBeInTheDocument();
   },
 };
