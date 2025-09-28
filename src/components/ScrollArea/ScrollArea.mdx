@@ -1,8 +1,9 @@
 import { Meta, Canvas, Controls, Source } from '@storybook/addon-docs';
+import * as ScrollAreaStories from './ScrollArea.stories';
 
 import { ScrollArea, ScrollBar } from '@/components';
 
-<Meta title='Components/ScrollArea' />
+<Meta of={ScrollAreaStories} />
 
 # ScrollArea
 
@@ -22,7 +23,7 @@ The `ScrollArea` component provides a customizable scrollable area with custom s
 
 ### Basic Usage
 
-<Canvas of={ScrollArea} />
+<Canvas of={ScrollAreaStories.Default} />
 
 <Source
   language="tsx"
@@ -31,6 +32,7 @@ import { ScrollArea } from '@/components';
 
 function BasicScrollArea() {
 return (
+
 <ScrollArea className="h-72 w-48 rounded-md border">
 <div className="p-4">
 <h4 className="mb-4 text-sm font-medium leading-none">Tags</h4>
@@ -48,7 +50,7 @@ v1.2.0-beta.{i + 1}
 
 ### With Horizontal Scroll
 
-<Canvas of={ScrollArea} />
+<Canvas of={ScrollAreaStories.WithHorizontalScroll} />
 
 <Source
   language="tsx"
@@ -57,6 +59,7 @@ import { ScrollArea, ScrollBar } from '@/components';
 
 function HorizontalScrollArea() {
 return (
+
 <ScrollArea className="h-32 w-48 rounded-md border">
 <div className="flex w-max space-x-4 p-4">
 {Array.from({ length: 20 }, (\_, i) => (
@@ -76,7 +79,7 @@ return (
 
 ### With Both Scrollbars
 
-<Canvas of={ScrollArea} />
+<Canvas of={ScrollAreaStories.WithBothScrollbars} />
 
 <Source
   language="tsx"
@@ -85,34 +88,32 @@ import { ScrollArea, ScrollBar } from '@/components';
 
 function BothScrollbarsArea() {
 return (
-<ScrollArea className="h-72 w-48 rounded-md border">
-<div className="p-4">
-<h4 className="mb-4 text-sm font-medium leading-none">Both Scrollbars</h4>
-<div className="flex w-max space-x-4">
-{Array.from({ length: 10 }, (_, i) => (
-<div key={i} className="shrink-0">
-<div className="h-32 w-32 rounded-md bg-muted flex items-center justify-center mb-2">
-{i + 1}
-</div>
-{Array.from({ length: 20 }, (_, j) => (
-<div key={j} className="text-sm">
-Item {j + 1}
-</div>
-))}
-</div>
-))}
-</div>
-</div>
-<ScrollBar orientation="horizontal" />
+
+<ScrollArea className='h-72 w-48 rounded-md border'>
+  <div className='p-4'>
+    <h4 className='mb-4 text-sm font-medium leading-none'>Both Scrollbars</h4>
+    <div className='flex w-max space-x-4'>
+      {Array.from({ length: 10 }, (_, i) => (
+        <div key={i} className='shrink-0'>
+          <div className='h-32 w-32 rounded-md bg-muted flex items-center justify-center mb-2'>
+            {i + 1}
+          </div>
+          {Array.from({ length: 20 }, (_, j) => (
+            <div key={j} className='text-sm'>
+              Item {j + 1}
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
+  </div>
+  <ScrollBar orientation='horizontal' />
 </ScrollArea>
-);
-}
-`}
-/>
+); } `} />
 
 ### With Custom Styling
 
-<Canvas of={ScrollArea} />
+<Canvas of={ScrollAreaStories.WithCustomStyling} />
 
 <Source
   language="tsx"
@@ -121,6 +122,7 @@ import { ScrollArea } from '@/components';
 
 function CustomStyledScrollArea() {
 return (
+
 <ScrollArea className="h-72 w-48 rounded-md border border-primary">
 <div className="p-4">
 <h4 className="mb-4 text-sm font-medium leading-none text-primary">Custom Styled</h4>
@@ -138,7 +140,7 @@ Custom item {i + 1}
 
 ### With List Items
 
-<Canvas of={ScrollArea} />
+<Canvas of={ScrollAreaStories.WithListItems} />
 
 <Source
   language="tsx"
@@ -147,6 +149,7 @@ import { ScrollArea } from '@/components';
 
 function ListScrollArea() {
 return (
+
 <ScrollArea className="h-72 w-48 rounded-md border">
 <div className="p-4">
 <h4 className="mb-4 text-sm font-medium leading-none">List Items</h4>
@@ -167,7 +170,7 @@ return (
 
 ### With Table Content
 
-<Canvas of={ScrollArea} />
+<Canvas of={ScrollAreaStories.Default} />
 
 <Source
   language="tsx"
@@ -176,6 +179,7 @@ import { ScrollArea } from '@/components';
 
 function TableScrollArea() {
 return (
+
 <ScrollArea className="h-72 w-full rounded-md border">
 <div className="p-4">
 <h4 className="mb-4 text-sm font-medium leading-none">Table Content</h4>
@@ -214,7 +218,7 @@ i % 3 === 1 ? 'bg-yellow-100 text-yellow-800' :
 
 ### With Form Content
 
-<Canvas of={ScrollArea} />
+<Canvas of={ScrollAreaStories.WithFormContent} />
 
 <Source
   language="tsx"
@@ -223,6 +227,7 @@ import { ScrollArea } from '@/components';
 
 function FormScrollArea() {
 return (
+
 <ScrollArea className="h-72 w-80 rounded-md border">
 <div className="p-4">
 <h4 className="mb-4 text-sm font-medium leading-none">Form Content</h4>
@@ -249,7 +254,7 @@ placeholder={\`Enter value for field \${i + 1}\`}
 
 ### With Nested Scroll Areas
 
-<Canvas of={ScrollArea} />
+<Canvas of={ScrollAreaStories.WithNestedScrollAreas} />
 
 <Source
   language="tsx"
@@ -258,34 +263,32 @@ import { ScrollArea } from '@/components';
 
 function NestedScrollAreas() {
 return (
-<ScrollArea className="h-48 w-80 rounded-md border">
-<div className="p-4">
-<h4 className="mb-4 text-sm font-medium leading-none">Outer Scroll Area</h4>
-<ScrollArea className="h-32 w-72 rounded-md border">
-<div className="p-4">
-<h5 className="mb-2 text-sm font-medium">Inner Scroll Area</h5>
-{Array.from({ length: 20 }, (_, i) => (
-<div key={i} className="text-sm">
-Nested item {i + 1}
-</div>
-))}
-</div>
+
+<ScrollArea className='h-48 w-80 rounded-md border'>
+  <div className='p-4'>
+    <h4 className='mb-4 text-sm font-medium leading-none'>Outer Scroll Area</h4>
+    <ScrollArea className='h-32 w-72 rounded-md border'>
+      <div className='p-4'>
+        <h5 className='mb-2 text-sm font-medium'>Inner Scroll Area</h5>
+        {Array.from({ length: 20 }, (_, i) => (
+          <div key={i} className='text-sm'>
+            Nested item {i + 1}
+          </div>
+        ))}
+      </div>
+    </ScrollArea>
+    {Array.from({ length: 10 }, (_, i) => (
+      <div key={i} className='text-sm mt-2'>
+        Outer item {i + 1}
+      </div>
+    ))}
+  </div>
 </ScrollArea>
-{Array.from({ length: 10 }, (_, i) => (
-<div key={i} className="text-sm mt-2">
-Outer item {i + 1}
-</div>
-))}
-</div>
-</ScrollArea>
-);
-}
-`}
-/>
+); } `} />
 
 ### With Different Sizes
 
-<Canvas of={ScrollArea} />
+<Canvas of={ScrollAreaStories.WithDifferentSizes} />
 
 <Source
   language="tsx"
@@ -294,6 +297,7 @@ import { ScrollArea } from '@/components';
 
 function DifferentSizesScrollArea() {
 return (
+
 <div className="space-y-4">
 <div>
 <h4 className="mb-2 text-sm font-medium">Small (h-32 w-48)</h4>
@@ -339,7 +343,7 @@ Large item {i + 1}
 
 ### With Custom Scrollbar
 
-<Canvas of={ScrollArea} />
+<Canvas of={ScrollAreaStories.WithCustomScrollbar} />
 
 <Source
   language="tsx"
@@ -348,6 +352,7 @@ import { ScrollArea, ScrollBar } from '@/components';
 
 function CustomScrollbarArea() {
 return (
+
 <ScrollArea className="h-72 w-48 rounded-md border">
 <div className="p-4">
 <h4 className="mb-4 text-sm font-medium leading-none">Custom Scrollbar</h4>
@@ -366,7 +371,7 @@ Item {i + 1}
 
 ### With Horizontal Only
 
-<Canvas of={ScrollArea} />
+<Canvas of={ScrollAreaStories.WithHorizontalOnly} />
 
 <Source
   language="tsx"
@@ -375,6 +380,7 @@ import { ScrollArea, ScrollBar } from '@/components';
 
 function HorizontalOnlyScrollArea() {
 return (
+
 <ScrollArea className="h-32 w-80 rounded-md border">
 <div className="flex w-max space-x-4 p-4">
 {Array.from({ length: 25 }, (\_, i) => (
@@ -394,7 +400,7 @@ return (
 
 ### With Vertical Only
 
-<Canvas of={ScrollArea} />
+<Canvas of={ScrollAreaStories.WithVerticalOnly} />
 
 <Source
   language="tsx"
@@ -403,6 +409,7 @@ import { ScrollArea } from '@/components';
 
 function VerticalOnlyScrollArea() {
 return (
+
 <ScrollArea className="h-72 w-48 rounded-md border">
 <div className="p-4">
 <h4 className="mb-4 text-sm font-medium leading-none">Vertical Only</h4>
@@ -420,7 +427,7 @@ Item {i + 1}
 
 ### With Focus Management
 
-<Canvas of={ScrollArea} />
+<Canvas of={ScrollAreaStories.WithFocusManagement} />
 
 <Source
   language="tsx"
@@ -429,6 +436,7 @@ import { ScrollArea } from '@/components';
 
 function FocusManagementScrollArea() {
 return (
+
 <ScrollArea className="h-72 w-48 rounded-md border">
 <div className="p-4">
 <h4 className="mb-4 text-sm font-medium leading-none">Focus Management</h4>
@@ -449,7 +457,7 @@ Focusable item {i + 1}
 
 ### With Keyboard Navigation
 
-<Canvas of={ScrollArea} />
+<Canvas of={ScrollAreaStories.Default} />
 
 <Source
   language="tsx"
@@ -458,6 +466,7 @@ import { ScrollArea } from '@/components';
 
 function KeyboardNavigationScrollArea() {
 return (
+
 <ScrollArea className="h-72 w-48 rounded-md border">
 <div className="p-4">
 <h4 className="mb-4 text-sm font-medium leading-none">Keyboard Navigation</h4>
@@ -479,7 +488,7 @@ Navigable item {i + 1}
 
 ### With Dynamic Content
 
-<Canvas of={ScrollArea} />
+<Canvas of={ScrollAreaStories.WithDynamicContent} />
 
 <Source
   language="tsx"
@@ -494,6 +503,7 @@ const addItem = () => setItems(prev => prev + 1);
 const removeItem = () => setItems(prev => Math.max(1, prev - 1));
 
 return (
+
 <div className="space-y-4">
 <div className="flex gap-2">
 <button
@@ -527,7 +537,7 @@ Dynamic item {i + 1}
 
 ### With Loading State
 
-<Canvas of={ScrollArea} />
+<Canvas of={ScrollAreaStories.WithLoadingState} />
 
 <Source
   language="tsx"
@@ -536,6 +546,7 @@ import { ScrollArea } from '@/components';
 
 function LoadingStateScrollArea() {
 return (
+
 <ScrollArea className="h-72 w-48 rounded-md border">
 <div className="p-4">
 <h4 className="mb-4 text-sm font-medium leading-none">Loading State</h4>
@@ -554,21 +565,7 @@ return (
 
 ## Props
 
-### ScrollArea
-
-| Prop        | Type                            | Default | Description                                             |
-| ----------- | ------------------------------- | ------- | ------------------------------------------------------- |
-| `children`  | `ReactNode`                     | -       | The content to be displayed inside the scroll area      |
-| `className` | `string`                        | -       | Additional CSS classes to apply to the scroll area      |
-| `...props`  | `ScrollAreaPrimitive.RootProps` | -       | Additional props passed to the Radix UI ScrollArea root |
-
-### ScrollBar
-
-| Prop          | Type                                           | Default      | Description                                                  |
-| ------------- | ---------------------------------------------- | ------------ | ------------------------------------------------------------ |
-| `orientation` | `"vertical" \| "horizontal"`                   | `"vertical"` | The orientation of the scrollbar                             |
-| `className`   | `string`                                       | -            | Additional CSS classes to apply to the scrollbar             |
-| `...props`    | `ScrollAreaPrimitive.ScrollAreaScrollbarProps` | -            | Additional props passed to the Radix UI ScrollArea scrollbar |
+<Controls of={ScrollAreaStories.Default} />
 
 ## Styling
 

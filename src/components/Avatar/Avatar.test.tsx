@@ -8,7 +8,7 @@ describe('Avatar component', () => {
     const start = performance.now();
     render(
       <Avatar>
-        <AvatarImage src="https://example.com/image.jpg" alt="Test" />
+        <AvatarImage src='https://example.com/image.jpg' alt='Test' />
         <AvatarFallback>AB</AvatarFallback>
       </Avatar>
     );
@@ -20,7 +20,7 @@ describe('Avatar component', () => {
   it('renders avatar with fallback', () => {
     render(
       <Avatar>
-        <AvatarImage src="https://example.com/image.jpg" alt="Test" />
+        <AvatarImage src='https://example.com/image.jpg' alt='Test' />
         <AvatarFallback>AB</AvatarFallback>
       </Avatar>
     );

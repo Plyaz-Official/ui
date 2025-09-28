@@ -1,4 +1,4 @@
-import { Meta, Story, Source, Canvas, Controls } from '@storybook/addon-docs';
+import { Meta, Canvas, Source, Controls } from '@storybook/addon-docs';
 import * as HoverCardStories from './HoverCard.stories';
 
 <Meta of={HoverCardStories} />
@@ -45,60 +45,54 @@ The hover card component provides a powerful way to create contextual informatio
 
 <Controls of={HoverCardStories.Default} />
 
-### Examples
+## Examples
 
-## Basic Usage
+### Basic Usage
 
-### Default HoverCard
-
+#### Default HoverCard
 <Canvas of={HoverCardStories.Default} />
+<Source of={HoverCardStories.Default} language="tsx" />
 
-### With Image
-
+#### With Image
 <Canvas of={HoverCardStories.WithImage} />
+<Source of={HoverCardStories.WithImage} language="tsx" />
 
-### With Avatar
-
+#### With Avatar
 <Canvas of={HoverCardStories.WithAvatar} />
+<Source of={HoverCardStories.WithAvatar} language="tsx" />
 
-### With Stats
-
+#### With Stats
 <Canvas of={HoverCardStories.WithStats} />
+<Source of={HoverCardStories.WithStats} language="tsx" />
 
-## Advanced Features
+### Advanced Features
 
-### With Actions
-
+#### With Actions
 <Canvas of={HoverCardStories.WithActions} />
+<Source of={HoverCardStories.WithActions} language="tsx" />
 
-### With Custom Delay
-
+#### With Custom Delay
 <Canvas of={HoverCardStories.WithCustomDelay} />
+<Source of={HoverCardStories.WithCustomDelay} language="tsx" />
 
-### With Different Alignments
-
+#### With Different Alignments
 <Canvas of={HoverCardStories.WithDifferentAlignments} />
+<Source of={HoverCardStories.WithDifferentAlignments} language="tsx" />
 
-### With Long Content
-
+#### With Long Content
 <Canvas of={HoverCardStories.WithLongContent} />
+<Source of={HoverCardStories.WithLongContent} language="tsx" />
 
-## Customization
+### Customization
 
-### Custom Styling
+#### Custom Styling
+<Canvas of={HoverCardStories.WithCustomStyling} />
+<Source of={HoverCardStories.WithCustomStyling} language="tsx" />
 
-<Canvas of={HoverCardStories.CustomStyling} />
-
-### Controlled HoverCard
-
+#### Controlled HoverCard
 <Canvas of={HoverCardStories.ControlledHoverCard} />
+<Source of={HoverCardStories.ControlledHoverCard} language="tsx" />
 
-### User Interaction
-
+#### User Interaction
 <Canvas of={HoverCardStories.UserInteraction} />
-
----
-
-## Source Code
-
-<Source of={HoverCardStories.Default} language='tsx' />
+<Source of={HoverCardStories.UserInteraction} language="tsx" />

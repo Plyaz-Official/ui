@@ -15,10 +15,10 @@ describe('Command component', () => {
     const start = performance.now();
     render(
       <Command>
-        <CommandInput placeholder="Search..." />
+        <CommandInput placeholder='Search...' />
         <CommandList>
           <CommandEmpty>No results found.</CommandEmpty>
-          <CommandGroup heading="Test">
+          <CommandGroup heading='Test'>
             <CommandItem>Test Item</CommandItem>
           </CommandGroup>
         </CommandList>
@@ -32,10 +32,10 @@ describe('Command component', () => {
   it('renders command with input and list', () => {
     render(
       <Command>
-        <CommandInput placeholder="Search..." />
+        <CommandInput placeholder='Search...' />
         <CommandList>
           <CommandEmpty>No results found.</CommandEmpty>
-          <CommandGroup heading="Test">
+          <CommandGroup heading='Test'>
             <CommandItem>Test Item</CommandItem>
           </CommandGroup>
         </CommandList>

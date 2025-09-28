@@ -88,11 +88,11 @@ export const Required: Story = {
 
 export const WithLabel: Story = {
   render: () => (
-    <div className="flex items-center space-x-2">
-      <Checkbox id="terms" />
+    <div className='flex items-center space-x-2'>
+      <Checkbox id='terms' />
       <label
-        htmlFor="terms"
-        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+        htmlFor='terms'
+        className='text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70'
       >
         Accept terms and conditions
       </label>
@@ -102,11 +102,11 @@ export const WithLabel: Story = {
 
 export const WithLabelChecked: Story = {
   render: () => (
-    <div className="flex items-center space-x-2">
-      <Checkbox id="terms-checked" defaultChecked />
+    <div className='flex items-center space-x-2'>
+      <Checkbox id='terms-checked' defaultChecked />
       <label
-        htmlFor="terms-checked"
-        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+        htmlFor='terms-checked'
+        className='text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70'
       >
         Accept terms and conditions
       </label>
@@ -132,26 +132,24 @@ const MultipleCheckboxesComponent = () => {
   };
 
   return (
-      <div className="space-y-2">
-        {items.map((item) => (
-          <div key={item.id} className="flex items-center space-x-2">
-            <Checkbox
-              id={item.id}
-              checked={checkedItems.includes(item.id)}
-              onCheckedChange={(checked) => handleChange(item.id, checked as boolean)}
-            />
-            <label
-              htmlFor={item.id}
-              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-            >
-              {item.label}
-            </label>
-          </div>
-        ))}
-        <p className="text-sm text-muted-foreground">
-          Selected: {checkedItems.length} items
-        </p>
-      </div>
+    <div className='space-y-2'>
+      {items.map(item => (
+        <div key={item.id} className='flex items-center space-x-2'>
+          <Checkbox
+            id={item.id}
+            checked={checkedItems.includes(item.id)}
+            onCheckedChange={checked => handleChange(item.id, checked as boolean)}
+          />
+          <label
+            htmlFor={item.id}
+            className='text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70'
+          >
+            {item.label}
+          </label>
+        </div>
+      ))}
+      <p className='text-sm text-muted-foreground'>Selected: {checkedItems.length} items</p>
+    </div>
   );
 };
 
@@ -183,41 +181,41 @@ const IndeterminateComponent = () => {
   };
 
   return (
-      <div className="space-y-2">
-        <div className="flex items-center space-x-2">
+    <div className='space-y-2'>
+      <div className='flex items-center space-x-2'>
+        <Checkbox
+          id='select-all'
+          checked={allChecked}
+          onCheckedChange={handleSelectAll}
+          ref={el => {
+            if (el) {
+              el.indeterminate = someChecked && !allChecked;
+            }
+          }}
+        />
+        <label
+          htmlFor='select-all'
+          className='text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70'
+        >
+          Select All
+        </label>
+      </div>
+      {items.map(item => (
+        <div key={item} className='flex items-center space-x-2 ml-4'>
           <Checkbox
-            id="select-all"
-            checked={allChecked}
-            onCheckedChange={handleSelectAll}
-            ref={(el) => {
-              if (el) {
-                el.indeterminate = someChecked && !allChecked;
-              }
-            }}
+            id={item}
+            checked={checkedItems.includes(item)}
+            onCheckedChange={checked => handleItemChange(item, checked as boolean)}
           />
           <label
-            htmlFor="select-all"
-            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            htmlFor={item}
+            className='text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70'
           >
-            Select All
+            {item}
           </label>
         </div>
-        {items.map((item) => (
-          <div key={item} className="flex items-center space-x-2 ml-4">
-            <Checkbox
-              id={item}
-              checked={checkedItems.includes(item)}
-              onCheckedChange={(checked) => handleItemChange(item, checked as boolean)}
-            />
-            <label
-              htmlFor={item}
-              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-            >
-              {item}
-            </label>
-          </div>
-        ))}
-      </div>
+      ))}
+    </div>
   );
 };
 
@@ -227,14 +225,11 @@ export const Indeterminate: Story = {
 
 export const CustomStyling: Story = {
   render: () => (
-    <div className="flex items-center space-x-2">
-      <Checkbox 
-        id="custom" 
-        className="border-2 border-blue-500 data-[state=checked]:bg-blue-500" 
-      />
+    <div className='flex items-center space-x-2'>
+      <Checkbox id='custom' className='border-2 border-blue-500 data-[state=checked]:bg-blue-500' />
       <label
-        htmlFor="custom"
-        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+        htmlFor='custom'
+        className='text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70'
       >
         Custom styled checkbox
       </label>

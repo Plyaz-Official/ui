@@ -1,8 +1,9 @@
 import { Meta, Canvas, Controls, Source } from '@storybook/addon-docs';
+import * as TextareaStories from './Textarea.stories';
 
 import { Textarea } from '@/components';
 
-<Meta title='Components/Textarea' />
+<Meta of={TextareaStories} />
 
 # Textarea
 
@@ -21,7 +22,7 @@ The `Textarea` component provides a multi-line text input field. It is styled wi
 
 ### Basic Usage
 
-<Canvas of={Textarea} />
+<Canvas of={TextareaStories.Default} />
 
 <Source
   language="tsx"
@@ -30,133 +31,15 @@ import { Textarea } from '@/components';
 
 function BasicTextarea() {
 return (
-
-<Textarea placeholder='Type your message here...' />
-); } `} />
-
-### With Placeholder
-
-<Canvas of={Textarea} />
-
-<Source
-  language="tsx"
-  code={`
-import { Textarea } from '@/components';
-
-function PlaceholderTextarea() {
-return (
-
-<Textarea placeholder='Enter your feedback here...' />
-); } `} />
-
-### With Value
-
-<Canvas of={Textarea} />
-
-<Source
-  language="tsx"
-  code={`
-import { Textarea } from '@/components';
-
-function ValueTextarea() {
-return (
-
-<Textarea defaultValue='This is a default value' />
-); } `} />
-
-### With Rows
-
-<Canvas of={Textarea} />
-
-<Source
-  language="tsx"
-  code={`
-import { Textarea } from '@/components';
-
-function RowsTextarea() {
-return (
-
-<Textarea placeholder='This textarea has 5 rows' rows={5} />
-); } `} />
-
-### With Max Length
-
-<Canvas of={Textarea} />
-
-<Source
-  language="tsx"
-  code={`
-import { Textarea } from '@/components';
-
-function MaxLengthTextarea() {
-return (
-
-<Textarea placeholder='Maximum 100 characters' maxLength={100} />
-); } `} />
-
-### With Min Length
-
-<Canvas of={Textarea} />
-
-<Source
-  language="tsx"
-  code={`
-import { Textarea } from '@/components';
-
-function MinLengthTextarea() {
-return (
-
-<Textarea placeholder='Minimum 10 characters' minLength={10} />
-); } `} />
-
-### Disabled
-
-<Canvas of={Textarea} />
-
-<Source
-  language="tsx"
-  code={`
-import { Textarea } from '@/components';
-
-function DisabledTextarea() {
-return (
-
-<Textarea placeholder='This textarea is disabled' disabled />
-); } `} />
-
-### Read Only
-
-<Canvas of={Textarea} />
-
-<Source
-  language="tsx"
-  code={`
-import { Textarea } from '@/components';
-
-function ReadOnlyTextarea() {
-return (
-
-<Textarea defaultValue='This textarea is read-only' readOnly />
-); } `} />
-
-### Required
-
-<Canvas of={Textarea} />
-
-<Source
-  language="tsx"
-  code={`
-import { Textarea } from '@/components';
-
-function RequiredTextarea() {
-return (
-
-<Textarea placeholder='This textarea is required' required />
-); } `} />
+<Textarea placeholder="Type your message here..." />
+);
+}
+`}
+/>
 
 ### With Label
 
-<Canvas of={Textarea} />
+<Canvas of={TextareaStories.WithLabel} />
 
 <Source
   language="tsx"
@@ -165,18 +48,20 @@ import { Textarea } from '@/components';
 
 function LabelTextarea() {
 return (
-
-<div className='space-y-2'>
-  <label htmlFor='textarea-label' className='text-sm font-medium'>
-    Message
-  </label>
-  <Textarea id='textarea-label' placeholder='Type your message here...' />
+<div className="space-y-2">
+<label htmlFor="textarea-label" className="text-sm font-medium">
+Message
+</label>
+<Textarea id="textarea-label" placeholder="Type your message here..." />
 </div>
-); } `} />
+);
+}
+`}
+/>
 
-### With Error
+### With Error State
 
-<Canvas of={Textarea} />
+<Canvas of={TextareaStories.WithError} />
 
 <Source
   language="tsx"
@@ -185,242 +70,94 @@ import { Textarea } from '@/components';
 
 function ErrorTextarea() {
 return (
-
-<div className='space-y-2'>
-  <label htmlFor='textarea-error' className='text-sm font-medium'>
-    Message
-  </label>
-  <Textarea
-    id='textarea-error'
-    placeholder='This textarea has an error'
-    aria-invalid='true'
-    className='border-red-500 focus-visible:border-red-500 focus-visible:ring-red-500/50'
-  />
-  <p className='text-sm text-red-600'>This field is required</p>
+<div className="space-y-2">
+<label htmlFor="textarea-error" className="text-sm font-medium">
+Message
+</label>
+<Textarea 
+        id="textarea-error" 
+        placeholder="This textarea has an error" 
+        aria-invalid="true"
+        className="border-red-500 focus-visible:border-red-500 focus-visible:ring-red-500/50"
+      />
+<p className="text-sm text-red-600">This field is required</p>
 </div>
-); } `} />
-
-### With Success
-
-<Canvas of={Textarea} />
-
-<Source
-  language="tsx"
-  code={`
-import { Textarea } from '@/components';
-
-function SuccessTextarea() {
-return (
-
-<div className='space-y-2'>
-  <label htmlFor='textarea-success' className='text-sm font-medium'>
-    Message
-  </label>
-  <Textarea
-    id='textarea-success'
-    placeholder='This textarea is valid'
-    className='border-green-500 focus-visible:border-green-500 focus-visible:ring-green-500/50'
-  />
-  <p className='text-sm text-green-600'>Message saved successfully</p>
-</div>
-); } `} />
-
-### With Auto Focus
-
-<Canvas of={Textarea} />
-
-<Source
-  language="tsx"
-  code={`
-import { Textarea } from '@/components';
-
-function AutoFocusTextarea() {
-return (
-
-<Textarea placeholder='This textarea is auto-focused' autoFocus />
-); } `} />
-
-### With Auto Complete
-
-<Canvas of={Textarea} />
-
-<Source
-  language="tsx"
-  code={`
-import { Textarea } from '@/components';
-
-function AutoCompleteTextarea() {
-return (
-
-<Textarea placeholder='This textarea has autocomplete' autoComplete='on' />
-); } `} />
-
-### With Spell Check
-
-<Canvas of={Textarea} />
-
-<Source
-  language="tsx"
-  code={`
-import { Textarea } from '@/components';
-
-function SpellCheckTextarea() {
-return (
-
-<Textarea placeholder='This textarea has spell check enabled' spellCheck />
-); } `} />
-
-### With Wrap
-
-<Canvas of={Textarea} />
-
-<Source
-  language="tsx"
-  code={`
-import { Textarea } from '@/components';
-
-function WrapTextarea() {
-return (
-
-<Textarea placeholder='This textarea has hard wrap' wrap='hard' />
-); } `} />
-
-### With Direction
-
-<Canvas of={Textarea} />
-
-<Source
-  language="tsx"
-  code={`
-import { Textarea } from '@/components';
-
-function DirectionTextarea() {
-return (
-
-<Textarea placeholder='This textarea has RTL direction' dir='rtl' />
-); } `} />
-
-### With Form
-
-<Canvas of={Textarea} />
-
-<Source
-  language="tsx"
-  code={`
-import { Textarea } from '@/components';
-
-function FormTextarea() {
-return (
-
-<form className='space-y-4'>
-  <div className='space-y-2'>
-    <label htmlFor='textarea-form' className='text-sm font-medium'>
-      Message
-    </label>
-    <Textarea id='textarea-form' name='message' placeholder='Type your message here...' />
-  </div>
-  <button type='submit' className='px-4 py-2 bg-primary text-primary-foreground rounded-md'>
-    Submit
-  </button>
-</form>
-); } `} />
-
-### With Custom Styling
-
-<Canvas of={Textarea} />
-
-<Source
-  language="tsx"
-  code={`
-import { Textarea } from '@/components';
-
-function CustomStyledTextarea() {
-return (
-
-<Textarea
-  placeholder='This textarea has custom styling'
-  className='border-blue-500 focus-visible:border-blue-500 focus-visible:ring-blue-500/50 bg-blue-50'
+);
+}
+`}
 />
-); } `} />
 
-### With Custom Size
+### Disabled State
 
-<Canvas of={Textarea} />
-
-<Source
-  language="tsx"
-  code={`
-import { Textarea } from '@/components';
-
-function CustomSizeTextarea() {
-return (
-
-<Textarea placeholder='This textarea has custom size' className='w-96 h-32' />
-); } `} />
-
-### With Resize
-
-<Canvas of={Textarea} />
+<Canvas of={TextareaStories.Disabled} />
 
 <Source
   language="tsx"
   code={`
 import { Textarea } from '@/components';
 
-function ResizeTextarea() {
+function DisabledTextarea() {
 return (
+<Textarea placeholder="This textarea is disabled" disabled />
+);
+}
+`}
+/>
 
-<Textarea placeholder='This textarea can be resized' className='resize' />
-); } `} />
+### Read Only State
 
-### With No Resize
-
-<Canvas of={Textarea} />
+<Canvas of={TextareaStories.ReadOnly} />
 
 <Source
   language="tsx"
   code={`
 import { Textarea } from '@/components';
 
-function NoResizeTextarea() {
+function ReadOnlyTextarea() {
 return (
+<Textarea defaultValue="This textarea is read-only" readOnly />
+);
+}
+`}
+/>
 
-<Textarea placeholder='This textarea cannot be resized' className='resize-none' />
-); } `} />
+### With Character Limit
 
-### With Vertical Resize
-
-<Canvas of={Textarea} />
+<Canvas of={TextareaStories.WithMaxLength} />
 
 <Source
   language="tsx"
   code={`
 import { Textarea } from '@/components';
 
-function VerticalResizeTextarea() {
+function MaxLengthTextarea() {
 return (
+<Textarea placeholder="Maximum 100 characters" maxLength={100} />
+);
+}
+`}
+/>
 
-<Textarea placeholder='This textarea can only be resized vertically' className='resize-y' />
-); } `} />
+### With Custom Rows
 
-### With Horizontal Resize
-
-<Canvas of={Textarea} />
+<Canvas of={TextareaStories.WithRows} />
 
 <Source
   language="tsx"
   code={`
 import { Textarea } from '@/components';
 
-function HorizontalResizeTextarea() {
+function RowsTextarea() {
 return (
-
-<Textarea placeholder='This textarea can only be resized horizontally' className='resize-x' />
-); } `} />
+<Textarea placeholder="This textarea has 5 rows" rows={5} />
+);
+}
+`}
+/>
 
 ### With Controlled State
 
-<Canvas of={Textarea} />
+<Canvas of={TextareaStories.WithControlledState} />
 
 <Source
   language="tsx"
@@ -432,20 +169,24 @@ function ControlledTextarea() {
 const [value, setValue] = useState("");
 
 return (
-
-<div className='space-y-4'>
-  <Textarea
-    value={value}
-    onChange={e => setValue(e.target.value)}
-    placeholder='This is a controlled textarea'
-  />
-  <p className='text-sm text-muted-foreground'>Character count: {value.length}</p>
+<div className="space-y-4">
+<Textarea
+value={value}
+onChange={(e) => setValue(e.target.value)}
+placeholder="This is a controlled textarea"
+/>
+<p className="text-sm text-muted-foreground">
+Character count: {value.length}
+</p>
 </div>
-); } `} />
+);
+}
+`}
+/>
 
-### With Character Limit
+### With Character Counter
 
-<Canvas of={Textarea} />
+<Canvas of={TextareaStories.WithCharacterLimit} />
 
 <Source
   language="tsx"
@@ -458,56 +199,26 @@ const [value, setValue] = useState("");
 const maxLength = 100;
 
 return (
-
-<div className='space-y-2'>
-  <Textarea
-    value={value}
-    onChange={e => setValue(e.target.value)}
-    placeholder='Maximum 100 characters'
-    maxLength={maxLength}
-  />
-  <div className='flex justify-between text-sm text-muted-foreground'>
-    <span>Character count: {value.length}</span>
-    <span>Remaining: {maxLength - value.length}</span>
-  </div>
-</div>
-); } `} />
-
-### With Auto Resize
-
-<Canvas of={Textarea} />
-
-<Source
-  language="tsx"
-  code={`
-import { Textarea } from '@/components';
-import { useState } from 'react';
-
-function AutoResizeTextarea() {
-const [value, setValue] = useState("");
-
-return (
-
-<Textarea 
+<div className="space-y-2">
+<Textarea
 value={value}
 onChange={(e) => setValue(e.target.value)}
-placeholder="This textarea auto-resizes based on content"
-className="min-h-16 max-h-32 overflow-y-auto"
-style={{ height: 'auto' }}
-onInput={(e) => {
-const target = e.target as HTMLTextAreaElement;
-target.style.height = 'auto';
-target.style.height = target.scrollHeight + 'px';
-}}
+placeholder="Maximum 100 characters"
+maxLength={maxLength}
 />
+<div className="flex justify-between text-sm text-muted-foreground">
+<span>Character count: {value.length}</span>
+<span>Remaining: {maxLength - value.length}</span>
+</div>
+</div>
 );
 }
-  `}
+`}
 />
 
 ### With Validation
 
-<Canvas of={Textarea} />
+<Canvas of={TextareaStories.WithValidation} />
 
 <Source
   language="tsx"
@@ -523,183 +234,89 @@ const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
 const newValue = e.target.value;
 setValue(newValue);
 
-if (newValue.length < 10) {
-setError("Message must be at least 10 characters long");
-} else if (newValue.length > 500) {
-setError("Message must be less than 500 characters");
-} else {
-setError("");
-}
+    if (newValue.length < 10) {
+      setError("Message must be at least 10 characters long");
+    } else if (newValue.length > 500) {
+      setError("Message must be less than 500 characters");
+    } else {
+      setError("");
+    }
+
 };
 
 return (
-
-<div className='space-y-2'>
-  <Textarea
-    value={value}
-    onChange={handleChange}
-    placeholder='Enter a message (10-500 characters)'
-    className={
-      error ? 'border-red-500 focus-visible:border-red-500 focus-visible:ring-red-500/50' : ''
-    }
-  />
-  {error && <p className='text-sm text-red-600'>{error}</p>}
-  <p className='text-sm text-muted-foreground'>{value.length}/500 characters</p>
+<div className="space-y-2">
+<Textarea
+value={value}
+onChange={handleChange}
+placeholder="Enter a message (10-500 characters)"
+className={error ? "border-red-500 focus-visible:border-red-500 focus-visible:ring-red-500/50" : ""}
+/>
+{error && (
+<p className="text-sm text-red-600">{error}</p>
+)}
+<p className="text-sm text-muted-foreground">
+{value.length}/500 characters
+</p>
 </div>
-); } `} />
+);
+}
+`}
+/>
 
-### With Loading
+### With Custom Styling
 
-<Canvas of={Textarea} />
+<Canvas of={TextareaStories.WithCustomStyling} />
 
 <Source
   language="tsx"
   code={`
 import { Textarea } from '@/components';
 
-function LoadingTextarea() {
+function CustomStyledTextarea() {
 return (
+<Textarea 
+      placeholder="This textarea has custom styling" 
+      className="border-blue-500 focus-visible:border-blue-500 focus-visible:ring-blue-500/50 bg-blue-50"
+    />
+);
+}
+`}
+/>
 
-<div className='space-y-2'>
-  <Textarea placeholder='Loading textarea...' disabled className='opacity-50' />
-  <p className='text-sm text-muted-foreground'>Loading...</p>
-</div>
-); } `} />
+### With Resize Options
 
-### With Help Text
-
-<Canvas of={Textarea} />
+<Canvas of={TextareaStories.WithResizeOptions} />
 
 <Source
   language="tsx"
   code={`
 import { Textarea } from '@/components';
 
-function HelpTextTextarea() {
+function ResizeOptionsTextarea() {
 return (
-
-<div className='space-y-2'>
-  <label htmlFor='textarea-help' className='text-sm font-medium'>
-    Message
-  </label>
-  <Textarea id='textarea-help' placeholder='Type your message here...' />
-  <p className='text-sm text-muted-foreground'>
-    Please provide detailed feedback about your experience.
-  </p>
+<div className="space-y-4">
+<div className="space-y-2">
+<label className="text-sm font-medium">Default resize</label>
+<Textarea placeholder="Default resize behavior" />
 </div>
-); } `} />
-
-### With Multiple
-
-<Canvas of={Textarea} />
-
-<Source
-  language="tsx"
-  code={`
-import { Textarea } from '@/components';
-
-function MultipleTextarea() {
-return (
-
-<div className='space-y-4'>
-  <div className='space-y-2'>
-    <label htmlFor='textarea-1' className='text-sm font-medium'>
-      First Message
-    </label>
-    <Textarea id='textarea-1' placeholder='First message...' />
-  </div>
-  <div className='space-y-2'>
-    <label htmlFor='textarea-2' className='text-sm font-medium'>
-      Second Message
-    </label>
-    <Textarea id='textarea-2' placeholder='Second message...' />
-  </div>
-  <div className='space-y-2'>
-    <label htmlFor='textarea-3' className='text-sm font-medium'>
-      Third Message
-    </label>
-    <Textarea id='textarea-3' placeholder='Third message...' />
-  </div>
+<div className="space-y-2">
+<label className="text-sm font-medium">No resize</label>
+<Textarea placeholder="Cannot be resized" className="resize-none" />
 </div>
-); } `} />
-
-### With Keyboard Navigation
-
-<Canvas of={Textarea} />
-
-<Source
-  language="tsx"
-  code={`
-import { Textarea } from '@/components';
-
-function KeyboardTextarea() {
-return (
-
-<div className='space-y-4'>
-  <Textarea placeholder='Use Tab to navigate between textareas' />
-  <Textarea placeholder='This is the second textarea' />
-  <Textarea placeholder='This is the third textarea' />
+<div className="space-y-2">
+<label className="text-sm font-medium">Vertical resize only</label>
+<Textarea placeholder="Can only resize vertically" className="resize-y" />
 </div>
-); } `} />
-
-### With Accessibility
-
-<Canvas of={Textarea} />
-
-<Source
-  language="tsx"
-  code={`
-import { Textarea } from '@/components';
-
-function AccessibleTextarea() {
-return (
-
-<div className='space-y-2'>
-  <label htmlFor='textarea-accessible' className='text-sm font-medium'>
-    Message
-  </label>
-  <Textarea
-    id='textarea-accessible'
-    placeholder='This textarea has proper accessibility attributes'
-    aria-describedby='textarea-description'
-    required
-  />
-  <p id='textarea-description' className='text-sm text-muted-foreground'>
-    Enter your message here. This field is required.
-  </p>
 </div>
-); } `} />
-
-### With Performance
-
-<Canvas of={Textarea} />
-
-<Source
-  language="tsx"
-  code={`
-import { Textarea } from '@/components';
-import { useState } from 'react';
-
-function PerformanceTextarea() {
-const [value, setValue] = useState("");
-
-return (
-
-<div className='space-y-4'>
-  <Textarea
-    value={value}
-    onChange={e => setValue(e.target.value)}
-    placeholder='This textarea is optimized for performance'
-  />
-  <p className='text-sm text-muted-foreground'>
-    Performance optimized with controlled state and minimal re-renders.
-  </p>
-</div>
-); } `} />
+);
+}
+`}
+/>
 
 ### With User Interaction
 
-<Canvas of={Textarea} />
+<Canvas of={TextareaStories.WithUserInteraction} />
 
 <Source
   language="tsx"
@@ -713,59 +330,37 @@ const [focusCount, setFocusCount] = useState(0);
 const [blurCount, setBlurCount] = useState(0);
 
 return (
-
-<div className='space-y-4'>
-  <Textarea
-    value={value}
-    onChange={e => setValue(e.target.value)}
-    onFocus={() => setFocusCount(prev => prev + 1)}
-    onBlur={() => setBlurCount(prev => prev + 1)}
-    placeholder='Interact with this textarea to see the counters'
-  />
-  <div className='text-sm text-muted-foreground space-y-1'>
-    <p>Focus count: {focusCount}</p>
-    <p>Blur count: {blurCount}</p>
-    <p>Character count: {value.length}</p>
-  </div>
+<div className="space-y-4">
+<Textarea
+value={value}
+onChange={(e) => setValue(e.target.value)}
+onFocus={() => setFocusCount(prev => prev + 1)}
+onBlur={() => setBlurCount(prev => prev + 1)}
+placeholder="Interact with this textarea to see the counters"
+/>
+<div className="text-sm text-muted-foreground space-y-1">
+<p>Focus count: {focusCount}</p>
+<p>Blur count: {blurCount}</p>
+<p>Character count: {value.length}</p>
 </div>
-); } `} />
+</div>
+);
+}
+`}
+/>
 
 ## Props
 
-| Prop             | Type                        | Default | Description                                          |
-| ---------------- | --------------------------- | ------- | ---------------------------------------------------- |
-| `placeholder`    | `string`                    | -       | The placeholder text for the textarea                |
-| `disabled`       | `boolean`                   | `false` | Whether the textarea is disabled                     |
-| `value`          | `string`                    | -       | The controlled value of the textarea                 |
-| `defaultValue`   | `string`                    | -       | The default value of the textarea                    |
-| `rows`           | `number`                    | -       | The number of visible text lines                     |
-| `cols`           | `number`                    | -       | The visible width of the textarea                    |
-| `maxLength`      | `number`                    | -       | The maximum number of characters allowed             |
-| `minLength`      | `number`                    | -       | The minimum number of characters required            |
-| `required`       | `boolean`                   | `false` | Whether the textarea is required                     |
-| `readOnly`       | `boolean`                   | `false` | Whether the textarea is read-only                    |
-| `autoFocus`      | `boolean`                   | `false` | Whether the textarea should be focused on mount      |
-| `autoComplete`   | `string`                    | -       | The autocomplete attribute for the textarea          |
-| `autoCorrect`    | `string`                    | -       | The autocorrect attribute for the textarea           |
-| `autoCapitalize` | `string`                    | -       | The autocapitalize attribute for the textarea        |
-| `spellCheck`     | `boolean`                   | -       | Whether the textarea should be spell-checked         |
-| `wrap`           | `"soft" \| "hard" \| "off"` | -       | The wrap attribute for the textarea                  |
-| `dir`            | `"ltr" \| "rtl" \| "auto"`  | -       | The direction of the text                            |
-| `dirName`        | `string`                    | -       | The name of the direction input                      |
-| `form`           | `string`                    | -       | The form element the textarea belongs to             |
-| `name`           | `string`                    | -       | The name attribute for the textarea                  |
-| `id`             | `string`                    | -       | The id attribute for the textarea                    |
-| `className`      | `string`                    | -       | Additional CSS classes to apply to the textarea      |
-| `...props`       | `HTMLTextAreaElement`       | -       | Additional props passed to the HTML textarea element |
+<Controls of={TextareaStories.Default} />
 
 ## Styling
 
 The `Textarea` component uses Tailwind CSS classes and can be customized with additional classes:
 
 ```tsx
-<Textarea className='border-blue-500 focus-visible:border-blue-500 focus-visible:ring-blue-500/50' />
-<Textarea className='w-96 h-32' />
-<Textarea className='resize-none' />
+<Textarea className="border-blue-500 focus-visible:border-blue-500 focus-visible:ring-blue-500/50" />
+<Textarea className="w-96 h-32" />
+<Textarea className="resize-none" />
 ```
 
 ## Accessibility

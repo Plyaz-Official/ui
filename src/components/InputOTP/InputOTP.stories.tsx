@@ -44,16 +44,16 @@ const DefaultComponent = () => {
   const [value, setValue] = useState('');
 
   return (
-      <InputOTP maxLength={6} value={value} onChange={setValue}>
-        <InputOTPGroup>
-          <InputOTPSlot index={0} />
-          <InputOTPSlot index={1} />
-          <InputOTPSlot index={2} />
-          <InputOTPSlot index={3} />
-          <InputOTPSlot index={4} />
-          <InputOTPSlot index={5} />
-        </InputOTPGroup>
-      </InputOTP>
+    <InputOTP maxLength={6} value={value} onChange={setValue}>
+      <InputOTPGroup>
+        <InputOTPSlot index={0} />
+        <InputOTPSlot index={1} />
+        <InputOTPSlot index={2} />
+        <InputOTPSlot index={3} />
+        <InputOTPSlot index={4} />
+        <InputOTPSlot index={5} />
+      </InputOTPGroup>
+    </InputOTP>
   );
 };
 
@@ -177,13 +177,13 @@ const WithCustomStylingComponent = () => {
 
   return (
     <InputOTP maxLength={6} value={value} onChange={setValue}>
-      <InputOTPGroup className="gap-4">
-        <InputOTPSlot index={0} className="h-12 w-12 text-lg" />
-        <InputOTPSlot index={1} className="h-12 w-12 text-lg" />
-        <InputOTPSlot index={2} className="h-12 w-12 text-lg" />
-        <InputOTPSlot index={3} className="h-12 w-12 text-lg" />
-        <InputOTPSlot index={4} className="h-12 w-12 text-lg" />
-        <InputOTPSlot index={5} className="h-12 w-12 text-lg" />
+      <InputOTPGroup className='gap-4'>
+        <InputOTPSlot index={0} className='h-12 w-12 text-lg' />
+        <InputOTPSlot index={1} className='h-12 w-12 text-lg' />
+        <InputOTPSlot index={2} className='h-12 w-12 text-lg' />
+        <InputOTPSlot index={3} className='h-12 w-12 text-lg' />
+        <InputOTPSlot index={4} className='h-12 w-12 text-lg' />
+        <InputOTPSlot index={5} className='h-12 w-12 text-lg' />
       </InputOTPGroup>
     </InputOTP>
   );
@@ -194,37 +194,35 @@ export const WithCustomStyling: Story = {
 };
 
 const WithValidationComponent = () => {
-    const [value, setValue] = useState('');
-    const [isValid, setIsValid] = useState(true);
+  const [value, setValue] = useState('');
+  const [isValid, setIsValid] = useState(true);
 
-    const handleChange = (newValue: string) => {
-      setValue(newValue);
-      setIsValid(newValue.length === 6 && /^\d+$/.test(newValue));
-    };
+  const handleChange = (newValue: string) => {
+    setValue(newValue);
+    setIsValid(newValue.length === 6 && /^\d+$/.test(newValue));
+  };
 
-    return (
-      <div className="space-y-2">
-        <InputOTP 
-          maxLength={6} 
-          value={value} 
-          onChange={handleChange}
-          className={!isValid ? 'aria-invalid:border-destructive' : ''}
-        >
-          <InputOTPGroup>
-            <InputOTPSlot index={0} />
-            <InputOTPSlot index={1} />
-            <InputOTPSlot index={2} />
-            <InputOTPSlot index={3} />
-            <InputOTPSlot index={4} />
-            <InputOTPSlot index={5} />
-          </InputOTPGroup>
-        </InputOTP>
-        {!isValid && value.length > 0 && (
-          <p className="text-sm text-destructive">
-            Please enter a valid 6-digit code.
-          </p>
-        )}
-      </div>
+  return (
+    <div className='space-y-2'>
+      <InputOTP
+        maxLength={6}
+        value={value}
+        onChange={handleChange}
+        className={!isValid ? 'aria-invalid:border-destructive' : ''}
+      >
+        <InputOTPGroup>
+          <InputOTPSlot index={0} />
+          <InputOTPSlot index={1} />
+          <InputOTPSlot index={2} />
+          <InputOTPSlot index={3} />
+          <InputOTPSlot index={4} />
+          <InputOTPSlot index={5} />
+        </InputOTPGroup>
+      </InputOTP>
+      {!isValid && value.length > 0 && (
+        <p className='text-sm text-destructive'>Please enter a valid 6-digit code.</p>
+      )}
+    </div>
   );
 };
 
@@ -241,12 +239,12 @@ const WithFormComponent = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className='space-y-4'>
       <div>
-        <label htmlFor="otp" className="text-sm font-medium">
+        <label htmlFor='otp' className='text-sm font-medium'>
           Enter verification code
         </label>
-        <InputOTP maxLength={6} value={value} onChange={setValue} id="otp">
+        <InputOTP maxLength={6} value={value} onChange={setValue} id='otp'>
           <InputOTPGroup>
             <InputOTPSlot index={0} />
             <InputOTPSlot index={1} />
@@ -257,9 +255,9 @@ const WithFormComponent = () => {
           </InputOTPGroup>
         </InputOTP>
       </div>
-      <button 
-        type="submit" 
-        className="px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90"
+      <button
+        type='submit'
+        className='px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90'
         disabled={value.length !== 6}
       >
         Verify Code

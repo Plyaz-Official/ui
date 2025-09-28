@@ -16,7 +16,7 @@ vi.mock('sonner', () => ({
   toast: vi.fn(),
   // eslint-disable-next-line @typescript-eslint/naming-convention
   Toaster: ({ children, ...props }: any) => (
-    <div data-testid="toaster" {...props}>
+    <div data-testid='toaster' {...props}>
       {children}
     </div>
   ),

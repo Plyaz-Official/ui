@@ -1,8 +1,9 @@
 import { Meta, Canvas, Controls, Source } from '@storybook/addon-docs';
+import * as SliderStories from './Slider.stories';
 
 import { Slider } from '@/components';
 
-<Meta title='Components/Slider' />
+<Meta of={SliderStories} />
 
 # Slider
 
@@ -22,7 +23,7 @@ The `Slider` component provides a range input control for selecting values. It i
 
 ### Basic Usage
 
-<Canvas of={Slider} />
+<Canvas of={SliderStories.Default} />
 
 <Source
   language="tsx"
@@ -37,7 +38,7 @@ return <Slider defaultValue={[50]} max={100} step={1} />;
 
 ### With Value
 
-<Canvas of={Slider} />
+<Canvas of={SliderStories.WithValue} />
 
 <Source
   language="tsx"
@@ -52,7 +53,7 @@ return <Slider value={[75]} max={100} step={1} />;
 
 ### Range
 
-<Canvas of={Slider} />
+<Canvas of={SliderStories.Range} />
 
 <Source
   language="tsx"
@@ -65,39 +66,9 @@ return <Slider defaultValue={[20, 80]} max={100} step={1} />;
 `}
 />
 
-### Custom Min Max
-
-<Canvas of={Slider} />
-
-<Source
-  language="tsx"
-  code={`
-import { Slider } from '@/components';
-
-function CustomMinMaxSlider() {
-return <Slider defaultValue={[25]} min={10} max={50} step={1} />;
-}
-`}
-/>
-
-### Custom Step
-
-<Canvas of={Slider} />
-
-<Source
-  language="tsx"
-  code={`
-import { Slider } from '@/components';
-
-function CustomStepSlider() {
-return <Slider defaultValue={[30]} max={100} step={5} />;
-}
-`}
-/>
-
 ### Vertical
 
-<Canvas of={Slider} />
+<Canvas of={SliderStories.Vertical} />
 
 <Source
   language="tsx"
@@ -106,23 +77,15 @@ import { Slider } from '@/components';
 
 function VerticalSlider() {
 return (
-<div className="h-64">
-<Slider
-        defaultValue={[50]}
-        max={100}
-        step={1}
-        orientation="vertical"
-        className="h-full"
-      />
+
+<div className='h-64'>
+  <Slider defaultValue={[50]} max={100} step={1} orientation='vertical' className='h-full' />
 </div>
-);
-}
-`}
-/>
+); } `} />
 
 ### Disabled
 
-<Canvas of={Slider} />
+<Canvas of={SliderStories.Disabled} />
 
 <Source
   language="tsx"
@@ -137,7 +100,7 @@ return <Slider defaultValue={[50]} max={100} step={1} disabled />;
 
 ### With Labels
 
-<Canvas of={Slider} />
+<Canvas of={SliderStories.WithLabels} />
 
 <Source
   language="tsx"
@@ -149,67 +112,21 @@ function LabeledSlider() {
 const [value, setValue] = useState([50]);
 
 return (
-<div className="space-y-4">
-<div className="flex justify-between text-sm text-muted-foreground">
-<span>0</span>
-<span>50</span>
-<span>100</span>
-</div>
-<Slider
-        value={value}
-        onValueChange={setValue}
-        max={100}
-        step={1}
-        className="w-full"
-      />
-<div className="text-center text-sm">
-Current value: {value[0]}
-</div>
-</div>
-);
-}
-`}
-/>
 
-### With Custom Labels
-
-<Canvas of={Slider} />
-
-<Source
-  language="tsx"
-  code={`
-import { Slider } from '@/components';
-import { useState } from 'react';
-
-function CustomLabeledSlider() {
-const [value, setValue] = useState([25]);
-
-return (
-<div className="space-y-4">
-<div className="flex justify-between text-sm text-muted-foreground">
-<span>Low</span>
-<span>Medium</span>
-<span>High</span>
+<div className='space-y-4'>
+  <div className='flex justify-between text-sm text-muted-foreground'>
+    <span>0</span>
+    <span>50</span>
+    <span>100</span>
+  </div>
+  <Slider value={value} onValueChange={setValue} max={100} step={1} className='w-full' />
+  <div className='text-center text-sm'>Current value: {value[0]}</div>
 </div>
-<Slider
-        value={value}
-        onValueChange={setValue}
-        max={100}
-        step={1}
-        className="w-full"
-      />
-<div className="text-center text-sm">
-Level: {value[0] <= 33 ? 'Low' : value[0] <= 66 ? 'Medium' : 'High'}
-</div>
-</div>
-);
-}
-`}
-/>
+); } `} />
 
 ### With Marks
 
-<Canvas of={Slider} />
+<Canvas of={SliderStories.WithMarks} />
 
 <Source
   language="tsx"
@@ -222,6 +139,7 @@ const [value, setValue] = useState([50]);
 const marks = [0, 25, 50, 75, 100];
 
 return (
+
 <div className="space-y-4">
 <div className="relative">
 <Slider
@@ -254,7 +172,7 @@ Value: {value[0]}
 
 ### With Custom Colors
 
-<Canvas of={Slider} />
+<Canvas of={SliderStories.WithCustomColors} />
 
 <Source
   language="tsx"
@@ -263,47 +181,45 @@ import { Slider } from '@/components';
 
 function CustomColorSlider() {
 return (
-<div className="space-y-6">
-<div>
-<label className="text-sm font-medium">Primary</label>
-<Slider defaultValue={[50]} max={100} step={1} />
+
+<div className='space-y-6'>
+  <div>
+    <label className='text-sm font-medium'>Primary</label>
+    <Slider defaultValue={[50]} max={100} step={1} />
+  </div>
+  <div>
+    <label className='text-sm font-medium'>Secondary</label>
+    <Slider
+      defaultValue={[50]}
+      max={100}
+      step={1}
+      className='[&_[data-slot=slider-range]]:bg-secondary'
+    />
+  </div>
+  <div>
+    <label className='text-sm font-medium'>Accent</label>
+    <Slider
+      defaultValue={[50]}
+      max={100}
+      step={1}
+      className='[&_[data-slot=slider-range]]:bg-accent'
+    />
+  </div>
+  <div>
+    <label className='text-sm font-medium'>Destructive</label>
+    <Slider
+      defaultValue={[50]}
+      max={100}
+      step={1}
+      className='[&_[data-slot=slider-range]]:bg-destructive'
+    />
+  </div>
 </div>
-<div>
-<label className="text-sm font-medium">Secondary</label>
-<Slider 
-          defaultValue={[50]} 
-          max={100} 
-          step={1}
-          className="[&_[data-slot=slider-range]]:bg-secondary"
-        />
-</div>
-<div>
-<label className="text-sm font-medium">Accent</label>
-<Slider 
-          defaultValue={[50]} 
-          max={100} 
-          step={1}
-          className="[&_[data-slot=slider-range]]:bg-accent"
-        />
-</div>
-<div>
-<label className="text-sm font-medium">Destructive</label>
-<Slider 
-          defaultValue={[50]} 
-          max={100} 
-          step={1}
-          className="[&_[data-slot=slider-range]]:bg-destructive"
-        />
-</div>
-</div>
-);
-}
-`}
-/>
+); } `} />
 
 ### With Custom Sizes
 
-<Canvas of={Slider} />
+<Canvas of={SliderStories.WithCustomSizes} />
 
 <Source
   language="tsx"
@@ -312,203 +228,36 @@ import { Slider } from '@/components';
 
 function CustomSizeSlider() {
 return (
-<div className="space-y-6">
-<div>
-<label className="text-sm font-medium">Small</label>
-<Slider 
-          defaultValue={[50]} 
-          max={100} 
-          step={1}
-          className="[&_[data-slot=slider-track]]:h-1 [&_[data-slot=slider-thumb]]:size-3"
-        />
-</div>
-<div>
-<label className="text-sm font-medium">Medium</label>
-<Slider defaultValue={[50]} max={100} step={1} />
-</div>
-<div>
-<label className="text-sm font-medium">Large</label>
-<Slider 
-          defaultValue={[50]} 
-          max={100} 
-          step={1}
-          className="[&_[data-slot=slider-track]]:h-2 [&_[data-slot=slider-thumb]]:size-6"
-        />
-</div>
-</div>
-);
-}
-`}
-/>
 
-### With Custom Thumb
-
-<Canvas of={Slider} />
-
-<Source
-  language="tsx"
-  code={`
-import { Slider } from '@/components';
-
-function CustomThumbSlider() {
-return (
-<div className="space-y-6">
-<div>
-<label className="text-sm font-medium">Default</label>
-<Slider defaultValue={[50]} max={100} step={1} />
+<div className='space-y-6'>
+  <div>
+    <label className='text-sm font-medium'>Small</label>
+    <Slider
+      defaultValue={[50]}
+      max={100}
+      step={1}
+      className='[&_[data-slot=slider-track]]:h-1 [&_[data-slot=slider-thumb]]:size-3'
+    />
+  </div>
+  <div>
+    <label className='text-sm font-medium'>Medium</label>
+    <Slider defaultValue={[50]} max={100} step={1} />
+  </div>
+  <div>
+    <label className='text-sm font-medium'>Large</label>
+    <Slider
+      defaultValue={[50]}
+      max={100}
+      step={1}
+      className='[&_[data-slot=slider-track]]:h-2 [&_[data-slot=slider-thumb]]:size-6'
+    />
+  </div>
 </div>
-<div>
-<label className="text-sm font-medium">Rounded</label>
-<Slider 
-          defaultValue={[50]} 
-          max={100} 
-          step={1}
-          className="[&_[data-slot=slider-thumb]]:rounded-lg"
-        />
-</div>
-<div>
-<label className="text-sm font-medium">Square</label>
-<Slider 
-          defaultValue={[50]} 
-          max={100} 
-          step={1}
-          className="[&_[data-slot=slider-thumb]]:rounded-none"
-        />
-</div>
-</div>
-);
-}
-`}
-/>
-
-### With Custom Track
-
-<Canvas of={Slider} />
-
-<Source
-  language="tsx"
-  code={`
-import { Slider } from '@/components';
-
-function CustomTrackSlider() {
-return (
-<div className="space-y-6">
-<div>
-<label className="text-sm font-medium">Default</label>
-<Slider defaultValue={[50]} max={100} step={1} />
-</div>
-<div>
-<label className="text-sm font-medium">Rounded</label>
-<Slider 
-          defaultValue={[50]} 
-          max={100} 
-          step={1}
-          className="[&_[data-slot=slider-track]]:rounded-lg"
-        />
-</div>
-<div>
-<label className="text-sm font-medium">Square</label>
-<Slider 
-          defaultValue={[50]} 
-          max={100} 
-          step={1}
-          className="[&_[data-slot=slider-track]]:rounded-none"
-        />
-</div>
-</div>
-);
-}
-`}
-/>
-
-### With Custom Range
-
-<Canvas of={Slider} />
-
-<Source
-  language="tsx"
-  code={`
-import { Slider } from '@/components';
-
-function CustomRangeSlider() {
-return (
-<div className="space-y-6">
-<div>
-<label className="text-sm font-medium">Default</label>
-<Slider defaultValue={[50]} max={100} step={1} />
-</div>
-<div>
-<label className="text-sm font-medium">Gradient</label>
-<Slider 
-          defaultValue={[50]} 
-          max={100} 
-          step={1}
-          className="[&_[data-slot=slider-range]]:bg-gradient-to-r from-primary to-secondary"
-        />
-</div>
-<div>
-<label className="text-sm font-medium">Pattern</label>
-<Slider 
-          defaultValue={[50]} 
-          max={100} 
-          step={1}
-          className="[&_[data-slot=slider-range]]:bg-stripes"
-        />
-</div>
-</div>
-);
-}
-`}
-/>
-
-### With Custom Styling
-
-<Canvas of={Slider} />
-
-<Source
-  language="tsx"
-  code={`
-import { Slider } from '@/components';
-
-function CustomStyledSlider() {
-return (
-<div className="space-y-6">
-<div>
-<label className="text-sm font-medium">Bordered</label>
-<Slider 
-          defaultValue={[50]} 
-          max={100} 
-          step={1}
-          className="[&_[data-slot=slider-track]]:border [&_[data-slot=slider-track]]:border-primary"
-        />
-</div>
-<div>
-<label className="text-sm font-medium">Shadowed</label>
-<Slider 
-          defaultValue={[50]} 
-          max={100} 
-          step={1}
-          className="[&_[data-slot=slider-track]]:shadow-lg [&_[data-slot=slider-thumb]]:shadow-lg"
-        />
-</div>
-<div>
-<label className="text-sm font-medium">Glowing</label>
-<Slider 
-          defaultValue={[50]} 
-          max={100} 
-          step={1}
-          className="[&_[data-slot=slider-thumb]]:shadow-primary/50 [&_[data-slot=slider-thumb]]:shadow-lg"
-        />
-</div>
-</div>
-);
-}
-`}
-/>
+); } `} />
 
 ### With Multiple Values
 
-<Canvas of={Slider} />
+<Canvas of={SliderStories.WithMultipleValues} />
 
 <Source
   language="tsx"
@@ -520,60 +269,19 @@ function MultipleValueSlider() {
 const [value, setValue] = useState([20, 80]);
 
 return (
-<div className="space-y-4">
-<Slider
-        value={value}
-        onValueChange={setValue}
-        max={100}
-        step={1}
-        className="w-full"
-      />
-<div className="flex justify-between text-sm">
-<span>Min: {value[0]}</span>
-<span>Max: {value[1]}</span>
+
+<div className='space-y-4'>
+  <Slider value={value} onValueChange={setValue} max={100} step={1} className='w-full' />
+  <div className='flex justify-between text-sm'>
+    <span>Min: {value[0]}</span>
+    <span>Max: {value[1]}</span>
+  </div>
 </div>
-</div>
-);
-}
-`}
-/>
-
-### With Three Values
-
-<Canvas of={Slider} />
-
-<Source
-  language="tsx"
-  code={`
-import { Slider } from '@/components';
-import { useState } from 'react';
-
-function ThreeValueSlider() {
-const [value, setValue] = useState([20, 50, 80]);
-
-return (
-<div className="space-y-4">
-<Slider
-        value={value}
-        onValueChange={setValue}
-        max={100}
-        step={1}
-        className="w-full"
-      />
-<div className="flex justify-between text-sm">
-<span>Low: {value[0]}</span>
-<span>Mid: {value[1]}</span>
-<span>High: {value[2]}</span>
-</div>
-</div>
-);
-}
-`}
-/>
+); } `} />
 
 ### With Form
 
-<Canvas of={Slider} />
+<Canvas of={SliderStories.WithForm} />
 
 <Source
   language="tsx"
@@ -589,6 +297,7 @@ contrast: [60],
 });
 
 return (
+
 <form className="space-y-6">
 <div className="space-y-2">
 <label className="text-sm font-medium">Volume</label>
@@ -638,77 +347,9 @@ className="w-full"
 `}
 />
 
-### With Keyboard Navigation
-
-<Canvas of={Slider} />
-
-<Source
-  language="tsx"
-  code={`
-import { Slider } from '@/components';
-import { useState } from 'react';
-
-function KeyboardSlider() {
-const [value, setValue] = useState([50]);
-
-return (
-<div className="space-y-4">
-<div className="text-sm text-muted-foreground">
-Use arrow keys to navigate, Page Up/Page Down for larger steps
-</div>
-<Slider
-        value={value}
-        onValueChange={setValue}
-        max={100}
-        step={1}
-        className="w-full"
-      />
-<div className="text-center text-sm">
-Value: {value[0]}
-</div>
-</div>
-);
-}
-`}
-/>
-
-### With Touch Support
-
-<Canvas of={Slider} />
-
-<Source
-  language="tsx"
-  code={`
-import { Slider } from '@/components';
-import { useState } from 'react';
-
-function TouchSlider() {
-const [value, setValue] = useState([50]);
-
-return (
-<div className="space-y-4">
-<div className="text-sm text-muted-foreground">
-Touch and drag to change value
-</div>
-<Slider
-        value={value}
-        onValueChange={setValue}
-        max={100}
-        step={1}
-        className="w-full"
-      />
-<div className="text-center text-sm">
-Value: {value[0]}
-</div>
-</div>
-);
-}
-`}
-/>
-
 ### With Accessibility
 
-<Canvas of={Slider} />
+<Canvas of={SliderStories.WithAccessibility} />
 
 <Source
   language="tsx"
@@ -717,87 +358,14 @@ import { Slider } from '@/components';
 
 function AccessibleSlider() {
 return (
-<div className="space-y-4">
-<Slider
-        defaultValue={[50]}
-        max={100}
-        step={1}
-        aria-label="Volume control"
-        className="w-full"
-      />
-<div className="text-sm text-muted-foreground">
-This slider is accessible with screen readers and keyboard navigation
+
+<div className='space-y-4'>
+  <Slider defaultValue={[50]} max={100} step={1} aria-label='Volume control' className='w-full' />
+  <div className='text-sm text-muted-foreground'>
+    This slider is accessible with screen readers and keyboard navigation
+  </div>
 </div>
-</div>
-);
-}
-`}
-/>
-
-### With Performance
-
-<Canvas of={Slider} />
-
-<Source
-  language="tsx"
-  code={`
-import { Slider } from '@/components';
-import { useState } from 'react';
-
-function PerformanceSlider() {
-const [value, setValue] = useState([50]);
-
-return (
-<div className="space-y-4">
-<Slider
-        value={value}
-        onValueChange={setValue}
-        max={100}
-        step={1}
-        className="w-full"
-      />
-<div className="text-center text-sm">
-Value: {value[0]} (Renders efficiently)
-</div>
-</div>
-);
-}
-`}
-/>
-
-### With User Interaction
-
-<Canvas of={Slider} />
-
-<Source
-  language="tsx"
-  code={`
-import { Slider } from '@/components';
-import { useState } from 'react';
-
-function InteractiveSlider() {
-const [value, setValue] = useState([50]);
-const [isDragging, setIsDragging] = useState(false);
-
-return (
-<div className="space-y-4">
-<Slider
-value={value}
-onValueChange={setValue}
-onValueCommit={() => setIsDragging(false)}
-onPointerDown={() => setIsDragging(true)}
-max={100}
-step={1}
-className="w-full"
-/>
-<div className="text-center text-sm">
-Value: {value[0]} {isDragging && '(Dragging)'}
-</div>
-</div>
-);
-}
-`}
-/>
+); } `} />
 
 ## Props
 
@@ -837,15 +405,6 @@ The `Slider` component is built with Radix UI primitives and provides:
 - **Focus Management**: Focus indicators and proper focus handling
 - **Touch Support**: Optimized for touch devices
 - **Value Announcements**: Announces value changes to screen readers
-
-## Performance
-
-The `Slider` component is optimized for performance:
-
-- **Efficient Rendering**: Only re-renders when necessary
-- **Smooth Animations**: Provides smooth value transitions
-- **Memory Efficient**: Minimal memory usage
-- **Responsive**: Adapts to different screen sizes and orientations
 
 ## Best Practices
 

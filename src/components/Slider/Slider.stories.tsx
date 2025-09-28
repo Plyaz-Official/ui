@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { userEvent } from '@storybook/test';
-import { useState }  from 'react';
+import { useState } from 'react';
 
 import { Slider } from '@/components';
 import { NUMERIC_CONSTANTS } from '@/constants/constant';
@@ -67,26 +66,24 @@ export const WithValue: Story = {
 };
 
 export const Range: Story = {
-  render: () => <Slider defaultValue={[NUMERIC_CONSTANTS.TWENTY, NUMERIC_CONSTANTS.EIGHTY]} max={100} step={1} />,
-};
-
-export const CustomMinMax: Story = {
-  render: () => <Slider defaultValue={[NUMERIC_CONSTANTS.TWENTY_FIVE]} min={10} max={NUMERIC_CONSTANTS.FIFTY} step={1} />,
-};
-
-export const CustomStep: Story = {
-  render: () => <Slider defaultValue={[NUMERIC_CONSTANTS.THIRTY]} max={100} step={NUMERIC_CONSTANTS.FIVE} />,
+  render: () => (
+    <Slider
+      defaultValue={[NUMERIC_CONSTANTS.TWENTY, NUMERIC_CONSTANTS.EIGHTY]}
+      max={100}
+      step={1}
+    />
+  ),
 };
 
 export const Vertical: Story = {
   render: () => (
-    <div className="h-64">
+    <div className='h-64'>
       <Slider
         defaultValue={[NUMERIC_CONSTANTS.FIFTY]}
         max={100}
         step={1}
-        orientation="vertical"
-        className="h-full"
+        orientation='vertical'
+        className='h-full'
       />
     </div>
   ),
@@ -98,24 +95,16 @@ export const Disabled: Story = {
 
 const WithLabelsComponent = () => {
   const [value, setValue] = useState<number[]>([NUMERIC_CONSTANTS.FIFTY]);
-  
+
   return (
-    <div className="space-y-4">
-      <div className="flex justify-between text-sm text-muted-foreground">
+    <div className='space-y-4'>
+      <div className='flex justify-between text-sm text-muted-foreground'>
         <span>0</span>
         <span>50</span>
         <span>100</span>
       </div>
-      <Slider
-        value={value}
-        onValueChange={setValue}
-        max={100}
-        step={1}
-        className="w-full"
-      />
-      <div className="text-center text-sm">
-        Current value: {value[0]}
-      </div>
+      <Slider value={value} onValueChange={setValue} max={100} step={1} className='w-full' />
+      <div className='text-center text-sm'>Current value: {value[0]}</div>
     </div>
   );
 };
@@ -124,64 +113,34 @@ export const WithLabels: Story = {
   render: () => <WithLabelsComponent />,
 };
 
-const WithCustomLabelsComponent = () => {
-  const [value, setValue] = useState<number[]>([NUMERIC_CONSTANTS.TWENTY_FIVE]);
-  
-  return (
-    <div className="space-y-4">
-      <div className="flex justify-between text-sm text-muted-foreground">
-        <span>Low</span>
-        <span>Medium</span>
-        <span>High</span>
-      </div>
-      <Slider
-        value={value}
-        onValueChange={setValue}
-        max={100}
-        step={1}
-        className="w-full"
-      />
-      <div className="text-center text-sm">
-        Level: {value[0] <= NUMERIC_CONSTANTS.THIRTY_THREE ? 'Low' : value[0] <= NUMERIC_CONSTANTS.SIXTY_SIX ? 'Medium' : 'High'}
-      </div>
-    </div>
-  );
-};
-
-export const WithCustomLabels: Story = {
-  render: () => <WithCustomLabelsComponent />,
-};
-
 const WithMarksComponent = () => {
   const [value, setValue] = useState<number[]>([NUMERIC_CONSTANTS.FIFTY]);
-  const marks = [0, NUMERIC_CONSTANTS.TWENTY_FIVE, NUMERIC_CONSTANTS.FIFTY, NUMERIC_CONSTANTS.SEVENTY_FIVE, 100];
+  const marks = [
+    0,
+    NUMERIC_CONSTANTS.TWENTY_FIVE,
+    NUMERIC_CONSTANTS.FIFTY,
+    NUMERIC_CONSTANTS.SEVENTY_FIVE,
+    100,
+  ];
 
   return (
-    <div className="space-y-4">
-      <div className="relative">
-        <Slider
-          value={value}
-          onValueChange={setValue}
-          max={100}
-          step={1}
-          className="w-full"
-        />
-        <div className="absolute top-6 left-0 right-0 flex justify-between">
-          {marks.map((mark) => (
+    <div className='space-y-4'>
+      <div className='relative'>
+        <Slider value={value} onValueChange={setValue} max={100} step={1} className='w-full' />
+        <div className='absolute top-6 left-0 right-0 flex justify-between'>
+          {marks.map(mark => (
             <div
               key={mark}
-              className="flex flex-col items-center"
+              className='flex flex-col items-center'
               style={{ left: `${mark}%`, transform: 'translateX(-50%)' }}
             >
-              <div className="w-1 h-3 bg-muted-foreground rounded-full" />
-              <span className="text-xs text-muted-foreground mt-1">{mark}</span>
+              <div className='w-1 h-3 bg-muted-foreground rounded-full' />
+              <span className='text-xs text-muted-foreground mt-1'>{mark}</span>
             </div>
           ))}
         </div>
       </div>
-      <div className="text-center text-sm">
-        Value: {value[0]}
-      </div>
+      <div className='text-center text-sm'>Value: {value[0]}</div>
     </div>
   );
 };
@@ -192,39 +151,47 @@ export const WithMarks: Story = {
 
 export const WithCustomColors: Story = {
   render: () => (
-    <div className="space-y-6">
+    <div className='space-y-6'>
       <div>
-        <label htmlFor="primary-slider" className="text-sm font-medium">Primary</label>
-        <Slider id="primary-slider" defaultValue={[NUMERIC_CONSTANTS.FIFTY]} max={100} step={1} />
+        <label htmlFor='primary-slider' className='text-sm font-medium'>
+          Primary
+        </label>
+        <Slider id='primary-slider' defaultValue={[NUMERIC_CONSTANTS.FIFTY]} max={100} step={1} />
       </div>
       <div>
-        <label htmlFor="secondary-slider" className="text-sm font-medium">Secondary</label>
-        <Slider 
-          id="secondary-slider"
-          defaultValue={[NUMERIC_CONSTANTS.FIFTY]} 
-          max={100} 
+        <label htmlFor='secondary-slider' className='text-sm font-medium'>
+          Secondary
+        </label>
+        <Slider
+          id='secondary-slider'
+          defaultValue={[NUMERIC_CONSTANTS.FIFTY]}
+          max={100}
           step={1}
-          className="[&_[data-slot=slider-range]]:bg-secondary"
+          className='[&_[data-slot=slider-range]]:bg-secondary'
         />
       </div>
       <div>
-        <label htmlFor="accent-slider" className="text-sm font-medium">Accent</label>
-        <Slider 
-          id="accent-slider"
-          defaultValue={[NUMERIC_CONSTANTS.FIFTY]} 
-          max={100} 
+        <label htmlFor='accent-slider' className='text-sm font-medium'>
+          Accent
+        </label>
+        <Slider
+          id='accent-slider'
+          defaultValue={[NUMERIC_CONSTANTS.FIFTY]}
+          max={100}
           step={1}
-          className="[&_[data-slot=slider-range]]:bg-accent"
+          className='[&_[data-slot=slider-range]]:bg-accent'
         />
       </div>
       <div>
-        <label htmlFor="destructive-slider" className="text-sm font-medium">Destructive</label>
-        <Slider 
-          id="destructive-slider"
-          defaultValue={[NUMERIC_CONSTANTS.FIFTY]} 
-          max={100} 
+        <label htmlFor='destructive-slider' className='text-sm font-medium'>
+          Destructive
+        </label>
+        <Slider
+          id='destructive-slider'
+          defaultValue={[NUMERIC_CONSTANTS.FIFTY]}
+          max={100}
           step={1}
-          className="[&_[data-slot=slider-range]]:bg-destructive"
+          className='[&_[data-slot=slider-range]]:bg-destructive'
         />
       </div>
     </div>
@@ -233,159 +200,35 @@ export const WithCustomColors: Story = {
 
 export const WithCustomSizes: Story = {
   render: () => (
-    <div className="space-y-6">
+    <div className='space-y-6'>
       <div>
-        <label htmlFor="small-slider" className="text-sm font-medium">Small</label>
-        <Slider 
-          id="small-slider"
-          defaultValue={[NUMERIC_CONSTANTS.FIFTY]} 
-          max={100} 
+        <label htmlFor='small-slider' className='text-sm font-medium'>
+          Small
+        </label>
+        <Slider
+          id='small-slider'
+          defaultValue={[NUMERIC_CONSTANTS.FIFTY]}
+          max={100}
           step={1}
-          className="[&_[data-slot=slider-track]]:h-1 [&_[data-slot=slider-thumb]]:size-3"
+          className='[&_[data-slot=slider-track]]:h-1 [&_[data-slot=slider-thumb]]:size-3'
         />
       </div>
       <div>
-        <label htmlFor="medium-slider" className="text-sm font-medium">Medium</label>
-        <Slider id="medium-slider" defaultValue={[NUMERIC_CONSTANTS.FIFTY]} max={100} step={1} />
+        <label htmlFor='medium-slider' className='text-sm font-medium'>
+          Medium
+        </label>
+        <Slider id='medium-slider' defaultValue={[NUMERIC_CONSTANTS.FIFTY]} max={100} step={1} />
       </div>
       <div>
-        <label htmlFor="large-slider" className="text-sm font-medium">Large</label>
-        <Slider 
-          id="large-slider"
-          defaultValue={[NUMERIC_CONSTANTS.FIFTY]} 
-          max={100} 
+        <label htmlFor='large-slider' className='text-sm font-medium'>
+          Large
+        </label>
+        <Slider
+          id='large-slider'
+          defaultValue={[NUMERIC_CONSTANTS.FIFTY]}
+          max={100}
           step={1}
-          className="[&_[data-slot=slider-track]]:h-2 [&_[data-slot=slider-thumb]]:size-6"
-        />
-      </div>
-    </div>
-  ),
-};
-
-export const WithCustomThumb: Story = {
-  render: () => (
-    <div className="space-y-6">
-      <div>
-        <label htmlFor="default-thumb-slider" className="text-sm font-medium">Default</label>
-        <Slider id="default-thumb-slider" defaultValue={[NUMERIC_CONSTANTS.FIFTY]} max={100} step={1} />
-      </div>
-      <div>
-        <label htmlFor="rounded-thumb-slider" className="text-sm font-medium">Rounded</label>
-        <Slider 
-          id="rounded-thumb-slider"
-          defaultValue={[NUMERIC_CONSTANTS.FIFTY]} 
-          max={100} 
-          step={1}
-          className="[&_[data-slot=slider-thumb]]:rounded-lg"
-        />
-      </div>
-      <div>
-        <label htmlFor="square-thumb-slider" className="text-sm font-medium">Square</label>
-        <Slider 
-          id="square-thumb-slider"
-          defaultValue={[NUMERIC_CONSTANTS.FIFTY]} 
-          max={100} 
-          step={1}
-          className="[&_[data-slot=slider-thumb]]:rounded-none"
-        />
-      </div>
-    </div>
-  ),
-};
-
-export const WithCustomTrack: Story = {
-  render: () => (
-    <div className="space-y-6">
-      <div>
-        <label htmlFor="default-track-slider" className="text-sm font-medium">Default</label>
-        <Slider id="default-track-slider" defaultValue={[NUMERIC_CONSTANTS.FIFTY]} max={100} step={1} />
-      </div>
-      <div>
-        <label htmlFor="rounded-track-slider" className="text-sm font-medium">Rounded</label>
-        <Slider 
-          id="rounded-track-slider"
-          defaultValue={[NUMERIC_CONSTANTS.FIFTY]} 
-          max={100} 
-          step={1}
-          className="[&_[data-slot=slider-track]]:rounded-lg"
-        />
-      </div>
-      <div>
-        <label htmlFor="square-track-slider" className="text-sm font-medium">Square</label>
-        <Slider 
-          id="square-track-slider"
-          defaultValue={[NUMERIC_CONSTANTS.FIFTY]} 
-          max={100} 
-          step={1}
-          className="[&_[data-slot=slider-track]]:rounded-none"
-        />
-      </div>
-    </div>
-  ),
-};
-
-export const WithCustomRange: Story = {
-  render: () => (
-    <div className="space-y-6">
-      <div>
-        <label htmlFor="default-range-slider" className="text-sm font-medium">Default</label>
-        <Slider id="default-range-slider" defaultValue={[NUMERIC_CONSTANTS.FIFTY]} max={100} step={1} />
-      </div>
-      <div>
-        <label htmlFor="gradient-range-slider" className="text-sm font-medium">Gradient</label>
-        <Slider 
-          id="gradient-range-slider"
-          defaultValue={[NUMERIC_CONSTANTS.FIFTY]} 
-          max={100} 
-          step={1}
-          className="[&_[data-slot=slider-range]]:bg-gradient-to-r from-primary to-secondary"
-        />
-      </div>
-      <div>
-        <label htmlFor="pattern-range-slider" className="text-sm font-medium">Pattern</label>
-        <Slider 
-          id="pattern-range-slider"
-          defaultValue={[NUMERIC_CONSTANTS.FIFTY]} 
-          max={100} 
-          step={1}
-          className="[&_[data-slot=slider-range]]:bg-gradient-to-r [&_[data-slot=slider-range]]:from-primary [&_[data-slot=slider-range]]:to-primary/80"
-        />
-      </div>
-    </div>
-  ),
-};
-
-export const WithCustomStyling: Story = {
-  render: () => (
-    <div className="space-y-6">
-      <div>
-        <label htmlFor="bordered-slider" className="text-sm font-medium">Bordered</label>
-        <Slider 
-          id="bordered-slider"
-          defaultValue={[NUMERIC_CONSTANTS.FIFTY]} 
-          max={100} 
-          step={1}
-          className="[&_[data-slot=slider-track]]:border [&_[data-slot=slider-track]]:border-primary"
-        />
-      </div>
-      <div>
-        <label htmlFor="shadowed-slider" className="text-sm font-medium">Shadowed</label>
-        <Slider 
-          id="shadowed-slider"
-          defaultValue={[NUMERIC_CONSTANTS.FIFTY]} 
-          max={100} 
-          step={1}
-          className="[&_[data-slot=slider-track]]:shadow-lg [&_[data-slot=slider-thumb]]:shadow-lg"
-        />
-      </div>
-      <div>
-        <label htmlFor="glowing-slider" className="text-sm font-medium">Glowing</label>
-        <Slider 
-          id="glowing-slider"
-          defaultValue={[NUMERIC_CONSTANTS.FIFTY]} 
-          max={100} 
-          step={1}
-          className="[&_[data-slot=slider-thumb]]:shadow-primary/50 [&_[data-slot=slider-thumb]]:shadow-lg"
+          className='[&_[data-slot=slider-track]]:h-2 [&_[data-slot=slider-thumb]]:size-6'
         />
       </div>
     </div>
@@ -393,18 +236,15 @@ export const WithCustomStyling: Story = {
 };
 
 const WithMultipleValuesComponent = () => {
-  const [value, setValue] = useState<number[]>([NUMERIC_CONSTANTS.TWENTY, NUMERIC_CONSTANTS.EIGHTY]);
-  
+  const [value, setValue] = useState<number[]>([
+    NUMERIC_CONSTANTS.TWENTY,
+    NUMERIC_CONSTANTS.EIGHTY,
+  ]);
+
   return (
-    <div className="space-y-4">
-      <Slider
-        value={value}
-        onValueChange={setValue}
-        max={100}
-        step={1}
-        className="w-full"
-      />
-      <div className="flex justify-between text-sm">
+    <div className='space-y-4'>
+      <Slider value={value} onValueChange={setValue} max={100} step={1} className='w-full' />
+      <div className='flex justify-between text-sm'>
         <span>Min: {value[0]}</span>
         <span>Max: {value[1]}</span>
       </div>
@@ -414,31 +254,6 @@ const WithMultipleValuesComponent = () => {
 
 export const WithMultipleValues: Story = {
   render: () => <WithMultipleValuesComponent />,
-};
-
-const WithThreeValuesComponent = () => {
-  const [value, setValue] = useState<number[]>([NUMERIC_CONSTANTS.TWENTY, NUMERIC_CONSTANTS.FIFTY, NUMERIC_CONSTANTS.EIGHTY]);
-  
-  return (
-    <div className="space-y-4">
-      <Slider
-        value={value}
-        onValueChange={setValue}
-        max={100}
-        step={1}
-        className="w-full"
-      />
-      <div className="flex justify-between text-sm">
-        <span>Low: {value[0]}</span>
-        <span>Mid: {value[1]}</span>
-        <span>High: {value[2]}</span>
-      </div>
-    </div>
-  );
-};
-
-export const WithThreeValues: Story = {
-  render: () => <WithThreeValuesComponent />,
 };
 
 const WithFormComponent = () => {
@@ -451,52 +266,52 @@ const WithFormComponent = () => {
     brightness: [NUMERIC_CONSTANTS.SEVENTY_FIVE],
     contrast: [NUMERIC_CONSTANTS.SIXTY],
   });
-  
+
   return (
-    <form className="space-y-6">
-      <div className="space-y-2">
-      <label htmlFor="volume-slider" className="text-sm font-medium">Volume</label>
+    <form className='space-y-6'>
+      <div className='space-y-2'>
+        <label htmlFor='volume-slider' className='text-sm font-medium'>
+          Volume
+        </label>
         <Slider
-          id="volume-slider"
+          id='volume-slider'
           value={formData.volume}
-          onValueChange={(value) => setFormData(prev => ({ ...prev, volume: value }))}
+          onValueChange={value => setFormData(prev => ({ ...prev, volume: value }))}
           max={100}
           step={1}
-          className="w-full"
+          className='w-full'
         />
-        <div className="text-sm text-muted-foreground">
-          {formData.volume[0]}%
-        </div>
+        <div className='text-sm text-muted-foreground'>{formData.volume[0]}%</div>
       </div>
-      
-      <div className="space-y-2">
-        <label htmlFor="brightness-slider" className="text-sm font-medium">Brightness</label>
+
+      <div className='space-y-2'>
+        <label htmlFor='brightness-slider' className='text-sm font-medium'>
+          Brightness
+        </label>
         <Slider
-          id="brightness-slider"
+          id='brightness-slider'
           value={formData.brightness}
-          onValueChange={(value) => setFormData(prev => ({ ...prev, brightness: value }))}
+          onValueChange={value => setFormData(prev => ({ ...prev, brightness: value }))}
           max={100}
           step={1}
-          className="w-full"
+          className='w-full'
         />
-        <div className="text-sm text-muted-foreground">
-          {formData.brightness[0]}%
-        </div>
+        <div className='text-sm text-muted-foreground'>{formData.brightness[0]}%</div>
       </div>
-      
-      <div className="space-y-2">
-        <label htmlFor="contrast-slider" className="text-sm font-medium">Contrast</label>
+
+      <div className='space-y-2'>
+        <label htmlFor='contrast-slider' className='text-sm font-medium'>
+          Contrast
+        </label>
         <Slider
-          id="contrast-slider"
+          id='contrast-slider'
           value={formData.contrast}
-          onValueChange={(value) => setFormData(prev => ({ ...prev, contrast: value }))}
+          onValueChange={value => setFormData(prev => ({ ...prev, contrast: value }))}
           max={100}
           step={1}
-          className="w-full"
+          className='w-full'
         />
-        <div className="text-sm text-muted-foreground">
-          {formData.contrast[0]}%
-        </div>
+        <div className='text-sm text-muted-foreground'>{formData.contrast[0]}%</div>
       </div>
     </form>
   );
@@ -506,124 +321,19 @@ export const WithForm: Story = {
   render: () => <WithFormComponent />,
 };
 
-const WithKeyboardNavigationComponent = () => {
-  const [value, setValue] = useState<number[]>([NUMERIC_CONSTANTS.FIFTY]);
-  
-  return (
-    <div className="space-y-4">
-      <div className="text-sm text-muted-foreground">
-        Use arrow keys to navigate, Page Up/Page Down for larger steps
-      </div>
-      <Slider
-        value={value}
-        onValueChange={setValue}
-        max={100}
-        step={1}
-        className="w-full"
-      />
-      <div className="text-center text-sm">
-        Value: {value[0]}
-      </div>
-    </div>
-  );
-};
-
-export const WithKeyboardNavigation: Story = {
-  render: () => <WithKeyboardNavigationComponent />,
-};
-
-const WithTouchSupportComponent = () => {
-  const [value, setValue] = useState<number[]>([NUMERIC_CONSTANTS.FIFTY]);
-  
-  return (
-    <div className="space-y-4">
-      <div className="text-sm text-muted-foreground">
-        Touch and drag to change value
-      </div>
-      <Slider
-        value={value}
-        onValueChange={setValue}
-        max={100}
-        step={1}
-        className="w-full"
-      />
-      <div className="text-center text-sm">
-        Value: {value[0]}
-      </div>
-    </div>
-  );
-};
-
-export const WithTouchSupport: Story = {
-  render: () => <WithTouchSupportComponent />,
-};
-
 export const WithAccessibility: Story = {
   render: () => (
-    <div className="space-y-4">
+    <div className='space-y-4'>
       <Slider
         defaultValue={[NUMERIC_CONSTANTS.FIFTY]}
         max={100}
         step={1}
-        aria-label="Volume control"
-        className="w-full"
+        aria-label='Volume control'
+        className='w-full'
       />
-      <div className="text-sm text-muted-foreground">
+      <div className='text-sm text-muted-foreground'>
         This slider is accessible with screen readers and keyboard navigation
       </div>
     </div>
   ),
-};
-
-const WithPerformanceComponent = () => {
-  const [value, setValue] = useState<number[]>([NUMERIC_CONSTANTS.FIFTY]);
-  
-  return (
-    <div className="space-y-4">
-      <Slider
-        value={value}
-        onValueChange={setValue}
-        max={100}
-        step={1}
-        className="w-full"
-      />
-      <div className="text-center text-sm">
-        Value: {value[0]} (Renders efficiently)
-      </div>
-    </div>
-  );
-};
-
-export const WithPerformance: Story = {
-  render: () => <WithPerformanceComponent />,
-};
-
-const WithUserInteractionComponent = () => {
-  const [value, setValue] = useState<number[]>([NUMERIC_CONSTANTS.FIFTY]);
-  const [isDragging, setIsDragging] = useState(false);
-  
-  return (
-    <div className="space-y-4">
-      <Slider
-        value={value}
-        onValueChange={setValue}
-        onValueCommit={() => setIsDragging(false)}
-        onPointerDown={() => setIsDragging(true)}
-        max={100}
-        step={1}
-        className="w-full"
-      />
-      <div className="text-center text-sm">
-        Value: {value[0]} {isDragging && '(Dragging)'}
-      </div>
-    </div>
-  );
-};
-
-export const WithUserInteraction: Story = {
-  render: () => <WithUserInteractionComponent />,
-  play: async ({ canvas }) => {
-    const slider = canvas.getByRole('slider');
-    await userEvent.click(slider);
-  },
 };

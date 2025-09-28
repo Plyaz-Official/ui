@@ -1,13 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-import { 
-  Sheet, 
-  SheetTrigger, 
-  SheetContent, 
-  SheetHeader, 
-  SheetTitle, 
-} from './Sheet';
+import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle } from './Sheet';
 
 describe('Sheet component', () => {
   it('renders under 100ms', () => {

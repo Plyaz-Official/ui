@@ -16,9 +16,9 @@ describe('Badge component', () => {
     render(
       <div>
         <Badge>Default</Badge>
-        <Badge variant="secondary">Secondary</Badge>
-        <Badge variant="destructive">Destructive</Badge>
-        <Badge variant="outline">Outline</Badge>
+        <Badge variant='secondary'>Secondary</Badge>
+        <Badge variant='destructive'>Destructive</Badge>
+        <Badge variant='outline'>Outline</Badge>
       </div>
     );
 

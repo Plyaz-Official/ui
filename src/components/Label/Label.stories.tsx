@@ -1,9 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { expect, userEvent, fn } from '@storybook/test';
 
-import { Label , Input , Checkbox } from '@/components';
-
-
+import { Label, Input, Checkbox } from '@/components';
 
 type Story = StoryObj<typeof Label>;
 
@@ -35,48 +33,48 @@ export default meta;
 
 export const Default: Story = {
   render: () => (
-    <div className="space-y-2">
-      <Label htmlFor="email">Email</Label>
-      <Input id="email" type="email" placeholder="Enter your email" />
+    <div className='space-y-2'>
+      <Label htmlFor='email'>Email</Label>
+      <Input id='email' type='email' placeholder='Enter your email' />
     </div>
   ),
 };
 
 export const WithInput: Story = {
   render: () => (
-    <div className="space-y-2">
-      <Label htmlFor="username">Username</Label>
-      <Input id="username" type="text" placeholder="Enter your username" />
+    <div className='space-y-2'>
+      <Label htmlFor='username'>Username</Label>
+      <Input id='username' type='text' placeholder='Enter your username' />
     </div>
   ),
 };
 
 export const WithCheckbox: Story = {
   render: () => (
-    <div className="flex items-center space-x-2">
-      <Checkbox id="terms" />
-      <Label htmlFor="terms">I agree to the terms and conditions</Label>
+    <div className='flex items-center space-x-2'>
+      <Checkbox id='terms' />
+      <Label htmlFor='terms'>I agree to the terms and conditions</Label>
     </div>
   ),
 };
 
 export const Required: Story = {
   render: () => (
-    <div className="space-y-2">
-      <Label htmlFor="password">
-        Password <span className="text-destructive">*</span>
+    <div className='space-y-2'>
+      <Label htmlFor='password'>
+        Password <span className='text-destructive'>*</span>
       </Label>
-      <Input id="password" type="password" placeholder="Enter your password" />
+      <Input id='password' type='password' placeholder='Enter your password' />
     </div>
   ),
 };
 
 export const WithDescription: Story = {
   render: () => (
-    <div className="space-y-2">
-      <Label htmlFor="phone">Phone Number</Label>
-      <Input id="phone" type="tel" placeholder="Enter your phone number" />
-      <p className="text-sm text-muted-foreground">
+    <div className='space-y-2'>
+      <Label htmlFor='phone'>Phone Number</Label>
+      <Input id='phone' type='tel' placeholder='Enter your phone number' />
+      <p className='text-sm text-muted-foreground'>
         We&apos;ll use this to send you verification codes.
       </p>
     </div>
@@ -85,63 +83,61 @@ export const WithDescription: Story = {
 
 export const Disabled: Story = {
   render: () => (
-    <div className="space-y-2">
-      <Label htmlFor="disabled-input" className="opacity-50">
+    <div className='space-y-2'>
+      <Label htmlFor='disabled-input' className='opacity-50'>
         Disabled Input
       </Label>
-      <Input id="disabled-input" type="text" disabled placeholder="This input is disabled" />
+      <Input id='disabled-input' type='text' disabled placeholder='This input is disabled' />
     </div>
   ),
 };
 
 export const WithCustomStyling: Story = {
   render: () => (
-    <div className="space-y-2">
-      <Label htmlFor="custom-input" className="text-lg font-bold text-primary">
+    <div className='space-y-2'>
+      <Label htmlFor='custom-input' className='text-lg font-bold text-primary'>
         Custom Styled Label
       </Label>
-      <Input id="custom-input" type="text" placeholder="Enter your text" />
+      <Input id='custom-input' type='text' placeholder='Enter your text' />
     </div>
   ),
 };
 
 export const WithIcon: Story = {
   render: () => (
-    <div className="space-y-2">
-      <Label htmlFor="icon-input" className="flex items-center gap-2">
+    <div className='space-y-2'>
+      <Label htmlFor='icon-input' className='flex items-center gap-2'>
         <span>🔒</span>
         Secure Input
       </Label>
-      <Input id="icon-input" type="password" placeholder="Enter your password" />
+      <Input id='icon-input' type='password' placeholder='Enter your password' />
     </div>
   ),
 };
 
 export const WithError: Story = {
   render: () => (
-    <div className="space-y-2">
-      <Label htmlFor="error-input" className="text-destructive">
+    <div className='space-y-2'>
+      <Label htmlFor='error-input' className='text-destructive'>
         Email Address
       </Label>
-      <Input 
-        id="error-input" 
-        type="email" 
-        placeholder="Enter your email"
-        className="border-destructive"
+      <Input
+        id='error-input'
+        type='email'
+        placeholder='Enter your email'
+        className='border-destructive'
       />
-      <p className="text-sm text-destructive">
-        Please enter a valid email address.
-      </p>
+      <p className='text-sm text-destructive'>Please enter a valid email address.</p>
     </div>
   ),
 };
 
 export const WithHelpText: Story = {
   render: () => (
-    <div className="space-y-2">
-      <Label htmlFor="help-input">Help Text Example</Label>
-      <Input id="help-input" type="text" placeholder="Enter your text" />
-      <p className="text-sm text-muted-foreground">
+    <div className='space-y-2'>
+      <Label htmlFor='help-input'>Help Text Example</Label>
+      <Input id='help-input' type='text' placeholder='Enter your text' />
+      <p className='text-sm text-muted-foreground'>
         This is some helpful text that explains what to enter.
       </p>
     </div>
@@ -150,18 +146,18 @@ export const WithHelpText: Story = {
 
 export const MultipleLabels: Story = {
   render: () => (
-    <div className="space-y-4">
-      <div className="space-y-2">
-        <Label htmlFor="first-name">First Name</Label>
-        <Input id="first-name" type="text" placeholder="Enter your first name" />
+    <div className='space-y-4'>
+      <div className='space-y-2'>
+        <Label htmlFor='first-name'>First Name</Label>
+        <Input id='first-name' type='text' placeholder='Enter your first name' />
       </div>
-      <div className="space-y-2">
-        <Label htmlFor="last-name">Last Name</Label>
-        <Input id="last-name" type="text" placeholder="Enter your last name" />
+      <div className='space-y-2'>
+        <Label htmlFor='last-name'>Last Name</Label>
+        <Input id='last-name' type='text' placeholder='Enter your last name' />
       </div>
-      <div className="space-y-2">
-        <Label htmlFor="email-address">Email Address</Label>
-        <Input id="email-address" type="email" placeholder="Enter your email" />
+      <div className='space-y-2'>
+        <Label htmlFor='email-address'>Email Address</Label>
+        <Input id='email-address' type='email' placeholder='Enter your email' />
       </div>
     </div>
   ),
@@ -169,18 +165,18 @@ export const MultipleLabels: Story = {
 
 export const WithFormGroup: Story = {
   render: () => (
-    <div className="space-y-4">
-      <div className="space-y-2">
-        <Label htmlFor="username">Username</Label>
-        <Input id="username" type="text" placeholder="Enter your username" />
+    <div className='space-y-4'>
+      <div className='space-y-2'>
+        <Label htmlFor='username'>Username</Label>
+        <Input id='username' type='text' placeholder='Enter your username' />
       </div>
-      <div className="space-y-2">
-        <Label htmlFor="password">Password</Label>
-        <Input id="password" type="password" placeholder="Enter your password" />
+      <div className='space-y-2'>
+        <Label htmlFor='password'>Password</Label>
+        <Input id='password' type='password' placeholder='Enter your password' />
       </div>
-      <div className="flex items-center space-x-2">
-        <Checkbox id="remember" />
-        <Label htmlFor="remember">Remember me</Label>
+      <div className='flex items-center space-x-2'>
+        <Checkbox id='remember' />
+        <Label htmlFor='remember'>Remember me</Label>
       </div>
     </div>
   ),
@@ -188,11 +184,11 @@ export const WithFormGroup: Story = {
 
 export const UserInteraction: Story = {
   render: () => (
-    <div className="space-y-2">
-      <Label htmlFor="interactive-input" onClick={fn()}>
+    <div className='space-y-2'>
+      <Label htmlFor='interactive-input' onClick={fn()}>
         Clickable Label
       </Label>
-      <Input id="interactive-input" type="text" placeholder="Click the label to focus" />
+      <Input id='interactive-input' type='text' placeholder='Click the label to focus' />
     </div>
   ),
   play: async ({ canvas }) => {

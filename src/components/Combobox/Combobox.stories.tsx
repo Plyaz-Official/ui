@@ -147,29 +147,27 @@ export const CustomStyling: Story = {
 
 export const DifferentVariants: Story = {
   render: () => (
-    <div className="space-y-4">
+    <div className='space-y-4'>
       <div>
-        <label htmlFor="combobox-default" className="text-sm font-medium">Default</label>
-        <Combobox
-          options={frameworks}
-          placeholder="Select framework..."
-          buttonVariant="default"
-        />
+        <label htmlFor='combobox-default' className='text-sm font-medium'>
+          Default
+        </label>
+        <Combobox options={frameworks} placeholder='Select framework...' buttonVariant='default' />
       </div>
       <div>
-        <label htmlFor="combobox-outline" className="text-sm font-medium">Outline</label>
-        <Combobox
-          options={frameworks}
-          placeholder="Select framework..."
-          buttonVariant="outline"
-        />
+        <label htmlFor='combobox-outline' className='text-sm font-medium'>
+          Outline
+        </label>
+        <Combobox options={frameworks} placeholder='Select framework...' buttonVariant='outline' />
       </div>
       <div>
-        <label htmlFor="combobox-secondary" className="text-sm font-medium">Secondary</label>
+        <label htmlFor='combobox-secondary' className='text-sm font-medium'>
+          Secondary
+        </label>
         <Combobox
           options={frameworks}
-          placeholder="Select framework..."
-          buttonVariant="secondary"
+          placeholder='Select framework...'
+          buttonVariant='secondary'
         />
       </div>
     </div>
@@ -178,30 +176,24 @@ export const DifferentVariants: Story = {
 
 export const DifferentSizes: Story = {
   render: () => (
-    <div className="space-y-4">
+    <div className='space-y-4'>
       <div>
-        <label htmlFor="combobox-size-sm" className="text-sm font-medium">Small</label>
-        <Combobox
-          options={frameworks}
-          placeholder="Select framework..."
-          buttonSize="sm"
-        />
+        <label htmlFor='combobox-size-sm' className='text-sm font-medium'>
+          Small
+        </label>
+        <Combobox options={frameworks} placeholder='Select framework...' buttonSize='sm' />
       </div>
       <div>
-        <label htmlFor="combobox-size-default" className="text-sm font-medium">Default</label>
-        <Combobox
-          options={frameworks}
-          placeholder="Select framework..."
-          buttonSize="default"
-        />
+        <label htmlFor='combobox-size-default' className='text-sm font-medium'>
+          Default
+        </label>
+        <Combobox options={frameworks} placeholder='Select framework...' buttonSize='default' />
       </div>
       <div>
-        <label htmlFor="combobox-size-lg" className="text-sm font-medium">Large</label>
-        <Combobox
-          options={frameworks}
-          placeholder="Select framework..."
-          buttonSize="lg"
-        />
+        <label htmlFor='combobox-size-lg' className='text-sm font-medium'>
+          Large
+        </label>
+        <Combobox options={frameworks} placeholder='Select framework...' buttonSize='lg' />
       </div>
     </div>
   ),
@@ -211,17 +203,15 @@ const ControlledComponent = () => {
   const [value, setValue] = useState('');
 
   return (
-      <div className="space-y-4">
-        <Combobox
-          options={frameworks}
-          value={value}
-          onValueChange={setValue}
-          placeholder="Select framework..."
-        />
-        <p className="text-sm text-muted-foreground">
-          Selected: {value || 'None'}
-        </p>
-      </div>
+    <div className='space-y-4'>
+      <Combobox
+        options={frameworks}
+        value={value}
+        onValueChange={setValue}
+        placeholder='Select framework...'
+      />
+      <p className='text-sm text-muted-foreground'>Selected: {value || 'None'}</p>
+    </div>
   );
 };
 

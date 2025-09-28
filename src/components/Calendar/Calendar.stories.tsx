@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { expect } from '@storybook/test';
+import { expect, fn } from '@storybook/test';
 import { addDays, subDays } from 'date-fns';
 
 import { Calendar } from '@/components';
@@ -109,11 +109,7 @@ export const WithMultipleDates: Story = {
 export const WithDisabledDates: Story = {
   args: {
     mode: 'single',
-    disabled: [
-      new Date(),
-      addDays(new Date(), 1),
-      addDays(new Date(), 2),
-    ],
+    disabled: [new Date(), addDays(new Date(), 1), addDays(new Date(), 2)],
     showOutsideDays: true,
   },
 };

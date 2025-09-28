@@ -7,8 +7,8 @@ describe('Accordion component', () => {
   it('renders under 100ms', () => {
     const start = performance.now();
     render(
-      <Accordion type="single" collapsible>
-        <AccordionItem value="item-1">
+      <Accordion type='single' collapsible>
+        <AccordionItem value='item-1'>
           <AccordionTrigger>Test Trigger</AccordionTrigger>
           <AccordionContent>Test Content</AccordionContent>
         </AccordionItem>
@@ -21,8 +21,8 @@ describe('Accordion component', () => {
 
   it('renders accordion with trigger', () => {
     render(
-      <Accordion type="single" collapsible>
-        <AccordionItem value="item-1">
+      <Accordion type='single' collapsible>
+        <AccordionItem value='item-1'>
           <AccordionTrigger>Test Trigger</AccordionTrigger>
           <AccordionContent>Test Content</AccordionContent>
         </AccordionItem>

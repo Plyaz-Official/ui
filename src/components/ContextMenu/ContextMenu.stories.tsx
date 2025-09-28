@@ -1,15 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { expect, userEvent, fn } from '@storybook/test';
 import { useState } from 'react';
-import { 
-  Copy, 
-  CreditCard, 
-  Edit, 
-  MoreHorizontal, 
-  Settings, 
-  Trash2, 
-  User 
-} from 'lucide-react';
+import { Copy, CreditCard, Edit, MoreHorizontal, Settings, Trash2, User } from 'lucide-react';
 
 import {
   ContextMenu,
@@ -55,22 +47,22 @@ export default meta;
 export const Default: Story = {
   render: () => (
     <ContextMenu>
-      <ContextMenuTrigger className="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm">
+      <ContextMenuTrigger className='flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm'>
         Right click here
       </ContextMenuTrigger>
-      <ContextMenuContent className="w-64">
+      <ContextMenuContent className='w-64'>
         <ContextMenuItem>
-          <User className="mr-2 h-4 w-4" />
+          <User className='mr-2 h-4 w-4' />
           <span>Profile</span>
           <ContextMenuShortcut>⌘P</ContextMenuShortcut>
         </ContextMenuItem>
         <ContextMenuItem>
-          <CreditCard className="mr-2 h-4 w-4" />
+          <CreditCard className='mr-2 h-4 w-4' />
           <span>Billing</span>
           <ContextMenuShortcut>⌘B</ContextMenuShortcut>
         </ContextMenuItem>
         <ContextMenuItem>
-          <Settings className="mr-2 h-4 w-4" />
+          <Settings className='mr-2 h-4 w-4' />
           <span>Settings</span>
           <ContextMenuShortcut>⌘S</ContextMenuShortcut>
         </ContextMenuItem>
@@ -86,21 +78,21 @@ export const Default: Story = {
 export const WithDestructiveAction: Story = {
   render: () => (
     <ContextMenu>
-      <ContextMenuTrigger className="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm">
+      <ContextMenuTrigger className='flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm'>
         Right click here
       </ContextMenuTrigger>
-      <ContextMenuContent className="w-64">
+      <ContextMenuContent className='w-64'>
         <ContextMenuItem>
-          <Edit className="mr-2 h-4 w-4" />
+          <Edit className='mr-2 h-4 w-4' />
           <span>Edit</span>
         </ContextMenuItem>
         <ContextMenuItem>
-          <Copy className="mr-2 h-4 w-4" />
+          <Copy className='mr-2 h-4 w-4' />
           <span>Copy</span>
         </ContextMenuItem>
         <ContextMenuSeparator />
-        <ContextMenuItem variant="destructive">
-          <Trash2 className="mr-2 h-4 w-4" />
+        <ContextMenuItem variant='destructive'>
+          <Trash2 className='mr-2 h-4 w-4' />
           <span>Delete</span>
         </ContextMenuItem>
       </ContextMenuContent>
@@ -113,26 +105,20 @@ const WithCheckboxItemsComponent = () => {
   const [showRulers, setShowRulers] = useState(true);
 
   return (
-      <ContextMenu>
-        <ContextMenuTrigger className="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm">
-          Right click here
-        </ContextMenuTrigger>
-        <ContextMenuContent className="w-64">
-          <ContextMenuLabel>View</ContextMenuLabel>
-          <ContextMenuCheckboxItem
-            checked={showGrid}
-            onCheckedChange={setShowGrid}
-          >
-            Show Grid
-          </ContextMenuCheckboxItem>
-          <ContextMenuCheckboxItem
-            checked={showRulers}
-            onCheckedChange={setShowRulers}
-          >
-            Show Rulers
-          </ContextMenuCheckboxItem>
-        </ContextMenuContent>
-      </ContextMenu>
+    <ContextMenu>
+      <ContextMenuTrigger className='flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm'>
+        Right click here
+      </ContextMenuTrigger>
+      <ContextMenuContent className='w-64'>
+        <ContextMenuLabel>View</ContextMenuLabel>
+        <ContextMenuCheckboxItem checked={showGrid} onCheckedChange={setShowGrid}>
+          Show Grid
+        </ContextMenuCheckboxItem>
+        <ContextMenuCheckboxItem checked={showRulers} onCheckedChange={setShowRulers}>
+          Show Rulers
+        </ContextMenuCheckboxItem>
+      </ContextMenuContent>
+    </ContextMenu>
   );
 };
 
@@ -144,25 +130,19 @@ const WithRadioItemsComponent = () => {
   const [viewMode, setViewMode] = useState('list');
 
   return (
-      <ContextMenu>
-        <ContextMenuTrigger className="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm">
-          Right click here
-        </ContextMenuTrigger>
-        <ContextMenuContent className="w-64">
-          <ContextMenuLabel>View Mode</ContextMenuLabel>
-          <ContextMenuRadioGroup value={viewMode} onValueChange={setViewMode}>
-            <ContextMenuRadioItem value="list">
-              List View
-            </ContextMenuRadioItem>
-            <ContextMenuRadioItem value="grid">
-              Grid View
-            </ContextMenuRadioItem>
-            <ContextMenuRadioItem value="detail">
-              Detail View
-            </ContextMenuRadioItem>
-          </ContextMenuRadioGroup>
-        </ContextMenuContent>
-      </ContextMenu>
+    <ContextMenu>
+      <ContextMenuTrigger className='flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm'>
+        Right click here
+      </ContextMenuTrigger>
+      <ContextMenuContent className='w-64'>
+        <ContextMenuLabel>View Mode</ContextMenuLabel>
+        <ContextMenuRadioGroup value={viewMode} onValueChange={setViewMode}>
+          <ContextMenuRadioItem value='list'>List View</ContextMenuRadioItem>
+          <ContextMenuRadioItem value='grid'>Grid View</ContextMenuRadioItem>
+          <ContextMenuRadioItem value='detail'>Detail View</ContextMenuRadioItem>
+        </ContextMenuRadioGroup>
+      </ContextMenuContent>
+    </ContextMenu>
   );
 };
 
@@ -173,22 +153,22 @@ export const WithRadioItems: Story = {
 export const WithSubMenu: Story = {
   render: () => (
     <ContextMenu>
-      <ContextMenuTrigger className="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm">
+      <ContextMenuTrigger className='flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm'>
         Right click here
       </ContextMenuTrigger>
-      <ContextMenuContent className="w-64">
+      <ContextMenuContent className='w-64'>
         <ContextMenuItem>
-          <User className="mr-2 h-4 w-4" />
+          <User className='mr-2 h-4 w-4' />
           <span>Profile</span>
         </ContextMenuItem>
         <ContextMenuItem>
-          <Settings className="mr-2 h-4 w-4" />
+          <Settings className='mr-2 h-4 w-4' />
           <span>Settings</span>
         </ContextMenuItem>
         <ContextMenuSeparator />
         <ContextMenuSub>
           <ContextMenuSubTrigger>
-            <MoreHorizontal className="mr-2 h-4 w-4" />
+            <MoreHorizontal className='mr-2 h-4 w-4' />
             <span>More</span>
           </ContextMenuSubTrigger>
           <ContextMenuSubContent>
@@ -212,28 +192,28 @@ export const WithSubMenu: Story = {
 export const WithGroups: Story = {
   render: () => (
     <ContextMenu>
-      <ContextMenuTrigger className="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm">
+      <ContextMenuTrigger className='flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm'>
         Right click here
       </ContextMenuTrigger>
-      <ContextMenuContent className="w-64">
+      <ContextMenuContent className='w-64'>
         <ContextMenuGroup>
           <ContextMenuItem>
-            <Edit className="mr-2 h-4 w-4" />
+            <Edit className='mr-2 h-4 w-4' />
             <span>Edit</span>
           </ContextMenuItem>
           <ContextMenuItem>
-            <Copy className="mr-2 h-4 w-4" />
+            <Copy className='mr-2 h-4 w-4' />
             <span>Copy</span>
           </ContextMenuItem>
         </ContextMenuGroup>
         <ContextMenuSeparator />
         <ContextMenuGroup>
           <ContextMenuItem>
-            <User className="mr-2 h-4 w-4" />
+            <User className='mr-2 h-4 w-4' />
             <span>Profile</span>
           </ContextMenuItem>
           <ContextMenuItem>
-            <Settings className="mr-2 h-4 w-4" />
+            <Settings className='mr-2 h-4 w-4' />
             <span>Settings</span>
           </ContextMenuItem>
         </ContextMenuGroup>
@@ -245,20 +225,20 @@ export const WithGroups: Story = {
 export const WithDisabledItems: Story = {
   render: () => (
     <ContextMenu>
-      <ContextMenuTrigger className="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm">
+      <ContextMenuTrigger className='flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm'>
         Right click here
       </ContextMenuTrigger>
-      <ContextMenuContent className="w-64">
+      <ContextMenuContent className='w-64'>
         <ContextMenuItem>
-          <Edit className="mr-2 h-4 w-4" />
+          <Edit className='mr-2 h-4 w-4' />
           <span>Edit</span>
         </ContextMenuItem>
         <ContextMenuItem disabled>
-          <Copy className="mr-2 h-4 w-4" />
+          <Copy className='mr-2 h-4 w-4' />
           <span>Copy (Disabled)</span>
         </ContextMenuItem>
         <ContextMenuItem>
-          <Settings className="mr-2 h-4 w-4" />
+          <Settings className='mr-2 h-4 w-4' />
           <span>Settings</span>
         </ContextMenuItem>
       </ContextMenuContent>
@@ -269,16 +249,16 @@ export const WithDisabledItems: Story = {
 export const WithCustomStyling: Story = {
   render: () => (
     <ContextMenu>
-      <ContextMenuTrigger className="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm">
+      <ContextMenuTrigger className='flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm'>
         Right click here
       </ContextMenuTrigger>
-      <ContextMenuContent className="w-64 bg-gradient-to-b from-background to-muted/20 border-2 border-primary/20">
-        <ContextMenuItem className="hover:bg-primary/10">
-          <User className="mr-2 h-4 w-4 text-primary" />
+      <ContextMenuContent className='w-64 bg-gradient-to-b from-background to-muted/20 border-2 border-primary/20'>
+        <ContextMenuItem className='hover:bg-primary/10'>
+          <User className='mr-2 h-4 w-4 text-primary' />
           <span>Profile</span>
         </ContextMenuItem>
-        <ContextMenuItem className="hover:bg-primary/10">
-          <Settings className="mr-2 h-4 w-4 text-primary" />
+        <ContextMenuItem className='hover:bg-primary/10'>
+          <Settings className='mr-2 h-4 w-4 text-primary' />
           <span>Settings</span>
         </ContextMenuItem>
       </ContextMenuContent>
@@ -289,16 +269,16 @@ export const WithCustomStyling: Story = {
 export const UserInteraction: Story = {
   render: () => (
     <ContextMenu>
-      <ContextMenuTrigger className="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm">
+      <ContextMenuTrigger className='flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm'>
         Right click here
       </ContextMenuTrigger>
-      <ContextMenuContent className="w-64">
+      <ContextMenuContent className='w-64'>
         <ContextMenuItem onSelect={fn()}>
-          <User className="mr-2 h-4 w-4" />
+          <User className='mr-2 h-4 w-4' />
           <span>Profile</span>
         </ContextMenuItem>
         <ContextMenuItem onSelect={fn()}>
-          <Settings className="mr-2 h-4 w-4" />
+          <Settings className='mr-2 h-4 w-4' />
           <span>Settings</span>
         </ContextMenuItem>
       </ContextMenuContent>

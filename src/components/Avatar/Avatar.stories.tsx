@@ -30,7 +30,7 @@ export default meta;
 export const Default: Story = {
   render: () => (
     <Avatar>
-      <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+      <AvatarImage src='https://github.com/shadcn.png' alt='@shadcn' />
       <AvatarFallback>CN</AvatarFallback>
     </Avatar>
   ),
@@ -39,7 +39,7 @@ export const Default: Story = {
 export const WithFallback: Story = {
   render: () => (
     <Avatar>
-      <AvatarImage src="/broken-image.jpg" alt="Broken image" />
+      <AvatarImage src='/broken-image.jpg' alt='Broken image' />
       <AvatarFallback>JD</AvatarFallback>
     </Avatar>
   ),
@@ -55,8 +55,8 @@ export const OnlyFallback: Story = {
 
 export const Large: Story = {
   render: () => (
-    <Avatar className="size-16">
-      <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+    <Avatar className='size-16'>
+      <AvatarImage src='https://github.com/shadcn.png' alt='@shadcn' />
       <AvatarFallback>CN</AvatarFallback>
     </Avatar>
   ),
@@ -64,8 +64,8 @@ export const Large: Story = {
 
 export const Small: Story = {
   render: () => (
-    <Avatar className="size-6">
-      <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+    <Avatar className='size-6'>
+      <AvatarImage src='https://github.com/shadcn.png' alt='@shadcn' />
       <AvatarFallback>CN</AvatarFallback>
     </Avatar>
   ),
@@ -74,26 +74,24 @@ export const Small: Story = {
 export const CustomFallback: Story = {
   render: () => (
     <Avatar>
-      <AvatarImage src="/broken-image.jpg" alt="Broken image" />
-      <AvatarFallback className="bg-blue-500 text-white font-bold">
-        JS
-      </AvatarFallback>
+      <AvatarImage src='/broken-image.jpg' alt='Broken image' />
+      <AvatarFallback className='bg-blue-500 text-white font-bold'>JS</AvatarFallback>
     </Avatar>
   ),
 };
 
 export const MultipleAvatars: Story = {
   render: () => (
-    <div className="flex -space-x-2">
-      <Avatar className="border-2 border-background">
-        <AvatarImage src="https://github.com/shadcn.png" alt="User 1" />
+    <div className='flex -space-x-2'>
+      <Avatar className='border-2 border-background'>
+        <AvatarImage src='https://github.com/shadcn.png' alt='User 1' />
         <AvatarFallback>U1</AvatarFallback>
       </Avatar>
-      <Avatar className="border-2 border-background">
-        <AvatarImage src="https://github.com/vercel.png" alt="User 2" />
+      <Avatar className='border-2 border-background'>
+        <AvatarImage src='https://github.com/vercel.png' alt='User 2' />
         <AvatarFallback>U2</AvatarFallback>
       </Avatar>
-      <Avatar className="border-2 border-background">
+      <Avatar className='border-2 border-background'>
         <AvatarFallback>+3</AvatarFallback>
       </Avatar>
     </div>
@@ -102,20 +100,20 @@ export const MultipleAvatars: Story = {
 
 export const WithStatus: Story = {
   render: () => (
-    <div className="relative">
+    <div className='relative'>
       <Avatar>
-        <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+        <AvatarImage src='https://github.com/shadcn.png' alt='@shadcn' />
         <AvatarFallback>CN</AvatarFallback>
       </Avatar>
-      <div className="absolute -bottom-1 -right-1 size-3 rounded-full bg-green-500 border-2 border-background" />
+      <div className='absolute -bottom-1 -right-1 size-3 rounded-full bg-green-500 border-2 border-background' />
     </div>
   ),
 };
 
 export const UserInteraction: Story = {
   render: () => (
-    <Avatar className="cursor-pointer hover:ring-2 hover:ring-ring transition-all">
-      <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+    <Avatar className='cursor-pointer hover:ring-2 hover:ring-ring transition-all'>
+      <AvatarImage src='https://github.com/shadcn.png' alt='@shadcn' />
       <AvatarFallback>CN</AvatarFallback>
     </Avatar>
   ),

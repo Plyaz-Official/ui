@@ -2,9 +2,8 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { expect, userEvent } from '@storybook/test';
 import { useState, useEffect } from 'react';
 
-import { Progress , Button } from '@/components';
+import { Progress, Button } from '@/components';
 import { NUMERIC_CONSTANTS } from '@/constants/constant';
-
 
 type Story = StoryObj<typeof Progress>;
 
@@ -39,23 +38,23 @@ const meta: Meta<typeof Progress> = {
 export default meta;
 
 export const Default: Story = {
-  render: () => <Progress value={33} />,
+  render: () => <Progress value={33} className='bg-blue-100' />,
 };
 
 export const HalfProgress: Story = {
-  render: () => <Progress value={NUMERIC_CONSTANTS.FIFTY} />,
+  render: () => <Progress value={NUMERIC_CONSTANTS.FIFTY} className='bg-blue-100' />,
 };
 
 export const AlmostComplete: Story = {
-  render: () => <Progress value={90} />,
+  render: () => <Progress value={90} className='bg-blue-100' />,
 };
 
 export const Complete: Story = {
-  render: () => <Progress value={100} />,
+  render: () => <Progress value={100} className='bg-blue-100' />,
 };
 
 export const ZeroProgress: Story = {
-  render: () => <Progress value={0} />,
+  render: () => <Progress value={0} className='bg-blue-100' />,
 };
 
 const AnimatedProgressComponent = () => {
@@ -67,7 +66,7 @@ const AnimatedProgressComponent = () => {
     return () => clearTimeout(timer);
   }, [FIVE_HUNDRED, SIXTY_SIX]);
 
-  return <Progress value={progress} />;
+  return <Progress value={progress} className='bg-blue-100' />;
 };
 
 export const AnimatedProgress: Story = {
@@ -75,35 +74,25 @@ export const AnimatedProgress: Story = {
 };
 
 export const WithCustomStyling: Story = {
-  render: () => (
-    <Progress 
-      value={75} 
-      className="h-4 bg-gradient-to-r from-blue-100 to-blue-200"
-    />
-  ),
+  render: () => <Progress value={75} className='h-4 bg-gradient-to-r from-blue-100 to-blue-200' />,
 };
 
 export const WithCustomIndicator: Story = {
-  render: () => (
-    <Progress 
-      value={60} 
-      className="h-3 bg-gray-200"
-    />
-  ),
+  render: () => <Progress value={60} className='h-3 bg-gray-200' />,
 };
 
 export const LargeSize: Story = {
-  render: () => <Progress value={40} className="h-6" />,
+  render: () => <Progress value={40} className='h-6 bg-blue-100' />,
 };
 
 export const SmallSize: Story = {
-  render: () => <Progress value={80} className="h-1" />,
+  render: () => <Progress value={80} className='h-1 bg-blue-100' />,
 };
 
 export const WithLabel: Story = {
   render: () => (
-    <div className="space-y-2">
-      <div className="flex justify-between text-sm">
+    <div className='space-y-2'>
+      <div className='flex justify-between text-sm'>
         <span>Progress</span>
         <span>75%</span>
       </div>
@@ -114,23 +103,23 @@ export const WithLabel: Story = {
 
 export const WithMultipleSteps: Story = {
   render: () => (
-    <div className="space-y-4">
+    <div className='space-y-4'>
       <div>
-        <div className="flex justify-between text-sm mb-1">
+        <div className='flex justify-between text-sm mb-1'>
           <span>Step 1: Setup</span>
           <span>100%</span>
         </div>
         <Progress value={100} />
       </div>
       <div>
-        <div className="flex justify-between text-sm mb-1">
+        <div className='flex justify-between text-sm mb-1'>
           <span>Step 2: Configuration</span>
           <span>60%</span>
         </div>
         <Progress value={60} />
       </div>
       <div>
-        <div className="flex justify-between text-sm mb-1">
+        <div className='flex justify-between text-sm mb-1'>
           <span>Step 3: Deployment</span>
           <span>0%</span>
         </div>
@@ -142,27 +131,18 @@ export const WithMultipleSteps: Story = {
 
 export const WithCustomColors: Story = {
   render: () => (
-    <div className="space-y-4">
+    <div className='space-y-4'>
       <div>
-        <div className="text-sm mb-1">Success Progress</div>
-        <Progress 
-          value={80} 
-          className="bg-green-100"
-        />
+        <div className='text-sm mb-1'>Success Progress</div>
+        <Progress value={80} className='bg-green-100' />
       </div>
       <div>
-        <div className="text-sm mb-1">Warning Progress</div>
-        <Progress 
-          value={60} 
-          className="bg-yellow-100"
-        />
+        <div className='text-sm mb-1'>Warning Progress</div>
+        <Progress value={60} className='bg-yellow-100' />
       </div>
       <div>
-        <div className="text-sm mb-1">Error Progress</div>
-        <Progress 
-          value={30} 
-          className="bg-red-100"
-        />
+        <div className='text-sm mb-1'>Error Progress</div>
+        <Progress value={30} className='bg-red-100' />
       </div>
     </div>
   ),
@@ -184,20 +164,20 @@ const InteractiveProgressComponent = () => {
   };
 
   return (
-    <div className="space-y-4">
-      <div className="flex justify-between text-sm">
+    <div className='space-y-4'>
+      <div className='flex justify-between text-sm'>
         <span>Interactive Progress</span>
         <span>{progress}%</span>
       </div>
       <Progress value={progress} />
-      <div className="flex gap-2">
+      <div className='flex gap-2'>
         <Button onClick={handleDecrement} disabled={progress === 0}>
           -10%
         </Button>
         <Button onClick={handleIncrement} disabled={progress === 100}>
           +10%
         </Button>
-        <Button onClick={handleReset} variant="outline">
+        <Button onClick={handleReset} variant='outline'>
           Reset
         </Button>
       </div>
@@ -217,7 +197,7 @@ const SimulatedLoadingComponent = () => {
     setIsLoading(true);
     setProgress(0);
     const TWO_HUNDRED = NUMERIC_CONSTANTS.TWO_HUNDRED;
-    
+
     const interval = setInterval(() => {
       setProgress(prev => {
         if (prev >= 100) {
@@ -231,16 +211,13 @@ const SimulatedLoadingComponent = () => {
   };
 
   return (
-    <div className="space-y-4">
-      <div className="flex justify-between text-sm">
+    <div className='space-y-4'>
+      <div className='flex justify-between text-sm'>
         <span>Loading Progress</span>
         <span>{Math.round(progress)}%</span>
       </div>
       <Progress value={progress} />
-      <Button 
-        onClick={startLoading} 
-        disabled={isLoading}
-      >
+      <Button onClick={startLoading} disabled={isLoading}>
         {isLoading ? 'Loading...' : 'Start Loading'}
       </Button>
     </div>
@@ -261,10 +238,10 @@ export const WithSteps: Story = {
     ];
 
     return (
-      <div className="space-y-6">
+      <div className='space-y-6'>
         {steps.map((step, index) => (
-          <div key={index} className="space-y-2">
-            <div className="flex justify-between text-sm">
+          <div key={index} className='space-y-2'>
+            <div className='flex justify-between text-sm'>
               <span>{step.name}</span>
               <span>{step.progress}%</span>
             </div>
@@ -278,16 +255,16 @@ export const WithSteps: Story = {
 
 export const WithCustomMax: Story = {
   render: () => (
-    <div className="space-y-4">
+    <div className='space-y-4'>
       <div>
-        <div className="flex justify-between text-sm mb-1">
+        <div className='flex justify-between text-sm mb-1'>
           <span>Progress (0-50)</span>
           <span>25/50</span>
         </div>
         <Progress value={NUMERIC_CONSTANTS.TWENTY_FIVE} max={NUMERIC_CONSTANTS.FIFTY} />
       </div>
       <div>
-        <div className="flex justify-between text-sm mb-1">
+        <div className='flex justify-between text-sm mb-1'>
           <span>Progress (0-200)</span>
           <span>150/200</span>
         </div>
@@ -302,20 +279,17 @@ const UserInteractionComponent = () => {
   const [progress, setProgress] = useState<number>(FIVE_HUNDRED);
 
   return (
-    <div className="space-y-4">
-      <div className="flex justify-between text-sm">
+    <div className='space-y-4'>
+      <div className='flex justify-between text-sm'>
         <span>Interactive Progress</span>
         <span>{progress}%</span>
       </div>
       <Progress value={progress} />
-      <div className="flex gap-2">
-        <Button 
-          onClick={() => setProgress(Math.max(0, progress - 10))}
-          disabled={progress === 0}
-        >
+      <div className='flex gap-2'>
+        <Button onClick={() => setProgress(Math.max(0, progress - 10))} disabled={progress === 0}>
           Decrease
         </Button>
-        <Button 
+        <Button
           onClick={() => setProgress(Math.min(100, progress + 10))}
           disabled={progress === 100}
         >

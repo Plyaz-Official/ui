@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from '@storybook/blocks';
+import { Canvas, Meta, Story, Controls } from '@storybook/blocks';
 import * as RadioGroupStories from './RadioGroup.stories';
 
 <Meta of={RadioGroupStories} />
@@ -48,29 +48,9 @@ import { RadioGroup, RadioGroupItem, Label } from '@/components';
 
 <Canvas of={RadioGroupStories.WithControlledValue} />
 
-## API Reference
+## Props
 
-### RadioGroup Props
-
-| Prop            | Type                         | Default      | Description                          |
-| --------------- | ---------------------------- | ------------ | ------------------------------------ |
-| `value`         | `string`                     | -            | The current value of the radio group |
-| `defaultValue`  | `string`                     | -            | The default value of the radio group |
-| `onValueChange` | `(value: string) => void`    | -            | Called when the value changes        |
-| `disabled`      | `boolean`                    | `false`      | Whether the radio group is disabled  |
-| `name`          | `string`                     | -            | The name of the radio group          |
-| `required`      | `boolean`                    | `false`      | Whether the radio group is required  |
-| `orientation`   | `"horizontal" \| "vertical"` | `"vertical"` | The orientation of the radio group   |
-| `dir`           | `"ltr" \| "rtl"`             | -            | The direction of the radio group     |
-
-### RadioGroupItem Props
-
-| Prop        | Type      | Default | Description                        |
-| ----------- | --------- | ------- | ---------------------------------- |
-| `value`     | `string`  | -       | The value of the radio item        |
-| `disabled`  | `boolean` | `false` | Whether the radio item is disabled |
-| `id`        | `string`  | -       | The id of the radio item           |
-| `className` | `string`  | -       | Additional CSS classes             |
+<Controls of={RadioGroupStories.Default} />
 
 ## Accessibility
 
