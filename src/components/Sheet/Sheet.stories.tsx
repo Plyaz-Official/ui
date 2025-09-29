@@ -9,9 +9,9 @@ import {
   SheetHeader,
   SheetFooter,
   SheetTitle,
-  SheetDescription,
-  Button,
-} from '@/components';
+  SheetDescription
+} from '@/components/client';
+import { Button } from '@/components';
 
 type Story = StoryObj<typeof Sheet>;
 

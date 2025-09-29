@@ -3,7 +3,8 @@ import { expect, userEvent } from '@storybook/test';
 import { useState } from 'react';
 import { HelpCircle, Info, Settings, User, Mail, Phone } from 'lucide-react';
 
-import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider, Button } from '@/components';
+import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from '@/components/client';
+import { Button } from '@/components';
 
 type Story = StoryObj<typeof Tooltip>;
 

@@ -9,7 +9,7 @@ import {
   CarouselNext,
   CarouselPrevious,
   type CarouselApi,
-} from '@/components';
+} from '@/components/client';
 
 type Story = StoryObj<typeof Carousel>;
 

@@ -13,7 +13,7 @@ import {
   CommandList,
   CommandSeparator,
   CommandShortcut,
-} from '@/components';
+} from '@/components/client';
 
 type Story = StoryObj<typeof Command>;
 

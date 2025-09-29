@@ -1,7 +1,7 @@
 import { Meta, Canvas, Controls, Source } from '@storybook/addon-docs';
 import * as ToggleStories from './Toggle.stories';
 
-import { Toggle } from '@/components';
+import { Toggle } from '@/components/client';
 
 <Meta of={ToggleStories} />
 
@@ -27,18 +27,16 @@ The `Toggle` component provides a two-state button that can be toggled on and of
 <Source
   language="tsx"
   code={`
-import { Toggle } from '@/components';
+import { Toggle } from '@/components/client';
 import { Italic } from 'lucide-react';
 
 function BasicToggle() {
 return (
-<Toggle aria-label="Toggle italic">
-<Italic />
+
+<Toggle aria-label='Toggle italic'>
+  <Italic />
 </Toggle>
-);
-}
-`}
-/>
+); } `} />
 
 ### With Text
 
@@ -47,15 +45,13 @@ return (
 <Source
   language="tsx"
   code={`
-import { Toggle } from '@/components';
+import { Toggle } from '@/components/client';
 
 function TextToggle() {
 return (
+
 <Toggle>Toggle</Toggle>
-);
-}
-`}
-/>
+); } `} />
 
 ### With Icon and Text
 
@@ -64,19 +60,17 @@ return (
 <Source
   language="tsx"
   code={`
-import { Toggle } from '@/components';
+import { Toggle } from '@/components/client';
 import { Bold } from 'lucide-react';
 
 function IconTextToggle() {
 return (
+
 <Toggle>
-<Bold />
-Bold
+  <Bold />
+  Bold
 </Toggle>
-);
-}
-`}
-/>
+); } `} />
 
 ### Outline Variant
 
@@ -85,18 +79,16 @@ Bold
 <Source
   language="tsx"
   code={`
-import { Toggle } from '@/components';
+import { Toggle } from '@/components/client';
 import { Italic } from 'lucide-react';
 
 function OutlineToggle() {
 return (
-<Toggle variant="outline" aria-label="Toggle italic">
-<Italic />
+
+<Toggle variant='outline' aria-label='Toggle italic'>
+  <Italic />
 </Toggle>
-);
-}
-`}
-/>
+); } `} />
 
 ### Size Variants
 
@@ -105,26 +97,24 @@ return (
 <Source
   language="tsx"
   code={`
-import { Toggle } from '@/components';
+import { Toggle } from '@/components/client';
 import { Italic } from 'lucide-react';
 
 function SizeToggle() {
 return (
-<div className="flex items-center gap-2">
-<Toggle size="sm" aria-label="Small toggle">
-<Italic />
-</Toggle>
-<Toggle size="default" aria-label="Default toggle">
-<Italic />
-</Toggle>
-<Toggle size="lg" aria-label="Large toggle">
-<Italic />
-</Toggle>
+
+<div className='flex items-center gap-2'>
+  <Toggle size='sm' aria-label='Small toggle'>
+    <Italic />
+  </Toggle>
+  <Toggle size='default' aria-label='Default toggle'>
+    <Italic />
+  </Toggle>
+  <Toggle size='lg' aria-label='Large toggle'>
+    <Italic />
+  </Toggle>
 </div>
-);
-}
-`}
-/>
+); } `} />
 
 ### Disabled State
 
@@ -133,18 +123,16 @@ return (
 <Source
   language="tsx"
   code={`
-import { Toggle } from '@/components';
+import { Toggle } from '@/components/client';
 import { Italic } from 'lucide-react';
 
 function DisabledToggle() {
 return (
-<Toggle disabled aria-label="Toggle italic">
-<Italic />
+
+<Toggle disabled aria-label='Toggle italic'>
+  <Italic />
 </Toggle>
-);
-}
-`}
-/>
+); } `} />
 
 ### Pressed State
 
@@ -153,18 +141,16 @@ return (
 <Source
   language="tsx"
   code={`
-import { Toggle } from '@/components';
+import { Toggle } from '@/components/client';
 import { Italic } from 'lucide-react';
 
 function PressedToggle() {
 return (
-<Toggle pressed aria-label="Toggle italic">
-<Italic />
+
+<Toggle pressed aria-label='Toggle italic'>
+  <Italic />
 </Toggle>
-);
-}
-`}
-/>
+); } `} />
 
 ### With Custom Styling
 
@@ -173,21 +159,19 @@ return (
 <Source
   language="tsx"
   code={`
-import { Toggle } from '@/components';
+import { Toggle } from '@/components/client';
 import { Italic } from 'lucide-react';
 
 function CustomStyledToggle() {
 return (
-<Toggle 
-      className="bg-blue-500 text-white hover:bg-blue-600 data-[state=on]:bg-blue-700" 
-      aria-label="Toggle italic"
-    >
-<Italic />
+
+<Toggle
+  className='bg-blue-500 text-white hover:bg-blue-600 data-[state=on]:bg-blue-700'
+  aria-label='Toggle italic'
+>
+  <Italic />
 </Toggle>
-);
-}
-`}
-/>
+); } `} />
 
 ### Text Formatting Group
 
@@ -196,7 +180,7 @@ return (
 <Source
   language="tsx"
   code={`
-import { Toggle } from '@/components';
+import { Toggle } from '@/components/client';
 import { useState } from 'react';
 import { Bold, Italic, Underline } from 'lucide-react';
 
@@ -206,33 +190,19 @@ const [italic, setItalic] = useState(false);
 const [underline, setUnderline] = useState(false);
 
 return (
-<div className="flex items-center gap-1">
-<Toggle 
-        pressed={bold} 
-        onPressedChange={setBold} 
-        aria-label="Toggle bold"
-      >
-<Bold />
-</Toggle>
-<Toggle 
-        pressed={italic} 
-        onPressedChange={setItalic} 
-        aria-label="Toggle italic"
-      >
-<Italic />
-</Toggle>
-<Toggle 
-        pressed={underline} 
-        onPressedChange={setUnderline} 
-        aria-label="Toggle underline"
-      >
-<Underline />
-</Toggle>
+
+<div className='flex items-center gap-1'>
+  <Toggle pressed={bold} onPressedChange={setBold} aria-label='Toggle bold'>
+    <Bold />
+  </Toggle>
+  <Toggle pressed={italic} onPressedChange={setItalic} aria-label='Toggle italic'>
+    <Italic />
+  </Toggle>
+  <Toggle pressed={underline} onPressedChange={setUnderline} aria-label='Toggle underline'>
+    <Underline />
+  </Toggle>
 </div>
-);
-}
-`}
-/>
+); } `} />
 
 ### Alignment Group
 
@@ -241,7 +211,7 @@ return (
 <Source
   language="tsx"
   code={`
-import { Toggle } from '@/components';
+import { Toggle } from '@/components/client';
 import { useState } from 'react';
 import { AlignLeft, AlignCenter, AlignRight } from 'lucide-react';
 
@@ -249,30 +219,31 @@ function AlignmentGroup() {
 const [alignment, setAlignment] = useState('left');
 
 return (
-<div className="flex items-center gap-1">
-<Toggle
-pressed={alignment === 'left'}
-onPressedChange={() => setAlignment('left')}
-aria-label="Align left" >
-<AlignLeft />
-</Toggle>
-<Toggle
-pressed={alignment === 'center'}
-onPressedChange={() => setAlignment('center')}
-aria-label="Align center" >
-<AlignCenter />
-</Toggle>
-<Toggle
-pressed={alignment === 'right'}
-onPressedChange={() => setAlignment('right')}
-aria-label="Align right" >
-<AlignRight />
-</Toggle>
+
+<div className='flex items-center gap-1'>
+  <Toggle
+    pressed={alignment === 'left'}
+    onPressedChange={() => setAlignment('left')}
+    aria-label='Align left'
+  >
+    <AlignLeft />
+  </Toggle>
+  <Toggle
+    pressed={alignment === 'center'}
+    onPressedChange={() => setAlignment('center')}
+    aria-label='Align center'
+  >
+    <AlignCenter />
+  </Toggle>
+  <Toggle
+    pressed={alignment === 'right'}
+    onPressedChange={() => setAlignment('right')}
+    aria-label='Align right'
+  >
+    <AlignRight />
+  </Toggle>
 </div>
-);
-}
-`}
-/>
+); } `} />
 
 ### With Tooltips
 
@@ -281,7 +252,7 @@ aria-label="Align right" >
 <Source
   language="tsx"
   code={`
-import { Toggle } from '@/components';
+import { Toggle } from '@/components/client';
 import { useState } from 'react';
 import { Bold, Italic } from 'lucide-react';
 
@@ -290,28 +261,21 @@ const [bold, setBold] = useState(false);
 const [italic, setItalic] = useState(false);
 
 return (
-<div className="flex items-center gap-1">
-<Toggle 
-        pressed={bold} 
-        onPressedChange={setBold} 
-        aria-label="Toggle bold"
-        title="Bold (Ctrl+B)"
-      >
-<Bold />
-</Toggle>
-<Toggle 
-        pressed={italic} 
-        onPressedChange={setItalic} 
-        aria-label="Toggle italic"
-        title="Italic (Ctrl+I)"
-      >
-<Italic />
-</Toggle>
+
+<div className='flex items-center gap-1'>
+  <Toggle pressed={bold} onPressedChange={setBold} aria-label='Toggle bold' title='Bold (Ctrl+B)'>
+    <Bold />
+  </Toggle>
+  <Toggle
+    pressed={italic}
+    onPressedChange={setItalic}
+    aria-label='Toggle italic'
+    title='Italic (Ctrl+I)'
+  >
+    <Italic />
+  </Toggle>
 </div>
-);
-}
-`}
-/>
+); } `} />
 
 ### With User Interaction
 
@@ -320,7 +284,7 @@ return (
 <Source
   language="tsx"
   code={`
-import { Toggle } from '@/components';
+import { Toggle } from '@/components/client';
 import { useState } from 'react';
 import { Bold } from 'lucide-react';
 
@@ -334,23 +298,17 @@ setClickCount(prev => prev + 1);
 };
 
 return (
-<div className="space-y-4">
-<Toggle 
-        pressed={bold} 
-        onPressedChange={handleToggle} 
-        aria-label="Toggle bold"
-      >
-<Bold />
-</Toggle>
-<div className="text-sm text-muted-foreground space-y-1">
-<p>Bold: {bold ? 'On' : 'Off'}</p>
-<p>Clicks: {clickCount}</p>
+
+<div className='space-y-4'>
+  <Toggle pressed={bold} onPressedChange={handleToggle} aria-label='Toggle bold'>
+    <Bold />
+  </Toggle>
+  <div className='text-sm text-muted-foreground space-y-1'>
+    <p>Bold: {bold ? 'On' : 'Off'}</p>
+    <p>Clicks: {clickCount}</p>
+  </div>
 </div>
-</div>
-);
-}
-`}
-/>
+); } `} />
 
 ## Props
 

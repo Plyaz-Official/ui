@@ -3,7 +3,7 @@ import { expect, userEvent } from '@storybook/test';
 import { useState } from 'react';
 import { Bold, Italic, Underline, AlignLeft, AlignCenter, AlignRight } from 'lucide-react';
 
-import { Toggle } from '@/components';
+import { Toggle } from '@/components/client';
 
 type Story = StoryObj<typeof Toggle>;
 

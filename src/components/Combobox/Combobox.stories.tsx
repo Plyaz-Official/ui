@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { userEvent, fn } from '@storybook/test';
 import { useState } from 'react';
 
-import { Combobox, type ComboboxOption } from '@/components';
+import { Combobox, type ComboboxOption } from '@/components/client';
 
 type Story = StoryObj<typeof Combobox>;
 

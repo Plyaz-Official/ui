@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
-import { ScrollArea, ScrollBar } from '@/components';
+import { ScrollArea, ScrollBar } from '@/components/client';
 import { NUMERIC_CONSTANTS } from '@/constants/constant';
 
 type Story = StoryObj<typeof ScrollArea>;

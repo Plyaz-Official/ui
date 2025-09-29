@@ -2,7 +2,8 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { expect, userEvent } from '@storybook/test';
 import { useState } from 'react';
 
-import { RadioGroup, RadioGroupItem, Label } from '@/components';
+import { RadioGroup, RadioGroupItem } from '@/components/client';
+import { Label } from '@/components';
 
 type Story = StoryObj<typeof RadioGroup>;
 

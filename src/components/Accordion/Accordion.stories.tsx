@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { expect, userEvent } from '@storybook/test';
 
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components';
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/client';
 
 type Story = StoryObj<typeof Accordion>;
 

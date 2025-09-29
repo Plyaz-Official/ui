@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { expect, userEvent } from '@storybook/test';
 import { useState } from 'react';
 
-import { InputOTP, InputOTPGroup, InputOTPSlot, InputOTPSeparator } from '@/components';
+import { InputOTP, InputOTPGroup, InputOTPSlot, InputOTPSeparator } from '@/components/client';
 
 type Story = StoryObj<typeof InputOTP>;
 
