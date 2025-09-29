@@ -18,7 +18,7 @@ import {
   ContextMenuSubContent,
   ContextMenuSubTrigger,
   ContextMenuRadioGroup,
-} from '@/components';
+} from '@/components/client';
 
 type Story = StoryObj<typeof ContextMenu>;
 

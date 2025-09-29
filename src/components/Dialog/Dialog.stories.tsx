@@ -11,8 +11,8 @@ import {
   DialogTitle,
   DialogTrigger,
   DialogClose,
-  Button,
-} from '@/components';
+} from '@/components/client';
+import { Button } from '@/components';
 
 type Story = StoryObj<typeof Dialog>;
 

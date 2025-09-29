@@ -17,8 +17,8 @@ import {
   DropdownMenuSub,
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
-  Button,
-} from '@/components';
+} from '@/components/client';
+import { Button } from '@/components';
 
 type Story = StoryObj<typeof DropdownMenu>;
 

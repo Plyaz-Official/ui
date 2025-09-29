@@ -1,7 +1,7 @@
 import { Meta, Canvas, Controls, Source } from '@storybook/addon-docs';
 import * as ScrollAreaStories from './ScrollArea.stories';
 
-import { ScrollArea, ScrollBar } from '@/components';
+import { ScrollArea, ScrollBar } from '@/components/client';
 
 <Meta of={ScrollAreaStories} />
 
@@ -28,7 +28,7 @@ The `ScrollArea` component provides a customizable scrollable area with custom s
 <Source
   language="tsx"
   code={`
-import { ScrollArea } from '@/components';
+import { ScrollArea } from '@/components/client';
 
 function BasicScrollArea() {
 return (
@@ -55,7 +55,7 @@ v1.2.0-beta.{i + 1}
 <Source
   language="tsx"
   code={`
-import { ScrollArea, ScrollBar } from '@/components';
+import { ScrollArea, ScrollBar } from '@/components/client';
 
 function HorizontalScrollArea() {
 return (
@@ -84,7 +84,7 @@ return (
 <Source
   language="tsx"
   code={`
-import { ScrollArea, ScrollBar } from '@/components';
+import { ScrollArea, ScrollBar } from '@/components/client';
 
 function BothScrollbarsArea() {
 return (
@@ -118,7 +118,7 @@ return (
 <Source
   language="tsx"
   code={`
-import { ScrollArea } from '@/components';
+import { ScrollArea } from '@/components/client';
 
 function CustomStyledScrollArea() {
 return (
@@ -145,7 +145,7 @@ Custom item {i + 1}
 <Source
   language="tsx"
   code={`
-import { ScrollArea } from '@/components';
+import { ScrollArea } from '@/components/client';
 
 function ListScrollArea() {
 return (
@@ -175,7 +175,7 @@ return (
 <Source
   language="tsx"
   code={`
-import { ScrollArea } from '@/components';
+import { ScrollArea } from '@/components/client';
 
 function TableScrollArea() {
 return (
@@ -223,7 +223,7 @@ i % 3 === 1 ? 'bg-yellow-100 text-yellow-800' :
 <Source
   language="tsx"
   code={`
-import { ScrollArea } from '@/components';
+import { ScrollArea } from '@/components/client';
 
 function FormScrollArea() {
 return (
@@ -259,7 +259,7 @@ placeholder={\`Enter value for field \${i + 1}\`}
 <Source
   language="tsx"
   code={`
-import { ScrollArea } from '@/components';
+import { ScrollArea } from '@/components/client';
 
 function NestedScrollAreas() {
 return (
@@ -293,7 +293,7 @@ return (
 <Source
   language="tsx"
   code={`
-import { ScrollArea } from '@/components';
+import { ScrollArea } from '@/components/client';
 
 function DifferentSizesScrollArea() {
 return (
@@ -348,7 +348,7 @@ Large item {i + 1}
 <Source
   language="tsx"
   code={`
-import { ScrollArea, ScrollBar } from '@/components';
+import { ScrollArea, ScrollBar } from '@/components/client';
 
 function CustomScrollbarArea() {
 return (
@@ -376,7 +376,7 @@ Item {i + 1}
 <Source
   language="tsx"
   code={`
-import { ScrollArea, ScrollBar } from '@/components';
+import { ScrollArea, ScrollBar } from '@/components/client';
 
 function HorizontalOnlyScrollArea() {
 return (
@@ -405,7 +405,7 @@ return (
 <Source
   language="tsx"
   code={`
-import { ScrollArea } from '@/components';
+import { ScrollArea } from '@/components/client';
 
 function VerticalOnlyScrollArea() {
 return (
@@ -432,7 +432,7 @@ Item {i + 1}
 <Source
   language="tsx"
   code={`
-import { ScrollArea } from '@/components';
+import { ScrollArea } from '@/components/client';
 
 function FocusManagementScrollArea() {
 return (
@@ -462,7 +462,7 @@ Focusable item {i + 1}
 <Source
   language="tsx"
   code={`
-import { ScrollArea } from '@/components';
+import { ScrollArea } from '@/components/client';
 
 function KeyboardNavigationScrollArea() {
 return (
@@ -493,7 +493,7 @@ Navigable item {i + 1}
 <Source
   language="tsx"
   code={`
-import { ScrollArea } from '@/components';
+import { ScrollArea } from '@/components/client';
 import { useState } from 'react';
 
 function DynamicContentScrollArea() {
@@ -542,7 +542,7 @@ Dynamic item {i + 1}
 <Source
   language="tsx"
   code={`
-import { ScrollArea } from '@/components';
+import { ScrollArea } from '@/components/client';
 
 function LoadingStateScrollArea() {
 return (

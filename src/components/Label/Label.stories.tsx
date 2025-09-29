@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { expect, userEvent, fn } from '@storybook/test';
 
-import { Label, Input, Checkbox } from '@/components';
+import { Checkbox } from '@/components/client';
+import { Input, Label } from '@/components';
 
 type Story = StoryObj<typeof Label>;
 

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { expect, userEvent, fn } from '@storybook/test';
 import { useState } from 'react';
 
-import { Checkbox } from '@/components';
+import { Checkbox } from '@/components/client';
 
 type Story = StoryObj<typeof Checkbox>;
 

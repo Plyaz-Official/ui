@@ -1,7 +1,7 @@
 import { Meta, Canvas, Controls, Source } from '@storybook/addon-docs';
 import * as SliderStories from './Slider.stories';
 
-import { Slider } from '@/components';
+import { Slider } from '@/components/client';
 
 <Meta of={SliderStories} />
 
@@ -28,7 +28,7 @@ The `Slider` component provides a range input control for selecting values. It i
 <Source
   language="tsx"
   code={`
-import { Slider } from '@/components';
+import { Slider } from '@/components/client';
 
 function BasicSlider() {
 return <Slider defaultValue={[50]} max={100} step={1} />;
@@ -43,7 +43,7 @@ return <Slider defaultValue={[50]} max={100} step={1} />;
 <Source
   language="tsx"
   code={`
-import { Slider } from '@/components';
+import { Slider } from '@/components/client';
 
 function ValueSlider() {
 return <Slider value={[75]} max={100} step={1} />;
@@ -58,7 +58,7 @@ return <Slider value={[75]} max={100} step={1} />;
 <Source
   language="tsx"
   code={`
-import { Slider } from '@/components';
+import { Slider } from '@/components/client';
 
 function RangeSlider() {
 return <Slider defaultValue={[20, 80]} max={100} step={1} />;
@@ -73,7 +73,7 @@ return <Slider defaultValue={[20, 80]} max={100} step={1} />;
 <Source
   language="tsx"
   code={`
-import { Slider } from '@/components';
+import { Slider } from '@/components/client';
 
 function VerticalSlider() {
 return (
@@ -90,7 +90,7 @@ return (
 <Source
   language="tsx"
   code={`
-import { Slider } from '@/components';
+import { Slider } from '@/components/client';
 
 function DisabledSlider() {
 return <Slider defaultValue={[50]} max={100} step={1} disabled />;
@@ -105,7 +105,7 @@ return <Slider defaultValue={[50]} max={100} step={1} disabled />;
 <Source
   language="tsx"
   code={`
-import { Slider } from '@/components';
+import { Slider } from '@/components/client';
 import { useState } from 'react';
 
 function LabeledSlider() {
@@ -131,7 +131,7 @@ return (
 <Source
   language="tsx"
   code={`
-import { Slider } from '@/components';
+import { Slider } from '@/components/client';
 import { useState } from 'react';
 
 function MarkedSlider() {
@@ -167,7 +167,7 @@ return (
 <Source
   language="tsx"
   code={`
-import { Slider } from '@/components';
+import { Slider } from '@/components/client';
 
 function CustomColorSlider() {
 return (
@@ -214,7 +214,7 @@ return (
 <Source
   language="tsx"
   code={`
-import { Slider } from '@/components';
+import { Slider } from '@/components/client';
 
 function CustomSizeSlider() {
 return (
@@ -252,7 +252,7 @@ return (
 <Source
   language="tsx"
   code={`
-import { Slider } from '@/components';
+import { Slider } from '@/components/client';
 import { useState } from 'react';
 
 function MultipleValueSlider() {
@@ -276,7 +276,7 @@ return (
 <Source
   language="tsx"
   code={`
-import { Slider } from '@/components';
+import { Slider } from '@/components/client';
 import { useState } from 'react';
 
 function FormSlider() {
@@ -344,7 +344,7 @@ className="w-full"
 <Source
   language="tsx"
   code={`
-import { Slider } from '@/components';
+import { Slider } from '@/components/client';
 
 function AccessibleSlider() {
 return (

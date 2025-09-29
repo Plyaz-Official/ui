@@ -2,7 +2,8 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { userEvent } from '@storybook/test';
 import { useState, useEffect } from 'react';
 
-import { Progress, Button } from '@/components';
+import { Progress } from '@/components/client';
+import { Button } from '@/components';
 import { NUMERIC_CONSTANTS } from '@/constants/constant';
 
 type Story = StoryObj<typeof Progress>;

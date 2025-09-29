@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { expect } from '@storybook/test';
 
-import { Avatar, AvatarImage, AvatarFallback } from '@/components';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/client';
 
 type Story = StoryObj<typeof Avatar>;
 

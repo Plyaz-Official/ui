@@ -29,9 +29,6 @@ export { InputOTP, InputOTPGroup, InputOTPSlot, InputOTPSeparator } from './Inpu
 export { Slider } from './Slider/Slider';
 export { Progress } from './Progress/Progress';
 
-export { default as LanguageSelector } from './LanguageSelector/LanguageSelector';
-export { Marquee } from './Marquee/Marquee';
-
 // Radix UI components that require client-side functionality
 export {
   Accordion,
@@ -136,3 +133,4 @@ export {
 } from './Sheet/Sheet';
 
 export { Toaster } from './Toaster/Toaster';
+export { Toggle } from './Toggle/Toggle';

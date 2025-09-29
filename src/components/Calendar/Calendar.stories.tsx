@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { expect, fn } from '@storybook/test';
 import { addDays, subDays } from 'date-fns';
 
-import { Calendar } from '@/components';
+import { Calendar } from '@/components/client';
 
 const DAYS_TO_ADD = {
   ONE_WEEK: 7,

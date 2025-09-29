@@ -2,7 +2,8 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { userEvent } from '@storybook/test';
 import { useState } from 'react';
 
-import { HoverCard, HoverCardContent, HoverCardTrigger, Button } from '@/components';
+import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/client';
+import { Button } from '@/components';
 
 type Story = StoryObj<typeof HoverCard>;
 

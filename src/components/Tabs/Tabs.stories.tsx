@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { expect, userEvent } from '@storybook/test';
 import { useState } from 'react';
 
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/client';
 
 type Story = StoryObj<typeof Tabs>;
 
