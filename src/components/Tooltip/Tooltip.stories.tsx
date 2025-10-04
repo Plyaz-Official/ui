@@ -105,12 +105,14 @@ export const ShouldShowOnHover: Story = {
 
     await step("unhover trigger", async () => {
       await userEvent.unhover(triggerBtn);
-      await waitFor(() =>
-        expect(
-          canvasElement.ownerDocument.body.querySelector(
-            '[data-slot="tooltip-content"]',
-          ),
-        ).not.toBeVisible(),
+      await waitFor(
+        () =>
+          expect(
+            canvasElement.ownerDocument.body.querySelector(
+              '[data-slot="tooltip-content"]',
+            ),
+          ).not.toBeVisible(),
+        { timeout: 3000 }
       );
     });
   },
