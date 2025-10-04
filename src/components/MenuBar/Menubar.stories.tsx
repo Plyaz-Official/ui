@@ -1,56 +1,37 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { expect, userEvent, screen, fn } from '@storybook/test';
+
+import type { Meta, StoryObj } from "@storybook/react";
+import { expect, userEvent, within } from "@storybook/test";
 
 import {
   Menubar,
-  MenubarMenu,
-  MenubarTrigger,
+  MenubarCheckboxItem,
   MenubarContent,
+  MenubarGroup,
   MenubarItem,
+  MenubarLabel,
+  MenubarMenu,
+  MenubarRadioGroup,
+  MenubarRadioItem,
   MenubarSeparator,
   MenubarShortcut,
   MenubarSub,
-  MenubarSubTrigger,
   MenubarSubContent,
-  MenubarLabel,
-  MenubarRadioGroup,
-  MenubarRadioItem,
-  MenubarCheckboxItem,
-  MenubarGroup,
-} from '@/components/MenuBar/Menubar';
+  MenubarSubTrigger,
+  MenubarTrigger,
+} from "@/components/client";
 
-type Story = StoryObj<typeof Menubar>;
-
-const meta: Meta<typeof Menubar> = {
-  title: 'Components/Menubar',
+/**
+ * A visually persistent menu common in desktop applications that provides
+ * quick access to a consistent set of commands.
+ */
+const meta = {
+  title: "components/Menubar",
   component: Menubar,
-  tags: ['autodocs'],
-  parameters: {
-    docs: {
-      description: {
-        component:
-          '`Menubar` is a headless, accessible horizontal menu bar built with Radix UI. Use it to group top-level actions with dropdowns for navigation or commands. Supports keyboard navigation, accessibility, and custom styling.',
-      },
-    },
-  },
-  argTypes: {
-    children: {
-      control: 'text',
-      description: 'Content of the menubar',
-    },
-    className: {
-      control: 'text',
-      description: 'Additional CSS classes for custom styling',
-    },
-  },
-};
+  tags: ["autodocs"],
+  argTypes: {},
 
-export default meta;
-
-// -- Default
-export const Default: Story = {
-  render: () => (
-    <Menubar>
+  render: (args) => (
+    <Menubar {...args}>
       <MenubarMenu>
         <MenubarTrigger>File</MenubarTrigger>
         <MenubarContent>
@@ -66,12 +47,26 @@ export const Default: Story = {
       </MenubarMenu>
     </Menubar>
   ),
-};
+  parameters: {
+    layout: "centered",
+  },
+} satisfies Meta<typeof Menubar>;
 
-// -- With Submenu
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+/**
+ * The default form of the menubar.
+ */
+export const Default: Story = {};
+
+/**
+ * A menubar with a submenu.
+ */
 export const WithSubmenu: Story = {
-  render: () => (
-    <Menubar>
+  render: (args) => (
+    <Menubar {...args}>
       <MenubarMenu>
         <MenubarTrigger>Actions</MenubarTrigger>
         <MenubarContent>
@@ -90,18 +85,20 @@ export const WithSubmenu: Story = {
   ),
 };
 
-// -- With Radio Items
+/**
+ * A menubar with radio items.
+ */
 export const WithRadioItems: Story = {
-  render: () => (
-    <Menubar>
+  render: (args) => (
+    <Menubar {...args}>
       <MenubarMenu>
         <MenubarTrigger>View</MenubarTrigger>
         <MenubarContent>
           <MenubarLabel inset>Device Size</MenubarLabel>
-          <MenubarRadioGroup value='md'>
-            <MenubarRadioItem value='sm'>Small</MenubarRadioItem>
-            <MenubarRadioItem value='md'>Medium</MenubarRadioItem>
-            <MenubarRadioItem value='lg'>Large</MenubarRadioItem>
+          <MenubarRadioGroup value="md">
+            <MenubarRadioItem value="sm">Small</MenubarRadioItem>
+            <MenubarRadioItem value="md">Medium</MenubarRadioItem>
+            <MenubarRadioItem value="lg">Large</MenubarRadioItem>
           </MenubarRadioGroup>
         </MenubarContent>
       </MenubarMenu>
@@ -109,10 +106,12 @@ export const WithRadioItems: Story = {
   ),
 };
 
-// -- With Checkbox Items
+/**
+ * A menubar with checkbox items.
+ */
 export const WithCheckboxItems: Story = {
-  render: () => (
-    <Menubar>
+  render: (args) => (
+    <Menubar {...args}>
       <MenubarMenu>
         <MenubarTrigger>Filters</MenubarTrigger>
         <MenubarContent>
@@ -128,52 +127,25 @@ export const WithCheckboxItems: Story = {
   ),
 };
 
-// -- Disabled Trigger
-export const DisabledTrigger: Story = {
-  render: () => (
-    <Menubar>
-      <MenubarMenu>
-        <MenubarTrigger disabled>File</MenubarTrigger>
-        <MenubarContent>
-          <MenubarItem>Should not open</MenubarItem>
-        </MenubarContent>
-      </MenubarMenu>
-    </Menubar>
-  ),
-};
+export const ShouldOpenClose: Story = {
+  name: "when clicking an item, should close the menubar",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ canvasElement, step }) => {
+    const canvasBody = within(canvasElement.ownerDocument.body);
 
-// -- User Interaction Test
-export const UserInteraction: Story = {
-  args: {
-    onClick: fn(),
-  },
-  render: args => (
-    <Menubar {...args}>
-      <MenubarMenu>
-        <MenubarTrigger data-testid='file'>File</MenubarTrigger>
-        <MenubarContent>
-          <MenubarItem data-testid='new-tab' onSelect={() => args.onSelect}>
-            New Tab
-          </MenubarItem>
-        </MenubarContent>
-      </MenubarMenu>
-    </Menubar>
-  ),
-  play: async ({ args, canvas }) => {
-    const button = canvas.getByTestId('file');
-    const start = performance.now();
-    await userEvent.click(await screen.findByRole('menuitem'));
-    const end = performance.now();
-    const performanceDuration = 300;
-    await expect(end - start).toBeLessThan(performanceDuration);
-    const items = await screen.findAllByRole('menuitem');
-    const EXPECTED_LENGTH = 2;
-    await expect(items).toHaveLength(EXPECTED_LENGTH);
-    if (button) {
-      await userEvent.click(button);
-      await expect(args.onClick).toBeCalled();
-    }
-    const EXPECTED_DURATION = 100;
-    await userEvent.click(items[0], { delay: EXPECTED_DURATION });
+    await step("open the menubar", async () => {
+      await userEvent.click(
+        await canvasBody.findByRole("menuitem", { name: /file/i }),
+      );
+      await expect(await canvasBody.findByRole("menu")).toBeInTheDocument();
+    });
+
+    const items = await canvasBody.findAllByRole("menuitem");
+    const itemsLength = 5;
+    await expect(items).toHaveLength(itemsLength);
+
+    await step("click the first item to close the menubar", async () => {
+      await userEvent.click(items[0], { delay: 100 });
+    });
   },
 };

@@ -36,18 +36,6 @@ import { RadioGroup, RadioGroupItem, Label } from '@/components';
 </RadioGroup>;
 ```
 
-### With Descriptions
-
-<Canvas of={RadioGroupStories.WithDescriptions} />
-
-### With Form Integration
-
-<Canvas of={RadioGroupStories.WithForm} />
-
-### Controlled Component
-
-<Canvas of={RadioGroupStories.WithControlledValue} />
-
 ## Props
 
 <Controls of={RadioGroupStories.Default} />
@@ -67,30 +55,20 @@ The RadioGroup component follows WAI-ARIA guidelines:
 The component uses Tailwind CSS for styling and can be customized with additional classes:
 
 ```tsx
-<RadioGroup className='space-y-4'>
-  <div className='flex items-center space-x-2 p-3 border rounded-lg hover:bg-accent/50'>
-    <RadioGroupItem value='option1' id='option1' />
-    <Label htmlFor='option1'>Option 1</Label>
-  </div>
+<RadioGroup className='grid gap-2 grid-cols-[1rem_1fr] items-center'>
+  <RadioGroupItem value='option1' id='option1' />
+  <Label htmlFor='option1'>Option 1</Label>
 </RadioGroup>
 ```
 
 ## Examples
 
-### With Icons
+### Default RadioGroup
 
-<Canvas of={RadioGroupStories.WithIcons} />
+<Canvas of={RadioGroupStories.Default} />
 
-### With Pricing
+---
 
-<Canvas of={RadioGroupStories.WithPricing} />
+## Source Code
 
-### With Validation
-
-<Canvas of={RadioGroupStories.WithValidation} />
-
-### Disabled States
-
-<Canvas of={RadioGroupStories.Disabled} />
-
-<Canvas of={RadioGroupStories.PartiallyDisabled} />
+<Source of={RadioGroupStories.Default} language='tsx' />

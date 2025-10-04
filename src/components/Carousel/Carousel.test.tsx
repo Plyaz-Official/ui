@@ -9,36 +9,28 @@ import {
   CarouselPrevious,
 } from './Carousel';
 
+const renderCarousel = () =>
+  render(
+    <Carousel>
+      <CarouselContent>
+        <CarouselItem>Item 1</CarouselItem>
+        <CarouselItem>Item 2</CarouselItem>
+      </CarouselContent>
+      <CarouselPrevious />
+      <CarouselNext />
+    </Carousel>
+  );
+
 describe('Carousel component', () => {
   it('renders under 260ms', () => {
     const start = performance.now();
-    render(
-      <Carousel>
-        <CarouselContent>
-          <CarouselItem>Item 1</CarouselItem>
-          <CarouselItem>Item 2</CarouselItem>
-        </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
-      </Carousel>
-    );
+    renderCarousel();
     const end = performance.now();
-    const duration = end - start;
-    expect(duration).toBeLessThan(260);
+    expect(end - start).toBeLessThan(260);
   });
 
   it('renders carousel with content', () => {
-    render(
-      <Carousel>
-        <CarouselContent>
-          <CarouselItem>Item 1</CarouselItem>
-          <CarouselItem>Item 2</CarouselItem>
-        </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
-      </Carousel>
-    );
-
+    renderCarousel();
     expect(screen.getByText('Item 1')).toBeInTheDocument();
     expect(screen.getByText('Item 2')).toBeInTheDocument();
   });

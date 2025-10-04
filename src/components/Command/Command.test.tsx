@@ -10,38 +10,29 @@ import {
   CommandList,
 } from './Command';
 
+const renderCommand = () =>
+  render(
+    <Command>
+      <CommandInput placeholder='Search...' />
+      <CommandList>
+        <CommandEmpty>No results found.</CommandEmpty>
+        <CommandGroup heading='Test'>
+          <CommandItem>Test Item</CommandItem>
+        </CommandGroup>
+      </CommandList>
+    </Command>
+  );
+
 describe('Command component', () => {
   it('renders under 200ms', () => {
     const start = performance.now();
-    render(
-      <Command>
-        <CommandInput placeholder='Search...' />
-        <CommandList>
-          <CommandEmpty>No results found.</CommandEmpty>
-          <CommandGroup heading='Test'>
-            <CommandItem>Test Item</CommandItem>
-          </CommandGroup>
-        </CommandList>
-      </Command>
-    );
+    renderCommand();
     const end = performance.now();
-    const duration = end - start;
-    expect(duration).toBeLessThan(200);
+    expect(end - start).toBeLessThan(200);
   });
 
   it('renders command with input and list', () => {
-    render(
-      <Command>
-        <CommandInput placeholder='Search...' />
-        <CommandList>
-          <CommandEmpty>No results found.</CommandEmpty>
-          <CommandGroup heading='Test'>
-            <CommandItem>Test Item</CommandItem>
-          </CommandGroup>
-        </CommandList>
-      </Command>
-    );
-
+    renderCommand();
     expect(screen.getByText('Test Item')).toBeInTheDocument();
   });
 });

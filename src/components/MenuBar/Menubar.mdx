@@ -7,8 +7,6 @@ import * as MenubarStories from './Menubar.stories';
 
 `Menubar` is a headless, accessible horizontal menu bar built with Radix UI. It is wrapped by ShadCN UI and styled using Tailwind. Use it to group top-level actions with dropdowns for navigation or commands. Supports keyboard navigation, accessibility, and custom styling.
 
-
-
 ## Features
 
 - Built on top of Radix UI
@@ -16,8 +14,6 @@ import * as MenubarStories from './Menubar.stories';
 - Portal support for dropdown rendering
 - Composable: combine `MenubarMenu`, `MenubarTrigger`, `MenubarContent`, `MenubarItem`, and more
 - Styled using Tailwind CSS utility classes
-
-
 
 ## Usage Guidelines
 
@@ -34,21 +30,15 @@ import * as MenubarStories from './Menubar.stories';
 - Place `MenubarContent` outside the `MenubarMenu` hierarchy
 - Use raw click handlers to detect open state (use controlled selection instead)
 
-
-
 ## Props
 
 <Controls of={MenubarStories.Default} />
 
-
-
-### Examples
+## Examples
 
 ### Default Menubar
 
 <Canvas of={MenubarStories.Default} />
-
-
 
 ### With Submenu
 
@@ -58,18 +48,12 @@ import * as MenubarStories from './Menubar.stories';
 
 <Canvas of={MenubarStories.WithRadioItems} />
 
-### With  Checkbox Items
+### With Checkbox Items
 
 <Canvas of={MenubarStories.WithCheckboxItems} />
 
-### Disabled Trigger 
+---
 
-<Canvas of={MenubarStories.DisabledTrigger} />
+## Source Code
 
-### User Interaction
-
-This story opens the menu and selects the first item, tracking performance and triggering selection.
-
-<Canvas of={MenubarStories.UserInteraction} />
-### Source 
-<Source of={MenubarStories.Default} language="tsx" />
+<Source of={MenubarStories.Default} language='tsx' />

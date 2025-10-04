@@ -1,179 +1,139 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { expect, fn } from '@storybook/test';
-import { addDays, subDays } from 'date-fns';
+import type { Meta, StoryObj } from "@storybook/react";
+import { addDays } from "date-fns";
+import { expect, userEvent, fn } from "@storybook/test";
 
-import { Calendar } from '@/components/client';
+import { Calendar } from "@/components/client";
 
-const DAYS_TO_ADD = {
-  ONE_WEEK: 7,
-  THREE_DAYS: 3,
-  ONE_DAY: 1,
-  THIRTY_DAYS: 30,
-} as const;
-
-type Story = StoryObj<typeof Calendar>;
-
-const meta: Meta<typeof Calendar> = {
-  title: 'Components/Calendar',
+/**
+ * A date field component that allows users to enter and edit date.
+ */
+const meta = {
+  title: "components/Calendar",
   component: Calendar,
-  tags: ['autodocs'],
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'The `Calendar` component is a date picker built with react-day-picker. It provides a flexible and accessible way to select dates, date ranges, and multiple dates. Styled with Tailwind CSS and integrated with the design system.',
-      },
-    },
-  },
+  tags: ["autodocs"],
   argTypes: {
     mode: {
-      control: 'select',
-      options: ['single', 'multiple', 'range'],
-      description: 'Selection mode for the calendar.',
+      table: {
+        disable: true,
+      },
+    },
+    disabled: {
+      control: "boolean",
+    },
+    numberOfMonths: {
+      control: "number",
+      description: "Number of months to display",
     },
     showOutsideDays: {
-      control: 'boolean',
-      description: 'Show days from previous/next month.',
-    },
-    captionLayout: {
-      control: 'select',
-      options: ['label', 'dropdown'],
-      description: 'Layout for the month caption.',
-    },
-    buttonVariant: {
-      control: 'select',
-      options: ['default', 'destructive', 'outline', 'secondary', 'ghost', 'link'],
-      description: 'Variant for navigation buttons.',
-    },
-    className: {
-      control: 'text',
-      description: 'Additional Tailwind CSS classes.',
+      control: "boolean",
+      description: "Show days that fall outside the current month",
     },
   },
-};
+  args: {
+    mode: "single",
+    selected: new Date(),
+    onSelect: fn(),
+    className: "rounded-md border w-fit",
+    disabled: false,
+    numberOfMonths: 1,
+    showOutsideDays: true,
+  },
+  parameters: {
+    layout: "centered",
+  },
+} satisfies Meta<typeof Calendar>;
 
 export default meta;
 
-export const Default: Story = {
-  args: {
-    mode: 'single',
-    showOutsideDays: true,
-  },
-};
+type Story = StoryObj<typeof meta>;
 
-export const Range: Story = {
-  args: {
-    mode: 'range',
-    showOutsideDays: true,
-  },
-};
+/**
+ * The default form of the calendar.
+ */
+export const Default: Story = {};
 
+/**
+ * Use the `multiple` mode to select multiple dates.
+ */
 export const Multiple: Story = {
   args: {
-    mode: 'multiple',
-    showOutsideDays: true,
+    min: 1,
+    selected: [new Date(), addDays(new Date(), 2), addDays(new Date(), 8)],
+    mode: "multiple",
   },
 };
 
-export const WithSelectedDate: Story = {
+/**
+ * Use the `range` mode to select a range of dates.
+ */
+const addDaysConstant = 7;
+export const Range: Story = {
   args: {
-    mode: 'single',
-    selected: new Date(),
-    showOutsideDays: true,
-  },
-};
-
-export const WithDateRange: Story = {
-  args: {
-    mode: 'range',
     selected: {
       from: new Date(),
-      to: addDays(new Date(), DAYS_TO_ADD.ONE_WEEK),
+      to: addDays(new Date(), addDaysConstant),
     },
-    showOutsideDays: true,
+    mode: "range",
   },
 };
 
-export const WithMultipleDates: Story = {
+/**
+ * Use the `disabled` prop to disable specific dates.
+ */
+const addDaysConstantRange: Record<string, number> = {
+  one: 1,
+  two: 2,
+  three: 3,
+  five: 5,
+};
+export const Disabled: Story = {
   args: {
-    mode: 'multiple',
-    selected: [
-      new Date(),
-      addDays(new Date(), DAYS_TO_ADD.ONE_DAY),
-      addDays(new Date(), DAYS_TO_ADD.THREE_DAYS),
+    disabled: [
+      addDays(new Date(), addDaysConstantRange.one),
+      addDays(new Date(), addDaysConstantRange.two),
+      addDays(new Date(), addDaysConstantRange.three),
+      addDays(new Date(), addDaysConstantRange.five),
     ],
-    showOutsideDays: true,
   },
 };
 
-export const WithDisabledDates: Story = {
+/**
+ * Use the `numberOfMonths` prop to display multiple months.
+ */
+export const MultipleMonths: Story = {
   args: {
-    mode: 'single',
-    disabled: [new Date(), addDays(new Date(), 1), addDays(new Date(), 2)],
-    showOutsideDays: true,
-  },
-};
-
-export const WithMinMaxDates: Story = {
-  args: {
-    mode: 'single',
-    fromDate: subDays(new Date(), DAYS_TO_ADD.THIRTY_DAYS),
-    toDate: addDays(new Date(), DAYS_TO_ADD.THIRTY_DAYS),
-    showOutsideDays: true,
-  },
-};
-
-export const DropdownLayout: Story = {
-  args: {
-    mode: 'single',
-    captionLayout: 'dropdown',
-    showOutsideDays: true,
-  },
-};
-
-export const WithoutOutsideDays: Story = {
-  args: {
-    mode: 'single',
+    numberOfMonths: 2,
     showOutsideDays: false,
   },
 };
-
-export const CustomButtonVariant: Story = {
+const year = 2000;
+export const ShouldNavigateMonthsWhenClicked: Story = {
+  name: "when using the calendar navigation, should change months",
+  tags: ["!dev", "!autodocs"],
   args: {
-    mode: 'single',
-    buttonVariant: 'outline',
-    showOutsideDays: true,
-  },
-};
-
-export const WithWeekNumbers: Story = {
-  args: {
-    mode: 'single',
-    showWeekNumber: true,
-    showOutsideDays: true,
-  },
-};
-
-export const WithCustomClassNames: Story = {
-  args: {
-    mode: 'single',
-    showOutsideDays: true,
-    className: 'border-2 border-primary rounded-lg',
-    classNames: {
-      day: 'hover:bg-accent',
-      today: 'bg-accent text-accent-foreground',
-    },
-  },
-};
-
-export const UserInteraction: Story = {
-  args: {
-    mode: 'single',
-    showOutsideDays: true,
-    onSelect: fn(),
+    defaultMonth: new Date(year, 8),
   },
   play: async ({ canvas }) => {
-    const calendar = await canvas.findByRole('grid');
-    await expect(calendar).toBeInTheDocument();
+    const title = await canvas.findByText(/2000/i);
+    const startTitle = title.textContent ?? "";
+    const backBtn = await canvas.findByRole("button", {
+      name: /previous/i,
+    });
+    const nextBtn = await canvas.findByRole("button", {
+      name: /next/i,
+    });
+    const steps = 6;
+    for (let i = 0; i < steps / 2; i++) {
+      await userEvent.click(backBtn);
+      await expect(title).not.toHaveTextContent(startTitle);
+    }
+    for (let i = 0; i < steps; i++) {
+      await userEvent.click(nextBtn);
+      if (i == steps / 2 - 1) {
+        await expect(title).toHaveTextContent(startTitle);
+        continue;
+      }
+      await expect(title).not.toHaveTextContent(startTitle);
+    }
   },
 };

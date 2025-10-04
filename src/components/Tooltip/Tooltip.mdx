@@ -1,61 +1,67 @@
-import { Meta, Story, Source, Canvas, Controls } from '@storybook/addon-docs';
+import { Meta, Story, Canvas, Controls, Source } from '@storybook/addon-docs';
 import * as TooltipStories from './Tooltip.stories';
 
 <Meta of={TooltipStories} />
 
 # Tooltip
 
-`Tooltip` is a component used for displaying contextual information when users hover over or focus on an element. It supports multiple positioning options and can be styled using Tailwind CSS utility classes.
-
-ShadCN's Tooltip is built on top of the Radix UI tooltip behavior and integrates seamlessly with Tailwind for customization and responsiveness.
+A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.
 
 ## Features
 
-- Multiple positioning options (`top`, `right`, `bottom`, `left`)
-- Supports alignment (`start`, `center`, `end`)
-- Keyboard accessible by default
-- Fully customizable with Tailwind CSS
+- **Multiple positioning options**: `top`, `right`, `bottom`, `left`
+- **Accessibility**: Built with Radix UI primitives for full accessibility support
+- **Customizable**: Supports custom styling and theming
+- **Keyboard Navigation**: Full keyboard support for interactions
+- **Touch Support**: Optimized for touch devices
 
-## Usage Guidelines
+## Usage
 
-- Use `side` to define the position of the tooltip.
-- Combine with icon components from `lucide-react` if needed.
-- Prefer descriptive content for accessibility.
-- Avoid nesting interactive elements inside tooltips.
+### Basic Usage
 
-## Do
+<Canvas of={TooltipStories.Default} />
 
-- Use `side="top"` for buttons in top navigation
-- Use `side="right"` for buttons in left sidebar
-- Apply Tailwind classes when you need layout/styling tweaks
+### Bottom Position
 
-## Don't
+<Canvas of={TooltipStories.Bottom} />
 
-- Overuse tooltips in complex UI
-- Nest interactive elements inside tooltips
-- Forget to provide meaningful content
+### Left Position
+
+<Canvas of={TooltipStories.Left} />
+
+### Right Position
+
+<Canvas of={TooltipStories.Right} />
 
 ## Props
 
 <Controls of={TooltipStories.Default} />
 
-### Examples
+## Styling
 
-## Basic Tooltip
+The `Tooltip` component uses Tailwind CSS classes and can be customized with additional classes:
 
-<Canvas of={TooltipStories.Default} />
+```tsx
+<TooltipContent className="bg-blue-500 text-white" />
+<TooltipContent side="bottom" align="start" />
+```
 
-## With Text
+## Accessibility
 
-<Canvas of={TooltipStories.WithText} />
+The `Tooltip` component provides accessibility support:
 
-## With Custom Styling
+- **Screen Reader Support**: Proper ARIA attributes and roles
+- **Keyboard Navigation**: Full keyboard support for interactions
+- **Focus Management**: Proper focus handling and indicators
+- **Touch Support**: Optimized for touch devices
 
-<Canvas of={TooltipStories.WithCustomStyling} />
+## Best Practices
 
-## With Positioning
-
-<Canvas of={TooltipStories.WithPositioning} />
+1. **Use meaningful content**: Provide clear and descriptive tooltip content
+2. **Consider positioning**: Choose appropriate side based on available space
+3. **Avoid overuse**: Don't use tooltips for information that should be visible
+4. **Test with keyboard**: Ensure keyboard navigation works properly
+5. **Keep content concise**: Tooltips should be brief and to the point
 
 ---
 

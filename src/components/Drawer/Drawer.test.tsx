@@ -10,38 +10,29 @@ import {
   DrawerTrigger,
 } from './Drawer';
 
+const renderDrawer = () =>
+  render(
+    <Drawer>
+      <DrawerTrigger>Open Drawer</DrawerTrigger>
+      <DrawerContent>
+        <DrawerHeader>
+          <DrawerTitle>Test Drawer</DrawerTitle>
+          <DrawerDescription>Test description</DrawerDescription>
+        </DrawerHeader>
+      </DrawerContent>
+    </Drawer>
+  );
+
 describe('Drawer component', () => {
   it('renders under 100ms', () => {
     const start = performance.now();
-    render(
-      <Drawer>
-        <DrawerTrigger>Open Drawer</DrawerTrigger>
-        <DrawerContent>
-          <DrawerHeader>
-            <DrawerTitle>Test Drawer</DrawerTitle>
-            <DrawerDescription>Test description</DrawerDescription>
-          </DrawerHeader>
-        </DrawerContent>
-      </Drawer>
-    );
+    renderDrawer();
     const end = performance.now();
-    const duration = end - start;
-    expect(duration).toBeLessThan(100);
+    expect(end - start).toBeLessThan(100);
   });
 
   it('renders drawer with trigger', () => {
-    render(
-      <Drawer>
-        <DrawerTrigger>Open Drawer</DrawerTrigger>
-        <DrawerContent>
-          <DrawerHeader>
-            <DrawerTitle>Test Drawer</DrawerTitle>
-            <DrawerDescription>Test description</DrawerDescription>
-          </DrawerHeader>
-        </DrawerContent>
-      </Drawer>
-    );
-
+    renderDrawer();
     expect(screen.getByText('Open Drawer')).toBeInTheDocument();
   });
 });

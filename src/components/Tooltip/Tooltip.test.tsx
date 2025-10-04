@@ -3,36 +3,28 @@ import { describe, expect, it } from 'vitest';
 
 import { Tooltip, TooltipContent, TooltipTrigger } from './Tooltip';
 
+const renderTooltip = () =>
+  render(
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <button>Test</button>
+      </TooltipTrigger>
+      <TooltipContent>
+        <p>Test tooltip</p>
+      </TooltipContent>
+    </Tooltip>
+  );
+
 describe('Tooltip component', () => {
   it('renders under 200ms', () => {
     const start = performance.now();
-    render(
-      <Tooltip>
-        <TooltipTrigger asChild>
-          <button>Test</button>
-        </TooltipTrigger>
-        <TooltipContent>
-          <p>Test tooltip</p>
-        </TooltipContent>
-      </Tooltip>
-    );
+    renderTooltip();
     const end = performance.now();
-    const duration = end - start;
-    expect(duration).toBeLessThan(200);
+    expect(end - start).toBeLessThan(200);
   });
 
   it('renders tooltip with trigger and content', () => {
-    render(
-      <Tooltip>
-        <TooltipTrigger asChild>
-          <button>Test</button>
-        </TooltipTrigger>
-        <TooltipContent>
-          <p>Test tooltip</p>
-        </TooltipContent>
-      </Tooltip>
-    );
-
+    renderTooltip();
     expect(screen.getByRole('button')).toBeInTheDocument();
     expect(screen.getByText('Test')).toBeInTheDocument();
   });

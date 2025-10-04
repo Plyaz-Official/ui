@@ -1,394 +1,75 @@
-import { Meta, Canvas, Controls, Source } from '@storybook/addon-docs';
+import { Meta, Story, Canvas, Controls, Source } from '@storybook/addon-docs';
 import * as TextareaStories from './Textarea.stories';
-
-import { Textarea } from '@/components';
 
 <Meta of={TextareaStories} />
 
 # Textarea
 
-The `Textarea` component provides a multi-line text input field. It is styled with Tailwind CSS and offers a flexible and accessible textarea solution.
+`Textarea` is a form control that allows users to enter multi-line text. It provides a way to input longer text content with proper styling and accessibility. Built with Radix UI and styled with Tailwind CSS.
+
+The textarea component provides a powerful way to create multi-line text inputs with proper focus management and accessibility.
 
 ## Features
 
-- **Multi-line Input**: Provides a textarea for longer text input
-- **Accessibility**: Built with proper semantic HTML and ARIA attributes
-- **Customizable**: Supports custom styling and theming
-- **Responsive**: Adapts to different screen sizes
-- **Keyboard Navigation**: Full keyboard support for navigation
-- **Touch Support**: Optimized for touch devices
+- Multi-line text input
+- Focus management and keyboard navigation
+- Accessible with proper ARIA attributes
+- Support for controlled and uncontrolled modes
+- Customizable styling and behavior
+- Resize functionality
+- Character limit support
 
-## Usage
+## Usage Guidelines
 
-### Basic Usage
+- Use textareas for multi-line text input
+- Keep labels concise and descriptive
+- Use appropriate sizing for content
+- Consider character limits for user guidance
+- Provide clear validation feedback
 
-<Canvas of={TextareaStories.Default} />
+## Do
 
-<Source
-  language="tsx"
-  code={`
-import { Textarea } from '@/components';
+- Use textareas for multi-line text input
+- Provide clear labels and descriptions
+- Use appropriate sizing
+- Consider character limits
+- Provide validation feedback
 
-function BasicTextarea() {
-return (
-<Textarea placeholder="Type your message here..." />
-);
-}
-`}
-/>
+## Don't
 
-### With Label
-
-<Canvas of={TextareaStories.WithLabel} />
-
-<Source
-  language="tsx"
-  code={`
-import { Textarea } from '@/components';
-
-function LabelTextarea() {
-return (
-<div className="space-y-2">
-<label htmlFor="textarea-label" className="text-sm font-medium">
-Message
-</label>
-<Textarea id="textarea-label" placeholder="Type your message here..." />
-</div>
-);
-}
-`}
-/>
-
-### With Error State
-
-<Canvas of={TextareaStories.WithError} />
-
-<Source
-  language="tsx"
-  code={`
-import { Textarea } from '@/components';
-
-function ErrorTextarea() {
-return (
-<div className="space-y-2">
-<label htmlFor="textarea-error" className="text-sm font-medium">
-Message
-</label>
-<Textarea 
-        id="textarea-error" 
-        placeholder="This textarea has an error" 
-        aria-invalid="true"
-        className="border-red-500 focus-visible:border-red-500 focus-visible:ring-red-500/50"
-      />
-<p className="text-sm text-red-600">This field is required</p>
-</div>
-);
-}
-`}
-/>
-
-### Disabled State
-
-<Canvas of={TextareaStories.Disabled} />
-
-<Source
-  language="tsx"
-  code={`
-import { Textarea } from '@/components';
-
-function DisabledTextarea() {
-return (
-<Textarea placeholder="This textarea is disabled" disabled />
-);
-}
-`}
-/>
-
-### Read Only State
-
-<Canvas of={TextareaStories.ReadOnly} />
-
-<Source
-  language="tsx"
-  code={`
-import { Textarea } from '@/components';
-
-function ReadOnlyTextarea() {
-return (
-<Textarea defaultValue="This textarea is read-only" readOnly />
-);
-}
-`}
-/>
-
-### With Character Limit
-
-<Canvas of={TextareaStories.WithMaxLength} />
-
-<Source
-  language="tsx"
-  code={`
-import { Textarea } from '@/components';
-
-function MaxLengthTextarea() {
-return (
-<Textarea placeholder="Maximum 100 characters" maxLength={100} />
-);
-}
-`}
-/>
-
-### With Custom Rows
-
-<Canvas of={TextareaStories.WithRows} />
-
-<Source
-  language="tsx"
-  code={`
-import { Textarea } from '@/components';
-
-function RowsTextarea() {
-return (
-<Textarea placeholder="This textarea has 5 rows" rows={5} />
-);
-}
-`}
-/>
-
-### With Controlled State
-
-<Canvas of={TextareaStories.WithControlledState} />
-
-<Source
-  language="tsx"
-  code={`
-import { Textarea } from '@/components';
-import { useState } from 'react';
-
-function ControlledTextarea() {
-const [value, setValue] = useState("");
-
-return (
-<div className="space-y-4">
-<Textarea
-value={value}
-onChange={(e) => setValue(e.target.value)}
-placeholder="This is a controlled textarea"
-/>
-<p className="text-sm text-muted-foreground">
-Character count: {value.length}
-</p>
-</div>
-);
-}
-`}
-/>
-
-### With Character Counter
-
-<Canvas of={TextareaStories.WithCharacterLimit} />
-
-<Source
-  language="tsx"
-  code={`
-import { Textarea } from '@/components';
-import { useState } from 'react';
-
-function CharacterLimitTextarea() {
-const [value, setValue] = useState("");
-const maxLength = 100;
-
-return (
-<div className="space-y-2">
-<Textarea
-value={value}
-onChange={(e) => setValue(e.target.value)}
-placeholder="Maximum 100 characters"
-maxLength={maxLength}
-/>
-<div className="flex justify-between text-sm text-muted-foreground">
-<span>Character count: {value.length}</span>
-<span>Remaining: {maxLength - value.length}</span>
-</div>
-</div>
-);
-}
-`}
-/>
-
-### With Validation
-
-<Canvas of={TextareaStories.WithValidation} />
-
-<Source
-  language="tsx"
-  code={`
-import { Textarea } from '@/components';
-import { useState } from 'react';
-
-function ValidationTextarea() {
-const [value, setValue] = useState("");
-const [error, setError] = useState("");
-
-const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-const newValue = e.target.value;
-setValue(newValue);
-
-    if (newValue.length < 10) {
-      setError("Message must be at least 10 characters long");
-    } else if (newValue.length > 500) {
-      setError("Message must be less than 500 characters");
-    } else {
-      setError("");
-    }
-
-};
-
-return (
-<div className="space-y-2">
-<Textarea
-value={value}
-onChange={handleChange}
-placeholder="Enter a message (10-500 characters)"
-className={error ? "border-red-500 focus-visible:border-red-500 focus-visible:ring-red-500/50" : ""}
-/>
-{error && (
-<p className="text-sm text-red-600">{error}</p>
-)}
-<p className="text-sm text-muted-foreground">
-{value.length}/500 characters
-</p>
-</div>
-);
-}
-`}
-/>
-
-### With Custom Styling
-
-<Canvas of={TextareaStories.WithCustomStyling} />
-
-<Source
-  language="tsx"
-  code={`
-import { Textarea } from '@/components';
-
-function CustomStyledTextarea() {
-return (
-<Textarea 
-      placeholder="This textarea has custom styling" 
-      className="border-blue-500 focus-visible:border-blue-500 focus-visible:ring-blue-500/50 bg-blue-50"
-    />
-);
-}
-`}
-/>
-
-### With Resize Options
-
-<Canvas of={TextareaStories.WithResizeOptions} />
-
-<Source
-  language="tsx"
-  code={`
-import { Textarea } from '@/components';
-
-function ResizeOptionsTextarea() {
-return (
-<div className="space-y-4">
-<div className="space-y-2">
-<label className="text-sm font-medium">Default resize</label>
-<Textarea placeholder="Default resize behavior" />
-</div>
-<div className="space-y-2">
-<label className="text-sm font-medium">No resize</label>
-<Textarea placeholder="Cannot be resized" className="resize-none" />
-</div>
-<div className="space-y-2">
-<label className="text-sm font-medium">Vertical resize only</label>
-<Textarea placeholder="Can only resize vertically" className="resize-y" />
-</div>
-</div>
-);
-}
-`}
-/>
-
-### With User Interaction
-
-<Canvas of={TextareaStories.WithUserInteraction} />
-
-<Source
-  language="tsx"
-  code={`
-import { Textarea } from '@/components';
-import { useState } from 'react';
-
-function InteractiveTextarea() {
-const [value, setValue] = useState("");
-const [focusCount, setFocusCount] = useState(0);
-const [blurCount, setBlurCount] = useState(0);
-
-return (
-<div className="space-y-4">
-<Textarea
-value={value}
-onChange={(e) => setValue(e.target.value)}
-onFocus={() => setFocusCount(prev => prev + 1)}
-onBlur={() => setBlurCount(prev => prev + 1)}
-placeholder="Interact with this textarea to see the counters"
-/>
-<div className="text-sm text-muted-foreground space-y-1">
-<p>Focus count: {focusCount}</p>
-<p>Blur count: {blurCount}</p>
-<p>Character count: {value.length}</p>
-</div>
-</div>
-);
-}
-`}
-/>
+- Use textareas for single-line input (use input)
+- Make textareas too small for content
+- Forget to provide labels
+- Overuse in your interface
 
 ## Props
 
 <Controls of={TextareaStories.Default} />
 
-## Styling
+## Examples
 
-The `Textarea` component uses Tailwind CSS classes and can be customized with additional classes:
+### Default Textarea
 
-```tsx
-<Textarea className="border-blue-500 focus-visible:border-blue-500 focus-visible:ring-blue-500/50" />
-<Textarea className="w-96 h-32" />
-<Textarea className="resize-none" />
-```
+<Canvas of={TextareaStories.Default} />
 
-## Accessibility
+### Disabled Textarea
 
-The `Textarea` component provides:
+<Canvas of={TextareaStories.Disabled} />
 
-- **Keyboard Navigation**: Full keyboard support for navigation
-- **Screen Reader Support**: Proper ARIA attributes and roles
-- **Focus Management**: Focus indicators and proper focus handling
-- **Touch Support**: Optimized for touch devices
-- **Form Integration**: Proper form association and validation
+### With Label
 
-## Performance
+<Canvas of={TextareaStories.WithLabel} />
 
-The `Textarea` component is optimized for performance:
+### With Text
 
-- **Efficient Rendering**: Only re-renders when necessary
-- **Smooth Transitions**: Provides smooth state transitions
-- **Memory Efficient**: Minimal memory usage
-- **Responsive**: Adapts to different screen sizes and orientations
+<Canvas of={TextareaStories.WithText} />
 
-## Best Practices
+### With Button
 
-1. **Use appropriate labels**: Always provide clear labels for textareas
-2. **Handle state changes**: Use `onChange` for controlled state
-3. **Test with keyboard**: Ensure keyboard navigation works properly
-4. **Consider mobile**: Test on mobile devices for touch interactions
-5. **Use controlled state**: Use controlled state for complex interactions
-6. **Provide visual feedback**: Show clear visual feedback for validation states
-7. **Group related content**: Group related content logically in forms
-8. **Limit character count**: Consider character limits for better UX
+<Canvas of={TextareaStories.WithButton} />
+
+---
+
+## Source Code
+
+<Source of={TextareaStories.Default} language='tsx' />

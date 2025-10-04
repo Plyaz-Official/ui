@@ -8,32 +8,26 @@ import {
   DropdownMenuTrigger,
 } from './DropdownMenu';
 
+const renderDropdownMenu = () =>
+  render(
+    <DropdownMenu>
+      <DropdownMenuTrigger>Open Menu</DropdownMenuTrigger>
+      <DropdownMenuContent>
+        <DropdownMenuItem>Test Item</DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+
 describe('DropdownMenu component', () => {
   it('renders under 100ms', () => {
     const start = performance.now();
-    render(
-      <DropdownMenu>
-        <DropdownMenuTrigger>Open Menu</DropdownMenuTrigger>
-        <DropdownMenuContent>
-          <DropdownMenuItem>Test Item</DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
-    );
+    renderDropdownMenu();
     const end = performance.now();
-    const duration = end - start;
-    expect(duration).toBeLessThan(100);
+    expect(end - start).toBeLessThan(100);
   });
 
   it('renders dropdown menu with trigger', () => {
-    render(
-      <DropdownMenu>
-        <DropdownMenuTrigger>Open Menu</DropdownMenuTrigger>
-        <DropdownMenuContent>
-          <DropdownMenuItem>Test Item</DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
-    );
-
+    renderDropdownMenu();
     expect(screen.getByText('Open Menu')).toBeInTheDocument();
   });
 });

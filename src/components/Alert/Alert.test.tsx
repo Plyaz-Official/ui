@@ -3,28 +3,24 @@ import { describe, expect, it } from 'vitest';
 
 import { Alert, AlertTitle, AlertDescription } from './Alert';
 
+const renderAlert = () =>
+  render(
+    <Alert>
+      <AlertTitle>Test Title</AlertTitle>
+      <AlertDescription>Test Description</AlertDescription>
+    </Alert>
+  );
+
 describe('Alert component', () => {
   it('renders under 100ms', () => {
     const start = performance.now();
-    render(
-      <Alert>
-        <AlertTitle>Test Title</AlertTitle>
-        <AlertDescription>Test Description</AlertDescription>
-      </Alert>
-    );
+    renderAlert();
     const end = performance.now();
-    const duration = end - start;
-    expect(duration).toBeLessThan(100);
+    expect(end - start).toBeLessThan(100);
   });
 
   it('renders alert with title and description', () => {
-    render(
-      <Alert>
-        <AlertTitle>Test Title</AlertTitle>
-        <AlertDescription>Test Description</AlertDescription>
-      </Alert>
-    );
-
+    renderAlert();
     expect(screen.getByText('Test Title')).toBeInTheDocument();
     expect(screen.getByText('Test Description')).toBeInTheDocument();
   });

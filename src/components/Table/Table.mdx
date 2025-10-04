@@ -1,154 +1,60 @@
-import { Meta, Canvas, Source, Controls } from '@storybook/addon-docs';
-import { Table } from './Table';
-import {
-  Default,
-  WithInvoices,
-  WithUsers,
-  WithProducts,
-  WithCheckboxes,
-  WithActions,
-  WithSorting,
-  WithPagination,
-  WithCustomStyling,
-  WithEmptyState,
-  WithLoadingState,
-  WithResponsiveDesign,
-  WithAccessibility,
-  WithPerformance,
-  WithUserInteraction,
-} from './Table.stories';
+import { Meta, Story, Canvas, Controls, Source } from '@storybook/addon-docs';
+import * as TableStories from './Table.stories';
 
-<Meta title='Components/Table' component={Table} />
+<Meta of={TableStories} />
 
 # Table
 
-The `Table` component provides a structured way to display tabular data. It includes all necessary table elements with consistent styling and accessibility features.
+Powerful table and datagrids built using TanStack Table.
 
 ## Features
 
-- **Structured Data Display**: Clean way to display tabular data.
-- **Accessibility**: Built with semantic HTML and ARIA attributes.
-- **Customizable**: Supports custom styling and theming.
-- **Responsive**: Adapts to different screen sizes with horizontal scrolling.
-- **Keyboard Navigation**: Full keyboard support.
-- **Touch Support**: Optimized for touch devices.
+- **Structured Data Display**: Clean way to display tabular data
+- **Accessibility**: Built with semantic HTML and ARIA attributes
+- **Customizable**: Supports custom styling and theming
+- **Responsive**: Adapts to different screen sizes with horizontal scrolling
+- **Keyboard Navigation**: Full keyboard support
+- **Touch Support**: Optimized for touch devices
 
 ## Usage
 
 ### Basic Usage
 
-<Canvas of={Default} />
-
-<Source
-  language="tsx"
-  code={`import { Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow } from '@/components';
-
-function BasicTable() {
-return (
-
-<Table>
-  <TableCaption>A list of your recent invoices.</TableCaption>
-  <TableHeader>
-    <TableRow>
-      <TableHead className='w-[100px]'>Invoice</TableHead>
-      <TableHead>Status</TableHead>
-      <TableHead>Method</TableHead>
-      <TableHead className='text-right'>Amount</TableHead>
-    </TableRow>
-  </TableHeader>
-  <TableBody>
-    <TableRow>
-      <TableCell className='font-medium'>INV001</TableCell>
-      <TableCell>Paid</TableCell>
-      <TableCell>Credit Card</TableCell>
-      <TableCell className='text-right'>$250.00</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell className='font-medium'>INV002</TableCell>
-      <TableCell>Pending</TableCell>
-      <TableCell>PayPal</TableCell>
-      <TableCell className='text-right'>$150.00</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell className='font-medium'>INV003</TableCell>
-      <TableCell>Unpaid</TableCell>
-      <TableCell>Bank Transfer</TableCell>
-      <TableCell className='text-right'>$350.00</TableCell>
-    </TableRow>
-  </TableBody>
-  <TableFooter>
-    <TableRow>
-      <TableCell colSpan={3}>Total</TableCell>
-      <TableCell className='text-right'>$750.00</TableCell>
-    </TableRow>
-  </TableFooter>
-</Table>
-); }`} />
-
-### With Invoices
-
-<Canvas of={WithInvoices} />
-
-### With Users
-
-<Canvas of={WithUsers} />
-
-### With Products
-
-<Canvas of={WithProducts} />
-
-### With Checkboxes
-
-<Canvas of={WithCheckboxes} />
-
-### With Actions
-
-<Canvas of={WithActions} />
-
-### With Sorting
-
-<Canvas of={WithSorting} />
-
-### With Pagination
-
-<Canvas of={WithPagination} />
-
-### With Custom Styling
-
-<Canvas of={WithCustomStyling} />
-
-### With Empty State
-
-<Canvas of={WithEmptyState} />
-
-### With Loading State
-
-<Canvas of={WithLoadingState} />
-
-### With Responsive Design
-
-<Canvas of={WithResponsiveDesign} />
-
-### With Accessibility
-
-<Canvas of={WithAccessibility} />
-
-### With Performance
-
-<Canvas of={WithPerformance} />
-
-### With User Interaction
-
-<Canvas of={WithUserInteraction} />
+<Canvas of={TableStories.Default} />
 
 ## Props
 
-<Controls of={Default} />
+<Controls of={TableStories.Default} />
 
 ## Styling
+
+The `Table` component uses Tailwind CSS classes and can be customized with additional classes:
 
 ```tsx
 <Table className="border border-gray-200 rounded-lg" />
 <TableRow className="hover:bg-blue-50" />
 <TableCell className="text-green-600 font-semibold" />
 ```
+
+## Accessibility
+
+The `Table` component provides accessibility support:
+
+- **Semantic HTML**: Uses proper table elements for screen readers
+- **ARIA Support**: Includes proper ARIA attributes
+- **Keyboard Navigation**: Full keyboard support for table interactions
+- **Screen Reader Support**: Proper table structure for assistive technologies
+
+## Best Practices
+
+1. **Use proper table structure**: Always include TableHeader, TableBody, and proper table elements
+2. **Provide captions**: Use TableCaption to describe the table content
+3. **Use semantic headers**: Use TableHead for column headers
+4. **Handle responsive design**: Consider horizontal scrolling for large tables
+5. **Test with screen readers**: Ensure accessibility works properly
+
+---
+
+## Source Code
+
+<Source of={TableStories.Default} language='tsx' />

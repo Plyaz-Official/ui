@@ -3,38 +3,29 @@ import { describe, expect, it } from 'vitest';
 
 import { Pagination, PaginationContent, PaginationItem, PaginationLink } from './Pagination';
 
+const renderPagination = () =>
+  render(
+    <Pagination>
+      <PaginationContent>
+        <PaginationItem>
+          <PaginationLink href='#' isActive>
+            1
+          </PaginationLink>
+        </PaginationItem>
+      </PaginationContent>
+    </Pagination>
+  );
+
 describe('Pagination component', () => {
   it('renders under 100ms', () => {
     const start = performance.now();
-    render(
-      <Pagination>
-        <PaginationContent>
-          <PaginationItem>
-            <PaginationLink href='#' isActive>
-              1
-            </PaginationLink>
-          </PaginationItem>
-        </PaginationContent>
-      </Pagination>
-    );
+    renderPagination();
     const end = performance.now();
-    const duration = end - start;
-    expect(duration).toBeLessThan(100);
+    expect(end - start).toBeLessThan(100);
   });
 
   it('renders pagination with content', () => {
-    render(
-      <Pagination>
-        <PaginationContent>
-          <PaginationItem>
-            <PaginationLink href='#' isActive>
-              1
-            </PaginationLink>
-          </PaginationItem>
-        </PaginationContent>
-      </Pagination>
-    );
-
+    renderPagination();
     expect(screen.getByText('1')).toBeInTheDocument();
   });
 });

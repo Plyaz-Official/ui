@@ -1,26 +1,100 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { toast } from 'sonner';
+import { expect, userEvent, waitFor, within, fn } from "@storybook/test";
+import type { Meta, StoryObj } from "@storybook/react";
+import { toast } from "sonner";
 
-import { Toaster } from '@/components/client';
+import { Button } from "@/components";
+import { Toaster } from "@/components/client";
 
+/**
+ * An opinionated toast component for React.
+ */
 const meta: Meta<typeof Toaster> = {
-  title: 'Components/Toaster',
+  title: "components/Sonner",
   component: Toaster,
-};
-export default meta;
-
-type Story = StoryObj<typeof Toaster>;
-
-export const Default: Story = {
-  render: () => (
-    <div className='space-y-4'>
-      <Toaster />
-      <button
-        onClick={() => toast('Hello World!')}
-        className='px-4 py-2 bg-primary text-primary-foreground rounded-md'
+  tags: ["autodocs"],
+  argTypes: {},
+  args: {
+    position: "bottom-right",
+  },
+  parameters: {
+    layout: "fullscreen",
+  },
+  render: (args) => (
+    <div className="flex min-h-96 items-center justify-center space-x-2">
+      <Button
+        onClick={() =>
+          toast("Event has been created", {
+            description: new Date().toLocaleString(),
+            action: {
+              label: "Undo",
+              onClick: fn(),
+            },
+          })
+        }
       >
         Show Toast
-      </button>
+      </Button>
+      <Toaster {...args} />
     </div>
   ),
+} satisfies Meta<typeof Toaster>;
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+/**
+ * The default form of the toaster.
+ */
+export const Default: Story = {};
+
+export const ShouldShowToast: Story = {
+  name: "when clicking Show Toast button, should show a toast",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ canvasElement, step }) => {
+    const canvasBody = within(canvasElement.ownerDocument.body);
+    const triggerBtn = await canvasBody.findByRole("button", {
+      name: /show/i,
+    });
+
+    await step("create a toast", async () => {
+      await userEvent.click(triggerBtn);
+      await waitFor(() =>
+        expect(canvasBody.queryByRole("listitem")).toBeInTheDocument(),
+      );
+    });
+
+    await step("create more toasts", async () => {
+      await userEvent.click(triggerBtn);
+      await userEvent.click(triggerBtn);
+      const length = 3
+      await waitFor(() =>
+        expect(canvasBody.getAllByRole("listitem")).toHaveLength(length),
+      );
+    });
+  },
+};
+
+export const ShouldCloseToast: Story = {
+  name: "when clicking the close button, should close the toast",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ canvasElement, step }) => {
+    const canvasBody = within(canvasElement.ownerDocument.body);
+    const triggerBtn = await canvasBody.findByRole("button", {
+      name: /show/i,
+    });
+
+    await step("create a toast", async () => {
+      await userEvent.click(triggerBtn);
+    });
+
+    await step("close the toast", async () => {
+      await userEvent.click(
+        await canvasBody.findByRole("button", { name: /undo/i }),
+      );
+      await waitFor(() =>
+        expect(canvasBody.queryByRole("listitem")).not.toBeInTheDocument(),
+      );
+    });
+  },
 };

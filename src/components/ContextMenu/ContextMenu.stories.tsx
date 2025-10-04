@@ -1,187 +1,113 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { userEvent, fn } from '@storybook/test';
-import { useState } from 'react';
-import { Copy, CreditCard, Edit, MoreHorizontal, Settings, Trash2, User } from 'lucide-react';
+
+import type { Meta, StoryObj } from "@storybook/react";
+import { expect, userEvent, within } from "@storybook/test";
 
 import {
   ContextMenu,
+  ContextMenuCheckboxItem,
   ContextMenuContent,
   ContextMenuItem,
-  ContextMenuTrigger,
+  ContextMenuLabel,
+  ContextMenuRadioGroup,
+  ContextMenuRadioItem,
   ContextMenuSeparator,
   ContextMenuShortcut,
-  ContextMenuCheckboxItem,
-  ContextMenuRadioItem,
-  ContextMenuLabel,
-  ContextMenuGroup,
   ContextMenuSub,
   ContextMenuSubContent,
   ContextMenuSubTrigger,
-  ContextMenuRadioGroup,
-} from '@/components/client';
+  ContextMenuTrigger,
+} from "@/components/client";
 
-type Story = StoryObj<typeof ContextMenu>;
 
-const meta: Meta<typeof ContextMenu> = {
-  title: 'Components/ContextMenu',
+/**
+ * Displays a menu to the user — such as a set of actions or functions —
+ * triggered by a button.
+ */
+const meta = {
+  title: "components/ContextMenu",
   component: ContextMenu,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
+  argTypes: {},
+  args: {},
+  render: (args) => (
+    <ContextMenu {...args}>
+      <ContextMenuTrigger className="bg-accent flex h-48 w-96 items-center justify-center rounded-md border border-dashed text-sm">
+        Right click here
+      </ContextMenuTrigger>
+      <ContextMenuContent className="w-32">
+        <ContextMenuItem>Profile</ContextMenuItem>
+        <ContextMenuItem>Billing</ContextMenuItem>
+        <ContextMenuItem>Team</ContextMenuItem>
+        <ContextMenuItem>Subscription</ContextMenuItem>
+      </ContextMenuContent>
+    </ContextMenu>
+  ),
   parameters: {
-    docs: {
-      description: {
-        component:
-          'The `ContextMenu` component is a right-click menu that appears when users interact with elements. It provides a contextual set of actions and options. Built with Radix UI and styled with Tailwind CSS.',
-      },
-    },
+    layout: "centered",
   },
-  argTypes: {
-    className: {
-      control: 'text',
-      description: 'Additional Tailwind CSS classes.',
-    },
-  },
-};
+} satisfies Meta<typeof ContextMenu>;
 
 export default meta;
 
-export const Default: Story = {
-  render: () => (
-    <ContextMenu>
-      <ContextMenuTrigger className='flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm'>
+type Story = StoryObj<typeof meta>;
+
+/**
+ * The default form of the context menu.
+ */
+export const Default: Story = {};
+
+/**
+ * A context menu with shortcuts.
+ */
+export const WithShortcuts: Story = {
+  render: (args) => (
+    <ContextMenu {...args}>
+      <ContextMenuTrigger className="bg-accent flex h-48 w-96 items-center justify-center rounded-md border border-dashed text-sm">
         Right click here
       </ContextMenuTrigger>
-      <ContextMenuContent className='w-64'>
+      <ContextMenuContent className="w-32">
         <ContextMenuItem>
-          <User className='mr-2 h-4 w-4' />
-          <span>Profile</span>
-          <ContextMenuShortcut>⌘P</ContextMenuShortcut>
+          Back
+          <ContextMenuShortcut>⌘[</ContextMenuShortcut>
+        </ContextMenuItem>
+        <ContextMenuItem disabled>
+          Forward
+          <ContextMenuShortcut>⌘]</ContextMenuShortcut>
         </ContextMenuItem>
         <ContextMenuItem>
-          <CreditCard className='mr-2 h-4 w-4' />
-          <span>Billing</span>
-          <ContextMenuShortcut>⌘B</ContextMenuShortcut>
-        </ContextMenuItem>
-        <ContextMenuItem>
-          <Settings className='mr-2 h-4 w-4' />
-          <span>Settings</span>
-          <ContextMenuShortcut>⌘S</ContextMenuShortcut>
-        </ContextMenuItem>
-        <ContextMenuSeparator />
-        <ContextMenuItem>
-          <span>Team</span>
+          Reload
+          <ContextMenuShortcut>⌘R</ContextMenuShortcut>
         </ContextMenuItem>
       </ContextMenuContent>
     </ContextMenu>
   ),
 };
 
-export const WithDestructiveAction: Story = {
-  render: () => (
-    <ContextMenu>
-      <ContextMenuTrigger className='flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm'>
+/**
+ * A context menu with a submenu.
+ */
+export const WithSubmenu: Story = {
+  render: (args) => (
+    <ContextMenu {...args}>
+      <ContextMenuTrigger className="bg-accent flex h-48 w-96 items-center justify-center rounded-md border border-dashed text-sm">
         Right click here
       </ContextMenuTrigger>
-      <ContextMenuContent className='w-64'>
+      <ContextMenuContent className="w-32">
         <ContextMenuItem>
-          <Edit className='mr-2 h-4 w-4' />
-          <span>Edit</span>
+          New Tab
+          <ContextMenuShortcut>⌘N</ContextMenuShortcut>
         </ContextMenuItem>
-        <ContextMenuItem>
-          <Copy className='mr-2 h-4 w-4' />
-          <span>Copy</span>
-        </ContextMenuItem>
-        <ContextMenuSeparator />
-        <ContextMenuItem variant='destructive'>
-          <Trash2 className='mr-2 h-4 w-4' />
-          <span>Delete</span>
-        </ContextMenuItem>
-      </ContextMenuContent>
-    </ContextMenu>
-  ),
-};
-
-const WithCheckboxItemsComponent = () => {
-  const [showGrid, setShowGrid] = useState(false);
-  const [showRulers, setShowRulers] = useState(true);
-
-  return (
-    <ContextMenu>
-      <ContextMenuTrigger className='flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm'>
-        Right click here
-      </ContextMenuTrigger>
-      <ContextMenuContent className='w-64'>
-        <ContextMenuLabel>View</ContextMenuLabel>
-        <ContextMenuCheckboxItem checked={showGrid} onCheckedChange={setShowGrid}>
-          Show Grid
-        </ContextMenuCheckboxItem>
-        <ContextMenuCheckboxItem checked={showRulers} onCheckedChange={setShowRulers}>
-          Show Rulers
-        </ContextMenuCheckboxItem>
-      </ContextMenuContent>
-    </ContextMenu>
-  );
-};
-
-export const WithCheckboxItems: Story = {
-  render: () => <WithCheckboxItemsComponent />,
-};
-
-const WithRadioItemsComponent = () => {
-  const [viewMode, setViewMode] = useState('list');
-
-  return (
-    <ContextMenu>
-      <ContextMenuTrigger className='flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm'>
-        Right click here
-      </ContextMenuTrigger>
-      <ContextMenuContent className='w-64'>
-        <ContextMenuLabel>View Mode</ContextMenuLabel>
-        <ContextMenuRadioGroup value={viewMode} onValueChange={setViewMode}>
-          <ContextMenuRadioItem value='list'>List View</ContextMenuRadioItem>
-          <ContextMenuRadioItem value='grid'>Grid View</ContextMenuRadioItem>
-          <ContextMenuRadioItem value='detail'>Detail View</ContextMenuRadioItem>
-        </ContextMenuRadioGroup>
-      </ContextMenuContent>
-    </ContextMenu>
-  );
-};
-
-export const WithRadioItems: Story = {
-  render: () => <WithRadioItemsComponent />,
-};
-
-export const WithSubMenu: Story = {
-  render: () => (
-    <ContextMenu>
-      <ContextMenuTrigger className='flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm'>
-        Right click here
-      </ContextMenuTrigger>
-      <ContextMenuContent className='w-64'>
-        <ContextMenuItem>
-          <User className='mr-2 h-4 w-4' />
-          <span>Profile</span>
-        </ContextMenuItem>
-        <ContextMenuItem>
-          <Settings className='mr-2 h-4 w-4' />
-          <span>Settings</span>
-        </ContextMenuItem>
-        <ContextMenuSeparator />
         <ContextMenuSub>
-          <ContextMenuSubTrigger>
-            <MoreHorizontal className='mr-2 h-4 w-4' />
-            <span>More</span>
-          </ContextMenuSubTrigger>
+          <ContextMenuSubTrigger>More Tools</ContextMenuSubTrigger>
           <ContextMenuSubContent>
             <ContextMenuItem>
-              <span>Export</span>
+              Save Page As...
+              <ContextMenuShortcut>⇧⌘S</ContextMenuShortcut>
             </ContextMenuItem>
-            <ContextMenuItem>
-              <span>Import</span>
-            </ContextMenuItem>
+            <ContextMenuItem>Create Shortcut...</ContextMenuItem>
+            <ContextMenuItem>Name Window...</ContextMenuItem>
             <ContextMenuSeparator />
-            <ContextMenuItem>
-              <span>Preferences</span>
-            </ContextMenuItem>
+            <ContextMenuItem>Developer Tools</ContextMenuItem>
           </ContextMenuSubContent>
         </ContextMenuSub>
       </ContextMenuContent>
@@ -189,103 +115,69 @@ export const WithSubMenu: Story = {
   ),
 };
 
-export const WithGroups: Story = {
-  render: () => (
-    <ContextMenu>
-      <ContextMenuTrigger className='flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm'>
+/**
+ * A context menu with checkboxes.
+ */
+export const WithCheckboxes: Story = {
+  render: (args) => (
+    <ContextMenu {...args}>
+      <ContextMenuTrigger className="bg-accent flex h-48 w-96 items-center justify-center rounded-md border border-dashed text-sm">
         Right click here
       </ContextMenuTrigger>
-      <ContextMenuContent className='w-64'>
-        <ContextMenuGroup>
-          <ContextMenuItem>
-            <Edit className='mr-2 h-4 w-4' />
-            <span>Edit</span>
-          </ContextMenuItem>
-          <ContextMenuItem>
-            <Copy className='mr-2 h-4 w-4' />
-            <span>Copy</span>
-          </ContextMenuItem>
-        </ContextMenuGroup>
-        <ContextMenuSeparator />
-        <ContextMenuGroup>
-          <ContextMenuItem>
-            <User className='mr-2 h-4 w-4' />
-            <span>Profile</span>
-          </ContextMenuItem>
-          <ContextMenuItem>
-            <Settings className='mr-2 h-4 w-4' />
-            <span>Settings</span>
-          </ContextMenuItem>
-        </ContextMenuGroup>
+      <ContextMenuContent className="w-64">
+        <ContextMenuCheckboxItem checked>
+          Show Comments
+          <ContextMenuShortcut>⌘⇧C</ContextMenuShortcut>
+        </ContextMenuCheckboxItem>
+        <ContextMenuCheckboxItem>Show Preview</ContextMenuCheckboxItem>
       </ContextMenuContent>
     </ContextMenu>
   ),
 };
 
-export const WithDisabledItems: Story = {
-  render: () => (
-    <ContextMenu>
-      <ContextMenuTrigger className='flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm'>
+/**
+ * A context menu with a radio group.
+ */
+export const WithRadioGroup: Story = {
+  render: (args) => (
+    <ContextMenu {...args}>
+      <ContextMenuTrigger className="bg-accent flex h-48 w-96 items-center justify-center rounded-md border border-dashed text-sm">
         Right click here
       </ContextMenuTrigger>
-      <ContextMenuContent className='w-64'>
-        <ContextMenuItem>
-          <Edit className='mr-2 h-4 w-4' />
-          <span>Edit</span>
-        </ContextMenuItem>
-        <ContextMenuItem disabled>
-          <Copy className='mr-2 h-4 w-4' />
-          <span>Copy (Disabled)</span>
-        </ContextMenuItem>
-        <ContextMenuItem>
-          <Settings className='mr-2 h-4 w-4' />
-          <span>Settings</span>
-        </ContextMenuItem>
+      <ContextMenuContent className="w-64">
+        <ContextMenuRadioGroup value="light">
+          <ContextMenuLabel inset>Theme</ContextMenuLabel>
+          <ContextMenuRadioItem value="light">Light</ContextMenuRadioItem>
+          <ContextMenuRadioItem value="dark">Dark</ContextMenuRadioItem>
+        </ContextMenuRadioGroup>
       </ContextMenuContent>
     </ContextMenu>
   ),
 };
 
-export const WithCustomStyling: Story = {
-  render: () => (
-    <ContextMenu>
-      <ContextMenuTrigger className='flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm'>
-        Right click here
-      </ContextMenuTrigger>
-      <ContextMenuContent className='w-64 bg-gradient-to-b from-background to-muted/20 border-2 border-primary/20'>
-        <ContextMenuItem className='hover:bg-accent/10'>
-          <User className='mr-2 h-4 w-4 text-accent' />
-          <span>Profile</span>
-        </ContextMenuItem>
-        <ContextMenuItem className='hover:bg-accent/10'>
-          <Settings className='mr-2 h-4 w-4 text-accent' />
-          <span>Settings</span>
-        </ContextMenuItem>
-      </ContextMenuContent>
-    </ContextMenu>
-  ),
-};
+export const ShouldOpenClose: Story = {
+  name: "when right-clicking the trigger area, the menu appears and can be interacted with",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ canvasElement, canvas, step }) => {
+    const canvasBody = within(canvasElement.ownerDocument.body);
 
-export const UserInteraction: Story = {
-  render: () => (
-    <ContextMenu>
-      <ContextMenuTrigger className='flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm'>
-        Right click here
-      </ContextMenuTrigger>
-      <ContextMenuContent className='w-64'>
-        <ContextMenuItem onSelect={fn()}>
-          <User className='mr-2 h-4 w-4' />
-          <span>Profile</span>
-        </ContextMenuItem>
-        <ContextMenuItem onSelect={fn()}>
-          <Settings className='mr-2 h-4 w-4' />
-          <span>Settings</span>
-        </ContextMenuItem>
-      </ContextMenuContent>
-    </ContextMenu>
-  ),
-  play: async ({ canvas }) => {
-    const trigger = await canvas.findByText('Right click here');
-    await userEvent.pointer({ target: trigger, keys: '[MouseRight]' });
+    await step("Right-click on the trigger area", async () => {
+      await userEvent.pointer({
+        keys: "[MouseRight>]",
+        target: await canvas.findByText(/click here/i),
+        coords: {
+          x: canvasElement.clientWidth / 2,
+          y: canvasElement.clientHeight / 2,
+        },
+      });
+    });
+    await expect(await canvasBody.findByRole("menu")).toBeInTheDocument();
+    const items = await canvasBody.findAllByRole("menuitem");
+    const itemsLength = 4;
+    await expect(items).toHaveLength(itemsLength);
+
+    await step("Click the first menu item", async () => {
+      await userEvent.click(items[0], { delay: 100 });
+    });
   },
 };

@@ -1,13 +1,11 @@
-import { Meta, Canvas, Controls, Source } from '@storybook/addon-docs';
+import { Meta, Story, Canvas, Controls, Source } from '@storybook/addon-docs';
 import * as SwitchStories from './Switch.stories';
-
-import { Switch } from '@/components/client';
 
 <Meta of={SwitchStories} />
 
 # Switch
 
-The `Switch` component provides a toggle switch control for boolean values. It is built with Radix UI and styled with Tailwind CSS, offering a flexible and accessible switch solution.
+A control that allows the user to toggle between checked and not checked.
 
 ## Features
 
@@ -23,236 +21,9 @@ The `Switch` component provides a toggle switch control for boolean values. It i
 
 <Canvas of={SwitchStories.Default} />
 
-<Source
-  language="tsx"
-  code={`
-import { Switch } from '@/components/client';
+### Disabled Switch
 
-function BasicSwitch() {
-return <Switch />;
-}
-`}
-/>
-
-### With Label
-
-<Canvas of={SwitchStories.WithLabel} />
-
-<Source
-  language="tsx"
-  code={`
-import { Switch } from '@/components/client';
-import { useState } from 'react';
-
-function LabeledSwitch() {
-const [checked, setChecked] = useState(false);
-
-return (
-
-<div className='flex items-center space-x-2'>
-  <Switch id='airplane-mode' checked={checked} onCheckedChange={setChecked} />
-  <label
-    htmlFor='airplane-mode'
-    className='text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70'
-  >
-    Airplane Mode
-  </label>
-</div>
-); } `} />
-
-### With Description
-
-<Canvas of={SwitchStories.WithDescription} />
-
-<Source
-  language="tsx"
-  code={`
-import { Switch } from '@/components/client';
-import { useState } from 'react';
-
-function DescriptionSwitch() {
-const [checked, setChecked] = useState(false);
-
-return (
-
-<div className='flex items-start space-x-2'>
-  <Switch id='notifications' checked={checked} onCheckedChange={setChecked} />
-  <div className='grid gap-1.5 leading-none'>
-    <label
-      htmlFor='notifications'
-      className='text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70'
-    >
-      Email notifications
-    </label>
-    <p className='text-xs text-muted-foreground'>Receive emails about your account activity.</p>
-  </div>
-</div>
-); } `} />
-
-### With Form
-
-<Canvas of={SwitchStories.WithForm} />
-
-<Source
-  language="tsx"
-  code={`
-import { Switch } from '@/components/client';
-import { useState } from 'react';
-
-function FormSwitch() {
-const [formData, setFormData] = useState({
-notifications: false,
-marketing: true,
-updates: false,
-});
-
-return (
-
-<form className="space-y-4">
-<div className="flex items-center space-x-2">
-<Switch
-id="notifications"
-checked={formData.notifications}
-onCheckedChange={(checked) => setFormData(prev => ({ ...prev, notifications: checked }))}
-/>
-<label htmlFor="notifications" className="text-sm font-medium">
-Push Notifications
-</label>
-</div>
-
-      <div className="flex items-center space-x-2">
-        <Switch
-          id="marketing"
-          checked={formData.marketing}
-          onCheckedChange={(checked) => setFormData(prev => ({ ...prev, marketing: checked }))}
-        />
-        <label htmlFor="marketing" className="text-sm font-medium">
-          Marketing Emails
-        </label>
-      </div>
-
-      <div className="flex items-center space-x-2">
-        <Switch
-          id="updates"
-          checked={formData.updates}
-          onCheckedChange={(checked) => setFormData(prev => ({ ...prev, updates: checked }))}
-        />
-        <label htmlFor="updates" className="text-sm font-medium">
-          Product Updates
-        </label>
-      </div>
-
-      <div className="text-sm text-muted-foreground">
-        Current state: {JSON.stringify(formData)}
-      </div>
-    </form>
-
-);
-}
-`}
-/>
-
-### With Custom Styling
-
-<Canvas of={SwitchStories.WithCustomColors} />
-
-<Source
-  language="tsx"
-  code={`
-import { Switch } from '@/components/client';
-
-function CustomColorSwitch() {
-return (
-
-<div className='space-y-6'>
-  <div>
-    <label className='text-sm font-medium'>Default</label>
-    <Switch />
-  </div>
-  <div>
-    <label className='text-sm font-medium'>Primary</label>
-    <Switch className='data-[state=checked]:bg-primary' />
-  </div>
-  <div>
-    <label className='text-sm font-medium'>Secondary</label>
-    <Switch className='data-[state=checked]:bg-secondary' />
-  </div>
-  <div>
-    <label className='text-sm font-medium'>Accent</label>
-    <Switch className='data-[state=checked]:bg-accent' />
-  </div>
-</div>
-); } `} />
-
-### With States
-
-<Canvas of={SwitchStories.WithStates} />
-
-<Source
-  language="tsx"
-  code={`
-import { Switch } from '@/components/client';
-
-function StateSwitch() {
-return (
-
-<div className='space-y-6'>
-  <div>
-    <label className='text-sm font-medium'>Unchecked</label>
-    <Switch checked={false} />
-  </div>
-  <div>
-    <label className='text-sm font-medium'>Checked</label>
-    <Switch checked={true} />
-  </div>
-  <div>
-    <label className='text-sm font-medium'>Disabled Unchecked</label>
-    <Switch disabled checked={false} />
-  </div>
-  <div>
-    <label className='text-sm font-medium'>Disabled Checked</label>
-    <Switch disabled checked={true} />
-  </div>
-</div>
-); } `} />
-
-### With Controlled State
-
-<Canvas of={SwitchStories.WithControlledState} />
-
-<Source
-  language="tsx"
-  code={`
-import { Switch } from '@/components/client';
-import { useState } from 'react';
-
-function ControlledSwitch() {
-const [checked, setChecked] = useState(false);
-
-return (
-
-<div className='space-y-4'>
-  <div className='flex items-center space-x-2'>
-    <Switch checked={checked} onCheckedChange={setChecked} />
-    <label className='text-sm font-medium'>Controlled Switch</label>
-  </div>
-  <div className='text-sm text-muted-foreground'>Current state: {checked ? 'On' : 'Off'}</div>
-  <div className='space-x-2'>
-    <button
-      onClick={() => setChecked(true)}
-      className='px-3 py-1 text-xs bg-primary text-primary-foreground rounded'
-    >
-      Turn On
-    </button>
-    <button
-      onClick={() => setChecked(false)}
-      className='px-3 py-1 text-xs bg-secondary text-secondary-foreground rounded'
-    >
-      Turn Off
-    </button>
-  </div>
-</div>
-); } `} />
+<Canvas of={SwitchStories.Disabled} />
 
 ## Props
 
@@ -283,3 +54,9 @@ The `Switch` component is built with Radix UI primitives and provides:
 3. **Test with keyboard**: Ensure keyboard navigation works properly
 4. **Use controlled state**: Use controlled state for complex interactions
 5. **Provide visual feedback**: Show clear visual feedback for state changes
+
+---
+
+## Source Code
+
+<Source of={SwitchStories.Default} language='tsx' />

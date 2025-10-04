@@ -10,42 +10,31 @@ import {
   BreadcrumbSeparator,
 } from './Breadcrumb';
 
+const renderBreadcrumb = () =>
+  render(
+    <Breadcrumb>
+      <BreadcrumbList>
+        <BreadcrumbItem>
+          <BreadcrumbLink href='/'>Home</BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbPage>Current</BreadcrumbPage>
+        </BreadcrumbItem>
+      </BreadcrumbList>
+    </Breadcrumb>
+  );
+
 describe('Breadcrumb component', () => {
   it('renders under 100ms', () => {
     const start = performance.now();
-    render(
-      <Breadcrumb>
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink href='/'>Home</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>Current</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
-    );
+    renderBreadcrumb();
     const end = performance.now();
-    const duration = end - start;
-    expect(duration).toBeLessThan(100);
+    expect(end - start).toBeLessThan(100);
   });
 
   it('renders breadcrumb with proper structure', () => {
-    render(
-      <Breadcrumb>
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink href='/'>Home</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>Current</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
-    );
-
+    renderBreadcrumb();
     expect(screen.getByText('Home')).toBeInTheDocument();
     expect(screen.getByText('Current')).toBeInTheDocument();
   });
