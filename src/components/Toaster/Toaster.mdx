@@ -1,13 +1,57 @@
-import { Meta, Canvas, Source } from '@storybook/blocks';
+import { Meta, Canvas, Controls, Source } from '@storybook/blocks';
 import * as ToasterStories from './Toaster.stories';
 
 <Meta of={ToasterStories} />
 
 # Toaster
 
-The `Toaster` component provides toast notifications with theme support.
+An opinionated toast component for React.
 
-## Basic Usage
+## Features
+
+- **Toast Notifications**: Provides toast notifications with theme support
+- **Action Support**: Includes action buttons for user interaction
+- **Theme Integration**: Supports light and dark themes
+- **Customizable**: Supports custom styling and positioning
+- **Accessible**: Built with accessibility in mind
+
+## Usage
+
+### Basic Usage
 
 <Canvas of={ToasterStories.Default} />
-<Source of={ToasterStories.Default} />
+
+## Props
+
+<Controls of={ToasterStories.Default} />
+
+## Styling
+
+The `Toaster` component uses CSS custom properties and can be customized:
+
+```tsx
+<Toaster position='bottom-right' theme='light' richColors closeButton />
+```
+
+## Accessibility
+
+The `Toaster` component provides accessibility support:
+
+- **Screen Reader Support**: Proper ARIA attributes and roles
+- **Keyboard Navigation**: Full keyboard support for interactions
+- **Focus Management**: Proper focus handling for toast actions
+- **Announcements**: Announces toast messages to screen readers
+
+## Best Practices
+
+1. **Use meaningful messages**: Provide clear and concise toast messages
+2. **Include actions when appropriate**: Add action buttons for important toasts
+3. **Don't overuse**: Avoid showing too many toasts at once
+4. **Provide context**: Include descriptions when helpful
+5. **Test with screen readers**: Ensure accessibility works properly
+
+---
+
+## Source Code
+
+<Source of={ToasterStories.Default} language='tsx' />

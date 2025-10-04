@@ -10,38 +10,29 @@ import {
   DialogTrigger,
 } from './Dialog';
 
+const renderDialog = () =>
+  render(
+    <Dialog>
+      <DialogTrigger>Open Dialog</DialogTrigger>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>Test Dialog</DialogTitle>
+          <DialogDescription>Test description</DialogDescription>
+        </DialogHeader>
+      </DialogContent>
+    </Dialog>
+  );
+
 describe('Dialog component', () => {
   it('renders under 150ms', () => {
     const start = performance.now();
-    render(
-      <Dialog>
-        <DialogTrigger>Open Dialog</DialogTrigger>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Test Dialog</DialogTitle>
-            <DialogDescription>Test description</DialogDescription>
-          </DialogHeader>
-        </DialogContent>
-      </Dialog>
-    );
+    renderDialog();
     const end = performance.now();
-    const duration = end - start;
-    expect(duration).toBeLessThan(200);
+    expect(end - start).toBeLessThan(200);
   });
 
   it('renders dialog with trigger', () => {
-    render(
-      <Dialog>
-        <DialogTrigger>Open Dialog</DialogTrigger>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Test Dialog</DialogTitle>
-            <DialogDescription>Test description</DialogDescription>
-          </DialogHeader>
-        </DialogContent>
-      </Dialog>
-    );
-
+    renderDialog();
     expect(screen.getByText('Open Dialog')).toBeInTheDocument();
   });
 });

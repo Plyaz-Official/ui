@@ -1,71 +1,72 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { expect, userEvent } from '@storybook/test';
-import { useState } from 'react';
+import { expect, fn, userEvent } from "@storybook/test";
+import type { Meta, StoryObj } from "@storybook/react";
+import { REGEXP_ONLY_DIGITS, REGEXP_ONLY_DIGITS_AND_CHARS } from "input-otp";
 
-import { InputOTP, InputOTPGroup, InputOTPSlot, InputOTPSeparator } from '@/components/client';
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSeparator,
+  InputOTPSlot,
+} from "@/components/client";
 
-type Story = StoryObj<typeof InputOTP>;
-
-const meta: Meta<typeof InputOTP> = {
-  title: 'Components/InputOTP',
+/**
+ * Accessible one-time password component with copy paste functionality.
+ */
+const meta = {
+  title: "components/InputOTP",
   component: InputOTP,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
+  argTypes: {},
+  args: {
+    maxLength: 6,
+    onChange: fn(),
+    onComplete: fn(),
+    pattern: REGEXP_ONLY_DIGITS_AND_CHARS,
+    children: null,
+    "aria-label": "One-time password",
+  },
+
+  render: (args) => (
+    <InputOTP {...args} render={undefined}>
+      <InputOTPGroup>
+        <InputOTPSlot index={0} />
+        <InputOTPSlot index={1} />
+        <InputOTPSlot index={2} />
+        <InputOTPSlot index={3} />
+        <InputOTPSlot index={4} />
+        <InputOTPSlot index={5} />
+      </InputOTPGroup>
+    </InputOTP>
+  ),
   parameters: {
-    docs: {
-      description: {
-        component:
-          'The `InputOTP` component is a one-time password input field that allows users to enter a code digit by digit. It provides a secure and user-friendly way to input verification codes. Built with input-otp and styled with Tailwind CSS.',
-      },
-    },
+    layout: "centered",
   },
-  argTypes: {
-    value: {
-      control: 'text',
-      description: 'The current value of the OTP input.',
-    },
-    onChange: {
-      action: 'changed',
-      description: 'Called when the value changes.',
-    },
-    maxLength: {
-      control: 'number',
-      description: 'The maximum length of the OTP.',
-    },
-    disabled: {
-      control: 'boolean',
-      description: 'Whether the OTP input is disabled.',
-    },
-  },
-};
+} satisfies Meta<typeof InputOTP>;
 
 export default meta;
 
-const DefaultComponent = () => {
-  const [value, setValue] = useState('');
+type Story = StoryObj<typeof meta>;
 
-  return (
-    <InputOTP maxLength={6} value={value} onChange={setValue}>
-      <InputOTPGroup>
-        <InputOTPSlot index={0} />
-        <InputOTPSlot index={1} />
-        <InputOTPSlot index={2} />
-        <InputOTPSlot index={3} />
-        <InputOTPSlot index={4} />
-        <InputOTPSlot index={5} />
-      </InputOTPGroup>
-    </InputOTP>
-  );
+/**
+ * The default form of the InputOTP field.
+ */
+export const Default: Story = {};
+
+/**
+ * The number form of the InputOTP field.
+ */
+export const OnlyNumbers: Story = {
+  args: {
+    pattern: REGEXP_ONLY_DIGITS,
+  },
 };
 
-export const Default: Story = {
-  render: () => <DefaultComponent />,
-};
-
-const WithSeparatorComponent = () => {
-  const [value, setValue] = useState('');
-
-  return (
-    <InputOTP maxLength={6} value={value} onChange={setValue}>
+/**
+ * Use multiple groups to separate the input slots.
+ */
+export const SeparatedGroup: Story = {
+  render: (args) => (
+    <InputOTP {...args} render={undefined}>
       <InputOTPGroup>
         <InputOTPSlot index={0} />
         <InputOTPSlot index={1} />
@@ -78,242 +79,49 @@ const WithSeparatorComponent = () => {
         <InputOTPSlot index={5} />
       </InputOTPGroup>
     </InputOTP>
-  );
+  ),
 };
 
-export const WithSeparator: Story = {
-  render: () => <WithSeparatorComponent />,
+export const ShouldAcceptTextWhenTyping: Story = {
+  name: "when typing text, should call onChange and onComplete",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ args, canvas, step }) => {
+    const inputTextbox = await canvas.findByRole("textbox");
+
+    await step("type into input textbox", async () => {
+      await userEvent.click(inputTextbox);
+      await userEvent.type(inputTextbox, "mocked");
+      await expect(args.onChange).toHaveBeenCalledTimes(6);
+    });
+
+    await step("finish typing by pressing Enter", async () => {
+      await userEvent.keyboard("{enter}");
+      await expect(args.onComplete).toHaveBeenCalledTimes(1);
+    });
+  },
 };
 
-const FourDigitsComponent = () => {
-  const [value, setValue] = useState('');
+export const ShouldAcceptOnlyNumbersWhenRestricted: Story = {
+  ...OnlyNumbers,
+  name: "when only numbers are allowed, should call onChange for numbers and onComplete",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ args, canvas, step }) => {
+    const inputTextbox = await canvas.findByRole("textbox");
 
-  return (
-    <InputOTP maxLength={4} value={value} onChange={setValue}>
-      <InputOTPGroup>
-        <InputOTPSlot index={0} />
-        <InputOTPSlot index={1} />
-        <InputOTPSlot index={2} />
-        <InputOTPSlot index={3} />
-      </InputOTPGroup>
-    </InputOTP>
-  );
-};
+    await step("type text into input textbox", async () => {
+      await userEvent.click(inputTextbox);
+      await userEvent.type(inputTextbox, "mocked");
+      await expect(args.onChange).toHaveBeenCalledTimes(0);
+    });
 
-export const FourDigits: Story = {
-  render: () => <FourDigitsComponent />,
-};
+    await step("type numbers into input textbox", async () => {
+      await userEvent.type(inputTextbox, "123456");
+      await expect(args.onChange).toHaveBeenCalledTimes(6);
+    });
 
-const EightDigitsComponent = () => {
-  const [value, setValue] = useState('');
-
-  return (
-    <InputOTP maxLength={8} value={value} onChange={setValue}>
-      <InputOTPGroup>
-        <InputOTPSlot index={0} />
-        <InputOTPSlot index={1} />
-        <InputOTPSlot index={2} />
-        <InputOTPSlot index={3} />
-      </InputOTPGroup>
-      <InputOTPSeparator />
-      <InputOTPGroup>
-        <InputOTPSlot index={4} />
-        <InputOTPSlot index={5} />
-        <InputOTPSlot index={6} />
-        <InputOTPSlot index={7} />
-      </InputOTPGroup>
-    </InputOTP>
-  );
-};
-
-export const EightDigits: Story = {
-  render: () => <EightDigitsComponent />,
-};
-
-const DisabledComponent = () => {
-  const [value, setValue] = useState('123456');
-
-  return (
-    <InputOTP maxLength={6} value={value} onChange={setValue} disabled>
-      <InputOTPGroup>
-        <InputOTPSlot index={0} />
-        <InputOTPSlot index={1} />
-        <InputOTPSlot index={2} />
-        <InputOTPSlot index={3} />
-        <InputOTPSlot index={4} />
-        <InputOTPSlot index={5} />
-      </InputOTPGroup>
-    </InputOTP>
-  );
-};
-
-export const Disabled: Story = {
-  render: () => <DisabledComponent />,
-};
-
-const WithInitialValueComponent = () => {
-  const [value, setValue] = useState('123456');
-
-  return (
-    <InputOTP maxLength={6} value={value} onChange={setValue}>
-      <InputOTPGroup>
-        <InputOTPSlot index={0} />
-        <InputOTPSlot index={1} />
-        <InputOTPSlot index={2} />
-        <InputOTPSlot index={3} />
-        <InputOTPSlot index={4} />
-        <InputOTPSlot index={5} />
-      </InputOTPGroup>
-    </InputOTP>
-  );
-};
-
-export const WithInitialValue: Story = {
-  render: () => <WithInitialValueComponent />,
-};
-
-const WithCustomStylingComponent = () => {
-  const [value, setValue] = useState('');
-
-  return (
-    <InputOTP maxLength={6} value={value} onChange={setValue}>
-      <InputOTPGroup className='gap-4'>
-        <InputOTPSlot index={0} className='h-12 w-12 text-lg' />
-        <InputOTPSlot index={1} className='h-12 w-12 text-lg' />
-        <InputOTPSlot index={2} className='h-12 w-12 text-lg' />
-        <InputOTPSlot index={3} className='h-12 w-12 text-lg' />
-        <InputOTPSlot index={4} className='h-12 w-12 text-lg' />
-        <InputOTPSlot index={5} className='h-12 w-12 text-lg' />
-      </InputOTPGroup>
-    </InputOTP>
-  );
-};
-
-export const WithCustomStyling: Story = {
-  render: () => <WithCustomStylingComponent />,
-};
-
-const WithValidationComponent = () => {
-  const [value, setValue] = useState('');
-  const [isValid, setIsValid] = useState(true);
-
-  const handleChange = (newValue: string) => {
-    setValue(newValue);
-    setIsValid(newValue.length === 6 && /^\d+$/.test(newValue));
-  };
-
-  return (
-    <div className='space-y-2'>
-      <InputOTP
-        maxLength={6}
-        value={value}
-        onChange={handleChange}
-        className={!isValid ? 'aria-invalid:border-destructive' : ''}
-      >
-        <InputOTPGroup>
-          <InputOTPSlot index={0} />
-          <InputOTPSlot index={1} />
-          <InputOTPSlot index={2} />
-          <InputOTPSlot index={3} />
-          <InputOTPSlot index={4} />
-          <InputOTPSlot index={5} />
-        </InputOTPGroup>
-      </InputOTP>
-      {!isValid && value.length > 0 && (
-        <p className='text-sm text-destructive'>Please enter a valid 6-digit code.</p>
-      )}
-    </div>
-  );
-};
-
-export const WithValidation: Story = {
-  render: () => <WithValidationComponent />,
-};
-
-const WithFormComponent = () => {
-  const [value, setValue] = useState('');
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    alert(`OTP submitted: ${value}`);
-  };
-
-  return (
-    <form onSubmit={handleSubmit} className='space-y-4'>
-      <div>
-        <label htmlFor='otp' className='text-sm font-medium'>
-          Enter verification code
-        </label>
-        <InputOTP maxLength={6} value={value} onChange={setValue} id='otp'>
-          <InputOTPGroup>
-            <InputOTPSlot index={0} />
-            <InputOTPSlot index={1} />
-            <InputOTPSlot index={2} />
-            <InputOTPSlot index={3} />
-            <InputOTPSlot index={4} />
-            <InputOTPSlot index={5} />
-          </InputOTPGroup>
-        </InputOTP>
-      </div>
-      <button
-        type='submit'
-        className='px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90'
-        disabled={value.length !== 6}
-      >
-        Verify Code
-      </button>
-    </form>
-  );
-};
-
-export const WithForm: Story = {
-  render: () => <WithFormComponent />,
-};
-
-const WithAutoFocusComponent = () => {
-  const [value, setValue] = useState('');
-
-  return (
-    <InputOTP maxLength={6} value={value} onChange={setValue}>
-      <InputOTPGroup>
-        <InputOTPSlot index={0} />
-        <InputOTPSlot index={1} />
-        <InputOTPSlot index={2} />
-        <InputOTPSlot index={3} />
-        <InputOTPSlot index={4} />
-        <InputOTPSlot index={5} />
-      </InputOTPGroup>
-    </InputOTP>
-  );
-};
-
-export const WithAutoFocus: Story = {
-  render: () => <WithAutoFocusComponent />,
-};
-
-const UserInteractionComponent = () => {
-  const [value, setValue] = useState('');
-
-  return (
-    <InputOTP maxLength={6} value={value} onChange={setValue}>
-      <InputOTPGroup>
-        <InputOTPSlot index={0} />
-        <InputOTPSlot index={1} />
-        <InputOTPSlot index={2} />
-        <InputOTPSlot index={3} />
-        <InputOTPSlot index={4} />
-        <InputOTPSlot index={5} />
-      </InputOTPGroup>
-    </InputOTP>
-  );
-};
-
-export const UserInteraction: Story = {
-  render: () => <UserInteractionComponent />,
-  play: async ({ canvas }) => {
-    const firstSlot = await canvas.findByRole('textbox');
-    await userEvent.click(firstSlot);
-    await userEvent.keyboard('1');
-    await expect(canvas.getByDisplayValue('1')).toBeInTheDocument();
+    await step("finish typing by pressing Enter", async () => {
+      await userEvent.keyboard("{enter}");
+      await expect(args.onComplete).toHaveBeenCalledTimes(1);
+    });
   },
 };

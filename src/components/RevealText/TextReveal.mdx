@@ -1,52 +1,71 @@
-import { Meta, Canvas, Controls, Source } from "@storybook/addon-docs";
-import * as TextRevealStories from "./TextReveal.stories";
+import { Meta, Canvas, Controls, Source } from '@storybook/addon-docs';
+import * as TextareaStories from '../Textarea/Textarea.stories';
 
-<Meta of={TextRevealStories} />
+<Meta of={TextareaStories} />
 
-# TextReveal
+# Textarea
 
-The `TextReveal` component animates words individually based on scroll progress. It’s designed for storytelling or expressive headers, giving users a smooth word-by-word reveal as they scroll.
+Displays a form textarea or a component that looks like a textarea.
 
 ## Features
 
-- Scroll-based word-by-word animation
-- Uses `motion` from `framer-motion`
-- Accepts a string as children and splits it into animated words
-- Styled with Tailwind CSS for consistency and responsiveness
-- Integrates seamlessly with dark/light modes
+- **Multi-line Input**: Supports multi-line text input
+- **Accessibility**: Built with proper ARIA attributes and keyboard support
+- **Customizable**: Supports custom styling and theming
+- **Responsive**: Adapts to different screen sizes
+- **Form Integration**: Works seamlessly with form components
 
-## Usage Guidelines
+## Usage
 
-- Wrap content you want to reveal dynamically with `TextReveal`
-- Ensure the `children` prop is a plain string
-- Use for headings, hero sections, or interactive intros
+### Basic Usage
 
-## Do
+<Canvas of={TextareaStories.Default} />
 
-- Use for visually impactful scroll-based text transitions
-- Combine with large headers or narrative sections
-- Use `className` to control layout and styling
+### With Label
 
-## Don’t
+<Canvas of={TextareaStories.WithLabel} />
 
-- Pass non-string children (it will throw an error)
-- Use for small body text or inline content
-- Place inside very short scroll areas (it relies on scroll progress)
+### With Text
+
+<Canvas of={TextareaStories.WithText} />
+
+### With Button
+
+<Canvas of={TextareaStories.WithButton} />
 
 ## Props
 
-<Controls of={TextRevealStories.Base} />
+<Controls of={TextareaStories.Default} />
 
-### Examples
+## Styling
 
-## Default Usage
+The `Textarea` component uses Tailwind CSS classes and can be customized with additional classes:
 
-<Canvas of={TextRevealStories.Base} />
+```tsx
+<Textarea className="min-h-[100px]" />
+<Textarea className="border-blue-500 focus-visible:border-blue-500" />
+<Textarea className="resize-none" />
+```
 
-## Custom Styling
+## Accessibility
 
-<Canvas of={TextRevealStories.CustomStyle} />
+The `Textarea` component provides accessibility support:
 
-### Source Code
+- **Screen Reader Support**: Proper ARIA attributes and roles
+- **Keyboard Navigation**: Full keyboard support for input
+- **Focus Management**: Proper focus handling and indicators
+- **Label Association**: Proper label association for screen readers
 
-<Source of={TextRevealStories.Base} language="tsx" />
+## Best Practices
+
+1. **Use labels**: Always provide clear labels for textareas
+2. **Provide placeholders**: Use placeholder text to guide users
+3. **Handle validation**: Provide clear error messages and validation feedback
+4. **Consider sizing**: Use appropriate rows and resize options
+5. **Test with keyboard**: Ensure keyboard navigation works properly
+
+---
+
+## Source Code
+
+<Source of={TextareaStories.Default} language='tsx' />

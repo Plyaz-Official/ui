@@ -1,13 +1,11 @@
-import { Meta, Canvas, Controls, Source } from '@storybook/addon-docs';
+import { Meta, Story, Canvas, Controls, Source } from '@storybook/addon-docs';
 import * as SkeletonStories from './Skeleton.stories';
-
-import { Skeleton } from '@/components';
 
 <Meta of={SkeletonStories} />
 
 # Skeleton
 
-The `Skeleton` component provides a loading placeholder with a pulsing animation. It is styled with Tailwind CSS and can be customized for different content shapes and sizes.
+Use to show a placeholder while content is loading.
 
 ## Features
 
@@ -23,175 +21,6 @@ The `Skeleton` component provides a loading placeholder with a pulsing animation
 ### Basic Usage
 
 <Canvas of={SkeletonStories.Default} />
-
-<Source
-  language="tsx"
-  code={`
-import { Skeleton } from '@/components';
-
-function BasicSkeleton() {
-return <Skeleton className="h-4 w-[250px]" />;
-}
-`}
-/>
-
-### Different Shapes
-
-<Canvas of={SkeletonStories.DifferentShapes} />
-
-<Source
-  language="tsx"
-  code={`
-import { Skeleton } from '@/components';
-
-function ShapeSkeletons() {
-return (
-
-<div className='space-y-4'>
-  {/* Circle */}
-  <Skeleton className='h-12 w-12 rounded-full' />
-
-{/* Rectangle */}
-
-<Skeleton className='h-4 w-[350px]' />
-
-{/* Square */}
-
-  <Skeleton className='h-12 w-12' />
-</div>
-); } `} />
-
-### Common Patterns
-
-<Canvas of={SkeletonStories.CommonPatterns} />
-
-<Source
-  language="tsx"
-  code={`
-import { Skeleton } from '@/components';
-
-function CommonPatterns() {
-return (
-
-<div className="space-y-6">
-  {/* Card Pattern */}
-  <div className='flex items-center space-x-4'>
-    <Skeleton className='h-12 w-12 rounded-full' />
-    <div className='space-y-2'>
-      <Skeleton className='h-4 w-[250px]' />
-      <Skeleton className='h-4 w-[200px]' />
-    </div>
-  </div>
-
-{/* Form Pattern */}
-
-<div className='space-y-4'>
-  <div className='space-y-2'>
-    <Skeleton className='h-4 w-[100px]' />
-    <Skeleton className='h-10 w-full' />
-  </div>
-  <div className='space-y-2'>
-    <Skeleton className='h-4 w-[120px]' />
-    <Skeleton className='h-10 w-full' />
-  </div>
-  <Skeleton className='h-10 w-[100px]' />
-</div>
-
-{/* List Pattern */}
-
-  <div className="space-y-3">
-    {Array.from({ length: 3 }, (_, i) => (
-      <div key={i} className="flex items-center space-x-4">
-        <Skeleton className="h-10 w-10 rounded-full" />
-        <div className="space-y-2">
-          <Skeleton className="h-4 w-[200px]" />
-          <Skeleton className="h-3 w-[150px]" />
-        </div>
-      </div>
-    ))}
-  </div>
-</div>
-); } `} />
-
-### Customization
-
-<Canvas of={SkeletonStories.Customization} />
-
-<Source
-  language="tsx"
-  code={`
-import { Skeleton } from '@/components';
-
-function CustomSkeletons() {
-return (
-
-<div className="space-y-6">
-  {/* Different Sizes */}
-  <div className='space-y-4'>
-    <Skeleton className='h-2 w-[250px]' />
-    <Skeleton className='h-4 w-[250px]' />
-    <Skeleton className='h-6 w-[250px]' />
-    <Skeleton className='h-8 w-[250px]' />
-  </div>
-
-{/* Different Colors */}
-
-<div className='space-y-4'>
-  <Skeleton className='h-4 w-[250px] bg-primary/20' />
-  <Skeleton className='h-4 w-[250px] bg-secondary/20' />
-  <Skeleton className='h-4 w-[250px] bg-accent/20' />
-</div>
-
-{/* Different Shapes */}
-
-  <div className='space-y-4'>
-    <Skeleton className='h-4 w-[250px] rounded-none' />
-    <Skeleton className='h-4 w-[250px] rounded-md' />
-    <Skeleton className='h-4 w-[250px] rounded-lg' />
-    <Skeleton className='h-4 w-[250px] rounded-full' />
-  </div>
-</div>
-); } `} />
-
-### Loading State
-
-<Canvas of={SkeletonStories.LoadingState} />
-
-<Source
-  language="tsx"
-  code={`
-import { Skeleton } from '@/components';
-import { useState, useEffect } from 'react';
-
-function LoadingStateSkeleton() {
-const [loading, setLoading] = useState(true);
-
-useEffect(() => {
-const timer = setTimeout(() => setLoading(false), 3000);
-return () => clearTimeout(timer);
-}, []);
-
-if (loading) {
-return (
-
-<div className='space-y-4'>
-  <Skeleton className='h-6 w-[200px]' />
-  <div className='space-y-2'>
-    <Skeleton className='h-4 w-full' />
-    <Skeleton className='h-4 w-3/4' />
-  </div>
-  <Skeleton className='h-10 w-[100px]' />
-</div>
-); }
-
-return (
-
-<div className='space-y-4'>
-  <h2 className='text-xl font-semibold'>Loaded Content</h2>
-  <p className='text-gray-600'>This content has finished loading and replaced the skeleton.</p>
-  <button className='px-4 py-2 bg-blue-500 text-white rounded'>Action Button</button>
-</div>
-); } `} />
 
 ## Props
 
@@ -231,3 +60,9 @@ The `Skeleton` component is optimized for performance:
 5. **Consider mobile**: Test on mobile devices for touch interactions
 6. **Use consistent styling**: Maintain visual consistency across skeletons
 7. **Provide fallbacks**: Always have a fallback for failed loads
+
+---
+
+## Source Code
+
+<Source of={SkeletonStories.Default} language='tsx' />

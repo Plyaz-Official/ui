@@ -1,355 +1,79 @@
-import { Meta, Canvas, Controls, Source } from '@storybook/addon-docs';
+import { Meta, Story, Canvas, Controls, Source } from '@storybook/addon-docs';
 import * as ToggleStories from './Toggle.stories';
-
-import { Toggle } from '@/components/client';
 
 <Meta of={ToggleStories} />
 
 # Toggle
 
-The `Toggle` component provides a two-state button that can be toggled on and off. It is built with Radix UI and styled with Tailwind CSS, offering a flexible and accessible toggle solution.
+`Toggle` is a two-state button that can be toggled on and off. It provides a way to create toggle controls with proper styling and accessibility. Built with Radix UI and styled with Tailwind CSS.
+
+The toggle component provides a powerful way to create toggle controls with proper focus management and accessibility.
 
 ## Features
 
-- **Two-State Button**: Provides a toggleable button with on/off states
-- **Accessibility**: Built with Radix UI primitives for full accessibility support
-- **Customizable**: Supports custom styling and theming
-- **Responsive**: Adapts to different screen sizes
-- **Keyboard Navigation**: Full keyboard support for navigation
-- **Touch Support**: Optimized for touch devices
-
-## Usage
-
-### Basic Usage
-
-<Canvas of={ToggleStories.Default} />
-
-<Source
-  language="tsx"
-  code={`
-import { Toggle } from '@/components/client';
-import { Italic } from 'lucide-react';
-
-function BasicToggle() {
-return (
-
-<Toggle aria-label='Toggle italic'>
-  <Italic />
-</Toggle>
-); } `} />
-
-### With Text
-
-<Canvas of={ToggleStories.WithText} />
-
-<Source
-  language="tsx"
-  code={`
-import { Toggle } from '@/components/client';
-
-function TextToggle() {
-return (
-
-<Toggle>Toggle</Toggle>
-); } `} />
-
-### With Icon and Text
-
-<Canvas of={ToggleStories.WithIconAndText} />
-
-<Source
-  language="tsx"
-  code={`
-import { Toggle } from '@/components/client';
-import { Bold } from 'lucide-react';
-
-function IconTextToggle() {
-return (
-
-<Toggle>
-  <Bold />
-  Bold
-</Toggle>
-); } `} />
-
-### Outline Variant
-
-<Canvas of={ToggleStories.Outline} />
-
-<Source
-  language="tsx"
-  code={`
-import { Toggle } from '@/components/client';
-import { Italic } from 'lucide-react';
-
-function OutlineToggle() {
-return (
-
-<Toggle variant='outline' aria-label='Toggle italic'>
-  <Italic />
-</Toggle>
-); } `} />
-
-### Size Variants
-
-<Canvas of={ToggleStories.Small} />
-
-<Source
-  language="tsx"
-  code={`
-import { Toggle } from '@/components/client';
-import { Italic } from 'lucide-react';
-
-function SizeToggle() {
-return (
-
-<div className='flex items-center gap-2'>
-  <Toggle size='sm' aria-label='Small toggle'>
-    <Italic />
-  </Toggle>
-  <Toggle size='default' aria-label='Default toggle'>
-    <Italic />
-  </Toggle>
-  <Toggle size='lg' aria-label='Large toggle'>
-    <Italic />
-  </Toggle>
-</div>
-); } `} />
-
-### Disabled State
-
-<Canvas of={ToggleStories.Disabled} />
-
-<Source
-  language="tsx"
-  code={`
-import { Toggle } from '@/components/client';
-import { Italic } from 'lucide-react';
-
-function DisabledToggle() {
-return (
-
-<Toggle disabled aria-label='Toggle italic'>
-  <Italic />
-</Toggle>
-); } `} />
-
-### Pressed State
-
-<Canvas of={ToggleStories.Pressed} />
-
-<Source
-  language="tsx"
-  code={`
-import { Toggle } from '@/components/client';
-import { Italic } from 'lucide-react';
-
-function PressedToggle() {
-return (
-
-<Toggle pressed aria-label='Toggle italic'>
-  <Italic />
-</Toggle>
-); } `} />
-
-### With Custom Styling
-
-<Canvas of={ToggleStories.WithCustomStyling} />
-
-<Source
-  language="tsx"
-  code={`
-import { Toggle } from '@/components/client';
-import { Italic } from 'lucide-react';
-
-function CustomStyledToggle() {
-return (
-
-<Toggle
-  className='bg-blue-500 text-white hover:bg-blue-600 data-[state=on]:bg-blue-700'
-  aria-label='Toggle italic'
->
-  <Italic />
-</Toggle>
-); } `} />
-
-### Text Formatting Group
-
-<Canvas of={ToggleStories.TextFormattingGroup} />
-
-<Source
-  language="tsx"
-  code={`
-import { Toggle } from '@/components/client';
-import { useState } from 'react';
-import { Bold, Italic, Underline } from 'lucide-react';
-
-function TextFormattingGroup() {
-const [bold, setBold] = useState(false);
-const [italic, setItalic] = useState(false);
-const [underline, setUnderline] = useState(false);
-
-return (
-
-<div className='flex items-center gap-1'>
-  <Toggle pressed={bold} onPressedChange={setBold} aria-label='Toggle bold'>
-    <Bold />
-  </Toggle>
-  <Toggle pressed={italic} onPressedChange={setItalic} aria-label='Toggle italic'>
-    <Italic />
-  </Toggle>
-  <Toggle pressed={underline} onPressedChange={setUnderline} aria-label='Toggle underline'>
-    <Underline />
-  </Toggle>
-</div>
-); } `} />
-
-### Alignment Group
-
-<Canvas of={ToggleStories.AlignmentGroup} />
-
-<Source
-  language="tsx"
-  code={`
-import { Toggle } from '@/components/client';
-import { useState } from 'react';
-import { AlignLeft, AlignCenter, AlignRight } from 'lucide-react';
-
-function AlignmentGroup() {
-const [alignment, setAlignment] = useState('left');
-
-return (
-
-<div className='flex items-center gap-1'>
-  <Toggle
-    pressed={alignment === 'left'}
-    onPressedChange={() => setAlignment('left')}
-    aria-label='Align left'
-  >
-    <AlignLeft />
-  </Toggle>
-  <Toggle
-    pressed={alignment === 'center'}
-    onPressedChange={() => setAlignment('center')}
-    aria-label='Align center'
-  >
-    <AlignCenter />
-  </Toggle>
-  <Toggle
-    pressed={alignment === 'right'}
-    onPressedChange={() => setAlignment('right')}
-    aria-label='Align right'
-  >
-    <AlignRight />
-  </Toggle>
-</div>
-); } `} />
-
-### With Tooltips
-
-<Canvas of={ToggleStories.WithTooltips} />
-
-<Source
-  language="tsx"
-  code={`
-import { Toggle } from '@/components/client';
-import { useState } from 'react';
-import { Bold, Italic } from 'lucide-react';
-
-function TooltipToggle() {
-const [bold, setBold] = useState(false);
-const [italic, setItalic] = useState(false);
-
-return (
-
-<div className='flex items-center gap-1'>
-  <Toggle pressed={bold} onPressedChange={setBold} aria-label='Toggle bold' title='Bold (Ctrl+B)'>
-    <Bold />
-  </Toggle>
-  <Toggle
-    pressed={italic}
-    onPressedChange={setItalic}
-    aria-label='Toggle italic'
-    title='Italic (Ctrl+I)'
-  >
-    <Italic />
-  </Toggle>
-</div>
-); } `} />
-
-### With User Interaction
-
-<Canvas of={ToggleStories.WithUserInteraction} />
-
-<Source
-  language="tsx"
-  code={`
-import { Toggle } from '@/components/client';
-import { useState } from 'react';
-import { Bold } from 'lucide-react';
-
-function InteractiveToggle() {
-const [bold, setBold] = useState(false);
-const [clickCount, setClickCount] = useState(0);
-
-const handleToggle = (pressed: boolean) => {
-setBold(pressed);
-setClickCount(prev => prev + 1);
-};
-
-return (
-
-<div className='space-y-4'>
-  <Toggle pressed={bold} onPressedChange={handleToggle} aria-label='Toggle bold'>
-    <Bold />
-  </Toggle>
-  <div className='text-sm text-muted-foreground space-y-1'>
-    <p>Bold: {bold ? 'On' : 'Off'}</p>
-    <p>Clicks: {clickCount}</p>
-  </div>
-</div>
-); } `} />
+- Two-state toggle control
+- Focus management and keyboard navigation
+- Accessible with proper ARIA attributes
+- Support for controlled and uncontrolled modes
+- Customizable styling and behavior
+- Multiple variants and sizes
+- Icon and text support
+
+## Usage Guidelines
+
+- Use toggles for binary state controls
+- Keep labels concise and descriptive
+- Use appropriate variants for context
+- Consider accessibility requirements
+- Use consistent sizing
+
+## Do
+
+- Use toggles for binary state controls
+- Provide clear labels and descriptions
+- Use appropriate variants
+- Consider accessibility
+- Use consistent sizing
+
+## Don't
+
+- Use toggles for complex state management
+- Make toggles too small to interact with
+- Forget to provide labels
+- Overuse in your interface
 
 ## Props
 
 <Controls of={ToggleStories.Default} />
 
-## Styling
+## Examples
 
-The `Toggle` component uses Tailwind CSS classes and can be customized with additional classes:
+### Default Toggle
 
-```tsx
-<Toggle className="bg-blue-500 text-white hover:bg-blue-600 data-[state=on]:bg-blue-700" />
-<Toggle variant="outline" className="border-blue-500" />
-<Toggle size="lg" className="text-lg" />
-```
+<Canvas of={ToggleStories.Default} />
 
-## Accessibility
+### Outline Variant
 
-The `Toggle` component is built with Radix UI primitives and provides:
+<Canvas of={ToggleStories.Outline} />
 
-- **Keyboard Navigation**: Full keyboard support for navigation
-- **Screen Reader Support**: Proper ARIA attributes and roles
-- **Focus Management**: Focus indicators and proper focus handling
-- **Touch Support**: Optimized for touch devices
-- **State Announcements**: Announces state changes to screen readers
+### With Text
 
-## Performance
+<Canvas of={ToggleStories.WithText} />
 
-The `Toggle` component is optimized for performance:
+### Small Size
 
-- **Efficient Rendering**: Only re-renders when necessary
-- **Smooth Transitions**: Provides smooth state transitions
-- **Memory Efficient**: Minimal memory usage
-- **Responsive**: Adapts to different screen sizes and orientations
+<Canvas of={ToggleStories.Small} />
 
-## Best Practices
+### Large Size
 
-1. **Use appropriate labels**: Always provide clear labels for toggles
-2. **Handle state changes**: Use `onPressedChange` for controlled state
-3. **Test with keyboard**: Ensure keyboard navigation works properly
-4. **Consider mobile**: Test on mobile devices for touch interactions
-5. **Use controlled state**: Use controlled state for complex interactions
-6. **Provide visual feedback**: Show clear visual feedback for pressed state
-7. **Group related toggles**: Group related toggles logically
-8. **Use consistent sizing**: Use consistent sizing within groups
+<Canvas of={ToggleStories.Large} />
+
+### Disabled Toggle
+
+<Canvas of={ToggleStories.Disabled} />
+
+---
+
+## Source Code
+
+<Source of={ToggleStories.Default} language='tsx' />

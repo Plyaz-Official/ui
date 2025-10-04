@@ -1,300 +1,86 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { expect } from '@storybook/test';
-import { useState } from 'react';
-import { Calculator, Calendar, CreditCard, Settings, Smile, User } from 'lucide-react';
+
+import type { Meta, StoryObj } from "@storybook/react";
+import { expect, userEvent, within } from "@storybook/test";
 
 import {
   Command,
-  CommandDialog,
   CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
   CommandList,
   CommandSeparator,
-  CommandShortcut,
-} from '@/components/client';
+} from "@/components/client";
 
-type Story = StoryObj<typeof Command>;
-
-const meta: Meta<typeof Command> = {
-  title: 'Components/Command',
+/**
+ * Fast, composable, unstyled command menu for React.
+ */
+const meta = {
+  title: "components/Command",
   component: Command,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
+  argTypes: {},
+  args: {
+    className: "rounded-lg w-96 border shadow-md",
+  },
+  render: (args) => (
+    <Command {...args}>
+      <CommandInput placeholder="Type a command or search..." />
+      <CommandList>
+        <CommandEmpty>No results found.</CommandEmpty>
+        <CommandGroup heading="Suggestions">
+          <CommandItem>Calendar</CommandItem>
+          <CommandItem>Search Emoji</CommandItem>
+          <CommandItem disabled>Calculator</CommandItem>
+        </CommandGroup>
+        <CommandSeparator />
+        <CommandGroup heading="Settings">
+          <CommandItem>Profile</CommandItem>
+          <CommandItem>Billing</CommandItem>
+          <CommandItem>Settings</CommandItem>
+        </CommandGroup>
+      </CommandList>
+    </Command>
+  ),
   parameters: {
-    docs: {
-      description: {
-        component:
-          "The `Command` component is a command palette interface that provides a searchable list of commands. It's built with CMDK and styled with Tailwind CSS, perfect for implementing command palettes, search interfaces, and keyboard navigation.",
-      },
-    },
+    layout: "centered",
   },
-  argTypes: {
-    className: {
-      control: 'text',
-      description: 'Additional Tailwind CSS classes.',
-    },
-  },
-};
+} satisfies Meta<typeof Command>;
 
 export default meta;
 
-export const Default: Story = {
-  render: () => (
-    <Command className='rounded-lg border shadow-md'>
-      <CommandInput placeholder='Type a command or search...' />
-      <CommandList>
-        <CommandEmpty>No results found.</CommandEmpty>
-        <CommandGroup heading='Suggestions'>
-          <CommandItem>
-            <Calendar className='mr-2 h-4 w-4' />
-            <span>Calendar</span>
-          </CommandItem>
-          <CommandItem>
-            <Smile className='mr-2 h-4 w-4' />
-            <span>Search Emoji</span>
-          </CommandItem>
-          <CommandItem>
-            <Calculator className='mr-2 h-4 w-4' />
-            <span>Calculator</span>
-          </CommandItem>
-        </CommandGroup>
-      </CommandList>
-    </Command>
-  ),
-};
+type Story = StoryObj<typeof meta>;
 
-export const WithGroups: Story = {
-  render: () => (
-    <Command className='rounded-lg border shadow-md'>
-      <CommandInput placeholder='Type a command or search...' />
-      <CommandList>
-        <CommandEmpty>No results found.</CommandEmpty>
-        <CommandGroup heading='Suggestions'>
-          <CommandItem>
-            <Calendar className='mr-2 h-4 w-4' />
-            <span>Calendar</span>
-          </CommandItem>
-          <CommandItem>
-            <Smile className='mr-2 h-4 w-4' />
-            <span>Search Emoji</span>
-          </CommandItem>
-          <CommandItem>
-            <Calculator className='mr-2 h-4 w-4' />
-            <span>Calculator</span>
-          </CommandItem>
-        </CommandGroup>
-        <CommandSeparator />
-        <CommandGroup heading='Settings'>
-          <CommandItem>
-            <User className='mr-2 h-4 w-4' />
-            <span>Profile</span>
-            <CommandShortcut>⌘P</CommandShortcut>
-          </CommandItem>
-          <CommandItem>
-            <CreditCard className='mr-2 h-4 w-4' />
-            <span>Billing</span>
-            <CommandShortcut>⌘B</CommandShortcut>
-          </CommandItem>
-          <CommandItem>
-            <Settings className='mr-2 h-4 w-4' />
-            <span>Settings</span>
-            <CommandShortcut>⌘S</CommandShortcut>
-          </CommandItem>
-        </CommandGroup>
-      </CommandList>
-    </Command>
-  ),
-};
+/**
+ * The default form of the command.
+ */
+export const Default: Story = {};
 
-export const WithShortcuts: Story = {
-  render: () => (
-    <Command className='rounded-lg border shadow-md'>
-      <CommandInput placeholder='Type a command or search...' />
-      <CommandList>
-        <CommandEmpty>No results found.</CommandEmpty>
-        <CommandGroup heading='Quick Actions'>
-          <CommandItem>
-            <span>Create new file</span>
-            <CommandShortcut>⌘N</CommandShortcut>
-          </CommandItem>
-          <CommandItem>
-            <span>Open file</span>
-            <CommandShortcut>⌘O</CommandShortcut>
-          </CommandItem>
-          <CommandItem>
-            <span>Save file</span>
-            <CommandShortcut>⌘S</CommandShortcut>
-          </CommandItem>
-          <CommandItem>
-            <span>Find and replace</span>
-            <CommandShortcut>⌘⇧F</CommandShortcut>
-          </CommandItem>
-        </CommandGroup>
-      </CommandList>
-    </Command>
-  ),
-};
+export const TypingInCombobox: Story = {
+  name: "when typing into the combobox, should filter results",
+  tags: ["!dev", "!autodocs"],
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByRole("combobox");
 
-export const WithDisabledItems: Story = {
-  render: () => (
-    <Command className='rounded-lg border shadow-md'>
-      <CommandInput placeholder='Type a command or search...' />
-      <CommandList>
-        <CommandEmpty>No results found.</CommandEmpty>
-        <CommandGroup heading='Actions'>
-          <CommandItem>
-            <span>Available action</span>
-          </CommandItem>
-          <CommandItem disabled>
-            <span>Disabled action</span>
-          </CommandItem>
-          <CommandItem>
-            <span>Another available action</span>
-          </CommandItem>
-        </CommandGroup>
-      </CommandList>
-    </Command>
-  ),
-};
+    // Search for "calendar" which should return a single result
+    await userEvent.type(input, "calen", { delay: 100 });
+    await expect(canvas.getAllByRole("option", { name: /calendar/i })).toHaveLength(
+      1,
+    );
 
-export const WithCustomStyling: Story = {
-  render: () => (
-    <Command className='rounded-lg border shadow-md bg-gradient-to-b from-background to-muted/20'>
-      <CommandInput
-        placeholder='Type a command or search...'
-        className='border-b-2 border-primary/20'
-      />
-      <CommandList>
-        <CommandEmpty>No results found.</CommandEmpty>
-        <CommandGroup heading='Custom Styled Group'>
-          <CommandItem className='hover:bg-accent/10'>
-            <Calendar className='mr-2 h-4 w-4 text-accent' />
-            <span>Calendar</span>
-          </CommandItem>
-          <CommandItem className='hover:bg-accent/10'>
-            <Smile className='mr-2 h-4 w-4 text-accent' />
-            <span>Search Emoji</span>
-          </CommandItem>
-        </CommandGroup>
-      </CommandList>
-    </Command>
-  ),
-};
+    await userEvent.clear(input);
 
-const CommandDialogComponent = () => {
-  const [open, setOpen] = useState(false);
+    // Search for "story" which should return multiple results
+    await userEvent.type(input, "se", { delay: 100 });
+    await expect(canvas.getAllByRole("option").length).toBeGreaterThan(1);
+    await expect(canvas.getAllByRole("option", { name: /search/i })).toHaveLength(1);
 
-  return (
-    <>
-      <button
-        onClick={() => setOpen(true)}
-        className='px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90'
-      >
-        Open Command Palette
-      </button>
-      <CommandDialog open={open} onOpenChange={setOpen}>
-        <CommandInput placeholder='Type a command or search...' />
-        <CommandList>
-          <CommandEmpty>No results found.</CommandEmpty>
-          <CommandGroup heading='Suggestions'>
-            <CommandItem>
-              <Calendar className='mr-2 h-4 w-4' />
-              <span>Calendar</span>
-            </CommandItem>
-            <CommandItem>
-              <Smile className='mr-2 h-4 w-4' />
-              <span>Search Emoji</span>
-            </CommandItem>
-            <CommandItem>
-              <Calculator className='mr-2 h-4 w-4' />
-              <span>Calculator</span>
-            </CommandItem>
-          </CommandGroup>
-          <CommandSeparator />
-          <CommandGroup heading='Settings'>
-            <CommandItem>
-              <User className='mr-2 h-4 w-4' />
-              <span>Profile</span>
-              <CommandShortcut>⌘P</CommandShortcut>
-            </CommandItem>
-            <CommandItem>
-              <Settings className='mr-2 h-4 w-4' />
-              <span>Settings</span>
-              <CommandShortcut>⌘S</CommandShortcut>
-            </CommandItem>
-          </CommandGroup>
-        </CommandList>
-      </CommandDialog>
-    </>
-  );
-};
+    await userEvent.clear(input);
 
-export const CommandDialogStory: Story = {
-  render: () => <CommandDialogComponent />,
-};
-
-const WithSearchComponent = () => {
-  const [search, setSearch] = useState('');
-
-  const items = [
-    { id: '1', title: 'Calendar', icon: Calendar },
-    { id: '2', title: 'Calculator', icon: Calculator },
-    { id: '3', title: 'Settings', icon: Settings },
-    { id: '4', title: 'Profile', icon: User },
-  ];
-
-  const filteredItems = items.filter(item =>
-    item.title.toLowerCase().includes(search.toLowerCase())
-  );
-
-  return (
-    <Command className='rounded-lg border shadow-md'>
-      <CommandInput
-        placeholder='Type a command or search...'
-        value={search}
-        onValueChange={setSearch}
-      />
-      <CommandList>
-        <CommandEmpty>No results found.</CommandEmpty>
-        <CommandGroup heading='Results'>
-          {filteredItems.map(item => (
-            <CommandItem key={item.id}>
-              <item.icon className='mr-2 h-4 w-4' />
-              <span>{item.title}</span>
-            </CommandItem>
-          ))}
-        </CommandGroup>
-      </CommandList>
-    </Command>
-  );
-};
-
-export const WithSearch: Story = {
-  render: () => <WithSearchComponent />,
-};
-
-export const UserInteraction: Story = {
-  render: () => (
-    <Command className='rounded-lg border shadow-md'>
-      <CommandInput placeholder='Type a command or search...' />
-      <CommandList>
-        <CommandEmpty>No results found.</CommandEmpty>
-        <CommandGroup heading='Suggestions'>
-          <CommandItem onSelect={() => {}}>
-            <Calendar className='mr-2 h-4 w-4' />
-            <span>Calendar</span>
-          </CommandItem>
-          <CommandItem onSelect={() => {}}>
-            <Smile className='mr-2 h-4 w-4' />
-            <span>Search Emoji</span>
-          </CommandItem>
-        </CommandGroup>
-      </CommandList>
-    </Command>
-  ),
-  play: async ({ canvas }) => {
-    const command = await canvas.findByRole('combobox');
-    await expect(command).toBeInTheDocument();
+    // Search for "story" which should return no results
+    await userEvent.type(input, "story", { delay: 100 });
+    await expect(canvas.queryAllByRole("option", { hidden: false })).toHaveLength(0);
+    await expect(canvas.getByText(/no results/i)).toBeVisible();
   },
 };

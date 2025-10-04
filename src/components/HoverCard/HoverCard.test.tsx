@@ -3,32 +3,26 @@ import { describe, expect, it } from 'vitest';
 
 import { HoverCard, HoverCardContent, HoverCardTrigger } from './HoverCard';
 
+const renderHoverCard = () =>
+  render(
+    <HoverCard>
+      <HoverCardTrigger>Hover me</HoverCardTrigger>
+      <HoverCardContent>
+        <div>Test content</div>
+      </HoverCardContent>
+    </HoverCard>
+  );
+
 describe('HoverCard component', () => {
   it('renders under 100ms', () => {
     const start = performance.now();
-    render(
-      <HoverCard>
-        <HoverCardTrigger>Hover me</HoverCardTrigger>
-        <HoverCardContent>
-          <div>Test content</div>
-        </HoverCardContent>
-      </HoverCard>
-    );
+    renderHoverCard();
     const end = performance.now();
-    const duration = end - start;
-    expect(duration).toBeLessThan(150);
+    expect(end - start).toBeLessThan(150);
   });
 
   it('renders hover card with trigger', () => {
-    render(
-      <HoverCard>
-        <HoverCardTrigger>Hover me</HoverCardTrigger>
-        <HoverCardContent>
-          <div>Test content</div>
-        </HoverCardContent>
-      </HoverCard>
-    );
-
+    renderHoverCard();
     expect(screen.getByText('Hover me')).toBeInTheDocument();
   });
 });

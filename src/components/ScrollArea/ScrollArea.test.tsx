@@ -3,26 +3,23 @@ import { describe, expect, it } from 'vitest';
 
 import { ScrollArea } from './ScrollArea';
 
+const renderScrollArea = () =>
+  render(
+    <ScrollArea>
+      <div>Test content</div>
+    </ScrollArea>
+  );
+
 describe('ScrollArea component', () => {
   it('renders under 150ms', () => {
     const start = performance.now();
-    render(
-      <ScrollArea>
-        <div>Test content</div>
-      </ScrollArea>
-    );
+    renderScrollArea();
     const end = performance.now();
-    const duration = end - start;
-    expect(duration).toBeLessThan(200);
+    expect(end - start).toBeLessThan(200);
   });
 
   it('renders scroll area with content', () => {
-    render(
-      <ScrollArea>
-        <div>Test content</div>
-      </ScrollArea>
-    );
-
+    renderScrollArea();
     expect(screen.getByText('Test content')).toBeInTheDocument();
   });
 });

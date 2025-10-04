@@ -8,33 +8,26 @@ import {
   ContextMenuTrigger,
 } from './ContextMenu';
 
+const renderContextMenu = () =>
+  render(
+    <ContextMenu>
+      <ContextMenuTrigger>Right click me</ContextMenuTrigger>
+      <ContextMenuContent>
+        <ContextMenuItem>Item 1</ContextMenuItem>
+      </ContextMenuContent>
+    </ContextMenu>
+  );
+
 describe('ContextMenu component', () => {
   it('renders under 100ms', () => {
     const start = performance.now();
-    render(
-      <ContextMenu>
-        <ContextMenuTrigger>Right click me</ContextMenuTrigger>
-        <ContextMenuContent>
-          <ContextMenuItem>Item 1</ContextMenuItem>
-        </ContextMenuContent>
-      </ContextMenu>
-    );
+    renderContextMenu();
     const end = performance.now();
-    const duration = end - start;
-    expect(duration).toBeLessThan(150);
+    expect(end - start).toBeLessThan(150);
   });
 
   it('renders context menu with trigger', () => {
-    render(
-      <ContextMenu>
-        <ContextMenuTrigger>Right click me</ContextMenuTrigger>
-        <ContextMenuContent>
-          <ContextMenuItem>Item 1</ContextMenuItem>
-          <ContextMenuItem>Item 2</ContextMenuItem>
-        </ContextMenuContent>
-      </ContextMenu>
-    );
-
+    renderContextMenu();
     expect(screen.getByText('Right click me')).toBeInTheDocument();
   });
 });
