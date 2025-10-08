@@ -1,23 +1,22 @@
+import type { Meta, StoryObj } from '@storybook/react';
 
-import type { Meta, StoryObj } from "@storybook/react";
-
-import { Label } from "@/components";
+import { Label } from '@/components';
 
 /**
  * Renders an accessible label associated with controls.
  */
 const meta = {
-  title: "components/Label",
+  title: 'components/Label',
   component: Label,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     children: {
-      control: { type: "text" },
+      control: { type: 'text' },
     },
   },
   args: {
-    children: "Your email address",
-    htmlFor: "email",
+    children: 'Your email address',
+    htmlFor: 'email',
   },
 } satisfies Meta<typeof Label>;
 

@@ -1,31 +1,30 @@
+import type { Meta, StoryObj } from '@storybook/react';
 
-import type { Meta, StoryObj } from "@storybook/react";
-
-import { Badge } from "@/components";
+import { Badge } from '@/components';
 
 /**
  * Displays a badge or a component that looks like a badge.
  */
 const meta = {
-  title: "components/Badge",
+  title: 'components/Badge',
   component: Badge,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     variant: {
-      control: "select",
-      options: ["default", "secondary", "destructive", "outline"],
+      control: 'select',
+      options: ['default', 'secondary', 'destructive', 'outline'],
     },
     children: {
-      control: "text",
-      description: "Badge content",
+      control: 'text',
+      description: 'Badge content',
     },
   },
   args: {
-    variant: "default",
-    children: "Badge",
+    variant: 'default',
+    children: 'Badge',
   },
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
 } satisfies Meta<typeof Badge>;
 
@@ -44,7 +43,7 @@ export const Default: Story = {};
  */
 export const Secondary: Story = {
   args: {
-    variant: "secondary",
+    variant: 'secondary',
   },
 };
 
@@ -54,7 +53,7 @@ export const Secondary: Story = {
  */
 export const Destructive: Story = {
   args: {
-    variant: "destructive",
+    variant: 'destructive',
   },
 };
 
@@ -64,6 +63,6 @@ export const Destructive: Story = {
  */
 export const Outline: Story = {
   args: {
-    variant: "outline",
+    variant: 'outline',
   },
 };

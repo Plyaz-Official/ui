@@ -134,5 +134,22 @@ export {
 
 export { Toaster } from './Toaster/Toaster';
 export { Toggle } from './Toggle/Toggle';
-export { Menubar, MenubarPortal, MenubarMenu, MenubarTrigger, MenubarContent, MenubarGroup, MenubarSeparator, MenubarLabel, MenubarItem, MenubarShortcut, MenubarCheckboxItem, MenubarRadioGroup, MenubarRadioItem, MenubarSub, MenubarSubTrigger, MenubarSubContent } from './MenuBar/Menubar';
+export {
+  Menubar,
+  MenubarPortal,
+  MenubarMenu,
+  MenubarTrigger,
+  MenubarContent,
+  MenubarGroup,
+  MenubarSeparator,
+  MenubarLabel,
+  MenubarItem,
+  MenubarShortcut,
+  MenubarCheckboxItem,
+  MenubarRadioGroup,
+  MenubarRadioItem,
+  MenubarSub,
+  MenubarSubTrigger,
+  MenubarSubContent,
+} from './MenuBar/Menubar';
 export { Popover, PopoverTrigger, PopoverContent, PopoverAnchor } from './Popover/Popover';

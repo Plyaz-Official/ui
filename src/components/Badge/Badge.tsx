@@ -3,7 +3,7 @@ import { Slot } from '@radix-ui/react-slot';
 import { type VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
-import { badgeVariants } from '@/constants/constant';
+import { badgeVariants } from '@/constants/badge';
 
 function Badge({
   className,

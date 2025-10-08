@@ -190,3 +190,16 @@
     @apply bg-background font-general text-foreground;
   }
 }
+
+/* gradient background */
+.bg-orange-gradient {
+  background: linear-gradient(109deg, #FFA132 4.99%, #FF4D00 92.05%);
+}
+/* allow hover:bg-orange-gradient */
+.hover\:bg-orange-gradient:hover {
+  background: linear-gradient(109deg, #FFA132 4.99%, #FF4D00 92.05%);
+}
+/* override gradient when disabled */
+.bg-orange-gradient:disabled {
+  background: var(--foreground) !important;
+}

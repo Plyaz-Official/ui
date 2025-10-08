@@ -1,5 +1,5 @@
-import { Meta, Story, Source, Canvas, Controls } from "@storybook/addon-docs";
-import * as ButtonStories from "./Button.stories";
+import { Meta, Story, Source, Canvas, Controls } from '@storybook/addon-docs';
+import * as ButtonStories from './Button.stories';
 
 <Meta of={ButtonStories} />
 
@@ -11,8 +11,8 @@ ShadCN’s Button is built on top of the Radix UI `button` behavior and integrat
 
 ## Features
 
-- Multiple visual variants (`default`, `destructive`, `outline`, `ghost`, `link`)
-- Supports sizes (`sm`, `md`, `lg`, `icon`)
+- Multiple visual variants (`default`, `outline`, `secondary`, `destructive`, `ghost`, `link`)
+- Supports sizes (`sm`, `lg`, `icon`)
 - Keyboard accessible by default
 - Fully customizable with Tailwind CSS
 
@@ -39,7 +39,6 @@ ShadCN’s Button is built on top of the Radix UI `button` behavior and integrat
 
 <Controls of={ButtonStories.Default} />
 
-
 ### Examples
 
 ## Variants
@@ -47,6 +46,10 @@ ShadCN’s Button is built on top of the Radix UI `button` behavior and integrat
 ### Default
 
 <Canvas of={ButtonStories.Default} />
+
+### Secondary
+
+<Canvas of={ButtonStories.Secondary} />
 
 ### Destructive
 
@@ -72,8 +75,34 @@ ShadCN’s Button is built on top of the Radix UI `button` behavior and integrat
 
 <Canvas of={ButtonStories.Large} />
 
+## Disabled States
+
+### Default Disabled
+
+<Canvas of={ButtonStories.DefaultDisabled} />
+
+### Secondary Disabled
+
+<Canvas of={ButtonStories.SecondaryDisabled} />
+
+### Destructive Disabled
+
+<Canvas of={ButtonStories.DestructiveDisabled} />
+
+### Outline Disabled
+
+<Canvas of={ButtonStories.OutlineDisabled} />
+
+### Link Disabled
+
+<Canvas of={ButtonStories.LinkDisabled} />
+
+### Ghost Disabled
+
+<Canvas of={ButtonStories.GhostDisabled} />
+
 ---
 
 ## Source Code
 
-<Source of={ButtonStories.Default} language="tsx" />
+<Source of={ButtonStories.Default} language='tsx' />

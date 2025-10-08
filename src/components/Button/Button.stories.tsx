@@ -20,7 +20,7 @@ const meta: Meta<typeof Button> = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['default', 'destructive', 'outline', 'secondary', 'ghost', 'link'],
+      options: ['default', 'outline', 'secondary', 'destructive', 'ghost', 'link'],
       description: 'Visual style of the button.',
     },
     size: {
@@ -56,6 +56,13 @@ export const Default: Story = {
   },
 };
 
+export const Secondary: Story = {
+  args: {
+    children: 'Secondary Button',
+    variant: 'secondary',
+  },
+};
+
 export const Destructive: Story = {
   args: {
     children: 'Delete',
@@ -80,7 +87,7 @@ export const Ghost: Story = {
 export const Link: Story = {
   args: {
     children: 'Link Button',
-    variant: 'ghost',
+    variant: 'link',
   },
 };
 
@@ -98,6 +105,53 @@ export const Large: Story = {
   },
 };
 
+export const DefaultDisabled: Story = {
+  args: {
+    children: 'Default Button',
+    variant: 'default',
+    disabled: true,
+  },
+};
+
+export const SecondaryDisabled: Story = {
+  args: {
+    children: 'Secondary Button',
+    variant: 'secondary',
+    disabled: true,
+  },
+};
+
+export const DestructiveDisabled: Story = {
+  args: {
+    children: 'Destructive Button',
+    variant: 'destructive',
+    disabled: true,
+  },
+};
+
+export const OutlineDisabled: Story = {
+  args: {
+    children: 'Outline Button',
+    variant: 'outline',
+    disabled: true,
+  },
+};
+
+export const LinkDisabled: Story = {
+  args: {
+    children: 'Link Button',
+    variant: 'link',
+    disabled: true,
+  },
+};
+
+export const GhostDisabled: Story = {
+  args: {
+    children: 'Ghost Button',
+    variant: 'ghost',
+    disabled: true,
+  },
+};
 export const UserInteraction: Story = {
   args: {
     children: 'Default Button',

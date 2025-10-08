@@ -3,7 +3,7 @@ import { type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
 
 import { cn } from '@/lib/utils';
-import { buttonVariants } from '@/constants/constant';
+import { buttonVariants } from '@/constants/button';
 
 export default function Button({
   className,
