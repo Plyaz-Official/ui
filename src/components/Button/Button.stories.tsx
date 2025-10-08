@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { expect, userEvent, fn } from '@storybook/test';
+import { MoreHorizontal, Plus, Download, Search, Settings } from 'lucide-react';
 
 import { Button } from '@/components';
 
@@ -25,7 +26,7 @@ const meta: Meta<typeof Button> = {
     },
     size: {
       control: 'select',
-      options: ['default', 'sm', 'lg', 'icon'],
+      options: ['default', 'sm', 'lg', 'icon', 'x-lg'],
       description: 'Controls padding and height of the button.',
     },
     disabled: {
