@@ -44,7 +44,7 @@ function AlertDialogContent({
       <AlertDialogPrimitive.Content
         data-slot='alert-dialog-content'
         className={cn(
-          'top-[50%] left-[50%] z-50 fixed gap-4 grid bg-background shadow-lg p-6 border rounded-lg w-full max-w-[calc(100%-2rem)] sm:max-w-lg translate-x-[-50%] translate-y-[-50%] data-[state=closed]:animate-out data-[state=open]:animate-in duration-200 data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95',
+          'top-[50%] left-[50%] z-50 fixed gap-4 grid bg-background shadow-lg p-6 border border-subtle rounded-md w-full max-w-[calc(100%-2rem)] sm:max-w-lg translate-x-[-50%] translate-y-[-50%] data-[state=closed]:animate-out data-[state=open]:animate-in duration-200 data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95',
           className
         )}
         {...props}
@@ -80,7 +80,7 @@ function AlertDialogTitle({
   return (
     <AlertDialogPrimitive.Title
       data-slot='alert-dialog-title'
-      className={cn('font-semibold text-lg', className)}
+      className={cn('text-primary-foreground font-semibold text-lg', className)}
       {...props}
     />
   );
@@ -93,7 +93,7 @@ function AlertDialogDescription({
   return (
     <AlertDialogPrimitive.Description
       data-slot='alert-dialog-description'
-      className={cn('text-muted-foreground text-sm', className)}
+      className={cn('text-secondary-foreground text-sm', className)}
       {...props}
     />
   );
