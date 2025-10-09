@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { expect, userEvent, fn } from '@storybook/test';
-import { MoreHorizontal, Plus, Download, Search, Settings } from 'lucide-react';
 
 import { Button } from '@/components';
 
