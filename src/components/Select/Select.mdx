@@ -1,5 +1,5 @@
-import { Meta, Story, Source, Canvas, Controls } from "@storybook/addon-docs";
-import * as SelectStories from "./Select.stories";
+import { Meta, Story, Source, Canvas, Controls } from '@storybook/addon-docs';
+import * as SelectStories from './Select.stories';
 
 <Meta of={SelectStories} />
 
@@ -16,6 +16,7 @@ This component supports keyboard navigation, screen reader accessibility, custom
 - Fully customizable with Tailwind classes
 - Supports grouped items, disabled options, and separators
 - Controlled and uncontrolled usage supported
+- Comprehensive example with multiple categories and disabled items
 
 ## Usage Guidelines
 
@@ -28,12 +29,16 @@ This component supports keyboard navigation, screen reader accessibility, custom
 - Use `value` and `onValueChange` for controlled usage
 - Provide visible labels and descriptive placeholders
 - Handle validation and show error messages if needed
+- Group related options using `SelectGroup` and `SelectLabel`
+- Use `SelectSeparator` to visually separate different groups
+- Disable options that are not available using the `disabled` prop
 
-## Don’t
+## Don't
 
 - Overload with too many items—opt for searchable inputs in that case
 - Use `Select` for free-form input (use `Input` or `Textarea` instead)
 - Rely solely on placeholder text—always label your fields
+- Mix unrelated items in the same group—use separators to organize content
 
 ## Props
 
@@ -49,19 +54,6 @@ This component supports keyboard navigation, screen reader accessibility, custom
 
 <Canvas of={SelectStories.Default} />
 
-### With Placeholder
-
-<Canvas of={SelectStories.WithPlaceholder} />
-
-### Disabled Option
-
-<Canvas of={SelectStories.Disabled} />
-
-### Controlled
-
-<Canvas of={SelectStories.Controlled} />
-
-
 ## Source Code
 
-<Source of={SelectStories.Default} language="tsx" />
+<Source of={SelectStories.Default} language='tsx' />
