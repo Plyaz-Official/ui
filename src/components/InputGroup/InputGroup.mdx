@@ -1,0 +1,161 @@
+import { Meta, Story, Source, Canvas, Controls } from '@storybook/addon-docs';
+import * as InputGroupStories from './InputGroup.stories';
+
+<Meta of={InputGroupStories} />
+
+# InputGroup
+
+`InputGroup` is a composite component that combines input fields with addons, buttons, and text elements. It provides a cohesive way to create complex input layouts with consistent styling and behavior.
+
+The `InputGroup` system consists of multiple components that work together to create sophisticated input interfaces with icons, buttons, labels, and other UI elements.
+
+## Features
+
+- **Composite Design**: Combines multiple components into cohesive input groups
+- **Flexible Alignment**: Supports inline and block alignment for addons and buttons
+- **Multiple Addon Types**: Text, icons, buttons, and keyboard shortcuts
+- **Accessibility First**: Built-in ARIA support, focus management, and screen reader compatibility
+- **State Management**: Handles disabled, error states with proper visual feedback
+- **Button Integration**: Seamless integration with Button component variants
+- **Responsive Design**: Adapts to different screen sizes and layouts
+- **Dark Mode Support**: Automatic dark mode styling
+- **Form Library Compatible**: Works with react-hook-form, Formik, and other form libraries
+
+## Components
+
+### InputGroup
+
+The main container component that wraps all input group elements.
+
+### InputGroupAddon
+
+Container for addon elements with alignment variants (inline-start, inline-end, block-start, block-end).
+
+### InputGroupButton
+
+Button component optimized for use within input groups with size variants.
+
+### InputGroupText
+
+Text element for labels, prefixes, suffixes, and other text-based addons.
+
+### InputGroupInput
+
+Input field component that removes borders and integrates with the group styling.
+
+### InputGroupTextarea
+
+Textarea component that integrates with the input group layout.
+
+## Usage Guidelines
+
+- Always use `InputGroup` as the root container for input group components
+- Use `InputGroupAddon` to wrap addon elements and control their alignment
+- Combine `InputGroupText`, `InputGroupButton`, and icons within addons
+- Use appropriate alignment variants for different layouts
+- Provide meaningful labels and accessible button text
+- Test keyboard navigation and screen reader compatibility
+
+## Do
+
+- Use `InputGroupAddon` to wrap all addon elements
+- Choose appropriate alignment variants for your layout needs
+- Use `InputGroupText` for text-based addons like labels and prefixes
+- Use `InputGroupButton` for interactive elements within the group
+- Provide proper ARIA labels for buttons and interactive elements
+- Use semantic HTML elements and roles
+- Test with keyboard navigation
+
+## Don't
+
+- Mix input group components with standalone input components
+- Use addon components outside of `InputGroupAddon` containers
+- Forget to handle disabled and error states consistently
+- Use placeholder text as the only labeling mechanism
+- Create overly complex layouts that confuse users
+
+## Props
+
+<Controls of={InputGroupStories.WithTextAddon} />
+
+---
+
+### Examples
+
+## Basic Usage
+
+### With Text Addon
+
+<Canvas of={InputGroupStories.WithTextAddon} />
+
+### With Icon Addon
+
+<Canvas of={InputGroupStories.WithIconAddon} />
+
+### With Button Addon
+
+<Canvas of={InputGroupStories.WithButtonAddon} />
+
+### With Start and End Addons
+
+<Canvas of={InputGroupStories.WithStartAndEndAddons} />
+
+## Input Types
+
+### Email Input Group
+
+<Canvas of={InputGroupStories.EmailInputGroup} />
+
+### Password Input Group
+
+<Canvas of={InputGroupStories.PasswordInputGroup} />
+
+### URL Input Group
+
+<Canvas of={InputGroupStories.UrlInputGroup} />
+
+### Currency Input Group
+
+<Canvas of={InputGroupStories.CurrencyInputGroup} />
+
+### Textarea Input Group
+
+<Canvas of={InputGroupStories.TextareaInputGroup} />
+
+## Layout Variants
+
+### Block Alignment
+
+<Canvas of={InputGroupStories.BlockAlignment} />
+
+### Button Sizes
+
+<Canvas of={InputGroupStories.ButtonSizes} />
+
+## States
+
+### Disabled
+
+<Canvas of={InputGroupStories.Disabled} />
+
+### Error State
+
+<Canvas of={InputGroupStories.ErrorState} />
+
+### With Keyboard Shortcuts
+
+<Canvas of={InputGroupStories.WithKeyboardShortcuts} />
+
+## Advanced Examples
+
+### Complex Form Example
+
+<Canvas of={InputGroupStories.ComplexFormExample} />
+
+### Custom Styling
+
+<Canvas of={InputGroupStories.CustomStyling} />
+
+## Source Code
+
+<Source of={InputGroupStories.WithTextAddon} language='tsx' />

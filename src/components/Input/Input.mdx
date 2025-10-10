@@ -1,5 +1,5 @@
-import { Meta, Story, Source, Canvas, Controls } from "@storybook/addon-docs";
-import * as InputStories from "./Input.stories";
+import { Meta, Story, Source, Canvas, Controls } from '@storybook/addon-docs';
+import * as InputStories from './Input.stories';
 
 <Meta of={InputStories} />
 
@@ -11,11 +11,14 @@ The ShadCN `Input` is built on top of the native `<input />` element with extend
 
 ## Features
 
-- Inherits all native `<input>` attributes (`type`, `placeholder`, `disabled`, etc.)
-- Styled using Tailwind CSS for consistency
-- Supports dark mode and accessibility out of the box
-- Can be composed with `Label`, `FormControl`, `FormField`, `FormMessage`, etc.
-- Integrates easily with `react-hook-form` and similar libraries
+- **Complete HTML5 Input Support**: All native `<input>` types including text, email, password, number, search, url, tel, date, time, and file
+- **Accessibility First**: Built-in ARIA support, focus management, and screen reader compatibility
+- **Validation Ready**: Supports `required`, `pattern`, `min`, `max`, `maxLength`, and other validation attributes
+- **State Management**: Handles disabled, readonly, error states with proper visual feedback
+- **Tailwind Integration**: Styled using Tailwind CSS with consistent theming
+- **Form Library Compatible**: Works seamlessly with react-hook-form, Formik, and other form libraries
+- **Dark Mode Support**: Automatic dark mode styling
+- **Responsive Design**: Adapts to different screen sizes
 
 ## Usage Guidelines
 
@@ -26,15 +29,22 @@ The ShadCN `Input` is built on top of the native `<input />` element with extend
 
 ## Do
 
-- Use the `placeholder` to provide contextual guidance
+- Use appropriate `type` attributes for better UX (email, password, number, etc.)
+- Provide meaningful `placeholder` text for guidance
+- Use `required` for mandatory fields
+- Implement proper validation with error messages
 - Wrap inside `FormField` and `FormItem` when using with form libraries
-- Support error states with `FormMessage`
+- Use `aria-invalid` for error states
+- Set `maxLength` for text inputs with character limits
+- Use `min`/`max` for number inputs with constraints
 
-## Don’t
+## Don't
 
-- Use the Input without labeling it
-- Handle validation purely with visual cues (like red borders) without messages
+- Use the Input without proper labeling
+- Handle validation purely with visual cues without accessible messages
 - Mix input types that conflict with expected user behavior
+- Use placeholder text as the only label
+- Forget to handle loading/disabled states appropriately
 
 ## Props
 
@@ -46,20 +56,110 @@ The ShadCN `Input` is built on top of the native `<input />` element with extend
 
 ## Variants
 
-### Default
+### Input Types
+
+#### Default Text
 
 <Canvas of={InputStories.Default} />
 
-### With Placeholder
+#### With Placeholder
 
 <Canvas of={InputStories.WithPlaceholder} />
 
-### Password
+#### Password
 
 <Canvas of={InputStories.Password} />
 
+#### Email
 
+<Canvas of={InputStories.Email} />
+
+#### Number
+
+<Canvas of={InputStories.Number} />
+
+#### Search
+
+<Canvas of={InputStories.Search} />
+
+#### URL
+
+<Canvas of={InputStories.Url} />
+
+#### Telephone
+
+<Canvas of={InputStories.Telephone} />
+
+#### Date
+
+<Canvas of={InputStories.Date} />
+
+#### Time
+
+<Canvas of={InputStories.Time} />
+
+#### File
+
+<Canvas of={InputStories.File} />
+
+### States
+
+#### Disabled
+
+<Canvas of={InputStories.Disabled} />
+
+#### Read Only
+
+<Canvas of={InputStories.ReadOnly} />
+
+#### Required
+
+<Canvas of={InputStories.Required} />
+
+#### With Value
+
+<Canvas of={InputStories.WithValue} />
+
+#### Error State
+
+<Canvas of={InputStories.ErrorState} />
+
+### Styling & Layout
+
+#### Custom Styling
+
+<Canvas of={InputStories.CustomStyling} />
+
+#### Small Width
+
+<Canvas of={InputStories.SmallWidth} />
+
+#### Large Width
+
+<Canvas of={InputStories.LargeWidth} />
+
+#### Long Placeholder
+
+<Canvas of={InputStories.LongPlaceholder} />
+
+### Validation & Constraints
+
+#### Number with Limits
+
+<Canvas of={InputStories.NumberWithLimits} />
+
+#### Number with Step
+
+<Canvas of={InputStories.NumberWithStep} />
+
+#### With Max Length
+
+<Canvas of={InputStories.WithMaxLength} />
+
+#### With Pattern
+
+<Canvas of={InputStories.WithPattern} />
 
 ## Source Code
 
-<Source of={InputStories.Default} language="tsx" />
+<Source of={InputStories.Default} language='tsx' />
