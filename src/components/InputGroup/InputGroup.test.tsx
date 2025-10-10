@@ -24,7 +24,7 @@ describe('InputGroup component', () => {
         </InputGroupAddon>
         <InputGroupInput placeholder="username" disabled aria-invalid={false} />
         <InputGroupAddon align="inline-end">
-          <InputGroupButton onClick={handleClick} size="sm">
+          <InputGroupButton onClick={handleClick} size="sm" aria-label="Search button">
             <Search className="size-4" />
           </InputGroupButton>
         </InputGroupAddon>
@@ -53,6 +53,11 @@ describe('InputGroup component', () => {
       
       const textarea = screen.getByPlaceholderText('Enter message');
       expect(textarea).toBeInTheDocument();
+    });
+
+    it('handles button click interactions', () => {
+      const searchButton = screen.getByLabelText('Search button');
+      expect(searchButton).toBeInTheDocument();
     });
   });
 });

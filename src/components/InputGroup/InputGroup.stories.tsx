@@ -1,220 +1,216 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { expect, userEvent, fn } from '@storybook/test';
-import { Search, Eye, DollarSign, User, Mail, Lock } from 'lucide-react';
+import {
+  CheckIcon,
+  ChevronDownIcon,
+  Code,
+  Copy,
+  CornerDownLeft,
+  CreditCardIcon,
+  HelpCircle,
+  Info,
+  InfoIcon,
+  Link2Icon,
+  LoaderIcon,
+  MailIcon,
+  MoreHorizontal,
+  RefreshCcw,
+  SearchIcon,
+  Star,
+  StarIcon,
+} from 'lucide-react';
+import * as React from 'react';
 
-import { 
-  InputGroup, 
-  InputGroupAddon, 
-  InputGroupButton, 
-  InputGroupText, 
-  InputGroupInput, 
-  InputGroupTextarea 
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupButton,
+  InputGroupInput,
+  InputGroupText,
+  InputGroupTextarea,
+  Label,
 } from '@/components';
 
-type Story = StoryObj<typeof InputGroup>;
-
+/**
+ * Display additional information or actions to an input or textarea.
+ */
 const meta: Meta<typeof InputGroup> = {
-  title: 'Components/InputGroup',
+  title: 'components/InputGroup',
   component: InputGroup,
   tags: ['autodocs'],
   parameters: {
-    docs: {
-      description: {
-        component:
-          '`InputGroup` is a composite component that combines input fields with addons, buttons, and text elements. It provides a cohesive way to create complex input layouts with consistent styling and behavior.',
-      },
-    },
+    layout: 'centered',
   },
-  argTypes: {
-    className: {
-      control: 'text',
-      description: 'Tailwind CSS classes to customize the appearance.',
-    },
-  },
-};
+} satisfies Meta<typeof InputGroup>;
 
 export default meta;
 
-// Basic input group with text addon
-export const WithTextAddon: Story = {
-  render: () => (
-    <InputGroup>
-      <InputGroupAddon>
-        <InputGroupText>@</InputGroupText>
-      </InputGroupAddon>
-      <InputGroupInput placeholder="username" />
-    </InputGroup>
-  ),
-};
+type Story = StoryObj<typeof meta>;
 
-// Input group with icon addon
-export const WithIconAddon: Story = {
-  render: () => (
-    <InputGroup>
-      <InputGroupAddon>
-        <Search className="size-4" />
-      </InputGroupAddon>
-      <InputGroupInput placeholder="Search..." />
-    </InputGroup>
-  ),
-};
-
-// Input group with button addon
-export const WithButtonAddon: Story = {
-  render: () => (
-    <InputGroup>
-      <InputGroupInput placeholder="Enter amount" />
-      <InputGroupAddon align="inline-end">
-        <InputGroupButton>
-          <DollarSign className="size-4" />
-        </InputGroupButton>
-      </InputGroupAddon>
-    </InputGroup>
-  ),
-};
-
-// Input group with both start and end addons
-export const WithStartAndEndAddons: Story = {
-  render: () => (
-    <InputGroup>
-      <InputGroupAddon>
-        <User className="size-4" />
-      </InputGroupAddon>
-      <InputGroupInput placeholder="Full name" />
-      <InputGroupAddon align="inline-end">
-        <InputGroupButton>
-          <Eye className="size-4" />
-        </InputGroupButton>
-      </InputGroupAddon>
-    </InputGroup>
-  ),
-};
-
-// Email input group
-export const EmailInputGroup: Story = {
-  render: () => (
-    <InputGroup>
-      <InputGroupAddon>
-        <Mail className="size-4" />
-      </InputGroupAddon>
-      <InputGroupInput type="email" placeholder="Enter your email" />
-    </InputGroup>
-  ),
-};
-
-// Password input group with toggle
-export const PasswordInputGroup: Story = {
-  render: () => (
-    <InputGroup>
-      <InputGroupAddon>
-        <Lock className="size-4" />
-      </InputGroupAddon>
-      <InputGroupInput type="password" placeholder="Enter password" />
-      <InputGroupAddon align="inline-end">
-        <InputGroupButton>
-          <Eye className="size-4" />
-        </InputGroupButton>
-      </InputGroupAddon>
-    </InputGroup>
-  ),
-};
-
-// URL input group
-export const UrlInputGroup: Story = {
-  render: () => (
-    <InputGroup>
-      <InputGroupAddon>
-        <InputGroupText>https://</InputGroupText>
-      </InputGroupAddon>
-      <InputGroupInput type="url" placeholder="example.com" />
-    </InputGroup>
-  ),
-};
-
-// Currency input group
-export const CurrencyInputGroup: Story = {
-  render: () => (
-    <InputGroup>
-      <InputGroupAddon>
-        <InputGroupText>$</InputGroupText>
-      </InputGroupAddon>
-      <InputGroupInput type="number" placeholder="0.00" />
-      <InputGroupAddon align="inline-end">
-        <InputGroupText>USD</InputGroupText>
-      </InputGroupAddon>
-    </InputGroup>
-  ),
-};
-
-// Textarea input group
-export const TextareaInputGroup: Story = {
-  render: () => (
-    <InputGroup>
-      <InputGroupAddon align="block-start">
-        <InputGroupText>Message</InputGroupText>
-      </InputGroupAddon>
-      <InputGroupTextarea placeholder="Enter your message..." rows={4} />
-    </InputGroup>
-  ),
-};
-
-// Block alignment variants
-export const BlockAlignment: Story = {
-  render: () => (
-    <div className="space-y-4">
-      <InputGroup>
-        <InputGroupAddon align="block-start">
-          <InputGroupText>Label on top</InputGroupText>
+/**
+ * Input groups with icon addons for visual enhancement.
+ */
+export const WithIcons: Story = {
+  render: (args) => (
+    <div className="grid w-full max-w-sm gap-6">
+      <InputGroup {...args}>
+        <InputGroupInput placeholder="Search..." />
+        <InputGroupAddon>
+          <SearchIcon />
         </InputGroupAddon>
-        <InputGroupInput placeholder="Input field" />
       </InputGroup>
-      
-      <InputGroup>
-        <InputGroupInput placeholder="Input field" />
+      <InputGroup {...args}>
+        <InputGroupInput type="email" placeholder="Enter your email" />
+        <InputGroupAddon>
+          <MailIcon />
+        </InputGroupAddon>
+      </InputGroup>
+      <InputGroup {...args}>
+        <InputGroupInput placeholder="Card number" />
+        <InputGroupAddon>
+          <CreditCardIcon />
+        </InputGroupAddon>
+        <InputGroupAddon align="inline-end">
+          <CheckIcon />
+        </InputGroupAddon>
+      </InputGroup>
+      <InputGroup {...args}>
+        <InputGroupInput placeholder="Card number" />
+        <InputGroupAddon align="inline-end">
+          <StarIcon />
+          <InfoIcon />
+        </InputGroupAddon>
+      </InputGroup>
+    </div>
+  ),
+};
+
+/**
+ * Display additional text information alongside inputs.
+ */
+export const WithText: Story = {
+  render: (args) => (
+    <div className="grid w-full max-w-sm gap-6">
+      <InputGroup {...args}>
+        <InputGroupAddon>
+          <InputGroupText>$</InputGroupText>
+        </InputGroupAddon>
+        <InputGroupInput placeholder="0.00" />
+        <InputGroupAddon align="inline-end">
+          <InputGroupText>USD</InputGroupText>
+        </InputGroupAddon>
+      </InputGroup>
+      <InputGroup {...args}>
+        <InputGroupAddon>
+          <InputGroupText>https://</InputGroupText>
+        </InputGroupAddon>
+        <InputGroupInput placeholder="example.com" className="!pl-0.5" />
+        <InputGroupAddon align="inline-end">
+          <InputGroupText>.com</InputGroupText>
+        </InputGroupAddon>
+      </InputGroup>
+      <InputGroup {...args}>
+        <InputGroupInput placeholder="Enter your username" />
+        <InputGroupAddon align="inline-end">
+          <InputGroupText>@company.com</InputGroupText>
+        </InputGroupAddon>
+      </InputGroup>
+      <InputGroup {...args}>
+        <InputGroupTextarea placeholder="Enter your message" />
         <InputGroupAddon align="block-end">
-          <InputGroupText>Label at bottom</InputGroupText>
+          <InputGroupText className="text-muted-foreground text-xs">
+            120 characters left
+          </InputGroupText>
         </InputGroupAddon>
       </InputGroup>
     </div>
   ),
 };
 
-// Multiple button sizes
-export const ButtonSizes: Story = {
-  render: () => (
-    <div className="space-y-4">
-      <InputGroup>
-        <InputGroupInput placeholder="Extra small button" />
+/**
+ * Add buttons to perform actions within the input group.
+ */
+export const WithButtons: Story = {
+  render: (args) => (
+    <div className="grid w-full max-w-sm gap-6">
+      <InputGroup {...args}>
+        <InputGroupInput placeholder="https://x.com/shadcn" readOnly />
         <InputGroupAddon align="inline-end">
-          <InputGroupButton size="xs">
-            <Search className="size-4" />
+          <InputGroupButton
+            aria-label="Copy"
+            title="Copy"
+            size="icon-xs"
+          >
+            <Copy />
           </InputGroupButton>
         </InputGroupAddon>
       </InputGroup>
-      
-      <InputGroup>
-        <InputGroupInput placeholder="Small button" />
+      <InputGroup {...args}>
+        <InputGroupAddon>
+          <InputGroupButton variant="secondary" size="icon-xs">
+            <Info />
+          </InputGroupButton>
+        </InputGroupAddon>
+        <InputGroupAddon className="text-muted-foreground pl-1.5">
+          https://
+        </InputGroupAddon>
+        <InputGroupInput id="input-secure-19" />
         <InputGroupAddon align="inline-end">
-          <InputGroupButton size="sm">
-            <Search className="size-4" />
+          <InputGroupButton
+            size="icon-xs"
+          >
+            <Star />
           </InputGroupButton>
         </InputGroupAddon>
       </InputGroup>
-      
-      <InputGroup>
-        <InputGroupInput placeholder="Icon extra small" />
+      <InputGroup {...args}>
+        <InputGroupInput placeholder="Type to search..." />
         <InputGroupAddon align="inline-end">
-          <InputGroupButton size="icon-xs">
-            <Search className="size-4" />
+          <InputGroupButton variant="secondary">Search</InputGroupButton>
+        </InputGroupAddon>
+      </InputGroup>
+    </div>
+  ),
+};
+
+/**
+ * Add tooltips to provide additional context or help.
+ */
+export const WithTooltips: Story = {
+  render: (args) => (
+    <div className="grid w-full max-w-sm gap-4">
+      <InputGroup {...args}>
+        <InputGroupInput placeholder="Enter password" type="password" />
+        <InputGroupAddon align="inline-end">
+          <InputGroupButton
+            variant="ghost"
+            aria-label="Info"
+            size="icon-xs"
+          >
+            <InfoIcon />
           </InputGroupButton>
         </InputGroupAddon>
       </InputGroup>
-      
-      <InputGroup>
-        <InputGroupInput placeholder="Icon small" />
+      <InputGroup {...args}>
+        <InputGroupInput placeholder="Your email address" />
         <InputGroupAddon align="inline-end">
-          <InputGroupButton size="icon-sm">
-            <Search className="size-4" />
+          <InputGroupButton
+            variant="ghost"
+            aria-label="Help"
+            size="icon-xs"
+          >
+            <HelpCircle />
+          </InputGroupButton>
+        </InputGroupAddon>
+      </InputGroup>
+      <InputGroup {...args}>
+        <InputGroupInput placeholder="Enter API key" />
+        <InputGroupAddon>
+          <InputGroupButton
+            variant="ghost"
+            aria-label="Help"
+            size="icon-xs"
+          >
+            <HelpCircle />
           </InputGroupButton>
         </InputGroupAddon>
       </InputGroup>
@@ -222,150 +218,163 @@ export const ButtonSizes: Story = {
   ),
 };
 
-// Disabled state
-export const Disabled: Story = {
-  render: () => (
-    <InputGroup>
-      <InputGroupAddon>
-        <User className="size-4" />
-      </InputGroupAddon>
-      <InputGroupInput placeholder="This input is disabled" disabled />
-      <InputGroupAddon align="inline-end">
-        <InputGroupButton disabled>
-          <Eye className="size-4" />
-        </InputGroupButton>
-      </InputGroupAddon>
-    </InputGroup>
+/**
+ * Input groups also work with textarea components.
+ */
+export const WithTextarea: Story = {
+  render: (args) => (
+    <div className="grid w-full max-w-md gap-4">
+      <InputGroup {...args}>
+        <InputGroupTextarea
+          id="textarea-code-32"
+          placeholder="console.log('Hello, world!');"
+          className="min-h-[200px]"
+        />
+        <InputGroupAddon align="block-end" className="border-t">
+          <InputGroupText>Line 1, Column 1</InputGroupText>
+          <InputGroupButton size="sm" className="ml-auto" variant="default">
+            Run <CornerDownLeft />
+          </InputGroupButton>
+        </InputGroupAddon>
+        <InputGroupAddon align="block-start" className="border-b">
+          <InputGroupText className="font-mono font-medium">
+            <Code />
+            script.js
+          </InputGroupText>
+          <InputGroupButton className="ml-auto" size="icon-xs">
+            <RefreshCcw />
+          </InputGroupButton>
+          <InputGroupButton variant="ghost" size="icon-xs">
+            <Copy />
+          </InputGroupButton>
+        </InputGroupAddon>
+      </InputGroup>
+    </div>
   ),
 };
 
-// Error state
-export const ErrorState: Story = {
-  render: () => (
-    <InputGroup>
-      <InputGroupAddon>
-        <Mail className="size-4" />
-      </InputGroupAddon>
-      <InputGroupInput 
-        placeholder="Invalid email" 
-        aria-invalid={true}
-        value="invalid-email"
-      />
-    </InputGroup>
+/**
+ * Show loading indicators while processing input.
+ */
+export const WithSpinner: Story = {
+  render: (args) => (
+    <div className="grid w-full max-w-sm gap-4">
+      <InputGroup {...args} data-disabled>
+        <InputGroupInput placeholder="Searching..." disabled />
+        <InputGroupAddon align="inline-end">
+          <LoaderIcon className="animate-spin" />
+        </InputGroupAddon>
+      </InputGroup>
+      <InputGroup data-disabled>
+        <InputGroupInput placeholder="Processing..." disabled />
+        <InputGroupAddon>
+          <LoaderIcon className="animate-spin" />
+        </InputGroupAddon>
+      </InputGroup>
+      <InputGroup data-disabled>
+        <InputGroupInput placeholder="Saving changes..." disabled />
+        <InputGroupAddon align="inline-end">
+          <InputGroupText>Saving...</InputGroupText>
+          <LoaderIcon className="animate-spin" />
+        </InputGroupAddon>
+      </InputGroup>
+      <InputGroup data-disabled>
+        <InputGroupInput placeholder="Refreshing data..." disabled />
+        <InputGroupAddon>
+          <LoaderIcon className="animate-spin" />
+        </InputGroupAddon>
+        <InputGroupAddon align="inline-end">
+          <InputGroupText className="text-muted-foreground">
+            Please wait...
+          </InputGroupText>
+        </InputGroupAddon>
+      </InputGroup>
+    </div>
   ),
 };
 
-// With keyboard shortcuts
-export const WithKeyboardShortcuts: Story = {
-  render: () => (
-    <InputGroup>
-      <InputGroupAddon>
-        <InputGroupText>Search</InputGroupText>
-      </InputGroupAddon>
-      <InputGroupInput placeholder="Type to search..." />
-      <InputGroupAddon align="inline-end">
-        <InputGroupText>
-          <kbd>⌘</kbd>+<kbd>K</kbd>
-        </InputGroupText>
-      </InputGroupAddon>
-    </InputGroup>
+/**
+ * Add labels within input groups to improve accessibility.
+ */
+export const WithLabels: Story = {
+  render: (args) => (
+    <div className="grid w-full max-w-sm gap-4">
+      <InputGroup {...args}>
+        <InputGroupInput id="email" placeholder="shadcn" />
+        <InputGroupAddon>
+          <Label htmlFor="email">@</Label>
+        </InputGroupAddon>
+      </InputGroup>
+      <InputGroup {...args}>
+        <InputGroupInput id="email-2" placeholder="shadcn@vercel.com" />
+        <InputGroupAddon align="block-start">
+          <Label htmlFor="email-2" className="text-foreground">
+            Email
+          </Label>
+          <InputGroupButton
+            variant="ghost"
+            aria-label="Help"
+            className="ml-auto rounded-full"
+            size="icon-xs"
+          >
+            <InfoIcon />
+          </InputGroupButton>
+        </InputGroupAddon>
+      </InputGroup>
+    </div>
   ),
 };
 
-// Complex form example
-export const ComplexFormExample: Story = {
-  render: () => (
-    <div className="space-y-4 w-full max-w-md">
-      <div>
-        <label htmlFor="username" className="block text-sm font-medium mb-1">Username</label>
-        <InputGroup>
-          <InputGroupAddon>
-            <InputGroupText>@</InputGroupText>
-          </InputGroupAddon>
-          <InputGroupInput id="username" placeholder="username" />
-        </InputGroup>
-      </div>
-      
-      <div>
-        <label htmlFor="email" className="block text-sm font-medium mb-1">Email</label>
-        <InputGroup>
-          <InputGroupAddon>
-            <Mail className="size-4" />
-          </InputGroupAddon>
-          <InputGroupInput id="email" type="email" placeholder="your@email.com" />
-        </InputGroup>
-      </div>
-      
-      <div>
-        <label htmlFor="password" className="block text-sm font-medium mb-1">Password</label>
-        <InputGroup>
-          <InputGroupAddon>
-            <Lock className="size-4" />
-          </InputGroupAddon>
-          <InputGroupInput id="password" type="password" placeholder="Enter password" />
+/**
+ * Pair input groups with dropdown menus for complex interactions.
+ */
+export const WithDropdowns: Story = {
+  render: (args) => (
+    <div className="grid w-full max-w-sm gap-4">
+      <InputGroup {...args}>
+        <InputGroupInput placeholder="Enter file name" />
+        <InputGroupAddon align="inline-end">
+          <InputGroupButton
+            variant="ghost"
+            aria-label="More"
+            size="icon-xs"
+          >
+            <MoreHorizontal />
+          </InputGroupButton>
+        </InputGroupAddon>
+      </InputGroup>
+      <InputGroup className="[--radius:1rem]">
+        <InputGroupInput placeholder="Enter search query" />
+        <InputGroupAddon align="inline-end">
+          <InputGroupButton variant="ghost" className="!pr-1.5 text-xs">
+            Search In... <ChevronDownIcon className="size-3" />
+          </InputGroupButton>
+        </InputGroupAddon>
+      </InputGroup>
+    </div>
+  ),
+};
+
+/**
+ * Wrap input groups with button groups to create prefixes and suffixes.
+ */
+export const WithButtonGroup: Story = {
+  render: (args) => (
+    <div className="grid w-full max-w-sm gap-6">
+      <div className="flex">
+        <InputGroupAddon>
+          <InputGroupText>https://</InputGroupText>
+        </InputGroupAddon>
+        <InputGroup {...args}>
+          <InputGroupInput id="url" />
           <InputGroupAddon align="inline-end">
-            <InputGroupButton>
-              <Eye className="size-4" />
-            </InputGroupButton>
+            <Link2Icon />
           </InputGroupAddon>
         </InputGroup>
-      </div>
-      
-      <div>
-        <label htmlFor="budget" className="block text-sm font-medium mb-1">Budget</label>
-        <InputGroup>
-          <InputGroupAddon>
-            <InputGroupText>$</InputGroupText>
-          </InputGroupAddon>
-          <InputGroupInput id="budget" type="number" placeholder="1000" />
-          <InputGroupAddon align="inline-end">
-            <InputGroupText>USD</InputGroupText>
-          </InputGroupAddon>
-        </InputGroup>
+        <InputGroupAddon>
+          <InputGroupText>.com</InputGroupText>
+        </InputGroupAddon>
       </div>
     </div>
   ),
-};
-
-// Custom styling
-export const CustomStyling: Story = {
-  render: () => (
-    <InputGroup className="border-2 border-blue-500 bg-blue-50">
-      <InputGroupAddon>
-        <Search className="size-4 text-blue-600" />
-      </InputGroupAddon>
-      <InputGroupInput placeholder="Custom styled input group" />
-    </InputGroup>
-  ),
-};
-
-// Interaction test
-export const UserInteraction: Story = {
-  render: () => (
-    <InputGroup>
-      <InputGroupAddon>
-        <Search className="size-4" />
-      </InputGroupAddon>
-      <InputGroupInput placeholder="Type something" onChange={fn()} />
-      <InputGroupAddon align="inline-end">
-        <InputGroupButton onClick={fn()}>
-          <Eye className="size-4" />
-        </InputGroupButton>
-      </InputGroupAddon>
-    </InputGroup>
-  ),
-
-  play: async ({ canvas }) => {
-    const input = canvas.getByPlaceholderText('Type something');
-    const button = canvas.getByRole('button');
-
-    // Interaction performance test
-    const start = performance.now();
-    await userEvent.type(input, 'test');
-    await userEvent.click(button);
-    const end = performance.now();
-    const duration = end - start;
-    const expectDuration = 500;
-    await expect(duration).toBeLessThan(expectDuration);
-  },
 };

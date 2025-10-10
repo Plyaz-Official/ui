@@ -20,6 +20,8 @@ The `InputGroup` system consists of multiple components that work together to cr
 - **Responsive Design**: Adapts to different screen sizes and layouts
 - **Dark Mode Support**: Automatic dark mode styling
 - **Form Library Compatible**: Works with react-hook-form, Formik, and other form libraries
+- **Interactive Elements**: Support for tooltips, dropdowns, popovers, and spinners
+- **Loading States**: Built-in support for loading indicators and disabled states
 
 ## Components
 
@@ -76,86 +78,66 @@ Textarea component that integrates with the input group layout.
 
 ## Props
 
-<Controls of={InputGroupStories.WithTextAddon} />
+<Controls of={InputGroupStories.WithIcons} />
 
 ---
 
-### Examples
+## Examples
 
-## Basic Usage
+### With Icons
 
-### With Text Addon
+Input groups with icon addons for visual enhancement.
 
-<Canvas of={InputGroupStories.WithTextAddon} />
+<Canvas of={InputGroupStories.WithIcons} />
 
-### With Icon Addon
+### With Text
 
-<Canvas of={InputGroupStories.WithIconAddon} />
+Display additional text information alongside inputs.
 
-### With Button Addon
+<Canvas of={InputGroupStories.WithText} />
 
-<Canvas of={InputGroupStories.WithButtonAddon} />
+### With Buttons
 
-### With Start and End Addons
+Add buttons to perform actions within the input group.
 
-<Canvas of={InputGroupStories.WithStartAndEndAddons} />
+<Canvas of={InputGroupStories.WithButtons} />
 
-## Input Types
+### With Tooltips
 
-### Email Input Group
+Add tooltips to provide additional context or help.
 
-<Canvas of={InputGroupStories.EmailInputGroup} />
+<Canvas of={InputGroupStories.WithTooltips} />
 
-### Password Input Group
+### With Textarea
 
-<Canvas of={InputGroupStories.PasswordInputGroup} />
+Input groups also work with textarea components.
 
-### URL Input Group
+<Canvas of={InputGroupStories.WithTextarea} />
 
-<Canvas of={InputGroupStories.UrlInputGroup} />
+### With Spinner
 
-### Currency Input Group
+Show loading indicators while processing input.
 
-<Canvas of={InputGroupStories.CurrencyInputGroup} />
+<Canvas of={InputGroupStories.WithSpinner} />
 
-### Textarea Input Group
+### With Labels
 
-<Canvas of={InputGroupStories.TextareaInputGroup} />
+Add labels within input groups to improve accessibility.
 
-## Layout Variants
+<Canvas of={InputGroupStories.WithLabels} />
 
-### Block Alignment
+### With Dropdowns
 
-<Canvas of={InputGroupStories.BlockAlignment} />
+Pair input groups with dropdown menus for complex interactions.
 
-### Button Sizes
+<Canvas of={InputGroupStories.WithDropdowns} />
 
-<Canvas of={InputGroupStories.ButtonSizes} />
+### With Button Group
 
-## States
+Wrap input groups with button groups to create prefixes and suffixes.
 
-### Disabled
-
-<Canvas of={InputGroupStories.Disabled} />
-
-### Error State
-
-<Canvas of={InputGroupStories.ErrorState} />
-
-### With Keyboard Shortcuts
-
-<Canvas of={InputGroupStories.WithKeyboardShortcuts} />
-
-## Advanced Examples
-
-### Complex Form Example
-
-<Canvas of={InputGroupStories.ComplexFormExample} />
-
-### Custom Styling
-
-<Canvas of={InputGroupStories.CustomStyling} />
+<Canvas of={InputGroupStories.WithButtonGroup} />
 
 ## Source Code
 
-<Source of={InputGroupStories.WithTextAddon} language='tsx' />
+<Source of={InputGroupStories.WithIcons} language='tsx' />
