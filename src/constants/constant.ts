@@ -84,41 +84,37 @@ export const GAP = {
 };
 
 export const buttonVariants = cva(
-  `inline-flex justify-center items-center gap-2 aria-invalid:border-destructive focus-visible:border-ring rounded-full outline-none aria-invalid:ring-destructive/20 focus-visible:ring-[3px] focus-visible:ring-ring/50 dark:aria-invalid:ring-destructive/40 [&_svg:not([class*='size-'])]:size-4 font-medium text-sm whitespace-nowrap [&_svg]:pointer-events-none disabled:pointer-events-none shrink-0 [&_svg]:shrink-0`,
+  `inline-flex justify-center items-center gap-2 disabled:opacity-50 aria-invalid:border-destructive focus-visible:border-ring rounded-md outline-none aria-invalid:ring-destructive/20 focus-visible:ring-[3px] focus-visible:ring-ring/50 dark:aria-invalid:ring-destructive/40 [&_svg:not([class*='size-'])]:size-4 font-medium text-sm whitespace-nowrap transition-all [&_svg]:pointer-events-none disabled:pointer-events-none shrink-0 [&_svg]:shrink-0`,
   {
     variants: {
       variant: {
         default: `
-          bg-primary-foreground text-background
-          hover:bg-orange-gradient hover:opacity-90
-          disabled:bg-secondary disabled:opacity-50
-          `,
-        outline: `
-          text-secondary shadow-xs
-          border border-muted-foreground bg-background
-          hover:bg-primary
-          disabled:opacity-50
-        `,
-        secondary: `
-          text-secondary
-          hover:text-primary hover:bg-orange-gradient hover:opacity-70
-          disabled:text-secondary disabled:opacity-50
+          bg-primary text-primary-foreground shadow-xs
+          hover:bg-primary/90
         `,
         destructive: `
-          bg-destructive text-white
-          hover:opacity-70
+          bg-destructive text-white shadow-xs
+          hover:bg-destructive/90
           focus-visible:ring-destructive/20
-          disabled:bg-destructive disabled:opacity-40
+          dark:bg-destructive/60 dark:focus-visible:ring-destructive/40
+        `,
+        outline: `
+          border bg-background shadow-xs
+          hover:bg-accent hover:text-accent-foreground
+          dark:border-input dark:bg-input/30 dark:hover:bg-input/50
+        `,
+        secondary: `
+          bg-secondary text-secondary-foreground shadow-xs
+          hover:bg-secondary/80
         `,
         ghost: `
-          text-secondary
-          hover:shadow-sm
-          disabled:opacity-50
+          hover:bg-accent hover:text-accent-foreground
+          dark:hover:bg-accent/50
         `,
         link: `
-          text-tertiary-foreground underline-offset-4
-          disabled:opacity-50
-          `,
+          text-primary underline-offset-4
+          hover:underline
+        `,
       },
       size: {
         default: `
@@ -126,16 +122,11 @@ export const buttonVariants = cva(
           has-[>svg]:px-3
         `,
         sm: `
-          h-7 gap-1.5 px-3
+          h-8 gap-1.5 rounded-md px-3
           has-[>svg]:px-2.5
         `,
         lg: `
-          h-10 px-6
-          has-[>svg]:px-4
-        `,
-        'x-lg': `
-          h-14 px-6
-          text-base
+          h-10 rounded-md px-6
           has-[>svg]:px-4
         `,
         icon: 'size-9',
@@ -147,6 +138,7 @@ export const buttonVariants = cva(
     },
   }
 );
+
 export const badgeVariants = cva(
   'inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden',
   {
