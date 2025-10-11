@@ -1,5 +1,6 @@
 import { userEvent } from '@storybook/test';
 import type { Meta, StoryObj } from '@storybook/react';
+import { Calendar, ChevronUp, Home, Inbox, Search, Settings, User2 } from 'lucide-react';
 
 import {
   DropdownMenu,
@@ -19,7 +20,6 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from '@/components/client';
-import { Calendar, ChevronUp, Home, Inbox, Search, Settings, User2 } from 'lucide-react';
 
 /**
  * A composable, themeable and customizable sidebar component.
@@ -51,6 +51,7 @@ const meta = {
     layout: 'fullscreen',
   },
   decorators: [
+    // eslint-disable-next-line @typescript-eslint/naming-convention
     Story => (
       <SidebarProvider>
         <Story />

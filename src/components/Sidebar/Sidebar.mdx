@@ -40,22 +40,6 @@ The Sidebar component uses a provider pattern and consists of several sub-compon
 
 <Controls of={SidebarStories.Simple} />
 
-### Sidebar Props
-
-| Prop          | Type                                 | Default       | Description                       |
-| ------------- | ------------------------------------ | ------------- | --------------------------------- |
-| `side`        | `"left" \| "right"`                  | `"left"`      | Which side the sidebar appears on |
-| `variant`     | `"sidebar" \| "floating" \| "inset"` | `"sidebar"`   | Visual style variant              |
-| `collapsible` | `"offcanvas" \| "icon" \| "none"`    | `"offcanvas"` | How the sidebar collapses         |
-
-### SidebarProvider Props
-
-| Prop           | Type                      | Default | Description                 |
-| -------------- | ------------------------- | ------- | --------------------------- |
-| `defaultOpen`  | `boolean`                 | `true`  | Initial open state          |
-| `open`         | `boolean`                 | -       | Controlled open state       |
-| `onOpenChange` | `(open: boolean) => void` | -       | Callback when state changes |
-
 ## Examples
 
 ### Simple Sidebar
