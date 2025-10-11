@@ -30,7 +30,7 @@ function SelectTrigger({
       data-size={size}
       className={cn(
         `
-          flex w-fit items-center justify-between gap-2 rounded-md border
+          flex w-fit items-center justify-between gap-2 rounded-md
           border-subtle bg-transparent px-3 py-2 text-sm whitespace-nowrap
           transition-[color,box-shadow] outline-none
           focus-visible:border-ring focus-visible:ring-[3px]
@@ -38,6 +38,7 @@ function SelectTrigger({
           disabled:cursor-not-allowed disabled:opacity-50
           aria-invalid:border-destructive aria-invalid:ring-destructive/20
           data-[placeholder]:text-secondary text-secondary
+          border-2 data-[placeholder]:border data-[placeholder]:border-subtle
           data-[size=default]:h-9
           data-[size=sm]:h-8
           *:data-[slot=select-value]:line-clamp-1
@@ -138,7 +139,7 @@ function SelectItem({
         `
           relative flex w-full cursor-default items-center gap-2 rounded-sm
           py-1.5 pr-8 pl-2 text-sm outline-hidden select-none
-          focus:bg-accent focus:text-accent-foreground
+          focus:bg-primary
           data-[disabled]:pointer-events-none data-[disabled]:opacity-50
           [&_svg]:pointer-events-none [&_svg]:shrink-0
           [&_svg:not([class*='size-'])]:size-4
