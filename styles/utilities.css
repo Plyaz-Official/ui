@@ -1,0 +1,7 @@
+@utility text-gradient-orange {
+  @apply bg-clip-text text-transparent bg-[image:var(--accent)];
+}
+
+@utility bg-gradient-orange {
+  @apply bg-[image:var(--accent)];
+}

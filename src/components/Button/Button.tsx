@@ -1,4 +1,4 @@
-/* eslint-disable react-refresh/only-export-components */ 
+/* eslint-disable react-refresh/only-export-components */
 import { Slot } from '@radix-ui/react-slot';
 import { type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
@@ -13,7 +13,7 @@ export const buttonVariants = cva(
       variant: {
         default: `
           bg-primary-foreground text-background
-          hover:bg-[image:var(--accent)] hover:opacity-90
+          hover:bg-gradient-orange hover:opacity-90
           disabled:bg-secondary disabled:opacity-50
           `,
         outline: `
@@ -24,7 +24,7 @@ export const buttonVariants = cva(
         `,
         secondary: `
           text-secondary
-          hover:text-primary hover:bg-[image:var(--accent)] hover:opacity-80
+          hover:text-primary hover:bg-gradient-orange hover:opacity-80
           disabled:text-secondary disabled:opacity-50
         `,
         destructive: `
@@ -56,7 +56,7 @@ export const buttonVariants = cva(
           h-10 px-6
           has-[>svg]:px-4
         `,
-        'xl': `
+        xl: `
           h-14 px-6
           text-base
           has-[>svg]:px-4
