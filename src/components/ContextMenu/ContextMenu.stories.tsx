@@ -1,6 +1,5 @@
-
-import type { Meta, StoryObj } from "@storybook/react";
-import { expect, userEvent, within } from "@storybook/test";
+import type { Meta, StoryObj } from '@storybook/react';
+import { expect, userEvent, within } from '@storybook/test';
 
 import {
   ContextMenu,
@@ -16,25 +15,24 @@ import {
   ContextMenuSubContent,
   ContextMenuSubTrigger,
   ContextMenuTrigger,
-} from "@/components/client";
-
+} from '@/components/client';
 
 /**
  * Displays a menu to the user — such as a set of actions or functions —
  * triggered by a button.
  */
 const meta = {
-  title: "components/ContextMenu",
+  title: 'components/ContextMenu',
   component: ContextMenu,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {},
   args: {},
-  render: (args) => (
+  render: args => (
     <ContextMenu {...args}>
-      <ContextMenuTrigger className="bg-accent flex h-48 w-96 items-center justify-center rounded-md border border-dashed text-sm">
+      <ContextMenuTrigger className='bg-accent flex h-48 w-96 items-center justify-center rounded-md border border-dashed text-sm'>
         Right click here
       </ContextMenuTrigger>
-      <ContextMenuContent className="w-32">
+      <ContextMenuContent className='w-32'>
         <ContextMenuItem>Profile</ContextMenuItem>
         <ContextMenuItem>Billing</ContextMenuItem>
         <ContextMenuItem>Team</ContextMenuItem>
@@ -43,7 +41,7 @@ const meta = {
     </ContextMenu>
   ),
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
 } satisfies Meta<typeof ContextMenu>;
 
@@ -60,12 +58,12 @@ export const Default: Story = {};
  * A context menu with shortcuts.
  */
 export const WithShortcuts: Story = {
-  render: (args) => (
+  render: args => (
     <ContextMenu {...args}>
-      <ContextMenuTrigger className="bg-accent flex h-48 w-96 items-center justify-center rounded-md border border-dashed text-sm">
+      <ContextMenuTrigger className='bg-accent flex h-48 w-96 items-center justify-center rounded-md border border-dashed text-sm'>
         Right click here
       </ContextMenuTrigger>
-      <ContextMenuContent className="w-32">
+      <ContextMenuContent className='w-32'>
         <ContextMenuItem>
           Back
           <ContextMenuShortcut>⌘[</ContextMenuShortcut>
@@ -87,12 +85,12 @@ export const WithShortcuts: Story = {
  * A context menu with a submenu.
  */
 export const WithSubmenu: Story = {
-  render: (args) => (
+  render: args => (
     <ContextMenu {...args}>
-      <ContextMenuTrigger className="bg-accent flex h-48 w-96 items-center justify-center rounded-md border border-dashed text-sm">
+      <ContextMenuTrigger className='bg-accent flex h-48 w-96 items-center justify-center rounded-md border border-dashed text-sm'>
         Right click here
       </ContextMenuTrigger>
-      <ContextMenuContent className="w-32">
+      <ContextMenuContent className='w-32'>
         <ContextMenuItem>
           New Tab
           <ContextMenuShortcut>⌘N</ContextMenuShortcut>
@@ -119,12 +117,12 @@ export const WithSubmenu: Story = {
  * A context menu with checkboxes.
  */
 export const WithCheckboxes: Story = {
-  render: (args) => (
+  render: args => (
     <ContextMenu {...args}>
-      <ContextMenuTrigger className="bg-accent flex h-48 w-96 items-center justify-center rounded-md border border-dashed text-sm">
+      <ContextMenuTrigger className='bg-accent flex h-48 w-96 items-center justify-center rounded-md border border-dashed text-sm'>
         Right click here
       </ContextMenuTrigger>
-      <ContextMenuContent className="w-64">
+      <ContextMenuContent className='w-64'>
         <ContextMenuCheckboxItem checked>
           Show Comments
           <ContextMenuShortcut>⌘⇧C</ContextMenuShortcut>
@@ -139,16 +137,16 @@ export const WithCheckboxes: Story = {
  * A context menu with a radio group.
  */
 export const WithRadioGroup: Story = {
-  render: (args) => (
+  render: args => (
     <ContextMenu {...args}>
-      <ContextMenuTrigger className="bg-accent flex h-48 w-96 items-center justify-center rounded-md border border-dashed text-sm">
+      <ContextMenuTrigger className='bg-accent flex h-48 w-96 items-center justify-center rounded-md border border-dashed text-sm'>
         Right click here
       </ContextMenuTrigger>
-      <ContextMenuContent className="w-64">
-        <ContextMenuRadioGroup value="light">
+      <ContextMenuContent className='w-64'>
+        <ContextMenuRadioGroup value='light'>
           <ContextMenuLabel inset>Theme</ContextMenuLabel>
-          <ContextMenuRadioItem value="light">Light</ContextMenuRadioItem>
-          <ContextMenuRadioItem value="dark">Dark</ContextMenuRadioItem>
+          <ContextMenuRadioItem value='light'>Light</ContextMenuRadioItem>
+          <ContextMenuRadioItem value='dark'>Dark</ContextMenuRadioItem>
         </ContextMenuRadioGroup>
       </ContextMenuContent>
     </ContextMenu>
@@ -156,27 +154,27 @@ export const WithRadioGroup: Story = {
 };
 
 export const ShouldOpenClose: Story = {
-  name: "when right-clicking the trigger area, the menu appears and can be interacted with",
-  tags: ["!dev", "!autodocs"],
+  name: 'when right-clicking the trigger area, the menu appears and can be interacted with',
+  tags: ['!dev', '!autodocs'],
   play: async ({ canvasElement, canvas, step }) => {
     const canvasBody = within(canvasElement.ownerDocument.body);
-    const itemsLength = 2;
-    await step("Right-click on the trigger area", async () => {
+    const coordsDivisor = 2;
+    await step('Right-click on the trigger area', async () => {
       await userEvent.pointer({
-        keys: "[MouseRight>]",
+        keys: '[MouseRight>]',
         target: await canvas.findByText(/click here/i),
         coords: {
-          x: canvasElement.clientWidth / itemsLength,
-          y: canvasElement.clientHeight / itemsLength,
+          x: canvasElement.clientWidth / coordsDivisor,
+          y: canvasElement.clientHeight / coordsDivisor,
         },
       });
     });
-    await expect(await canvasBody.findByRole("menu")).toBeInTheDocument();
-    const items = await canvasBody.findAllByRole("menuitem");
+    await expect(await canvasBody.findByRole('menu')).toBeInTheDocument();
+    const items = await canvasBody.findAllByRole('menuitem');
     const itemsLength = 4;
     await expect(items).toHaveLength(itemsLength);
 
-    await step("Click the first menu item", async () => {
+    await step('Click the first menu item', async () => {
       await userEvent.click(items[0], { delay: 100 });
     });
   },
