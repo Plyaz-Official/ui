@@ -15,7 +15,7 @@ import {
 /**
  * A drawer component for React.
  */
-const meta = {
+const meta: Meta<typeof Drawer> = {
   title: 'components/Drawer',
   component: Drawer,
   tags: ['autodocs'],
@@ -44,20 +44,23 @@ const meta = {
   parameters: {
     layout: 'centered',
   },
-} satisfies Meta<typeof Drawer>;
+};
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof Drawer>;
 
 /**
  * The default form of the drawer.
  */
-export const Default: Story = {};
+export const Default: Story = {
+  args: {},
+};
 
 export const ShouldOpenCloseWithSubmit: Story = {
   name: 'when clicking Submit button, should close the drawer',
   tags: ['!dev', '!autodocs'],
+  args: {},
   play: async ({ args, canvasElement, step }) => {
     const canvasBody = within(canvasElement.ownerDocument.body);
 
@@ -83,6 +86,7 @@ export const ShouldOpenCloseWithSubmit: Story = {
 export const ShouldOpenCloseWithCancel: Story = {
   name: 'when clicking Cancel button, should close the drawer',
   tags: ['!dev', '!autodocs'],
+  args: {},
   play: async ({ args, canvasElement, step }) => {
     const canvasBody = within(canvasElement.ownerDocument.body);
 

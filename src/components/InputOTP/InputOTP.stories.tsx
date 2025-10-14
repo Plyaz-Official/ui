@@ -7,7 +7,7 @@ import { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot } from '@/comp
 /**
  * Accessible one-time password component with copy paste functionality.
  */
-const meta = {
+const meta: Meta<typeof InputOTP> = {
   title: 'components/InputOTP',
   component: InputOTP,
   tags: ['autodocs'],
@@ -36,16 +36,18 @@ const meta = {
   parameters: {
     layout: 'centered',
   },
-} satisfies Meta<typeof InputOTP>;
+};
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof InputOTP>;
 
 /**
  * The default form of the InputOTP field.
  */
-export const Default: Story = {};
+export const Default: Story = {
+  args: {},
+};
 
 /**
  * The number form of the InputOTP field.
@@ -60,6 +62,7 @@ export const OnlyNumbers: Story = {
  * Use multiple groups to separate the input slots.
  */
 export const SeparatedGroup: Story = {
+  args: {},
   render: args => (
     <InputOTP {...args} render={undefined}>
       <InputOTPGroup>
@@ -80,13 +83,14 @@ export const SeparatedGroup: Story = {
 export const ShouldAcceptTextWhenTyping: Story = {
   name: 'when typing text, should call onChange and onComplete',
   tags: ['!dev', '!autodocs'],
+  args: {},
   play: async ({ args, canvas, step }) => {
     const inputTextbox = await canvas.findByRole('textbox');
-
+    const six = 6;
     await step('type into input textbox', async () => {
       await userEvent.click(inputTextbox);
       await userEvent.type(inputTextbox, 'mocked');
-      await expect(args.onChange).toHaveBeenCalledTimes(6);
+      await expect(args.onChange).toHaveBeenCalledTimes(six);
     });
 
     await step('finish typing by pressing Enter', async () => {

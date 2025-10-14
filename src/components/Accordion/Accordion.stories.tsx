@@ -32,7 +32,7 @@ const meta = {
     disabled: false,
   },
   render: args => (
-    <Accordion {...args} className='w-full'>
+    <Accordion {...args} type='single' className='w-full'>
       <AccordionItem value='item-1'>
         <AccordionTrigger>Is it accessible?</AccordionTrigger>
         <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
