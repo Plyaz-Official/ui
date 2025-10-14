@@ -55,10 +55,12 @@ export const Default: Story = {};
 /**
  * Use the `multiple` mode to select multiple dates.
  */
+const twoDays = 2;
+const eightDays = 8;
 export const Multiple: Story = {
   args: {
     min: 1,
-    selected: [new Date(), addDays(new Date(), 2), addDays(new Date(), 8)],
+    selected: [new Date(), addDays(new Date(), twoDays), addDays(new Date(), eightDays)],
     mode: "multiple",
   },
 };
@@ -111,7 +113,7 @@ export const ShouldNavigateMonthsWhenClicked: Story = {
   name: "when using the calendar navigation, should change months",
   tags: ["!dev", "!autodocs"],
   args: {
-    defaultMonth: new Date(year, 8),
+    defaultMonth: new Date(year, eightDays),
   },
   play: async ({ canvas }) => {
     const title = await canvas.findByText(/2000/i);
@@ -123,13 +125,13 @@ export const ShouldNavigateMonthsWhenClicked: Story = {
       name: /next/i,
     });
     const steps = 6;
-    for (let i = 0; i < steps / 2; i++) {
+    for (let i = 0; i < steps / twoDays; i++) {
       await userEvent.click(backBtn);
       await expect(title).not.toHaveTextContent(startTitle);
     }
     for (let i = 0; i < steps; i++) {
       await userEvent.click(nextBtn);
-      if (i == steps / 2 - 1) {
+      if (i == steps / twoDays - 1) {
         await expect(title).toHaveTextContent(startTitle);
         continue;
       }
