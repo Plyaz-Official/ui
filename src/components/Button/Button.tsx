@@ -56,7 +56,7 @@ export const buttonVariants = cva(
           h-10 px-6
           has-[>svg]:px-4
         `,
-        'x-lg': `
+        'xl': `
           h-14 px-6
           text-base
           has-[>svg]:px-4

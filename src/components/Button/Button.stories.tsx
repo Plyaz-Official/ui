@@ -25,7 +25,7 @@ const meta: Meta<typeof Button> = {
     },
     size: {
       control: 'select',
-      options: ['default', 'sm', 'lg', 'icon', 'x-lg'],
+      options: ['default', 'sm', 'lg', 'icon', 'xl'],
       description: 'Controls padding and height of the button.',
     },
     disabled: {
