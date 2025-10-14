@@ -160,14 +160,14 @@ export const ShouldOpenClose: Story = {
   tags: ["!dev", "!autodocs"],
   play: async ({ canvasElement, canvas, step }) => {
     const canvasBody = within(canvasElement.ownerDocument.body);
-
+    const itemsLength = 2;
     await step("Right-click on the trigger area", async () => {
       await userEvent.pointer({
         keys: "[MouseRight>]",
         target: await canvas.findByText(/click here/i),
         coords: {
-          x: canvasElement.clientWidth / 2,
-          y: canvasElement.clientHeight / 2,
+          x: canvasElement.clientWidth / itemsLength,
+          y: canvasElement.clientHeight / itemsLength,
         },
       });
     });

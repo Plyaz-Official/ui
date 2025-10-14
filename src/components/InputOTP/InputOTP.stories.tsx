@@ -87,11 +87,11 @@ export const ShouldAcceptTextWhenTyping: Story = {
   tags: ["!dev", "!autodocs"],
   play: async ({ args, canvas, step }) => {
     const inputTextbox = await canvas.findByRole("textbox");
-
+    const six = 6;
     await step("type into input textbox", async () => {
       await userEvent.click(inputTextbox);
       await userEvent.type(inputTextbox, "mocked");
-      await expect(args.onChange).toHaveBeenCalledTimes(6);
+      await expect(args.onChange).toHaveBeenCalledTimes(six);
     });
 
     await step("finish typing by pressing Enter", async () => {
@@ -116,7 +116,7 @@ export const ShouldAcceptOnlyNumbersWhenRestricted: Story = {
 
     await step("type numbers into input textbox", async () => {
       await userEvent.type(inputTextbox, "123456");
-      await expect(args.onChange).toHaveBeenCalledTimes(6);
+      await expect(args.onChange).toHaveBeenCalledTimes(six);
     });
 
     await step("finish typing by pressing Enter", async () => {
