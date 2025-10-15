@@ -9,11 +9,11 @@ export default function Input({ className, type, ...props }: React.ComponentProp
       data-slot='input'
       className={cn(
         `
-          flex h-9 w-full min-w-0 rounded-sm border border-subtle bg-transparent
-          px-3 py-1 text-base transition-[color,box-shadow]
+          flex h-10 w-full min-w-0 rounded-sm border border-subtle bg-transparent
+          px-3 py-2 text-base transition-[color,box-shadow]
           outline-none
           selection:bg-primary selection:text-primary-foreground
-          file:inline-flex file:h-7 file:border-0 file:bg-transparent
+          file:inline-flex file:h-10 file:border-0 file:bg-transparent
           file:text-sm file:font-medium file:text-foreground
           text-secondary
           placeholder:text-accent-foreground
