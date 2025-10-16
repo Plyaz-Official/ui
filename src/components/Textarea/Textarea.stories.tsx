@@ -1,18 +1,18 @@
+import type { Meta, StoryObj } from '@storybook/react';
 
-import type { Meta, StoryObj } from "@storybook/react";
-
-import { Button , Label , Textarea } from "@/components";
+import { Button, Textarea } from '@/components';
+import { Label } from '@/components/client';
 
 /**
  * Displays a form textarea or a component that looks like a textarea.
  */
 const meta = {
-  title: "components/Textarea",
+  title: 'components/Textarea',
   component: Textarea,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {},
   args: {
-    placeholder: "Type your message here.",
+    placeholder: 'Type your message here.',
     disabled: false,
   },
 } satisfies Meta<typeof Textarea>;
@@ -40,10 +40,10 @@ export const Disabled: Story = {
  * alongside the text area to guide users.
  */
 export const WithLabel: Story = {
-  render: (args) => (
-    <div className="grid w-full gap-1.5">
-      <Label htmlFor="message">Your message</Label>
-      <Textarea {...args} id="message" />
+  render: args => (
+    <div className='grid w-full gap-1.5'>
+      <Label htmlFor='message'>Your message</Label>
+      <Textarea {...args} id='message' />
     </div>
   ),
 };
@@ -53,13 +53,11 @@ export const WithLabel: Story = {
  * or information to users.
  */
 export const WithText: Story = {
-  render: (args) => (
-    <div className="grid w-full gap-1.5">
-      <Label htmlFor="message-2">Your Message</Label>
-      <Textarea {...args} id="message-2" />
-      <p className="text-sm text-slate-500">
-        Your message will be copied to the support team.
-      </p>
+  render: args => (
+    <div className='grid w-full gap-1.5'>
+      <Label htmlFor='message-2'>Your Message</Label>
+      <Textarea {...args} id='message-2' />
+      <p className='text-sm text-slate-500'>Your message will be copied to the support team.</p>
     </div>
   ),
 };
@@ -69,11 +67,10 @@ export const WithText: Story = {
  * or used to trigger an action.
  */
 export const WithButton: Story = {
-  render: (args) => (
-    <div className="grid w-full gap-2">
+  render: args => (
+    <div className='grid w-full gap-2'>
       <Textarea {...args} />
-      <Button type="submit">Send Message</Button>
+      <Button type='submit'>Send Message</Button>
     </div>
   ),
 };
-
