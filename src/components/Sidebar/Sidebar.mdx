@@ -1,0 +1,161 @@
+import { Meta, Story, Source, Canvas, Controls } from '@storybook/addon-docs';
+import * as SidebarStories from './Sidebar.stories';
+
+<Meta of={SidebarStories} />
+
+# Sidebar
+
+A composable, themeable and customizable sidebar component that provides navigation and layout functionality for applications. Built with accessibility in mind and fully responsive.
+
+## Features
+
+- **Responsive Design**: Automatically adapts to mobile and desktop layouts
+- **Multiple Variants**: Supports `sidebar`, `floating`, and `inset` variants
+- **Collapsible**: Configurable collapse behavior (`offcanvas`, `icon`, `none`)
+- **Accessibility**: Built with proper ARIA attributes and keyboard navigation
+- **Customizable**: Fully customizable with Tailwind CSS
+- **Provider Pattern**: Uses React Context for state management
+- **Mobile Support**: Sheet-based overlay on mobile devices
+
+## Usage
+
+The Sidebar component uses a provider pattern and consists of several sub-components:
+
+- `SidebarProvider` - Context provider that manages sidebar state
+- `Sidebar` - Main sidebar container
+- `SidebarHeader` - Header section
+- `SidebarContent` - Main content area
+- `SidebarFooter` - Footer section
+- `SidebarGroup` - Content grouping
+- `SidebarMenu` - Menu container
+- `SidebarMenuItem` - Individual menu item
+- `SidebarMenuButton` - Interactive menu button
+- `SidebarTrigger` - Toggle button for sidebar
+
+## Basic Example
+
+<Canvas of={SidebarStories.Simple} />
+
+## Props
+
+<Controls of={SidebarStories.Simple} />
+
+## Examples
+
+### Simple Sidebar
+
+<Canvas of={SidebarStories.Simple} />
+
+A basic sidebar with navigation items and proper structure.
+
+### Footer with Dropdown
+
+<Canvas of={SidebarStories.Footer} />
+
+Sidebar with a footer containing a user dropdown menu.
+
+## Variants
+
+### Sidebar Variant (Default)
+
+The standard sidebar that pushes content when open and overlays when closed.
+
+### Floating Variant
+
+A sidebar that floats over the content with rounded corners and shadow.
+
+### Inset Variant
+
+A sidebar that creates an inset layout where the main content appears inside the sidebar container.
+
+## Collapsible Behavior
+
+### Offcanvas (Default)
+
+The sidebar slides off-screen when collapsed, completely hiding the content.
+
+### Icon
+
+The sidebar collapses to show only icons, maintaining a narrow strip for navigation.
+
+### None
+
+The sidebar cannot be collapsed and remains always visible.
+
+## Mobile Behavior
+
+On mobile devices, the sidebar automatically converts to a sheet overlay that slides in from the side. The `SidebarTrigger` remains accessible to toggle the mobile sidebar.
+
+## Keyboard Shortcuts
+
+- **Ctrl/Cmd + B**: Toggle sidebar open/closed state
+
+## Accessibility
+
+The Sidebar component is built with accessibility in mind:
+
+- **Keyboard Navigation**: Full keyboard support for all interactive elements
+- **Screen Reader Support**: Proper ARIA attributes and semantic HTML
+- **Focus Management**: Proper focus handling when sidebar opens/closes
+- **Touch Support**: Optimized for touch devices with appropriate hit targets
+
+## Styling
+
+The Sidebar uses CSS custom properties for theming:
+
+```css
+:root {
+  --sidebar-width: 16rem;
+  --sidebar-width-icon: 3rem;
+  --sidebar-width-mobile: 18rem;
+}
+```
+
+Customize the sidebar appearance with Tailwind classes:
+
+```tsx
+<Sidebar className='bg-blue-50 border-r-2 border-blue-200'>
+  <SidebarHeader className='border-b border-blue-200'>{/* Header content */}</SidebarHeader>
+  {/* Rest of sidebar content */}
+</Sidebar>
+```
+
+## Best Practices
+
+1. **Always use SidebarProvider**: Wrap your sidebar in the provider for proper state management
+2. **Use semantic structure**: Organize content with proper header, content, and footer sections
+3. **Group related items**: Use SidebarGroup to logically organize menu items
+4. **Provide clear labels**: Ensure menu items have descriptive text and icons
+5. **Test mobile behavior**: Verify the mobile sheet behavior works correctly
+6. **Consider accessibility**: Test with keyboard navigation and screen readers
+7. **Use appropriate variants**: Choose the right variant for your layout needs
+
+## Integration with Routing
+
+The Sidebar works well with routing libraries:
+
+```tsx
+<SidebarMenuItem>
+  <SidebarMenuButton asChild isActive={router.pathname === '/dashboard'}>
+    <Link href='/dashboard'>
+      <Home />
+      <span>Dashboard</span>
+    </Link>
+  </SidebarMenuButton>
+</SidebarMenuItem>
+```
+
+## Performance
+
+The Sidebar component is optimized for performance:
+
+- **Efficient Rendering**: Only re-renders when necessary
+- **Smooth Animations**: Hardware-accelerated transitions
+- **Memory Efficient**: Minimal memory footprint
+- **Responsive**: Adapts smoothly to different screen sizes
+
+---
+
+## Source Code
+
+<Source of={SidebarStories.Simple} language='tsx' />
