@@ -1,6 +1,5 @@
-
-import type { Meta, StoryObj } from "@storybook/react";
-import { expect, userEvent, within } from "@storybook/test";
+import type { Meta, StoryObj } from '@storybook/react';
+import { expect, userEvent, within } from '@storybook/test';
 
 import {
   Command,
@@ -10,31 +9,31 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-} from "@/components/client";
+} from '@/components/client';
 
 /**
  * Fast, composable, unstyled command menu for React.
  */
 const meta = {
-  title: "components/Command",
+  title: 'components/Command',
   component: Command,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {},
   args: {
-    className: "rounded-lg w-96 border shadow-md",
+    className: 'rounded-lg w-96 border shadow-md',
   },
-  render: (args) => (
+  render: args => (
     <Command {...args}>
-      <CommandInput placeholder="Type a command or search..." />
+      <CommandInput placeholder='Type a command or search...' />
       <CommandList>
         <CommandEmpty>No results found.</CommandEmpty>
-        <CommandGroup heading="Suggestions">
+        <CommandGroup heading='Suggestions'>
           <CommandItem>Calendar</CommandItem>
           <CommandItem>Search Emoji</CommandItem>
           <CommandItem disabled>Calculator</CommandItem>
         </CommandGroup>
         <CommandSeparator />
-        <CommandGroup heading="Settings">
+        <CommandGroup heading='Settings'>
           <CommandItem>Profile</CommandItem>
           <CommandItem>Billing</CommandItem>
           <CommandItem>Settings</CommandItem>
@@ -43,7 +42,7 @@ const meta = {
     </Command>
   ),
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
 } satisfies Meta<typeof Command>;
 
@@ -57,30 +56,28 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {};
 
 export const TypingInCombobox: Story = {
-  name: "when typing into the combobox, should filter results",
-  tags: ["!dev", "!autodocs"],
+  name: 'when typing into the combobox, should filter results',
+  tags: ['!dev', '!autodocs'],
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const input = canvas.getByRole("combobox");
+    const input = canvas.getByRole('combobox');
 
     // Search for "calendar" which should return a single result
-    await userEvent.type(input, "calen", { delay: 100 });
-    await expect(canvas.getAllByRole("option", { name: /calendar/i })).toHaveLength(
-      1,
-    );
+    await userEvent.type(input, 'calen', { delay: 100 });
+    await expect(canvas.getAllByRole('option', { name: /calendar/i })).toHaveLength(1);
 
     await userEvent.clear(input);
 
     // Search for "story" which should return multiple results
-    await userEvent.type(input, "se", { delay: 100 });
-    await expect(canvas.getAllByRole("option").length).toBeGreaterThan(1);
-    await expect(canvas.getAllByRole("option", { name: /search/i })).toHaveLength(1);
+    await userEvent.type(input, 'se', { delay: 100 });
+    await expect(canvas.getAllByRole('option').length).toBeGreaterThan(1);
+    await expect(canvas.getAllByRole('option', { name: /search/i })).toHaveLength(1);
 
     await userEvent.clear(input);
 
     // Search for "story" which should return no results
-    await userEvent.type(input, "story", { delay: 100 });
-    await expect(canvas.queryAllByRole("option", { hidden: false })).toHaveLength(0);
+    await userEvent.type(input, 'story', { delay: 100 });
+    await expect(canvas.queryAllByRole('option', { hidden: false })).toHaveLength(0);
     await expect(canvas.getByText(/no results/i)).toBeVisible();
   },
 };

@@ -1,5 +1,5 @@
-import { expect, userEvent } from "@storybook/test";
-import type { Meta, StoryObj } from "@storybook/react";
+import { expect, userEvent } from '@storybook/test';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import {
   Carousel,
@@ -7,26 +7,26 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/client";
+} from '@/components/client';
 
 /**
  * A carousel with motion and swipe built using Embla.
  */
 const meta: Meta<typeof Carousel> = {
-  title: "components/Carousel",
+  title: 'components/Carousel',
   component: Carousel,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {},
   args: {
-    className: "w-full max-w-xs",
+    className: 'w-full max-w-xs',
   },
-  render: (args) => (
+  render: args => (
     <Carousel {...args}>
       <CarouselContent>
         {Array.from({ length: 5 }).map((_, index) => (
           <CarouselItem key={index}>
-            <div className="bg-card flex aspect-square items-center justify-center rounded border p-6">
-              <span className="text-4xl font-semibold">{index + 1}</span>
+            <div className='bg-card flex aspect-square items-center justify-center rounded border p-6'>
+              <span className='text-4xl font-semibold'>{index + 1}</span>
             </div>
           </CarouselItem>
         ))}
@@ -36,7 +36,7 @@ const meta: Meta<typeof Carousel> = {
     </Carousel>
   ),
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
 } satisfies Meta<typeof Carousel>;
 
@@ -53,13 +53,13 @@ export const Default: Story = {};
  * Use the `basis` utility class to change the size of the carousel.
  */
 export const Size: Story = {
-  render: (args) => (
-    <Carousel {...args} className="mx-12 w-full max-w-xs">
+  render: args => (
+    <Carousel {...args} className='mx-12 w-full max-w-xs'>
       <CarouselContent>
         {Array.from({ length: 5 }).map((_, index) => (
-          <CarouselItem key={index} className="basis-1/3">
-            <div className="bg-card flex aspect-square items-center justify-center rounded border p-6">
-              <span className="text-4xl font-semibold">{index + 1}</span>
+          <CarouselItem key={index} className='basis-1/3'>
+            <div className='bg-card flex aspect-square items-center justify-center rounded border p-6'>
+              <span className='text-4xl font-semibold'>{index + 1}</span>
             </div>
           </CarouselItem>
         ))}
@@ -69,29 +69,29 @@ export const Size: Story = {
     </Carousel>
   ),
   args: {
-    className: "mx-12 w-full max-w-xs",
+    className: 'mx-12 w-full max-w-xs',
   },
 };
 
 export const ShouldNavigate: Story = {
-  name: "when clicking next/previous buttons, should navigate through slides",
-  tags: ["!dev", "!autodocs"],
+  name: 'when clicking next/previous buttons, should navigate through slides',
+  tags: ['!dev', '!autodocs'],
   play: async ({ canvas, step }) => {
-    const slides = await canvas.findAllByRole("group");
+    const slides = await canvas.findAllByRole('group');
     const slidesLength = 5;
     await expect(slides).toHaveLength(slidesLength);
-    const nextBtn = await canvas.findByRole("button", { name: /next/i });
-    const prevBtn = await canvas.findByRole("button", {
+    const nextBtn = await canvas.findByRole('button', { name: /next/i });
+    const prevBtn = await canvas.findByRole('button', {
       name: /previous/i,
     });
 
-    await step("navigate to the last slide", async () => {
+    await step('navigate to the last slide', async () => {
       for (let i = 0; i < slides.length - 1; i++) {
         await userEvent.click(nextBtn);
       }
     });
 
-    await step("navigate back to the first slide", async () => {
+    await step('navigate back to the first slide', async () => {
       for (let i = slides.length - 1; i > 0; i--) {
         await userEvent.click(prevBtn);
       }

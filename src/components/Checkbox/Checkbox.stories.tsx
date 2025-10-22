@@ -1,30 +1,29 @@
+import type { Meta, StoryObj } from '@storybook/react';
+import { expect, userEvent, within } from '@storybook/test';
 
-import type { Meta, StoryObj } from "@storybook/react";
-import { expect, userEvent, within } from "@storybook/test";
-
-import { Checkbox } from "@/components/client";
-import { Label } from "@/components";
+import { Checkbox } from '@/components/client';
+import { Label } from '@/components';
 
 /**
  * A control that allows the user to toggle between checked and not checked.
  */
 const meta: Meta<typeof Checkbox> = {
-  title: "components/Checkbox",
+  title: 'components/Checkbox',
   component: Checkbox,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {},
   args: {
-    id: "terms",
+    id: 'terms',
     disabled: false,
   },
-  render: (args) => (
-    <div className="flex space-x-2">
+  render: args => (
+    <div className='flex space-x-2'>
       <Checkbox {...args} />
       <Label htmlFor={args.id}>Accept terms and conditions</Label>
     </div>
   ),
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
 } satisfies Meta<typeof Checkbox>;
 
@@ -42,17 +41,17 @@ export const Default: Story = {};
  */
 export const Disabled: Story = {
   args: {
-    id: "disabled-terms",
+    id: 'disabled-terms',
     disabled: true,
   },
 };
 
 export const ShouldToggleCheck: Story = {
-  name: "when the checkbox is clicked, should toggle between checked and not checked",
-  tags: ["!dev", "!autodocs"],
+  name: 'when the checkbox is clicked, should toggle between checked and not checked',
+  tags: ['!dev', '!autodocs'],
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const checkbox = await canvas.getByRole("checkbox");
+    const checkbox = await canvas.getByRole('checkbox');
     await userEvent.click(checkbox);
     await expect(checkbox).toBeChecked();
     await userEvent.click(checkbox, { delay: 100 });
