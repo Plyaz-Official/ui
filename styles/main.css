@@ -79,7 +79,7 @@
   --accent-marketing: oklch(84.5% 0.143 164.978);
   --accent-hover-marketing: oklch(59.6% 0.145 163.225);
   --link-foreground: linear-gradient(109deg, #ffa132 4.99%, #ff4d00 92.05%);
-  --accent-foreground: oklch(70.8% 0 0);
+  --accent-foreground: oklch(0.7155 0 0);
   --accent-foreground-marketing: oklch(98.5% 0 0);
   --accent-foreground-hover-marketing: oklch(84.5% 0.143 164.978);
   --destructive: oklch(0.61 0.25 25);
