@@ -1,6 +1,5 @@
-
-import type { Meta, StoryObj } from "@storybook/react";
-import { expect, userEvent, within } from "@storybook/test";
+import type { Meta, StoryObj } from '@storybook/react';
+import { expect, userEvent, within } from '@storybook/test';
 
 import {
   Sheet,
@@ -11,41 +10,41 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/client";
+} from '@/components/client';
 
 /**
  * Extends the Dialog component to display content that complements the main
  * content of the screen.
  */
 const meta: Meta<typeof SheetContent> = {
-  title: "components/Sheet",
+  title: 'components/Sheet',
   component: Sheet,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     side: {
-      options: ["top", "bottom", "left", "right"],
+      options: ['top', 'bottom', 'left', 'right'],
       control: {
-        type: "radio",
+        type: 'radio',
       },
     },
   },
   args: {
-    side: "right",
+    side: 'right',
   },
-  render: (args) => (
+  render: args => (
     <Sheet>
       <SheetTrigger>Open</SheetTrigger>
       <SheetContent {...args}>
         <SheetHeader>
           <SheetTitle>Are you absolutely sure?</SheetTitle>
           <SheetDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
+            This action cannot be undone. This will permanently delete your account and remove your
+            data from our servers.
           </SheetDescription>
         </SheetHeader>
         <SheetFooter>
-          <SheetClose className="hover:underline">Cancel</SheetClose>
-          <SheetClose className="bg-primary text-primary-foreground rounded px-4 py-2">
+          <SheetClose className='hover:underline'>Cancel</SheetClose>
+          <SheetClose className='bg-primary text-primary-foreground rounded px-4 py-2'>
             Submit
           </SheetClose>
         </SheetFooter>
@@ -53,7 +52,7 @@ const meta: Meta<typeof SheetContent> = {
     </Sheet>
   ),
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
 } satisfies Meta<typeof SheetContent>;
 
@@ -67,82 +66,61 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {};
 
 export const ShouldOpenCloseWithSubmit: Story = {
-  name: "when clicking Submit button, should close the sheet",
-  tags: ["!dev", "!autodocs"],
+  name: 'when clicking Submit button, should close the sheet',
+  tags: ['!dev', '!autodocs'],
   play: async ({ canvasElement, step }) => {
     const canvasBody = within(canvasElement.ownerDocument.body);
 
-    await step("open the sheet", async () => {
-      await userEvent.click(
-        await canvasBody.findByRole("button", { name: /open/i }),
-      );
-      const sheet = await canvasBody.findByRole("dialog");
+    await step('open the sheet', async () => {
+      await userEvent.click(await canvasBody.findByRole('button', { name: /open/i }));
+      const sheet = await canvasBody.findByRole('dialog');
       await expect(sheet).toBeInTheDocument();
-      await expect(sheet).toHaveAttribute("data-state", "open");
+      await expect(sheet).toHaveAttribute('data-state', 'open');
     });
 
-    await step("close the sheet", async () => {
-      await userEvent.click(
-        await canvasBody.findByRole("button", { name: /submit/i }),
-      );
-      await expect(await canvasBody.findByRole("dialog")).toHaveAttribute(
-        "data-state",
-        "closed",
-      );
+    await step('close the sheet', async () => {
+      await userEvent.click(await canvasBody.findByRole('button', { name: /submit/i }));
+      await expect(await canvasBody.findByRole('dialog')).toHaveAttribute('data-state', 'closed');
     });
   },
 };
 
 export const ShouldOpenCloseWithCancel: Story = {
-  name: "when clicking Cancel button, should close the sheet",
-  tags: ["!dev", "!autodocs"],
+  name: 'when clicking Cancel button, should close the sheet',
+  tags: ['!dev', '!autodocs'],
   play: async ({ canvasElement, step }) => {
     const canvasBody = within(canvasElement.ownerDocument.body);
 
-    await step("open the sheet", async () => {
-      await userEvent.click(
-        await canvasBody.findByRole("button", { name: /open/i }),
-      );
-      const sheet = await canvasBody.findByRole("dialog");
+    await step('open the sheet', async () => {
+      await userEvent.click(await canvasBody.findByRole('button', { name: /open/i }));
+      const sheet = await canvasBody.findByRole('dialog');
       await expect(sheet).toBeInTheDocument();
-      await expect(sheet).toHaveAttribute("data-state", "open");
+      await expect(sheet).toHaveAttribute('data-state', 'open');
     });
 
-    await step("close the sheet", async () => {
-      await userEvent.click(
-        await canvasBody.findByRole("button", { name: /cancel/i }),
-      );
-      await expect(await canvasBody.findByRole("dialog")).toHaveAttribute(
-        "data-state",
-        "closed",
-      );
+    await step('close the sheet', async () => {
+      await userEvent.click(await canvasBody.findByRole('button', { name: /cancel/i }));
+      await expect(await canvasBody.findByRole('dialog')).toHaveAttribute('data-state', 'closed');
     });
   },
 };
 
 export const ShouldOpenCloseWithClose: Story = {
-  name: "when clicking Close icon, should close the sheet",
-  tags: ["!dev", "!autodocs"],
+  name: 'when clicking Close icon, should close the sheet',
+  tags: ['!dev', '!autodocs'],
   play: async ({ canvasElement, step }) => {
     const canvasBody = within(canvasElement.ownerDocument.body);
 
-    await step("open the sheet", async () => {
-      await userEvent.click(
-        await canvasBody.findByRole("button", { name: /open/i }),
-      );
-      const sheet = await canvasBody.findByRole("dialog");
+    await step('open the sheet', async () => {
+      await userEvent.click(await canvasBody.findByRole('button', { name: /open/i }));
+      const sheet = await canvasBody.findByRole('dialog');
       await expect(sheet).toBeInTheDocument();
-      await expect(sheet).toHaveAttribute("data-state", "open");
+      await expect(sheet).toHaveAttribute('data-state', 'open');
     });
 
-    await step("close the sheet", async () => {
-      await userEvent.click(
-        await canvasBody.findByRole("button", { name: /close/i }),
-      );
-      await expect(await canvasBody.findByRole("dialog")).toHaveAttribute(
-        "data-state",
-        "closed",
-      );
+    await step('close the sheet', async () => {
+      await userEvent.click(await canvasBody.findByRole('button', { name: /close/i }));
+      await expect(await canvasBody.findByRole('dialog')).toHaveAttribute('data-state', 'closed');
     });
   },
 };

@@ -1,24 +1,23 @@
+import type { Meta, StoryObj } from '@storybook/react';
 
-import type { Meta, StoryObj } from "@storybook/react";
-
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/client";
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/client';
 
 /**
  * An image element with a fallback for representing the user.
  */
 const meta = {
-  title: "components/Avatar",
+  title: 'components/Avatar',
   component: Avatar,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {},
-  render: (args) => (
+  render: args => (
     <Avatar {...args}>
-      <AvatarImage src="https://github.com/shadcn.png" />
+      <AvatarImage src='https://github.com/shadcn.png' />
       <AvatarFallback>CN</AvatarFallback>
     </Avatar>
   ),
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
 } satisfies Meta<typeof Avatar>;
 
@@ -30,4 +29,3 @@ type Story = StoryObj<typeof meta>;
  * The default form of the avatar.
  */
 export const Default: Story = {};
-

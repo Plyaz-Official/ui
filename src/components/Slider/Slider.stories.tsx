@@ -1,16 +1,15 @@
+import type { Meta, StoryObj } from '@storybook/react';
 
-import type { Meta, StoryObj } from "@storybook/react";
-
-import { Slider } from "@/components/client";
+import { Slider } from '@/components/client';
 
 /**
  * An input where the user selects a value from within a given range.
  */
 const defaultValue = 33;
 const meta: Meta<typeof Slider> = {
-  title: "components/Slider",
+  title: 'components/Slider',
   component: Slider,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {},
   args: {
     defaultValue: [defaultValue],

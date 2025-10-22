@@ -1,19 +1,18 @@
+import type { Meta, StoryObj } from '@storybook/react';
 
-import type { Meta, StoryObj } from "@storybook/react";
-
-import { Progress } from "@/components/client";
+import { Progress } from '@/components/client';
 
 /**
  * Displays an indicator showing the completion progress of a task, typically
  * displayed as a progress bar.
  */
 const meta = {
-  title: "components/Progress",
+  title: 'components/Progress',
   component: Progress,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {},
   args: {
-    "aria-label": "Progress",
+    'aria-label': 'Progress',
     value: 30,
     max: 100,
   },
