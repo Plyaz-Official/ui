@@ -3,7 +3,6 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import {
   Dialog,
-  DialogClose,
   DialogContent,
   DialogDescription,
   DialogFooter,
@@ -11,6 +10,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/client";
+import { Button } from "@/main";
 
 /**
  * A window overlaid on either the primary window or another dialog window,
@@ -23,7 +23,11 @@ const meta = {
   argTypes: {},
   render: (args) => (
     <Dialog {...args}>
-      <DialogTrigger>Open</DialogTrigger>
+      <DialogTrigger>
+        <Button>
+          Open
+        </Button>
+      </DialogTrigger>
       <DialogContent>
         <DialogHeader>
           <DialogTitle>Are you absolutely sure?</DialogTitle>
@@ -32,11 +36,10 @@ const meta = {
             account and remove your data from our servers.
           </DialogDescription>
         </DialogHeader>
-        <DialogFooter className="gap-4">
-          <DialogClose className="hover:underline">Cancel</DialogClose>
-          <DialogClose className="bg-primary text-primary-foreground rounded px-4 py-2">
-            Continue
-          </DialogClose>
+        <DialogFooter>
+          <Button>
+              Continue
+          </Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
