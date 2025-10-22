@@ -1,6 +1,5 @@
-
-import type { Meta, StoryObj } from "@storybook/react";
-import { userEvent, within } from "@storybook/test";
+import type { Meta, StoryObj } from '@storybook/react';
+import { userEvent, within } from '@storybook/test';
 
 import {
   AlertDialog,
@@ -12,7 +11,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@/components/client";
+} from '@/components/client';
 import { Button } from "@/main";
 
 /**
@@ -20,19 +19,19 @@ import { Button } from "@/main";
  * a response.
  */
 const meta = {
-  title: "components/AlertDialog",
+  title: 'components/AlertDialog',
   component: AlertDialog,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {},
-  render: (args) => (
+  render: args => (
     <AlertDialog {...args}>
       <AlertDialogTrigger><Button>Open</Button></AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
           <AlertDialogTitle>Are you sure absolutely sure?</AlertDialogTitle>
           <AlertDialogDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
+            This action cannot be undone. This will permanently delete your account and remove your
+            data from our servers.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
@@ -43,7 +42,7 @@ const meta = {
     </AlertDialog>
   ),
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
 } satisfies Meta<typeof AlertDialog>;
 
@@ -57,25 +56,25 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {};
 
 export const ShouldOpenClose: Story = {
-  name: "when alert dialog trigger is pressed, should open the dialog and be able to close it",
-  tags: ["!dev", "!autodocs"],
+  name: 'when alert dialog trigger is pressed, should open the dialog and be able to close it',
+  tags: ['!dev', '!autodocs'],
   play: async ({ canvasElement, canvas, step }) => {
     const canvasBody = within(canvasElement.ownerDocument.body);
 
-    await step("open the alert dialog", async () => {
+    await step('open the alert dialog', async () => {
       await userEvent.click(
-        await canvas.getByRole("button", {
+        await canvas.getByRole('button', {
           name: /open/i,
-        }),
+        })
       );
     });
 
-    await step("close the alert dialog", async () => {
+    await step('close the alert dialog', async () => {
       await userEvent.click(
-        await canvasBody.getByRole("button", {
+        await canvasBody.getByRole('button', {
           name: /cancel/i,
         }),
-        { delay: 100 },
+        { delay: 100 }
       );
     });
   },

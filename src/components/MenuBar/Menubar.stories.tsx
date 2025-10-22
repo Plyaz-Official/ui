@@ -1,6 +1,5 @@
-
-import type { Meta, StoryObj } from "@storybook/react";
-import { expect, userEvent, within } from "@storybook/test";
+import type { Meta, StoryObj } from '@storybook/react';
+import { expect, userEvent, within } from '@storybook/test';
 
 import {
   Menubar,
@@ -18,19 +17,19 @@ import {
   MenubarSubContent,
   MenubarSubTrigger,
   MenubarTrigger,
-} from "@/components/client";
+} from '@/components/client';
 
 /**
  * A visually persistent menu common in desktop applications that provides
  * quick access to a consistent set of commands.
  */
 const meta = {
-  title: "components/Menubar",
+  title: 'components/Menubar',
   component: Menubar,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {},
 
-  render: (args) => (
+  render: args => (
     <Menubar {...args}>
       <MenubarMenu>
         <MenubarTrigger>File</MenubarTrigger>
@@ -48,7 +47,7 @@ const meta = {
     </Menubar>
   ),
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
 } satisfies Meta<typeof Menubar>;
 
@@ -65,7 +64,7 @@ export const Default: Story = {};
  * A menubar with a submenu.
  */
 export const WithSubmenu: Story = {
-  render: (args) => (
+  render: args => (
     <Menubar {...args}>
       <MenubarMenu>
         <MenubarTrigger>Actions</MenubarTrigger>
@@ -89,16 +88,16 @@ export const WithSubmenu: Story = {
  * A menubar with radio items.
  */
 export const WithRadioItems: Story = {
-  render: (args) => (
+  render: args => (
     <Menubar {...args}>
       <MenubarMenu>
         <MenubarTrigger>View</MenubarTrigger>
         <MenubarContent>
           <MenubarLabel inset>Device Size</MenubarLabel>
-          <MenubarRadioGroup value="md">
-            <MenubarRadioItem value="sm">Small</MenubarRadioItem>
-            <MenubarRadioItem value="md">Medium</MenubarRadioItem>
-            <MenubarRadioItem value="lg">Large</MenubarRadioItem>
+          <MenubarRadioGroup value='md'>
+            <MenubarRadioItem value='sm'>Small</MenubarRadioItem>
+            <MenubarRadioItem value='md'>Medium</MenubarRadioItem>
+            <MenubarRadioItem value='lg'>Large</MenubarRadioItem>
           </MenubarRadioGroup>
         </MenubarContent>
       </MenubarMenu>
@@ -110,7 +109,7 @@ export const WithRadioItems: Story = {
  * A menubar with checkbox items.
  */
 export const WithCheckboxItems: Story = {
-  render: (args) => (
+  render: args => (
     <Menubar {...args}>
       <MenubarMenu>
         <MenubarTrigger>Filters</MenubarTrigger>
@@ -128,23 +127,21 @@ export const WithCheckboxItems: Story = {
 };
 
 export const ShouldOpenClose: Story = {
-  name: "when clicking an item, should close the menubar",
-  tags: ["!dev", "!autodocs"],
+  name: 'when clicking an item, should close the menubar',
+  tags: ['!dev', '!autodocs'],
   play: async ({ canvasElement, step }) => {
     const canvasBody = within(canvasElement.ownerDocument.body);
 
-    await step("open the menubar", async () => {
-      await userEvent.click(
-        await canvasBody.findByRole("menuitem", { name: /file/i }),
-      );
-      await expect(await canvasBody.findByRole("menu")).toBeInTheDocument();
+    await step('open the menubar', async () => {
+      await userEvent.click(await canvasBody.findByRole('menuitem', { name: /file/i }));
+      await expect(await canvasBody.findByRole('menu')).toBeInTheDocument();
     });
 
-    const items = await canvasBody.findAllByRole("menuitem");
+    const items = await canvasBody.findAllByRole('menuitem');
     const itemsLength = 5;
     await expect(items).toHaveLength(itemsLength);
 
-    await step("click the first item to close the menubar", async () => {
+    await step('click the first item to close the menubar', async () => {
       await userEvent.click(items[0], { delay: 100 });
     });
   },

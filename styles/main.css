@@ -63,6 +63,7 @@
   --animate-marquee: marquee var(--duration) infinite linear;
   --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
   --font-general: 'General Sans', sans-serif;
+  --background-image-gradient-orange: var(--accent);
 }
 :root {
   --radius: 0.625rem;
