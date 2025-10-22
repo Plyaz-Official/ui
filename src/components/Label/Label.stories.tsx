@@ -28,3 +28,10 @@ type Story = StoryObj<typeof Label>;
  * The default form of the label.
  */
 export const Default: Story = {};
+
+/**
+ * A disabled label with reduced opacity and disabled cursor.
+ */
+export const Disabled: Story = {
+  render: () => <Label htmlFor='email'>Your email address</Label>,
+};
