@@ -7,13 +7,14 @@ import { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot } from '@/comp
 /**
  * Accessible one-time password component with copy paste functionality.
  */
+const maxLength = 6;
 const meta: Meta<typeof InputOTP> = {
   title: 'components/InputOTP',
   component: InputOTP,
   tags: ['autodocs'],
   argTypes: {},
   args: {
-    maxLength: 6,
+    maxLength: maxLength,
     onChange: fn(),
     onComplete: fn(),
     pattern: REGEXP_ONLY_DIGITS_AND_CHARS,
