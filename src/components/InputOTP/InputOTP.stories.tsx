@@ -115,8 +115,9 @@ export const ShouldAcceptOnlyNumbersWhenRestricted: Story = {
     });
 
     await step('type numbers into input textbox', async () => {
+      const six = 6;
       await userEvent.type(inputTextbox, '123456');
-      await expect(args.onChange).toHaveBeenCalledTimes(6);
+      await expect(args.onChange).toHaveBeenCalledTimes(six);
     });
 
     await step('finish typing by pressing Enter', async () => {
