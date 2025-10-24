@@ -54,6 +54,8 @@ function PaginationLink({
           variant: isActive ? 'outline' : 'ghost',
           size,
         }),
+        "rounded-sm hover:shadow-none hover:bg-muted",
+        isActive && "border-subtle",
         className
       )}
       {...props}
@@ -96,7 +98,7 @@ function PaginationEllipsis({ className, ...props }: React.ComponentProps<'span'
     <span
       aria-hidden
       data-slot='pagination-ellipsis'
-      className={cn('flex size-9 items-center justify-center', className)}
+      className={cn('flex size-9 items-center justify-center text-secondary', className)}
       {...props}
     >
       <MoreHorizontalIcon className='size-4' />
