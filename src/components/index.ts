@@ -83,7 +83,6 @@ export {
   CardDescription,
   CardAction,
 } from './Card/Card';
-export { Label } from './Label/Label';
 export {
   Pagination,
   PaginationContent,

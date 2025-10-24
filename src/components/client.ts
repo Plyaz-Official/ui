@@ -133,6 +133,7 @@ export {
 } from './Sheet/Sheet';
 export { Toaster } from './Toaster/Toaster';
 export { Toggle } from './Toggle/Toggle';
+export { Label } from './Label/Label';
 export {
   Menubar,
   MenubarPortal,

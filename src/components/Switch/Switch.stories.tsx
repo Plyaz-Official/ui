@@ -1,8 +1,7 @@
 import { expect, userEvent } from '@storybook/test';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Label } from '@/components';
-import { Switch } from '@/components/client';
+import { Label, Switch } from "@/components/client";
 
 /**
  * A control that allows the user to toggle between checked and not checked.
