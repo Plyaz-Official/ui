@@ -63,6 +63,10 @@
   --animate-marquee: marquee var(--duration) infinite linear;
   --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
   --background-image-gradient-orange: var(--accent);
+  --width-card-sm: 282px;
+  --width-card-lg: 343px;
+  --height-card-sm: 282px;
+  --height-card-lg: 343px;
 }
 :root {
   --radius: 0.625rem;
