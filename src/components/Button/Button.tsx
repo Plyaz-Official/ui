@@ -13,7 +13,7 @@ export const buttonVariants = cva(
       variant: {
         default: `
           bg-primary-foreground text-background
-          hover:bg-gradient-orange hover:opacity-90
+          cta-hover hover:opacity-90
           disabled:bg-secondary disabled:opacity-50
           `,
         outline: `
@@ -24,7 +24,7 @@ export const buttonVariants = cva(
         `,
         secondary: `
           text-secondary
-          hover:text-primary hover:bg-gradient-orange hover:opacity-80
+          cta-hover transition-all duration-300
           disabled:text-secondary disabled:opacity-50
         `,
         destructive: `

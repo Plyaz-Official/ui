@@ -1,3 +1,30 @@
 @utility text-gradient-orange {
   @apply bg-clip-text text-transparent bg-[image:var(--accent)];
 }
+
+@utility cta-hover {
+  @apply overflow-hidden relative isolate;
+  transition: all 0.3s ease-in-out;
+  
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: var(--accent);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: inherit;
+    z-index: -1;
+  }
+  
+  &:hover::before {
+    opacity: 1;
+  }
+
+  &:hover {
+    @apply text-primary;
+    background: linear-gradient(var(--accent)) padding-box,
+    var(--accent) border-box;
+    opacity: 0.8;
+  }
+}
