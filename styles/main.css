@@ -62,7 +62,6 @@
   --animate-aurora: aurora 8s ease-in-out infinite alternate;
   --animate-marquee: marquee var(--duration) infinite linear;
   --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
-  --font-general: 'General Sans', sans-serif;
   --background-image-gradient-orange: var(--accent);
 }
 :root {
@@ -188,6 +187,6 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background font-general text-foreground;
+    @apply bg-background text-foreground;
   }
 }
