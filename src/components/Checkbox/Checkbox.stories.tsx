@@ -1,15 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { expect, userEvent, within } from '@storybook/test';
 
-<<<<<<< PLYENG-405-Improve-SSR-compatibility-tree-shaking-and-peerDeps-in-plyaz-ui
-import type { Meta, StoryObj } from "@storybook/react";
-import { expect, userEvent, within } from "@storybook/test";
-
 import { Checkbox, Label } from "@/components/client";
-=======
-import { Checkbox } from '@/components/client';
-import { Label } from '@/components';
->>>>>>> main
 
 /**
  * A control that allows the user to toggle between checked and not checked.
