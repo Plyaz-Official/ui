@@ -1,4 +1,3 @@
-/* eslint-disable better-tailwindcss/no-unregistered-classes */
 'use client';
 
 import * as React from 'react';
