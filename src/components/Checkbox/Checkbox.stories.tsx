@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { expect, userEvent, within } from '@storybook/test';
 
-import { Checkbox } from '@/components/client';
-import { Label } from '@/components';
+import { Checkbox, Label } from '@/components/client';
 
 /**
  * A control that allows the user to toggle between checked and not checked.

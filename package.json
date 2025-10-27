@@ -17,6 +17,146 @@
       "types": "./dist/types/components/client.d.ts",
       "import": "./dist/client.es.js",
       "require": "./dist/client.cjs.js"
+    },
+    "./reveal-text": {
+      "types": "./dist/types/components/RevealText/TextReveal.d.ts",
+      "import": "./dist/client/reveal-text.es.js",
+      "require": "./dist/client/reveal-text.cjs.js"
+    },
+    "./alert-dialog": {
+      "types": "./dist/types/components/AlertDialog/AlertDialog.d.ts",
+      "import": "./dist/client/alert-dialog.es.js",
+      "require": "./dist/client/alert-dialog.cjs.js"
+    },
+    "./calendar": {
+      "types": "./dist/types/components/Calendar/Calendar.d.ts",
+      "import": "./dist/client/calendar.es.js",
+      "require": "./dist/client/calendar.cjs.js"
+    },
+    "./carousel": {
+      "types": "./dist/types/components/Carousel/Carousel.d.ts",
+      "import": "./dist/client/carousel.es.js",
+      "require": "./dist/client/carousel.cjs.js"
+    },
+    "./combobox": {
+      "types": "./dist/types/components/Combobox/Combobox.d.ts",
+      "import": "./dist/client/combobox.es.js",
+      "require": "./dist/client/combobox.cjs.js"
+    },
+    "./input-otp": {
+      "types": "./dist/types/components/InputOTP/InputOTP.d.ts",
+      "import": "./dist/client/input-otp.es.js",
+      "require": "./dist/client/input-otp.cjs.js"
+    },
+    "./slider": {
+      "types": "./dist/types/components/Slider/Slider.d.ts",
+      "import": "./dist/client/slider.es.js",
+      "require": "./dist/client/slider.cjs.js"
+    },
+    "./progress": {
+      "types": "./dist/types/components/Progress/Progress.d.ts",
+      "import": "./dist/client/progress.es.js",
+      "require": "./dist/client/progress.cjs.js"
+    },
+    "./accordion": {
+      "types": "./dist/types/components/Accordion/Accordion.d.ts",
+      "import": "./dist/client/accordion.es.js",
+      "require": "./dist/client/accordion.cjs.js"
+    },
+    "./avatar": {
+      "types": "./dist/types/components/Avatar/Avatar.d.ts",
+      "import": "./dist/client/avatar.es.js",
+      "require": "./dist/client/avatar.cjs.js"
+    },
+    "./checkbox": {
+      "types": "./dist/types/components/Checkbox/Checkbox.d.ts",
+      "import": "./dist/client/checkbox.es.js",
+      "require": "./dist/client/checkbox.cjs.js"
+    },
+    "./context-menu": {
+      "types": "./dist/types/components/ContextMenu/ContextMenu.d.ts",
+      "import": "./dist/client/context-menu.es.js",
+      "require": "./dist/client/context-menu.cjs.js"
+    },
+    "./dropdown-menu": {
+      "types": "./dist/types/components/DropdownMenu/DropdownMenu.d.ts",
+      "import": "./dist/client/dropdown-menu.es.js",
+      "require": "./dist/client/dropdown-menu.cjs.js"
+    },
+    "./hover-card": {
+      "types": "./dist/types/components/HoverCard/HoverCard.d.ts",
+      "import": "./dist/client/hover-card.es.js",
+      "require": "./dist/client/hover-card.cjs.js"
+    },
+    "./radio-group": {
+      "types": "./dist/types/components/RadioGroup/RadioGroup.d.ts",
+      "import": "./dist/client/radio-group.es.js",
+      "require": "./dist/client/radio-group.cjs.js"
+    },
+    "./scroll-area": {
+      "types": "./dist/types/components/ScrollArea/ScrollArea.d.ts",
+      "import": "./dist/client/scroll-area.es.js",
+      "require": "./dist/client/scroll-area.cjs.js"
+    },
+    "./switch": {
+      "types": "./dist/types/components/Switch/Switch.d.ts",
+      "import": "./dist/client/switch.es.js",
+      "require": "./dist/client/switch.cjs.js"
+    },
+    "./tabs": {
+      "types": "./dist/types/components/Tabs/Tabs.d.ts",
+      "import": "./dist/client/tabs.es.js",
+      "require": "./dist/client/tabs.cjs.js"
+    },
+    "./tooltip": {
+      "types": "./dist/types/components/Tooltip/Tooltip.d.ts",
+      "import": "./dist/client/tooltip.es.js",
+      "require": "./dist/client/tooltip.cjs.js"
+    },
+    "./command": {
+      "types": "./dist/types/components/Command/Command.d.ts",
+      "import": "./dist/client/command.es.js",
+      "require": "./dist/client/command.cjs.js"
+    },
+    "./dialog": {
+      "types": "./dist/types/components/Dialog/Dialog.d.ts",
+      "import": "./dist/client/dialog.es.js",
+      "require": "./dist/client/dialog.cjs.js"
+    },
+    "./drawer": {
+      "types": "./dist/types/components/Drawer/Drawer.d.ts",
+      "import": "./dist/client/drawer.es.js",
+      "require": "./dist/client/drawer.cjs.js"
+    },
+    "./sheet": {
+      "types": "./dist/types/components/Sheet/Sheet.d.ts",
+      "import": "./dist/client/sheet.es.js",
+      "require": "./dist/client/sheet.cjs.js"
+    },
+    "./toaster": {
+      "types": "./dist/types/components/Toaster/Toaster.d.ts",
+      "import": "./dist/client/toaster.es.js",
+      "require": "./dist/client/toaster.cjs.js"
+    },
+    "./toggle": {
+      "types": "./dist/types/components/Toggle/Toggle.d.ts",
+      "import": "./dist/client/toggle.es.js",
+      "require": "./dist/client/toggle.cjs.js"
+    },
+    "./label": {
+      "types": "./dist/types/components/Label/Label.d.ts",
+      "import": "./dist/client/label.es.js",
+      "require": "./dist/client/label.cjs.js"
+    },
+    "./menu-bar": {
+      "types": "./dist/types/components/MenuBar/Menubar.d.ts",
+      "import": "./dist/client/menu-bar.es.js",
+      "require": "./dist/client/menu-bar.cjs.js"
+    },
+    "./popover": {
+      "types": "./dist/types/components/Popover/Popover.d.ts",
+      "import": "./dist/client/popover.es.js",
+      "require": "./dist/client/popover.cjs.js"
     }
   },
   "scripts": {
@@ -94,6 +234,51 @@
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.8",
     "vaul": "^1.1.2"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0",
+    "next-intl": "^3.0.0 || ^4.0.0",
+    "@radix-ui/react-accordion": "^1.0.0",
+    "@radix-ui/react-alert-dialog": "^1.0.0",
+    "@radix-ui/react-avatar": "^1.0.0",
+    "@radix-ui/react-checkbox": "^1.0.0",
+    "@radix-ui/react-context-menu": "^2.0.0",
+    "@radix-ui/react-dialog": "^1.0.0",
+    "@radix-ui/react-dropdown-menu": "^2.0.0",
+    "@radix-ui/react-hover-card": "^1.0.0",
+    "@radix-ui/react-label": "^2.0.0",
+    "@radix-ui/react-menubar": "^1.0.0",
+    "@radix-ui/react-popover": "^1.0.0",
+    "@radix-ui/react-progress": "^1.0.0",
+    "@radix-ui/react-radio-group": "^1.0.0",
+    "@radix-ui/react-scroll-area": "^1.0.0",
+    "@radix-ui/react-select": "^2.0.0",
+    "@radix-ui/react-separator": "^1.0.0",
+    "@radix-ui/react-slider": "^1.0.0",
+    "@radix-ui/react-slot": "^1.0.0",
+    "@radix-ui/react-switch": "^1.0.0",
+    "@radix-ui/react-tabs": "^1.0.0",
+    "@radix-ui/react-toggle": "^1.0.0",
+    "@radix-ui/react-tooltip": "^1.0.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
+    "cmdk": "^1.0.0",
+    "date-fns": "^3.0.0 || ^4.0.0",
+    "embla-carousel-react": "^8.0.0",
+    "input-otp": "^1.0.0",
+    "lucide-react": "^0.400.0",
+    "motion": "^11.0.0 || ^12.0.0",
+    "next-themes": "^0.3.0 || ^0.4.0",
+    "react-day-picker": "^9.0.0",
+    "sonner": "^1.0.0 || ^2.0.0",
+    "tailwind-merge": "^2.0.0 || ^3.0.0",
+    "vaul": "^1.0.0"
+  },
+  "peerDependenciesMeta": {
+    "next-intl": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.5",

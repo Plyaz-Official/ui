@@ -1,8 +1,7 @@
 import { expect, userEvent, waitFor } from '@storybook/test';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Label } from '@/components';
-import { RadioGroup, RadioGroupItem } from '@/components/client';
+import { Label, RadioGroup, RadioGroupItem } from "@/components/client";
 
 /**
  * A set of checkable buttons—known as radio buttons—where no more than one of
