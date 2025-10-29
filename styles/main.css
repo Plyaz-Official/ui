@@ -67,6 +67,7 @@
   --width-card-lg: 343px;
   --height-card-sm: 282px;
   --height-card-lg: 343px;
+  --height-card-campaign: 345px;
 }
 :root {
   --radius: 0.625rem;
