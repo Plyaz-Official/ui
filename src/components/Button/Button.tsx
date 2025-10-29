@@ -61,7 +61,7 @@ export const buttonVariants = cva(
           text-base
           has-[>svg]:px-4
         `,
-        icon: 'size-9',
+        icon: 'size-10',
       },
     },
     defaultVariants: {
