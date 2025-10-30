@@ -3,6 +3,7 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --radius-5xl: calc(var(--radius) + 30px);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-foreground-marketing: var(--foreground-marketing);
@@ -64,10 +65,14 @@
   --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
   --background-image-gradient-orange: var(--accent);
   --width-card-sm: 282px;
+  --width-search-input: 340px;
   --width-card-lg: 343px;
+  --width-form-container: 1063px;
+  --width-form-field: 280px;
   --height-card-sm: 282px;
   --height-card-lg: 343px;
   --height-card-campaign: 345px;
+  --height-bio-textarea: 348px;
 }
 :root {
   --radius: 0.625rem;
