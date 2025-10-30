@@ -4,6 +4,7 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   --radius-5xl: calc(var(--radius) + 30px);
+  --container-carousel-item: 298px;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-foreground-marketing: var(--foreground-marketing);
@@ -67,6 +68,7 @@
   --width-card-sm: 282px;
   --width-search-input: 340px;
   --width-card-lg: 343px;
+  --width-main-container: 1550px;
   --width-form-container: 1063px;
   --width-form-field: 280px;
   --height-card-sm: 282px;
