@@ -27,9 +27,9 @@ import {
   InputGroupInput,
   InputGroupText,
   InputGroupTextarea,
-  Label,
 } from '@/components';
 
+import { Label } from '../Label/Label';
 /**
  * Display additional information or actions to an input or textarea.
  */

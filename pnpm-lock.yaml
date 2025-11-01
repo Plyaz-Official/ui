@@ -157,8 +157,8 @@ importers:
         specifier: ^15.0.3
         version: 15.4.3
       '@plyaz/testing':
-        specifier: ^1.5.0
-        version: 1.5.0(@babel/core@7.28.0)(@testing-library/dom@10.4.0)(@types/debug@4.1.12)(@types/node@22.16.5)(@types/react-dom@19.1.6(@types/react@19.1.8))(@types/react@19.1.8)(class-validator@0.14.2)(happy-dom@20.0.5)(jiti@2.4.2)(lightningcss@1.30.1)(react-dom@19.1.0(react@19.1.0))(reflect-metadata@0.2.2)(rxjs@7.8.2)(typescript@5.8.3)(yaml@2.8.0)(zod@4.1.12)
+        specifier: ^1.5.3
+        version: 1.5.3(bf954a10c413f5ff61d59e64d5b51c80)
       '@storybook/addon-a11y':
         specifier: ^8.6.12
         version: 8.6.14(storybook@8.6.14(prettier@3.6.2))
@@ -1297,8 +1297,8 @@ packages:
     resolution: {integrity: sha512-QNqXyfVS2wm9hweSYD2O7F0G06uurj9kZ96TRQE5Y9hU7+tgdZwIkbAKc5Ocy1HxEY2kuDQa6cQ1WRs/O5LFKA==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
 
-  '@plyaz/config@1.3.3':
-    resolution: {integrity: sha512-2VBpgdzUmbJgrLn41YLPAl5WVP8Joqs4Xkzcsu82xz3trPTtQnZtgvH+zbq/gCHt46JJI6HqOMJpQxG9Im0gAA==}
+  '@plyaz/config@1.5.3':
+    resolution: {integrity: sha512-WyyKBtkL+NgdZoRrpXI5TLdcoD4vn84vOFQ5V3boxWv6/nfQCHgTFJBKattwrDbJMsz6f8R63sLsR46PMMNJNg==}
     engines: {node: '>=22.4.0', pnpm: '>=8.0.0'}
     peerDependencies:
       next: '*'
@@ -1312,8 +1312,8 @@ packages:
       react-dom:
         optional: true
 
-  '@plyaz/config@1.5.3':
-    resolution: {integrity: sha512-WyyKBtkL+NgdZoRrpXI5TLdcoD4vn84vOFQ5V3boxWv6/nfQCHgTFJBKattwrDbJMsz6f8R63sLsR46PMMNJNg==}
+  '@plyaz/config@1.7.12':
+    resolution: {integrity: sha512-YWhjjU4fvMjggVy81NTP0CQsy/RIid9BmZ9LWo8fHQhdFijH1HUax+uJYwoM/ncjzLe+4g3F+Mv7kQFLCpjUYA==}
     engines: {node: '>=22.4.0', pnpm: '>=8.0.0'}
     peerDependencies:
       next: '*'
@@ -1343,8 +1343,24 @@ packages:
       eslint-plugin-unicorn: ^59.0.1
       eslint-plugin-unused-imports: ^4.0.0
 
-  '@plyaz/testing@1.5.0':
-    resolution: {integrity: sha512-o4HNpwcFG19mzBP9IL5gyXOtDOxuJJakE+6yUrFiIxxXSqQMmDWpbOb1GTsUZFaY8pNOphhOqFTpJ+XeDlvgZw==}
+  '@plyaz/devtools@1.9.5':
+    resolution: {integrity: sha512-QuTvBEcV+0b9n82oe4bZiqGk21Yxc/kzGsaZAe4n07P2iig+FYSciHyLEqH+ZdWeC8ckxDIwpXm7b/Mr5Q/A2Q==}
+    hasBin: true
+    peerDependencies:
+      '@darraghor/eslint-plugin-nestjs-typed': ^6.6.0
+      '@typescript-eslint/eslint-plugin': ^8.0.0
+      '@typescript-eslint/parser': ^8.0.0
+      eslint: ^9.18.0
+      eslint-plugin-import: ^2.30.0
+      eslint-plugin-jsx-a11y: ^6.10.0
+      eslint-plugin-react: ^7.37.0
+      eslint-plugin-react-hooks: ^5.0.0
+      eslint-plugin-security: ^3.0.0
+      eslint-plugin-unicorn: ^59.0.1
+      eslint-plugin-unused-imports: ^4.0.0
+
+  '@plyaz/testing@1.5.3':
+    resolution: {integrity: sha512-VKQpyRe1sY7TnFMbSkqv5hIRjNJp6layS+nKpJZM1JNnBsPO81DidtuMI1hP1ezrqW4b78nIUSxATyC0iaW2pQ==}
     engines: {node: '>=22.4.0', pnpm: '>=8.0.0'}
     peerDependencies:
       react-dom: '*'
@@ -2130,6 +2146,11 @@ packages:
   '@rollup/rollup-linux-s390x-gnu@4.52.5':
     resolution: {integrity: sha512-gn8kHOrku8D4NGHMK1Y7NA7INQTRdVOntt1OCYypZPRt6skGbddska44K8iocdpxHTMMNui5oH4elPH4QOLrFQ==}
     cpu: [s390x]
+    os: [linux]
+
+  '@rollup/rollup-linux-x64-gnu@4.38.0':
+    resolution: {integrity: sha512-vPvNgFlZRAgO7rwncMeE0+8c4Hmc+qixnp00/Uv3ht2x7KYrJ6ERVd3/R0nUtlE6/hu7/HiiNHJ/rP6knRFt1w==}
+    cpu: [x64]
     os: [linux]
 
   '@rollup/rollup-linux-x64-gnu@4.52.5':
@@ -4654,6 +4675,10 @@ packages:
       picomatch:
         optional: true
 
+  fetchff@4.1.0:
+    resolution: {integrity: sha512-Jj6NrdsyOVSv1U2MMEoPFi0IwN4j+H8ykYWPczBLCCosfRju0mou/t7xFKtnBaphYyF6BBxYOdsm0E+8nIWL/Q==}
+    engines: {node: '>=18'}
+
   fflate@0.8.2:
     resolution: {integrity: sha512-cPJU47OaAoCbg0pBvzsgpTPhmhqI5eJjh/JIu8tPj5q+T7iLvW/JAYUqmE7KOB4R1ZyEhzBaIQpQpardBF5z8A==}
 
@@ -4883,6 +4908,10 @@ packages:
 
   globals@16.3.0:
     resolution: {integrity: sha512-bqWEnJ1Nt3neqx2q5SFfGS8r/ahumIakg3HcwtNlrVlwXIeNumWn/c7Pn/wKzGhf6SaW6H6uWXLqC30STCMchQ==}
+    engines: {node: '>=18'}
+
+  globals@16.5.0:
+    resolution: {integrity: sha512-c/c15i26VrJ4IRt5Z89DnIzCGDn9EcebibhAOjw5ibqEHsE1wLUgkPn9RDmNcUKyU87GeaL633nyJ+pplFR2ZQ==}
     engines: {node: '>=18'}
 
   globalthis@1.0.4:
@@ -9193,7 +9222,7 @@ snapshots:
 
   '@pkgr/core@0.2.9': {}
 
-  '@plyaz/config@1.3.3(next@15.4.7(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.8.3)(zod@4.1.12)':
+  '@plyaz/config@1.5.3(next@15.4.7(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.8.3)(zod@4.1.12)':
     dependencies:
       viem: 2.37.9(typescript@5.8.3)(zod@4.1.12)
     optionalDependencies:
@@ -9206,16 +9235,33 @@ snapshots:
       - utf-8-validate
       - zod
 
-  '@plyaz/config@1.5.3(next@15.4.7(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.8.3)(zod@4.1.12)':
+  '@plyaz/config@1.7.12(d04820015dbd142e19909d2a75da0794)':
     dependencies:
+      '@plyaz/devtools': 1.9.5(188b98d60a7ce61ad6e98a1e9f64b3da)
+      '@plyaz/types': 1.15.1(@types/react@19.1.8)(next@15.4.7(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(use-sync-external-store@1.5.0(react@19.1.0))
+      globals: 16.5.0
       viem: 2.37.9(typescript@5.8.3)(zod@4.1.12)
     optionalDependencies:
       next: 15.4.7(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
     transitivePeerDependencies:
+      - '@darraghor/eslint-plugin-nestjs-typed'
+      - '@types/react'
+      - '@typescript-eslint/eslint-plugin'
+      - '@typescript-eslint/parser'
       - bufferutil
+      - eslint
+      - eslint-plugin-import
+      - eslint-plugin-jsx-a11y
+      - eslint-plugin-react
+      - eslint-plugin-react-hooks
+      - eslint-plugin-security
+      - eslint-plugin-unicorn
+      - eslint-plugin-unused-imports
+      - immer
       - typescript
+      - use-sync-external-store
       - utf-8-validate
       - zod
 
@@ -9234,13 +9280,30 @@ snapshots:
       eslint-plugin-unused-imports: 4.1.4(@typescript-eslint/eslint-plugin@8.38.0(@typescript-eslint/parser@8.38.0(eslint@9.31.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.31.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.31.0(jiti@2.4.2))
       happy-dom: 18.0.1
 
-  '@plyaz/testing@1.5.0(@babel/core@7.28.0)(@testing-library/dom@10.4.0)(@types/debug@4.1.12)(@types/node@22.16.5)(@types/react-dom@19.1.6(@types/react@19.1.8))(@types/react@19.1.8)(class-validator@0.14.2)(happy-dom@20.0.5)(jiti@2.4.2)(lightningcss@1.30.1)(react-dom@19.1.0(react@19.1.0))(reflect-metadata@0.2.2)(rxjs@7.8.2)(typescript@5.8.3)(yaml@2.8.0)(zod@4.1.12)':
+  '@plyaz/devtools@1.9.5(188b98d60a7ce61ad6e98a1e9f64b3da)':
+    dependencies:
+      '@darraghor/eslint-plugin-nestjs-typed': 6.7.1(@typescript-eslint/parser@8.38.0(eslint@9.31.0(jiti@2.4.2))(typescript@5.8.3))(class-validator@0.14.2)(eslint-import-resolver-typescript@3.10.1)(eslint@9.31.0(jiti@2.4.2))(typescript@5.8.3)
+      '@typescript-eslint/eslint-plugin': 8.38.0(@typescript-eslint/parser@8.38.0(eslint@9.31.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.31.0(jiti@2.4.2))(typescript@5.8.3)
+      '@typescript-eslint/parser': 8.38.0(eslint@9.31.0(jiti@2.4.2))(typescript@5.8.3)
+      eslint: 9.31.0(jiti@2.4.2)
+      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.38.0(eslint@9.31.0(jiti@2.4.2))(typescript@5.8.3))(eslint-import-resolver-typescript@3.10.1)(eslint@9.31.0(jiti@2.4.2))
+      eslint-plugin-jsx-a11y: 6.10.2(eslint@9.31.0(jiti@2.4.2))
+      eslint-plugin-react: 7.37.5(eslint@9.31.0(jiti@2.4.2))
+      eslint-plugin-react-hooks: 5.2.0(eslint@9.31.0(jiti@2.4.2))
+      eslint-plugin-security: 3.0.1
+      eslint-plugin-unicorn: 56.0.1(eslint@9.31.0(jiti@2.4.2))
+      eslint-plugin-unused-imports: 4.1.4(@typescript-eslint/eslint-plugin@8.38.0(@typescript-eslint/parser@8.38.0(eslint@9.31.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.31.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.31.0(jiti@2.4.2))
+      happy-dom: 18.0.1
+
+  '@plyaz/testing@1.5.3(bf954a10c413f5ff61d59e64d5b51c80)':
     dependencies:
       '@nestjs/common': 11.1.5(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2)
-      '@plyaz/config': 1.3.3(next@15.4.7(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.8.3)(zod@4.1.12)
+      '@plyaz/config': 1.7.12(d04820015dbd142e19909d2a75da0794)
+      '@plyaz/types': 1.15.1(@types/react@19.1.8)(next@15.4.7(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(use-sync-external-store@1.5.0(react@19.1.0))
       '@testing-library/jest-dom': 6.6.3
       '@testing-library/react': 16.3.0(@testing-library/dom@10.4.0)(@types/react-dom@19.1.6(@types/react@19.1.8))(@types/react@19.1.8)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@testing-library/user-event': 14.6.1(@testing-library/dom@10.4.0)
+      fetchff: 4.1.0
       ioredis: 5.8.0
       jsdom: 26.1.0
       next: 15.4.7(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -9251,6 +9314,7 @@ snapshots:
       react-dom: 19.1.0(react@19.1.0)
     transitivePeerDependencies:
       - '@babel/core'
+      - '@darraghor/eslint-plugin-nestjs-typed'
       - '@edge-runtime/vm'
       - '@opentelemetry/api'
       - '@playwright/test'
@@ -9259,6 +9323,8 @@ snapshots:
       - '@types/node'
       - '@types/react'
       - '@types/react-dom'
+      - '@typescript-eslint/eslint-plugin'
+      - '@typescript-eslint/parser'
       - '@vitest/browser'
       - '@vitest/ui'
       - babel-plugin-macros
@@ -9267,7 +9333,16 @@ snapshots:
       - canvas
       - class-transformer
       - class-validator
+      - eslint
+      - eslint-plugin-import
+      - eslint-plugin-jsx-a11y
+      - eslint-plugin-react
+      - eslint-plugin-react-hooks
+      - eslint-plugin-security
+      - eslint-plugin-unicorn
+      - eslint-plugin-unused-imports
       - happy-dom
+      - immer
       - jiti
       - less
       - lightningcss
@@ -9282,6 +9357,7 @@ snapshots:
       - terser
       - tsx
       - typescript
+      - use-sync-external-store
       - utf-8-validate
       - yaml
       - zod
@@ -10101,6 +10177,9 @@ snapshots:
     optional: true
 
   '@rollup/rollup-linux-s390x-gnu@4.52.5':
+    optional: true
+
+  '@rollup/rollup-linux-x64-gnu@4.38.0':
     optional: true
 
   '@rollup/rollup-linux-x64-gnu@4.52.5':
@@ -13082,6 +13161,10 @@ snapshots:
     optionalDependencies:
       picomatch: 4.0.3
 
+  fetchff@4.1.0:
+    optionalDependencies:
+      '@rollup/rollup-linux-x64-gnu': 4.38.0
+
   fflate@0.8.2: {}
 
   figures@3.2.0:
@@ -13355,6 +13438,8 @@ snapshots:
   globals@15.15.0: {}
 
   globals@16.3.0: {}
+
+  globals@16.5.0: {}
 
   globalthis@1.0.4:
     dependencies:
