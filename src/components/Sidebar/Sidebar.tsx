@@ -103,11 +103,13 @@ function SidebarProvider({
   );
 
   // Helper to toggle the sidebar.
-  // const toggleSidebar = React.useCallback(() => {
-  //   return isMobile ? setOpenMobile(open => !open) : setOpen(open => !open);
-  // }, [isMobile, setOpen, setOpenMobile]);
+  const toggleSidebar = React.useCallback(() => {
+    // Toggle disabled - does nothing
+    return;
+  }, []);
 
-  // // Adds a keyboard shortcut to toggle the sidebar.
+  // Adds a keyboard shortcut to toggle the sidebar.
+  // DISABLED - No keyboard shortcut
   // React.useEffect(() => {
   //   const handleKeyDown = (event: KeyboardEvent) => {
   //     if (event.key === SIDEBAR_KEYBOARD_SHORTCUT && (event.metaKey || event.ctrlKey)) {
@@ -311,8 +313,6 @@ function Sidebar({
 }
 
 function SidebarTrigger({ className, onClick, ...props }: React.ComponentProps<typeof Button>) {
-  const { toggleSidebar } = useSidebar();
-
   return (
     <Button
       data-sidebar='trigger'
@@ -322,8 +322,9 @@ function SidebarTrigger({ className, onClick, ...props }: React.ComponentProps<t
       className={cn('size-7', className)}
       onClick={event => {
         onClick?.(event);
-        toggleSidebar();
+        // toggleSidebar disabled
       }}
+      disabled
       {...props}
     >
       <PanelLeftIcon />
@@ -333,7 +334,7 @@ function SidebarTrigger({ className, onClick, ...props }: React.ComponentProps<t
 }
 
 function SidebarRail({ className, ...props }: React.ComponentProps<'button'>) {
-  const { toggleSidebar } = useSidebar();
+  // const { toggleSidebar } = useSidebar();
 
   return (
     <button
@@ -341,8 +342,11 @@ function SidebarRail({ className, ...props }: React.ComponentProps<'button'>) {
       data-slot='sidebar-rail'
       aria-label='Toggle Sidebar'
       tabIndex={-1}
-      onClick={toggleSidebar}
+      onClick={() => {
+        // toggleSidebar disabled
+      }}
       title='Toggle Sidebar'
+      disabled
       className={cn(
         'hover:after:bg-sidebar-border absolute inset-y-0 z-20 hidden w-4 -translate-x-1/2 transition-all ease-linear group-data-[side=left]:-right-4 group-data-[side=right]:left-0 after:absolute after:inset-y-0 after:left-1/2 after:w-[2px] sm:flex',
         'in-data-[side=left]:cursor-w-resize in-data-[side=right]:cursor-e-resize',
