@@ -157,8 +157,8 @@ importers:
         specifier: ^15.0.3
         version: 15.4.3
       '@plyaz/testing':
-        specifier: ^1.5.3
-        version: 1.5.3(bf954a10c413f5ff61d59e64d5b51c80)
+        specifier: ^1.5.5
+        version: 1.5.5(bf954a10c413f5ff61d59e64d5b51c80)
       '@storybook/addon-a11y':
         specifier: ^8.6.12
         version: 8.6.14(storybook@8.6.14(prettier@3.6.2))
@@ -1359,8 +1359,8 @@ packages:
       eslint-plugin-unicorn: ^59.0.1
       eslint-plugin-unused-imports: ^4.0.0
 
-  '@plyaz/testing@1.5.3':
-    resolution: {integrity: sha512-VKQpyRe1sY7TnFMbSkqv5hIRjNJp6layS+nKpJZM1JNnBsPO81DidtuMI1hP1ezrqW4b78nIUSxATyC0iaW2pQ==}
+  '@plyaz/testing@1.5.5':
+    resolution: {integrity: sha512-hc4dHAt+gqdCDgMKmAldjeLLaVdMzQSdWAux27t8mOLlzsknPl5LtE5cJvpOlRB+KFi3WvgCTPAD7FXfibojTA==}
     engines: {node: '>=22.4.0', pnpm: '>=8.0.0'}
     peerDependencies:
       react-dom: '*'
@@ -9295,7 +9295,7 @@ snapshots:
       eslint-plugin-unused-imports: 4.1.4(@typescript-eslint/eslint-plugin@8.38.0(@typescript-eslint/parser@8.38.0(eslint@9.31.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.31.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.31.0(jiti@2.4.2))
       happy-dom: 18.0.1
 
-  '@plyaz/testing@1.5.3(bf954a10c413f5ff61d59e64d5b51c80)':
+  '@plyaz/testing@1.5.5(bf954a10c413f5ff61d59e64d5b51c80)':
     dependencies:
       '@nestjs/common': 11.1.5(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@plyaz/config': 1.7.12(d04820015dbd142e19909d2a75da0794)
