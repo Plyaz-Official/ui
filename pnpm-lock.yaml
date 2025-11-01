@@ -18,8 +18,8 @@ importers:
         specifier: ^1.3.0
         version: 1.3.1(@nestjs/common@11.1.5(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.2(@nestjs/common@11.1.5(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2))(reflect-metadata@0.2.2)(rxjs@7.8.2))(nestjs-i18n@10.5.1(@nestjs/common@11.1.5(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.2(@nestjs/common@11.1.5(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2))(reflect-metadata@0.2.2)(rxjs@7.8.2))(class-validator@0.14.2)(rxjs@7.8.2))(next-intl@4.3.4(next@15.4.7(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)(typescript@5.8.3))(react@19.1.0)(reflect-metadata@0.2.2)
       '@plyaz/types':
-        specifier: ^1.15.1
-        version: 1.15.1(@types/react@19.1.8)(next@15.4.7(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(use-sync-external-store@1.5.0(react@19.1.0))
+        specifier: ^1.15.2
+        version: 1.15.2(@types/react@19.1.8)(next@15.4.7(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(use-sync-external-store@1.5.0(react@19.1.0))
       '@radix-ui/react-accordion':
         specifier: ^1.2.12
         version: 1.2.12(@types/react-dom@19.1.6(@types/react@19.1.8))(@types/react@19.1.8)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -1378,8 +1378,8 @@ packages:
       react: 19.1.0
       reflect-metadata: 0.2.2
 
-  '@plyaz/types@1.15.1':
-    resolution: {integrity: sha512-ayr03O5eyGUu9LkyjaI7ENuw1QYjeMQYF6mq+rwcqU93uqm79ZLCRDc3sOCC2tCujtaFdBPzraohlXo0pSIO1w==}
+  '@plyaz/types@1.15.2':
+    resolution: {integrity: sha512-0pGZBhCjYMFpVABPLTxAh2GmWq9gF2Fis9Use08SogPdNm8O/9qvrAo2SGrqxN6gnLptLIrGYKQAbcZ7hAvx8g==}
     engines: {node: '>=22.4.0', pnpm: '>=8.0.0'}
     peerDependencies:
       next: '*'
@@ -9238,7 +9238,7 @@ snapshots:
   '@plyaz/config@1.7.12(d04820015dbd142e19909d2a75da0794)':
     dependencies:
       '@plyaz/devtools': 1.9.5(188b98d60a7ce61ad6e98a1e9f64b3da)
-      '@plyaz/types': 1.15.1(@types/react@19.1.8)(next@15.4.7(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(use-sync-external-store@1.5.0(react@19.1.0))
+      '@plyaz/types': 1.15.2(@types/react@19.1.8)(next@15.4.7(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(use-sync-external-store@1.5.0(react@19.1.0))
       globals: 16.5.0
       viem: 2.37.9(typescript@5.8.3)(zod@4.1.12)
     optionalDependencies:
@@ -9299,7 +9299,7 @@ snapshots:
     dependencies:
       '@nestjs/common': 11.1.5(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@plyaz/config': 1.7.12(d04820015dbd142e19909d2a75da0794)
-      '@plyaz/types': 1.15.1(@types/react@19.1.8)(next@15.4.7(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(use-sync-external-store@1.5.0(react@19.1.0))
+      '@plyaz/types': 1.15.2(@types/react@19.1.8)(next@15.4.7(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(use-sync-external-store@1.5.0(react@19.1.0))
       '@testing-library/jest-dom': 6.6.3
       '@testing-library/react': 16.3.0(@testing-library/dom@10.4.0)(@types/react-dom@19.1.6(@types/react@19.1.8))(@types/react@19.1.8)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@testing-library/user-event': 14.6.1(@testing-library/dom@10.4.0)
@@ -9373,7 +9373,7 @@ snapshots:
       react: 19.1.0
       reflect-metadata: 0.2.2
 
-  '@plyaz/types@1.15.1(@types/react@19.1.8)(next@15.4.7(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(use-sync-external-store@1.5.0(react@19.1.0))':
+  '@plyaz/types@1.15.2(@types/react@19.1.8)(next@15.4.7(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(use-sync-external-store@1.5.0(react@19.1.0))':
     dependencies:
       pino: 10.1.0
       type-fest: 4.41.0
