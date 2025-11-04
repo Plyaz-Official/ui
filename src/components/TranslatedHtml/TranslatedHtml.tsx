@@ -6,7 +6,6 @@ import type { LeafPaths, TranslationOptions } from '@plyaz/types/translations';
 interface TranslatedHtmlProps {
   translationKey: LeafPaths<Messages>;
   translationOptions?: TranslationOptions;
-  namespace?: string;
   className?: string;
   tag?: keyof React.JSX.IntrinsicElements;
 }
@@ -35,11 +34,10 @@ interface TranslatedHtmlProps {
 const TranslatedHtml: React.FC<TranslatedHtmlProps> = ({
   translationKey,
   translationOptions,
-  namespace,
   className,
   tag = 'div',
 }) => {
-  const t = useTranslations(namespace);
+  const t = useTranslations();
   const translated = t(
     translationKey,
     translationOptions?.args as Record<string, string | number | Date>

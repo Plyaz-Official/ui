@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { ChevronLeftIcon, ChevronRightIcon, MoreHorizontalIcon } from 'lucide-react';
 
-import { cn } from '@/lib/utils';
-import type { Button } from '@/components';
-import { buttonVariants } from '@/components/Button/Button';
+import { cn } from '../../lib/utils';
+import type { Button } from '../../components/Button/Button';
+import { buttonVariants } from '../../components/Button/Button';
 
 function Pagination({ className, ...props }: React.ComponentProps<'nav'>) {
   return (
@@ -54,8 +54,8 @@ function PaginationLink({
           variant: isActive ? 'outline' : 'ghost',
           size,
         }),
-        "rounded-sm hover:shadow-none hover:bg-muted",
-        isActive && "border-subtle",
+        'rounded-sm hover:shadow-none hover:bg-muted',
+        isActive && 'border-subtle',
         className
       )}
       {...props}
