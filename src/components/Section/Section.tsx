@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Box } from '@/components';
+import { Box } from '../../components/Box/Box';
 
 export interface SectionProps extends React.HTMLAttributes<HTMLElement> {
   className?: string;

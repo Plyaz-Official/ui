@@ -1,10 +1,133 @@
 import path from 'path';
+import { copyFile, mkdir, readFile, readdir, rm, stat } from 'node:fs/promises';
 
 import dts from 'vite-plugin-dts';
 import { visualizer } from 'rollup-plugin-visualizer';
 import type { PluginOption } from 'vite';
 
 import baseConfig from './node_modules/@plyaz/devtools/configs/vite.config';
+
+type TsxFile = {
+  fullPath: string;
+  relPath: string;
+};
+
+const pathExists = async (target: string): Promise<boolean> => {
+  try {
+    await stat(target);
+    return true;
+  } catch {
+    return false;
+  }
+};
+
+const findTsxFiles = async (
+  dir: string,
+  excludeStories = true,
+  relativePath = ''
+): Promise<TsxFile[]> => {
+  const files: TsxFile[] = [];
+
+  const entries = await readdir(dir, { withFileTypes: true });
+
+  for (const entry of entries) {
+    const fullPath = path.join(dir, entry.name);
+    const relPath = relativePath ? `${relativePath}${path.sep}${entry.name}` : entry.name;
+
+    if (entry.isDirectory()) {
+      files.push(...(await findTsxFiles(fullPath, excludeStories, relPath)));
+      continue;
+    }
+
+    if (!entry.isFile() || !entry.name.endsWith('.tsx')) {
+      continue;
+    }
+
+    if (excludeStories && entry.name.endsWith('.stories.tsx')) {
+      continue;
+    }
+
+    files.push({ fullPath, relPath });
+  }
+
+  return files;
+};
+
+const copyDirectory = async (source: string, destination: string): Promise<void> => {
+  await mkdir(destination, { recursive: true });
+  const entries = await readdir(source, { withFileTypes: true });
+
+  await Promise.all(
+    entries.map(async entry => {
+      const sourcePath = path.join(source, entry.name);
+      const destinationPath = path.join(destination, entry.name);
+
+      if (entry.isDirectory()) {
+        await copyDirectory(sourcePath, destinationPath);
+      } else if (entry.isFile()) {
+        await mkdir(path.dirname(destinationPath), { recursive: true });
+        await copyFile(sourcePath, destinationPath);
+      }
+    })
+  );
+};
+
+const copyPackageFilesPlugin = (): PluginOption => {
+  let rootDir = process.cwd();
+  let outDir = path.resolve(rootDir, 'dist');
+
+  return {
+    name: 'copy-package-files',
+    apply: 'build',
+    configResolved(config) {
+      rootDir = config.root;
+      const resolvedOutDir = config.build?.outDir ?? 'dist';
+      outDir = path.isAbsolute(resolvedOutDir)
+        ? resolvedOutDir
+        : path.resolve(rootDir, resolvedOutDir);
+    },
+    async closeBundle() {
+      const packageJsonPath = path.join(rootDir, 'package.json');
+      const packageJsonRaw = await readFile(packageJsonPath, 'utf-8');
+      const packageJson = JSON.parse(packageJsonRaw) as { files?: unknown };
+      const patterns = Array.isArray(packageJson.files) ? packageJson.files : [];
+
+      for (const pattern of patterns) {
+        if (typeof pattern !== 'string' || pattern.startsWith('!')) {
+          continue;
+        }
+
+        const sourcePath = path.join(rootDir, pattern);
+
+        if (!(await pathExists(sourcePath))) {
+          continue;
+        }
+
+        if (pattern.endsWith('/')) {
+          if (pattern === 'src/') {
+            const files = await findTsxFiles(sourcePath, true, 'src');
+
+            for (const { fullPath, relPath } of files) {
+              const destinationPath = path.join(outDir, relPath);
+              await mkdir(path.dirname(destinationPath), { recursive: true });
+              await copyFile(fullPath, destinationPath);
+            }
+
+            continue;
+          }
+
+          const destinationPath = path.join(outDir, pattern);
+          await rm(destinationPath, { recursive: true, force: true });
+          await copyDirectory(sourcePath, destinationPath);
+        } else {
+          const destinationPath = path.join(outDir, pattern);
+          await mkdir(path.dirname(destinationPath), { recursive: true });
+          await copyFile(sourcePath, destinationPath);
+        }
+      }
+    },
+  };
+};
 
 baseConfig.plugins?.push(
   visualizer({
@@ -30,6 +153,8 @@ baseConfig.plugins?.push(
     entryRoot: 'src',
   })
 );
+
+baseConfig.plugins?.push(copyPackageFilesPlugin());
 
 const config: Record<string, unknown> = {
   ...baseConfig,

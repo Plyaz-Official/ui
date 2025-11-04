@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { SIZES_MAPPER, TEXT_WEIGHT_MAPPER, VARIANT_MAPPER } from '@/constants/constant';
-import { cn } from '@/lib/utils';
+import { SIZES_MAPPER, TEXT_WEIGHT_MAPPER, VARIANT_MAPPER } from '../../constants/constant';
+import { cn } from '../../lib/utils';
 
 type TextElement = 'span' | 'p' | 'strong' | 'em' | 'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
