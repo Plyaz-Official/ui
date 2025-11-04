@@ -31,7 +31,9 @@ const meta = {
           <PaginationLink href='#'>2</PaginationLink>
         </PaginationItem>
         <PaginationItem>
-          <PaginationLink isActive href="#">3</PaginationLink>
+          <PaginationLink isActive href='#'>
+            3
+          </PaginationLink>
         </PaginationItem>
         <PaginationItem>
           <PaginationEllipsis />

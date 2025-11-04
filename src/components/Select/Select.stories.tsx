@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { expect, userEvent, fn } from '@storybook/test';
 
-import { 
-  Select, 
-  SelectTrigger, 
-  SelectValue, 
-  SelectContent, 
-  SelectItem, 
-  SelectGroup, 
-  SelectLabel, 
-  SelectSeparator 
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem,
+  SelectGroup,
+  SelectLabel,
+  SelectSeparator,
 } from '@/components';
 
 type Story = StoryObj<typeof Select>;
@@ -51,75 +51,37 @@ export default meta;
 // Default grouped Select with comprehensive options
 export const Default: Story = {
   render: args => (
-    <Select onValueChange={function xte(){}} {...args}>
-      <SelectTrigger
-        className="w-96"
-        title="Select"
-      >
-        <SelectValue placeholder="Select a fruit" />
+    <Select onValueChange={function xte() {}} {...args}>
+      <SelectTrigger className='w-96' title='Select'>
+        <SelectValue placeholder='Select a fruit' />
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          <SelectLabel>
-            Fruits
-          </SelectLabel>
-          <SelectItem value="apple">
-            Apple
-          </SelectItem>
-          <SelectItem value="banana">
-            Banana
-          </SelectItem>
-          <SelectItem value="blueberry">
-            Blueberry
-          </SelectItem>
-          <SelectItem value="grapes">
-            Grapes
-          </SelectItem>
-          <SelectItem value="pineapple">
-            Pineapple
-          </SelectItem>
+          <SelectLabel>Fruits</SelectLabel>
+          <SelectItem value='apple'>Apple</SelectItem>
+          <SelectItem value='banana'>Banana</SelectItem>
+          <SelectItem value='blueberry'>Blueberry</SelectItem>
+          <SelectItem value='grapes'>Grapes</SelectItem>
+          <SelectItem value='pineapple'>Pineapple</SelectItem>
         </SelectGroup>
         <SelectSeparator />
         <SelectGroup>
-          <SelectLabel>
-            Vegetables
-          </SelectLabel>
-          <SelectItem value="aubergine">
-            Aubergine
-          </SelectItem>
-          <SelectItem value="broccoli">
-            Broccoli
-          </SelectItem>
-          <SelectItem
-            disabled
-            value="carrot"
-          >
+          <SelectLabel>Vegetables</SelectLabel>
+          <SelectItem value='aubergine'>Aubergine</SelectItem>
+          <SelectItem value='broccoli'>Broccoli</SelectItem>
+          <SelectItem disabled value='carrot'>
             Carrot
           </SelectItem>
-          <SelectItem value="courgette">
-            Courgette
-          </SelectItem>
-          <SelectItem value="leek">
-            Leek
-          </SelectItem>
+          <SelectItem value='courgette'>Courgette</SelectItem>
+          <SelectItem value='leek'>Leek</SelectItem>
         </SelectGroup>
         <SelectSeparator />
         <SelectGroup>
-          <SelectLabel>
-            Meat
-          </SelectLabel>
-          <SelectItem value="beef">
-            Beef
-          </SelectItem>
-          <SelectItem value="chicken">
-            Chicken
-          </SelectItem>
-          <SelectItem value="lamb">
-            Lamb
-          </SelectItem>
-          <SelectItem value="pork">
-            Pork
-          </SelectItem>
+          <SelectLabel>Meat</SelectLabel>
+          <SelectItem value='beef'>Beef</SelectItem>
+          <SelectItem value='chicken'>Chicken</SelectItem>
+          <SelectItem value='lamb'>Lamb</SelectItem>
+          <SelectItem value='pork'>Pork</SelectItem>
         </SelectGroup>
       </SelectContent>
     </Select>

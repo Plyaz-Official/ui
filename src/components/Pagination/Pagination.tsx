@@ -54,8 +54,8 @@ function PaginationLink({
           variant: isActive ? 'outline' : 'ghost',
           size,
         }),
-        "rounded-sm hover:shadow-none hover:bg-muted",
-        isActive && "border-subtle",
+        'rounded-sm hover:shadow-none hover:bg-muted',
+        isActive && 'border-subtle',
         className
       )}
       {...props}

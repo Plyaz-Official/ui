@@ -10,7 +10,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/client';
-import { Button } from "@/main";
+import { Button } from '@/main';
 /**
  * A window overlaid on either the primary window or another dialog window,
  * rendering the content underneath inert.
@@ -23,9 +23,7 @@ const meta = {
   render: args => (
     <Dialog {...args}>
       <DialogTrigger>
-        <Button>
-          Open
-        </Button>
+        <Button>Open</Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
@@ -36,9 +34,7 @@ const meta = {
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>
-          <Button>
-              Continue
-          </Button>
+          <Button>Continue</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

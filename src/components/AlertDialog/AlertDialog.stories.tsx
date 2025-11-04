@@ -12,7 +12,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from '@/components/client';
-import { Button } from "@/main";
+import { Button } from '@/main';
 
 /**
  * A modal dialog that interrupts the user with important content and expects
@@ -25,7 +25,9 @@ const meta = {
   argTypes: {},
   render: args => (
     <AlertDialog {...args}>
-      <AlertDialogTrigger><Button>Open</Button></AlertDialogTrigger>
+      <AlertDialogTrigger>
+        <Button>Open</Button>
+      </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
           <AlertDialogTitle>Are you sure absolutely sure?</AlertDialogTitle>
