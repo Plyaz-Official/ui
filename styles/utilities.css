@@ -28,3 +28,7 @@
     opacity: 0.8;
   }
 }
+
+@utility bg-orange-gradient {
+  @apply bg-[image:var(--accent)];
+}
