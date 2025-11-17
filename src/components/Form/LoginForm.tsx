@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import { Box } from '@/components/Box/Box';
-import { Heading } from '@/components/Heading/Heading';
+import { Box } from '../../components/Box/Box';
+import { Heading } from '../../components/Heading/Heading';
 
 const PASSWORD_LENGTH = 6;
 export const LoginForm = () => {

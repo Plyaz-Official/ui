@@ -7,8 +7,6 @@ import { cva } from 'class-variance-authority';
 import { PanelLeftIcon } from 'lucide-react';
 import { TIME_CONSTANTS } from '@plyaz/config/time';
 
-import { cn } from '@/lib/utils';
-import { Button, Input, Separator, Skeleton } from '@/components';
 import {
   Sheet,
   SheetContent,
@@ -19,7 +17,12 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from '@/components/client';
+} from '../../components/client';
+import { Button } from '../../components/Button/Button';
+import { Input } from '../../components/Input/Input';
+import { Separator } from '../../components/Separator/Separator';
+import { Skeleton } from '../../components/Skeleton/Skeleton';
+import { cn } from '../../lib/utils';
 
 const MOBILE_BREAKPOINT = 768;
 

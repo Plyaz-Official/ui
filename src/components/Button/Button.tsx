@@ -4,7 +4,7 @@ import { type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
 import { cva } from 'class-variance-authority';
 
-import { cn } from '@/lib/utils';
+import { cn } from '../../lib/utils';
 
 export const buttonVariants = cva(
   `inline-flex justify-center cursor-pointer items-center gap-1.5 aria-invalid:border-destructive focus-visible:border-ring rounded-full outline-none aria-invalid:ring-destructive/20 focus-visible:ring-[3px] focus-visible:ring-ring/50 dark:aria-invalid:ring-destructive/40 [&_svg:not([class*='size-'])]:size-4 font-medium text-sm whitespace-nowrap [&_svg]:pointer-events-none disabled:pointer-events-none shrink-0 [&_svg]:shrink-0`,
@@ -71,7 +71,7 @@ export const buttonVariants = cva(
   }
 );
 
-export default function Button({
+export function Button({
   className,
   variant,
   size,
