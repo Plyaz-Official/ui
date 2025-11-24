@@ -1,0 +1,116 @@
+import { Meta, Canvas, Controls, Source } from "@storybook/addon-docs";
+import * as MultiSelectStories from "./MultiSelect.stories";
+
+<Meta of={MultiSelectStories} />
+
+# MultiSelect
+
+The `MultiSelect` component is an advanced multi-option selection input that supports searching, grouping, badges, overflow handling, and controlled/uncontrolled modes. It is ideal for forms that require selecting multiple items with a clean and accessible UI.
+
+
+## Features
+
+- Select multiple options with intuitive UI
+- Searchable dropdown support
+- Custom badge labels
+- Supports option groups
+- Customizable overflow behavior (`wrap`, `scroll`, or `cutoff`)
+- Controlled & uncontrolled modes (`values` / `defaultValues`)
+- Full keyboard navigation support
+- Fully accessible with ARIA roles
+- Integrates cleanly with form libraries (React Hook Form, Zod, etc.)
+
+
+
+## Usage Guidelines
+
+### Do
+- Use `MultiSelect` when users need to select **multiple** items.
+- Provide meaningful labels for accessibility.
+- Keep option labels short for clear readability.
+- Use the `search` prop when there are more than ~6 options.
+- Use badge labels when the display text differs from the underlying value.
+
+### Don’t
+- Avoid overly long option names unless using `overflowBehavior="cutoff"`.
+- Don’t mix unrelated categories without grouping (`<MultiSelectGroup>`).
+- Don't rely solely on color to differentiate option states.
+
+
+## Props
+
+<Controls of={MultiSelectStories.Base} />
+
+
+
+## Examples
+
+### Basic MultiSelect
+
+<Canvas of={MultiSelectStories.Base} />
+
+
+
+### With Default Values
+
+<Canvas of={MultiSelectStories.WithDefaultValues} />
+
+
+
+### With Search Enabled
+
+<Canvas of={MultiSelectStories.WithSearch} />
+
+
+
+### With Custom Badge Labels
+
+<Canvas of={MultiSelectStories.WithCustomBadgeLabels} />
+
+
+
+### Multiple Groups
+
+<Canvas of={MultiSelectStories.MultipleGroups} />
+
+
+
+### Without Search
+
+<Canvas of={MultiSelectStories.WithoutSearch} />
+
+
+
+### Controlled Usage
+
+<Canvas of={MultiSelectStories.Controlled} />
+
+
+
+### User Interaction Test
+
+<Canvas of={MultiSelectStories.UserInteraction} />
+
+
+
+### Selection & Deselection Behavior
+
+<Canvas of={MultiSelectStories.SelectionAndDeselection} />
+
+
+### Search Functionality
+
+<Canvas of={MultiSelectStories.SearchFunctionality} />
+
+
+
+### Overflow Behavior
+
+<Canvas of={MultiSelectStories.OverflowBehavior} />
+
+
+
+## Source Code Example
+
+<Source of={MultiSelectStories.Base} language="tsx" />
+
