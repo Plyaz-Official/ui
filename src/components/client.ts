@@ -190,3 +190,12 @@ export {
   FormMessage,
   FormField,
 } from './Form/Form';
+
+export {
+  MultiSelect,
+  MultiSelectContent,
+  MultiSelectGroup,
+  MultiSelectItem,
+  MultiSelectTrigger,
+  MultiSelectValue,
+} from './MultiSelect/MultiSelect';

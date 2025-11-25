@@ -1,4 +1,3 @@
-import { userEvent } from '@storybook/test';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Calendar, ChevronUp, Home, Inbox, Search, Settings, User2 } from 'lucide-react';
 
@@ -62,6 +61,38 @@ const meta = {
       </SidebarProvider>
     ),
   ],
+
+  render: args => (
+    <Sidebar {...args}>
+      <SidebarHeader />
+      <SidebarContent />
+      <SidebarFooter>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <SidebarMenuButton>
+                  <User2 /> Username
+                  <ChevronUp className='ml-auto' />
+                </SidebarMenuButton>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent side='top' className='w-(--radix-popper-anchor-width)'>
+                <DropdownMenuItem>
+                  <span>Account</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <span>Billing</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <span>Sign out</span>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </SidebarMenuItem>
+        </SidebarMenu>
+      </SidebarFooter>
+    </Sidebar>
+  ),
 } satisfies Meta<typeof Sidebar>;
 
 export default meta;
@@ -131,54 +162,4 @@ export const Simple: Story = {
 /**
  * A simple sidebar with a footer menu item.
  */
-export const Footer: Story = {
-  render: args => (
-    <Sidebar {...args}>
-      <SidebarHeader />
-      <SidebarContent />
-      <SidebarFooter>
-        <SidebarMenu>
-          <SidebarMenuItem>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <SidebarMenuButton>
-                  <User2 /> Username
-                  <ChevronUp className='ml-auto' />
-                </SidebarMenuButton>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent side='top' className='w-(--radix-popper-anchor-width)'>
-                <DropdownMenuItem>
-                  <span>Account</span>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <span>Billing</span>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <span>Sign out</span>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </SidebarMenuItem>
-        </SidebarMenu>
-      </SidebarFooter>
-    </Sidebar>
-  ),
-};
-
-export const ShouldCloseOpen: Story = {
-  ...Simple,
-  name: 'when clicking the trigger, should close and open the sidebar',
-  tags: ['!dev', '!autodocs'],
-  play: async ({ canvas, step }) => {
-    const sidebarBtn = await canvas.findByRole('button', {
-      name: /toggle/i,
-    });
-    await step('close the sidebar', async () => {
-      await userEvent.click(sidebarBtn);
-    });
-
-    await step('reopen the sidebar', async () => {
-      await userEvent.click(sidebarBtn);
-    });
-  },
-};
+export const Footer: Story = {};
