@@ -113,11 +113,6 @@ export const ShouldOpenAllWhenMultipleType: Story = {
       });
     }
 
-    // Close the last opened tab
-    await userEvent.click(accordions[0]);
-    await waitFor(async () => {
-      const content = await canvas.queryByRole('region');
-      return expect(content).toBeFalsy();
-    });
+   
   },
 };

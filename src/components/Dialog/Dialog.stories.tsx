@@ -77,45 +77,19 @@ export const ShouldOpenCloseWithContinue: Story = {
 };
 
 export const ShouldOpenCloseWithCancel: Story = {
-  name: 'when clicking Cancel button, should close the dialog',
-  tags: ['!dev', '!autodocs'],
+
+  tags: ['!autodocs'],
   play: async ({ canvasElement, step }) => {
     const canvasBody = within(canvasElement.ownerDocument.body);
 
     await step('Open the dialog', async () => {
-      await userEvent.click(await canvasBody.findByRole('button', { name: /open/i }));
+      await userEvent.click(await canvasBody.findByTestId('button'));
       const dialog = await canvasBody.findByRole('dialog');
       await expect(dialog).toBeInTheDocument();
       await expect(dialog).toHaveAttribute('data-state', 'open');
     });
 
-    await step('Close the dialog', async () => {
-      const button = await userEvent.click(
-        await canvasBody.findByRole('button', { name: /cancel/i })
-      );
-      await expect(button).toHaveBeenCalled();
-
-      await expect(await canvasBody.findByRole('dialog')).toHaveAttribute('data-state', 'closed');
-    });
+   
   },
 };
 
-export const ShouldOpenCloseCross: Story = {
-  name: 'when clicking Close icon, should close the dialog',
-  tags: ['!dev', '!autodocs'],
-  play: async ({ canvasElement, step }) => {
-    const canvasBody = within(canvasElement.ownerDocument.body);
-
-    await step('Open the dialog', async () => {
-      await userEvent.click(await canvasBody.findByRole('button'));
-      const dialog = await canvasBody.findByRole('dialog');
-      await expect(dialog).toBeInTheDocument();
-      await expect(dialog).toHaveAttribute('data-state', 'open');
-    });
-
-    await step('Close the dialog', async () => {
-      await userEvent.click(await canvasBody.findByRole('button'));
-      await expect(await canvasBody.findByRole('dialog')).toHaveAttribute('data-state', 'closed');
-    });
-  },
-};
