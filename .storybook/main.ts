@@ -14,6 +14,7 @@ const config: StorybookConfig = {
     '@storybook/addon-controls',
     '@storybook/addon-docs',
     'storybook-addon-tailwind-autodocs',
+    '@storybook/test',
   ],
   framework: {
     name: '@storybook/react-vite',

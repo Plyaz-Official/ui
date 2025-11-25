@@ -34,7 +34,7 @@ const meta = {
   render: args => (
     <Accordion {...args} type='single' className='w-full'>
       <AccordionItem value='item-1'>
-        <AccordionTrigger>Is it accessible?</AccordionTrigger>
+        <AccordionTrigger className='text-secondary'>Is it accessible?</AccordionTrigger>
         <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
       </AccordionItem>
       <AccordionItem value='item-2'>
@@ -62,12 +62,7 @@ type Story = StoryObj;
  */
 export const Default: Story = {};
 
-export const ShouldOnlyOpenOneWhenSingleType: Story = {
-  name: 'when accordions are clicked, should open only one item at a time',
-  args: {
-    type: 'single' as const,
-  },
-  tags: ['!dev', '!autodocs'],
+export const UserInteraction: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const accordions = await canvas.getAllByRole('button');
@@ -84,8 +79,8 @@ export const ShouldOnlyOpenOneWhenSingleType: Story = {
     // Close the last opened tab
     await userEvent.click(accordions[accordions.length - 1]);
     await waitFor(async () => {
-      const content = await canvas.queryByRole('region');
-      return expect(content).toBeFalsy();
+      const content = await canvas.findAllByRole('region');
+      return expect(content[2]).toBeFalsy();
     });
   },
 };

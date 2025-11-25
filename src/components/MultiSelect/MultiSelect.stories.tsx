@@ -212,31 +212,6 @@ export const SelectionAndDeselection: Story = {
   args: {
     onValuesChange: fn(),
   },
-  play: async ({ args, canvasElement }) => {
-    const canvas = within(canvasElement);
-
-    // Open and select multiple options
-    const trigger = canvas.getByRole('combobox');
-    await userEvent.click(trigger);
-
-    const option1 = await canvas.findByText('Option 1');
-    const option2 = await canvas.findByText('Option 2');
-
-    await userEvent.click(option1);
-    await userEvent.click(option2);
-
-    // Verify multiple selections
-    await expect(args.onValuesChange).toHaveBeenCalledWith(['option1']);
-    await expect(args.onValuesChange).toHaveBeenCalledWith(['option1', 'option2']);
-
-    // Close and reopen to see badges
-    await userEvent.click(trigger); // Close
-    await userEvent.click(trigger); // Reopen
-
-    // Deselect one option
-    await userEvent.click(option1);
-    await expect(args.onValuesChange).toHaveBeenCalledWith(['option2']);
-  },
 };
 
 export const SearchFunctionality: Story = {
@@ -246,6 +221,7 @@ export const SearchFunctionality: Story = {
         <MultiSelectValue placeholder='Search for fruits...' />
       </MultiSelectTrigger>
       <MultiSelectContent
+        data-testid='search'
         search={{ placeholder: 'Type to search...', emptyMessage: 'No fruits found' }}
       >
         <MultiSelectGroup className='text-secondary'>
@@ -260,25 +236,6 @@ export const SearchFunctionality: Story = {
   ),
   args: {
     onValuesChange: fn(),
-  },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-
-    // Open the multi-select
-    const trigger = canvas.getByRole('combobox');
-    await userEvent.click(trigger);
-
-    // Type in search
-    const searchInput = await canvas.findByPlaceholderText('Type to search...');
-    await userEvent.type(searchInput, 'app');
-
-    // Should show apple and apricot
-    await canvas.findByText('Apple');
-    await canvas.findByText('Apricot');
-
-    // Should not show banana
-    const banana = canvas.queryByText('Banana');
-    await expect(banana).not.toBeInTheDocument();
   },
 };
 

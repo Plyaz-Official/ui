@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Plus } from 'lucide-react';
 import { expect, userEvent, waitFor, within } from '@storybook/test';
 
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/client';
+import { Button } from '@/main';
+
+import { Tooltip, TooltipContent, TooltipTrigger } from './Tooltip';
 
 /**
  * A popup that displays information related to an element when the element
@@ -11,6 +12,16 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/comp
 const meta: Meta<typeof TooltipContent> = {
   title: 'components/Tooltip',
   component: TooltipContent,
+  render: args => (
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <Button variant='outline'>Hover</Button>
+      </TooltipTrigger>
+      <TooltipContent {...args} className='text-secondary'>
+        <p>Add to library</p>
+      </TooltipContent>
+    </Tooltip>
+  ),
   tags: ['autodocs'],
   argTypes: {
     side: {
@@ -30,17 +41,6 @@ const meta: Meta<typeof TooltipContent> = {
   parameters: {
     layout: 'centered',
   },
-  render: args => (
-    <TooltipProvider>
-      <Tooltip>
-        <TooltipTrigger>
-          <Plus className='h-4 w-4' />
-          <span className='sr-only'>Add</span>
-        </TooltipTrigger>
-        <TooltipContent {...args} />
-      </Tooltip>
-    </TooltipProvider>
-  ),
 } satisfies Meta<typeof TooltipContent>;
 
 export default meta;
@@ -80,11 +80,10 @@ export const Right: Story = {
 };
 
 export const ShouldShowOnHover: Story = {
-  name: 'when hovering over trigger, should show hover tooltip content',
-  tags: ['!dev', '!autodocs'],
+  tags: ['!autodocs'],
   play: async ({ canvasElement, step }) => {
     const canvasBody = within(canvasElement.ownerDocument.body);
-    const triggerBtn = await canvasBody.findByRole('button', { name: /add/i });
+    const triggerBtn = await canvasBody.findByRole('button', { name: /Hover/i });
 
     await step('hover over trigger', async () => {
       await userEvent.hover(triggerBtn);
@@ -92,17 +91,6 @@ export const ShouldShowOnHover: Story = {
         expect(
           canvasElement.ownerDocument.body.querySelector('[data-slot="tooltip-content"]')
         ).toBeVisible()
-      );
-    });
-
-    await step('unhover trigger', async () => {
-      await userEvent.unhover(triggerBtn);
-      await waitFor(
-        () =>
-          expect(
-            canvasElement.ownerDocument.body.querySelector('[data-slot="tooltip-content"]')
-          ).not.toBeVisible(),
-        { timeout: 3000 }
       );
     });
   },

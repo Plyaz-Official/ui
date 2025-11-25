@@ -51,7 +51,7 @@ type Story = StoryObj<typeof meta>;
  */
 export const WithIcons: Story = {
   render: args => (
-    <div className='grid w-full max-w-sm gap-6'>
+    <div className='gap-6 grid w-full max-w-sm'>
       <InputGroup {...args}>
         <InputGroupInput placeholder='Search...' />
         <InputGroupAddon>
@@ -89,7 +89,7 @@ export const WithIcons: Story = {
  */
 export const WithText: Story = {
   render: args => (
-    <div className='grid w-full max-w-sm gap-6'>
+    <div className='gap-6 grid w-full max-w-sm'>
       <InputGroup {...args}>
         <InputGroupAddon>
           <InputGroupText>$</InputGroupText>
@@ -131,7 +131,7 @@ export const WithText: Story = {
  */
 export const WithButtons: Story = {
   render: args => (
-    <div className='grid w-full max-w-sm gap-6'>
+    <div className='gap-6 grid w-full max-w-sm'>
       <InputGroup {...args}>
         <InputGroupInput placeholder='https://x.com/shadcn' readOnly />
         <InputGroupAddon align='inline-end'>
@@ -146,7 +146,7 @@ export const WithButtons: Story = {
             <Info />
           </InputGroupButton>
         </InputGroupAddon>
-        <InputGroupAddon className='text-muted-foreground pl-1.5'>https://</InputGroupAddon>
+        <InputGroupAddon className='pl-1.5 text-muted-foreground'>https://</InputGroupAddon>
         <InputGroupInput id='input-secure-19' />
         <InputGroupAddon align='inline-end'>
           <InputGroupButton size='icon-xs'>
@@ -169,7 +169,7 @@ export const WithButtons: Story = {
  */
 export const WithTooltips: Story = {
   render: args => (
-    <div className='grid w-full max-w-sm gap-4'>
+    <div className='gap-4 grid w-full max-w-sm'>
       <InputGroup {...args}>
         <InputGroupInput placeholder='Enter password' type='password' />
         <InputGroupAddon align='inline-end'>
@@ -203,11 +203,11 @@ export const WithTooltips: Story = {
  */
 export const WithTextarea: Story = {
   render: args => (
-    <div className='grid w-full max-w-md gap-4'>
+    <div className='gap-4 grid w-full max-w-md'>
       <InputGroup {...args}>
         <InputGroupTextarea
           id='textarea-code-32'
-          placeholder="console.log('Hello, world!');"
+          placeholder="console.info('Hello, world!');"
           className='min-h-[200px]'
         />
         <InputGroupAddon align='block-end' className='border-t'>
@@ -238,7 +238,7 @@ export const WithTextarea: Story = {
  */
 export const WithSpinner: Story = {
   render: args => (
-    <div className='grid w-full max-w-sm gap-4'>
+    <div className='gap-4 grid w-full max-w-sm'>
       <InputGroup {...args} data-disabled>
         <InputGroupInput placeholder='Searching...' disabled />
         <InputGroupAddon align='inline-end'>
@@ -276,7 +276,7 @@ export const WithSpinner: Story = {
  */
 export const WithLabels: Story = {
   render: args => (
-    <div className='grid w-full max-w-sm gap-4'>
+    <div className='gap-4 grid w-full max-w-sm'>
       <InputGroup {...args}>
         <InputGroupInput id='email' placeholder='shadcn' />
         <InputGroupAddon>
@@ -308,7 +308,7 @@ export const WithLabels: Story = {
  */
 export const WithDropdowns: Story = {
   render: args => (
-    <div className='grid w-full max-w-sm gap-4'>
+    <div className='gap-4 grid w-full max-w-sm'>
       <InputGroup {...args}>
         <InputGroupInput placeholder='Enter file name' />
         <InputGroupAddon align='inline-end'>
@@ -334,7 +334,7 @@ export const WithDropdowns: Story = {
  */
 export const WithButtonGroup: Story = {
   render: args => (
-    <div className='grid w-full max-w-sm gap-6'>
+    <div className='gap-6 grid w-full max-w-sm'>
       <div className='flex'>
         <InputGroupAddon>
           <InputGroupText>https://</InputGroupText>
