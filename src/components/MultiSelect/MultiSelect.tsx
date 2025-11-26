@@ -285,10 +285,12 @@ export function MultiSelectItem({
   children,
   badgeLabel,
   onSelect,
+  className,
   ...props
 }: {
   badgeLabel?: ReactNode;
   value: string;
+  className?:string
 } & Omit<ComponentPropsWithoutRef<typeof CommandItem>, 'value'>) {
   const { toggleValue, selectedValues, onItemAdded } = useMultiSelectContext();
   const isSelected = selectedValues.has(value);
@@ -304,7 +306,7 @@ export function MultiSelectItem({
         toggleValue(value);
         onSelect?.(value);
       }}
-      className='text-secondary cursor-pointer'
+      className={(cn('text-secondary data-[selected=true]:text-secondary cursor-pointer',className))}
     >
       <CheckIcon className={cn('mr-2 size-4', isSelected ? 'opacity-100' : 'opacity-0')} />
       {children}
