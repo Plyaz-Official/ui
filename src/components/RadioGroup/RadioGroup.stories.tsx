@@ -39,7 +39,7 @@ export const Default: Story = {};
 
 export const ShouldToggleRadio: Story = {
   name: 'when clicking on a radio button, it should toggle its state',
-  tags: ['!dev', '!autodocs'],
+  tags: ['!autodocs'],
   play: async ({ canvas, step }) => {
     const radios = await canvas.findAllByRole('radio');
     const radiosLength = 3;

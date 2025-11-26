@@ -77,7 +77,6 @@ export const ShouldOpenCloseWithContinue: Story = {
 };
 
 export const ShouldOpenCloseWithCancel: Story = {
-
   tags: ['!autodocs'],
   play: async ({ canvasElement, step }) => {
     const canvasBody = within(canvasElement.ownerDocument.body);
@@ -88,8 +87,5 @@ export const ShouldOpenCloseWithCancel: Story = {
       await expect(dialog).toBeInTheDocument();
       await expect(dialog).toHaveAttribute('data-state', 'open');
     });
-
-   
   },
 };
-

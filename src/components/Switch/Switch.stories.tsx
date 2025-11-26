@@ -47,7 +47,7 @@ export const Disabled: Story = {
 
 export const ShouldToggle: Story = {
   name: 'when clicking the switch, should toggle it on and off',
-  tags: ['!dev', '!autodocs'],
+  tags: ['!autodocs'],
   play: async ({ canvas, step }) => {
     const switchBtn = await canvas.findByRole('switch');
 

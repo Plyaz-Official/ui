@@ -42,7 +42,7 @@ export const Default: Story = {};
 
 export const ShouldChangeTabs: Story = {
   name: 'when clicking a tab, should change the content',
-  tags: ['!dev', '!autodocs'],
+  tags: ['!autodocs'],
   play: async ({ canvas, step }) => {
     const tabs = await canvas.findAllByRole('tab');
 

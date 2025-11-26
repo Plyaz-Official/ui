@@ -90,7 +90,7 @@ export const ShouldOpenAllWhenMultipleType: Story = {
   args: {
     type: 'multiple',
   },
-  tags: ['!dev', '!autodocs'],
+  tags: ['!autodocs'],
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const accordions = await canvas.getAllByRole('button');
@@ -112,7 +112,5 @@ export const ShouldOpenAllWhenMultipleType: Story = {
         return expect(content.length).toBe(i);
       });
     }
-
-   
   },
 };

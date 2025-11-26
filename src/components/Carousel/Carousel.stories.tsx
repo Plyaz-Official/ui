@@ -25,8 +25,8 @@ const meta: Meta<typeof Carousel> = {
       <CarouselContent>
         {Array.from({ length: 5 }).map((_, index) => (
           <CarouselItem key={index}>
-            <div className='bg-card flex aspect-square items-center justify-center rounded border p-6'>
-              <span className='text-4xl font-semibold'>{index + 1}</span>
+            <div className='flex justify-center items-center bg-card p-6 border rounded aspect-square'>
+              <span className='font-semibold text-4xl'>{index + 1}</span>
             </div>
           </CarouselItem>
         ))}
@@ -58,8 +58,8 @@ export const Size: Story = {
       <CarouselContent>
         {Array.from({ length: 5 }).map((_, index) => (
           <CarouselItem key={index} className='basis-1/3'>
-            <div className='bg-card flex aspect-square items-center justify-center rounded border p-6'>
-              <span className='text-4xl font-semibold'>{index + 1}</span>
+            <div className='flex justify-center items-center bg-card p-6 border rounded aspect-square'>
+              <span className='font-semibold text-4xl'>{index + 1}</span>
             </div>
           </CarouselItem>
         ))}
@@ -75,7 +75,7 @@ export const Size: Story = {
 
 export const ShouldNavigate: Story = {
   name: 'when clicking next/previous buttons, should navigate through slides',
-  tags: ['!dev', '!autodocs'],
+  tags: ['!autodocs'],
   play: async ({ canvas, step }) => {
     const slides = await canvas.findAllByRole('group');
     const slidesLength = 5;

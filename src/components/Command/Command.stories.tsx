@@ -57,7 +57,7 @@ export const Default: Story = {};
 
 export const TypingInCombobox: Story = {
   name: 'when typing into the combobox, should filter results',
-  tags: ['!dev', '!autodocs'],
+  tags: ['!autodocs'],
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const input = canvas.getByRole('combobox');

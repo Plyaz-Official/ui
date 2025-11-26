@@ -33,7 +33,7 @@ const meta: Meta<typeof Drawer> = {
           <DrawerDescription>This action cannot be undone.</DrawerDescription>
         </DrawerHeader>
         <DrawerFooter>
-          <DrawerClose className='bg-primary text-primary-foreground rounded px-4 py-2'>
+          <DrawerClose className='bg-primary px-4 py-2 rounded text-primary-foreground'>
             Submit
           </DrawerClose>
           <DrawerClose className='hover:underline'>Cancel</DrawerClose>
@@ -59,7 +59,7 @@ export const Default: Story = {
 
 export const ShouldOpenCloseWithSubmit: Story = {
   name: 'when clicking Submit button, should close the drawer',
-  tags: ['!dev', '!autodocs'],
+  tags: ['!autodocs'],
   args: {},
   play: async ({ args, canvasElement, step }) => {
     const canvasBody = within(canvasElement.ownerDocument.body);
@@ -85,7 +85,7 @@ export const ShouldOpenCloseWithSubmit: Story = {
 
 export const ShouldOpenCloseWithCancel: Story = {
   name: 'when clicking Cancel button, should close the drawer',
-  tags: ['!dev', '!autodocs'],
+  tags: ['!autodocs'],
   args: {},
   play: async ({ args, canvasElement, step }) => {
     const canvasBody = within(canvasElement.ownerDocument.body);

@@ -25,6 +25,7 @@ import {
 } from '@/components/client';
 import { Badge, Button } from '@/main';
 import { cn } from '@/lib/utils';
+import debounce from '@/hooks/useDebounce';
 
 type MultiSelectContextType = {
   open: boolean;
@@ -324,15 +325,4 @@ function useMultiSelectContext() {
     throw new Error('useMultiSelectContext must be used within a MultiSelectContext');
   }
   return context;
-}
-
-function debounce<T extends (...args: never[]) => void>(
-  func: T,
-  wait: number
-): (...args: Parameters<T>) => void {
-  let timeout: ReturnType<typeof setTimeout> | null = null;
-  return function (this: unknown, ...args: Parameters<T>) {
-    if (timeout) clearTimeout(timeout);
-    timeout = setTimeout(() => func.apply(this, args), wait);
-  };
 }

@@ -128,7 +128,7 @@ export const WithCheckboxItems: Story = {
 
 export const ShouldOpenClose: Story = {
   name: 'when clicking an item, should close the menubar',
-  tags: ['!dev', '!autodocs'],
+  tags: ['!autodocs'],
   play: async ({ canvasElement, step }) => {
     const canvasBody = within(canvasElement.ownerDocument.body);
 

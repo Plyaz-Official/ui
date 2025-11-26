@@ -20,7 +20,7 @@ const meta: Meta<typeof Toaster> = {
     layout: 'fullscreen',
   },
   render: args => (
-    <div className='flex min-h-96 items-center justify-center space-x-2'>
+    <div className='flex justify-center items-center space-x-2 min-h-96'>
       <Button
         onClick={() =>
           toast('Event has been created', {
@@ -50,7 +50,7 @@ export const Default: Story = {};
 
 export const ShouldShowToast: Story = {
   name: 'when clicking Show Toast button, should show a toast',
-  tags: ['!dev', '!autodocs'],
+  tags: ['!autodocs'],
   play: async ({ canvasElement, step }) => {
     const canvasBody = within(canvasElement.ownerDocument.body);
     const triggerBtn = await canvasBody.findByRole('button', {
@@ -73,7 +73,7 @@ export const ShouldShowToast: Story = {
 
 export const ShouldCloseToast: Story = {
   name: 'when clicking the close button, should close the toast',
-  tags: ['!dev', '!autodocs'],
+  tags: ['!autodocs'],
   play: async ({ canvasElement, step }) => {
     const canvasBody = within(canvasElement.ownerDocument.body);
     const triggerBtn = await canvasBody.findByRole('button', {

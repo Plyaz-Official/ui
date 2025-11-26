@@ -113,7 +113,7 @@ export const MultipleMonths: Story = {
 const year = 2000;
 export const ShouldNavigateMonthsWhenClicked: Story = {
   name: 'when using the calendar navigation, should change months',
-  tags: ['!dev', '!autodocs'],
+  tags: ['!autodocs'],
   args: {
     defaultMonth: new Date(year, eightDays),
   },

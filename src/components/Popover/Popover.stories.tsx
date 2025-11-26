@@ -34,7 +34,7 @@ export const Default: Story = {};
 
 export const ShouldOpenClose: Story = {
   name: 'when clicking the trigger, should open and close the popover',
-  tags: ['!dev', '!autodocs'],
+  tags: ['!autodocs'],
   play: async ({ canvasElement, step }) => {
     const canvasBody = within(canvasElement.ownerDocument.body);
 

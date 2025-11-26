@@ -44,7 +44,7 @@ const meta: Meta<typeof SheetContent> = {
         </SheetHeader>
         <SheetFooter>
           <SheetClose className='hover:underline'>Cancel</SheetClose>
-          <SheetClose className='bg-primary text-primary-foreground rounded px-4 py-2'>
+          <SheetClose className='bg-primary px-4 py-2 rounded text-primary-foreground'>
             Submit
           </SheetClose>
         </SheetFooter>
@@ -67,7 +67,7 @@ export const Default: Story = {};
 
 export const ShouldOpenCloseWithSubmit: Story = {
   name: 'when clicking Submit button, should close the sheet',
-  tags: ['!dev', '!autodocs'],
+  tags: ['!autodocs'],
   play: async ({ canvasElement, step }) => {
     const canvasBody = within(canvasElement.ownerDocument.body);
 
@@ -87,7 +87,7 @@ export const ShouldOpenCloseWithSubmit: Story = {
 
 export const ShouldOpenCloseWithCancel: Story = {
   name: 'when clicking Cancel button, should close the sheet',
-  tags: ['!dev', '!autodocs'],
+  tags: ['!autodocs'],
   play: async ({ canvasElement, step }) => {
     const canvasBody = within(canvasElement.ownerDocument.body);
 
@@ -107,7 +107,7 @@ export const ShouldOpenCloseWithCancel: Story = {
 
 export const ShouldOpenCloseWithClose: Story = {
   name: 'when clicking Close icon, should close the sheet',
-  tags: ['!dev', '!autodocs'],
+  tags: ['!autodocs'],
   play: async ({ canvasElement, step }) => {
     const canvasBody = within(canvasElement.ownerDocument.body);
 

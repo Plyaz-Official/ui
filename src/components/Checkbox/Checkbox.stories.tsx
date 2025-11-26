@@ -47,7 +47,7 @@ export const Disabled: Story = {
 
 export const ShouldToggleCheck: Story = {
   name: 'when the checkbox is clicked, should toggle between checked and not checked',
-  tags: ['!dev', '!autodocs'],
+  tags: ['!autodocs'],
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const checkbox = await canvas.getByRole('checkbox');
