@@ -166,7 +166,8 @@ export function MultiSelectValue({
       valueRef.current = node;
 
       const mutationObserver = new MutationObserver(checkOverflow);
-      const observer = new ResizeObserver(debounce(checkOverflow, 100));
+      const debounceTime = 100;
+      const observer = new ResizeObserver(debounce(checkOverflow, debounceTime));
 
       mutationObserver.observe(node, {
         childList: true,
