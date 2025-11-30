@@ -188,8 +188,8 @@
     "security:check": "pnpm audit:moderate && npx audit-ci --moderate"
   },
   "engines": {
-    "node": ">=22.4.0",
-    "pnpm": ">=8.0.0"
+    "node": ">=23.0.0",
+    "pnpm": ">=8.10.0"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
