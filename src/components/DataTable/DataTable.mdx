@@ -1,0 +1,80 @@
+import { Meta, Story, Canvas, Controls, Source } from '@storybook/addon-docs';
+import * as DataTableStories from './DataTable.stories';
+
+<Meta of={DataTableStories} />
+
+# DataTable
+
+Powerful table and datagrids built using TanStack Table.
+
+## Features
+
+- **TanStack Table Integration**: Built on top of TanStack Table for powerful data management
+- **Type-Safe**: Full TypeScript support with generic types
+- **Flexible Columns**: Define columns with custom renderers and formatters
+- **Empty State**: Built-in empty state when no data is available
+- **Accessibility**: Built with semantic HTML and ARIA attributes
+- **Customizable**: Supports custom styling and theming
+
+## Usage
+
+### Basic Usage
+
+<Canvas of={DataTableStories.Default} />
+
+## Props
+
+<Controls of={DataTableStories.Default} />
+
+## Column Definitions
+
+Define your columns using TanStack Table's `ColumnDef` type:
+
+```tsx
+const columns: ColumnDef<Payment>[] = [
+  {
+    accessorKey: 'email',
+    header: 'Email',
+    cell: ({ row }) => <div>{row.getValue('email')}</div>,
+  },
+  {
+    accessorKey: 'amount',
+    header: () => <div className="text-right">Amount</div>,
+    cell: ({ row }) => {
+      const amount = parseFloat(row.getValue('amount'));
+      const formatted = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+      }).format(amount);
+      return <div className="text-right font-medium">{formatted}</div>;
+    },
+  },
+];
+```
+
+## Styling
+
+The `DataTable` component uses Tailwind CSS classes and can be customized:
+
+```tsx
+<DataTable 
+  columns={columns} 
+  data={data}
+  className="border-2 border-blue-500"
+/>
+```
+
+## Best Practices
+
+1. **Define proper types**: Use TypeScript types for your data and columns
+2. **Format data in cells**: Use cell renderers to format data appropriately
+3. **Handle empty states**: The component includes a default empty state
+4. **Use accessorKey**: Use `accessorKey` for simple data access
+5. **Custom headers**: Use function headers for custom header rendering
+
+---
+
+## Source Code
+
+<Source of={DataTableStories.Default} language='tsx' />
+

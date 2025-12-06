@@ -104,4 +104,5 @@ export {
   TableCell,
   TableCaption,
 } from './Table/Table';
+export { DataTable } from './DataTable/DataTable';
 export { Textarea } from './Textarea/Textarea';
