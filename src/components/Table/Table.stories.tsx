@@ -5,6 +5,7 @@ import {
   TableBody,
   TableCaption,
   TableCell,
+  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
@@ -66,6 +67,13 @@ const meta = {
           </TableRow>
         ))}
       </TableBody>
+      <TableFooter>
+        <TableRow>
+          <TableCell colSpan={4} className='text-right'>
+            Total: $1,000.00
+          </TableCell>
+        </TableRow>
+      </TableFooter>
     </Table>
   ),
 } satisfies Meta<typeof Table>;
