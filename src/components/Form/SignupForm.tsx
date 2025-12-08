@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-import { Box } from '@/components/Box/Box';
-import { Heading } from '@/components/Heading/Heading';
-import { cn } from '@/lib/utils';
+import { Box } from '../../components/Box/Box';
+import { Heading } from '../../components/Heading/Heading';
+import { cn } from '../../lib/utils';
 
 const PASSWORD_LENGTH = 6;
 

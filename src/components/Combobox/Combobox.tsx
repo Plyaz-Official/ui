@@ -3,8 +3,8 @@
 import * as React from 'react';
 import { CheckIcon, ChevronsUpDownIcon } from 'lucide-react';
 
-import { cn } from '@/lib/utils';
-import { Button } from '@/components';
+import { cn } from '../../lib/utils';
+import { Button } from '../../components/Button/Button';
 import {
   Command,
   CommandEmpty,
@@ -12,8 +12,8 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from '@/components/Command/Command';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/Popover/Popover';
+} from '../../components/Command/Command';
+import { Popover, PopoverContent, PopoverTrigger } from '../../components/Popover/Popover';
 
 export interface ComboboxOption {
   value: string;

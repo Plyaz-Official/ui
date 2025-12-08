@@ -1,6 +1,6 @@
 import React from 'react';
 
-import type { ElementType } from '@/types/type';
+import type { ElementType } from '../../types/type';
 
 export type BoxProps<T extends ElementType = 'div'> = {
   children?: React.ReactNode;

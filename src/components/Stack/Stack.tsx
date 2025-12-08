@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Box } from '@/components';
-import type { ElementType } from '@/types/type';
-import { cn } from '@/lib/utils';
+import { Box } from '../../components/Box/Box';
+import type { ElementType } from '../../types/type';
+import { cn } from '../../lib/utils';
 
 export interface StackProps extends React.HTMLAttributes<HTMLElement> {
   children: React.ReactNode;
