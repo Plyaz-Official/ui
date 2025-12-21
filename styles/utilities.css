@@ -2,12 +2,10 @@
   @apply bg-clip-text text-transparent bg-[image:var(--accent)];
 }
 
-@layer utilities {
-  .text-gradient-orange-underline {
+@utility text-gradient-orange-underline {
     @apply text-gradient-orange relative;
-  }
 
-  .text-gradient-orange-underline::after {
+  &::after {
     content: '';
     position: absolute;
     left: 0;
@@ -17,6 +15,7 @@
     background: var(--accent);
   }
 }
+
 @utility cta-hover {
   @apply overflow-hidden relative isolate;
   transition: all 0.3s ease-in-out;
