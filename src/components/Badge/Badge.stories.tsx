@@ -12,7 +12,16 @@ const meta = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['default', 'secondary', 'destructive', 'outline'],
+      options: [
+        'default',
+        'secondary',
+        'destructive',
+        'outline',
+        'success',
+        'info',
+        'warning',
+        'error',
+      ],
     },
     children: {
       control: 'text',
@@ -64,5 +73,45 @@ export const Destructive: Story = {
 export const Outline: Story = {
   args: {
     variant: 'outline',
+  },
+};
+
+/**
+ * Use the `success` badge to indicate successful operations, completed tasks,
+ * or positive status indicators.
+ */
+export const Success: Story = {
+  args: {
+    variant: 'success',
+  },
+};
+
+/**
+ * Use the `info` badge to display informational messages, general updates,
+ * or neutral status indicators.
+ */
+export const Info: Story = {
+  args: {
+    variant: 'info',
+  },
+};
+
+/**
+ * Use the `warning` badge to signal caution, pending actions, or items
+ * that require attention but are not critical.
+ */
+export const Warning: Story = {
+  args: {
+    variant: 'warning',
+  },
+};
+
+/**
+ * Use the `error` badge to highlight errors, failed operations, or critical
+ * issues that need immediate attention.
+ */
+export const Error: Story = {
+  args: {
+    variant: 'error',
   },
 };

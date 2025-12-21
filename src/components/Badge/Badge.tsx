@@ -15,6 +15,10 @@ export const badgeVariants = cva(
         secondary: 'border-transparent bg-primary text-secondary',
         destructive: 'bg-destructive text-white',
         outline: 'border-subtle text-secondary',
+        success: 'opacity-80 hover:opacity-60 bg-emerald-600 text-white',
+        info: 'opacity-80 hover:opacity-60 bg-blue-600 text-white',
+        warning: 'opacity-80 hover:opacity-60 bg-amber-600 text-white',
+        error: 'opacity-80 hover:opacity-60 bg-destructive text-white',
       },
     },
     defaultVariants: {

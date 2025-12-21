@@ -11,7 +11,7 @@ The badge component provides a consistent way to display status indicators, coun
 
 ## Features
 
-- Multiple variants (`default`, `secondary`, `destructive`, `outline`)
+- Multiple variants (`default`, `secondary`, `destructive`, `outline`, `success`, `info`, `warning`, `error`)
 - Support for icons and custom content
 - Flexible rendering with `asChild` prop
 - Accessible with proper focus styles
@@ -23,6 +23,10 @@ The badge component provides a consistent way to display status indicators, coun
 - Use `variant="secondary"` for secondary information
 - Use `variant="destructive"` for errors or warnings
 - Use `variant="outline"` for subtle information
+- Use `variant="success"` for successful operations or positive status
+- Use `variant="info"` for informational messages or neutral status
+- Use `variant="warning"` for caution or pending actions
+- Use `variant="error"` for errors or failed operations
 - Keep content concise and meaningful
 
 ## Do
@@ -60,6 +64,22 @@ The badge component provides a consistent way to display status indicators, coun
 ### Outline Badge
 
 <Canvas of={BadgeStories.Outline} />
+
+### Success Badge
+
+<Canvas of={BadgeStories.Success} />
+
+### Info Badge
+
+<Canvas of={BadgeStories.Info} />
+
+### Warning Badge
+
+<Canvas of={BadgeStories.Warning} />
+
+### Error Badge
+
+<Canvas of={BadgeStories.Error} />
 
 ---
 
