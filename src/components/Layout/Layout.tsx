@@ -1,9 +1,9 @@
 import type { ReactNode } from 'react';
 
-import { Box } from '@/components/Box/Box';
-import { Flex } from '@/components/Flex/Flex';
-import { Grid } from '@/components/Grid/Grid';
-import { cn } from '@/lib/utils';
+import { Box } from '../../components/Box/Box';
+import { Flex } from '../../components/Flex/Flex';
+import { Grid } from '../../components/Grid/Grid';
+import { cn } from '../../lib/utils';
 
 export const Layout = ({
   layout,

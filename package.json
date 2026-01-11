@@ -4,164 +4,79 @@
   "description": "A reusable, accessible, and themeable component library powering the Plyaz Web App interface. Built with performance and consistency in mind, @plyaz/ui delivers modular React components aligned with the Plyaz design system — enabling seamless development across fan-facing features, quests, NFTs, and loyalty flows in the Web3 ecosystem.",
   "type": "module",
   "files": [
-    "dist",
-    "styles/"
+    "styles/",
+    "src/components/",
+    "src/lib/",
+    "src/types/",
+    "src/constants/"
   ],
   "exports": {
-    ".": {
-      "types": "./dist/types/components/index.d.ts",
-      "import": "./dist/index.es.js",
-      "require": "./dist/index.cjs.js"
-    },
-    "./client": {
-      "types": "./dist/types/components/client.d.ts",
-      "import": "./dist/client.es.js",
-      "require": "./dist/client.cjs.js"
-    },
-    "./reveal-text": {
-      "types": "./dist/types/components/RevealText/TextReveal.d.ts",
-      "import": "./dist/client/reveal-text.es.js",
-      "require": "./dist/client/reveal-text.cjs.js"
-    },
-    "./alert-dialog": {
-      "types": "./dist/types/components/AlertDialog/AlertDialog.d.ts",
-      "import": "./dist/client/alert-dialog.es.js",
-      "require": "./dist/client/alert-dialog.cjs.js"
-    },
-    "./calendar": {
-      "types": "./dist/types/components/Calendar/Calendar.d.ts",
-      "import": "./dist/client/calendar.es.js",
-      "require": "./dist/client/calendar.cjs.js"
-    },
-    "./carousel": {
-      "types": "./dist/types/components/Carousel/Carousel.d.ts",
-      "import": "./dist/client/carousel.es.js",
-      "require": "./dist/client/carousel.cjs.js"
-    },
-    "./combobox": {
-      "types": "./dist/types/components/Combobox/Combobox.d.ts",
-      "import": "./dist/client/combobox.es.js",
-      "require": "./dist/client/combobox.cjs.js"
-    },
-    "./input-otp": {
-      "types": "./dist/types/components/InputOTP/InputOTP.d.ts",
-      "import": "./dist/client/input-otp.es.js",
-      "require": "./dist/client/input-otp.cjs.js"
-    },
-    "./slider": {
-      "types": "./dist/types/components/Slider/Slider.d.ts",
-      "import": "./dist/client/slider.es.js",
-      "require": "./dist/client/slider.cjs.js"
-    },
-    "./progress": {
-      "types": "./dist/types/components/Progress/Progress.d.ts",
-      "import": "./dist/client/progress.es.js",
-      "require": "./dist/client/progress.cjs.js"
-    },
-    "./accordion": {
-      "types": "./dist/types/components/Accordion/Accordion.d.ts",
-      "import": "./dist/client/accordion.es.js",
-      "require": "./dist/client/accordion.cjs.js"
-    },
-    "./avatar": {
-      "types": "./dist/types/components/Avatar/Avatar.d.ts",
-      "import": "./dist/client/avatar.es.js",
-      "require": "./dist/client/avatar.cjs.js"
-    },
-    "./checkbox": {
-      "types": "./dist/types/components/Checkbox/Checkbox.d.ts",
-      "import": "./dist/client/checkbox.es.js",
-      "require": "./dist/client/checkbox.cjs.js"
-    },
-    "./context-menu": {
-      "types": "./dist/types/components/ContextMenu/ContextMenu.d.ts",
-      "import": "./dist/client/context-menu.es.js",
-      "require": "./dist/client/context-menu.cjs.js"
-    },
-    "./dropdown-menu": {
-      "types": "./dist/types/components/DropdownMenu/DropdownMenu.d.ts",
-      "import": "./dist/client/dropdown-menu.es.js",
-      "require": "./dist/client/dropdown-menu.cjs.js"
-    },
-    "./hover-card": {
-      "types": "./dist/types/components/HoverCard/HoverCard.d.ts",
-      "import": "./dist/client/hover-card.es.js",
-      "require": "./dist/client/hover-card.cjs.js"
-    },
-    "./radio-group": {
-      "types": "./dist/types/components/RadioGroup/RadioGroup.d.ts",
-      "import": "./dist/client/radio-group.es.js",
-      "require": "./dist/client/radio-group.cjs.js"
-    },
-    "./scroll-area": {
-      "types": "./dist/types/components/ScrollArea/ScrollArea.d.ts",
-      "import": "./dist/client/scroll-area.es.js",
-      "require": "./dist/client/scroll-area.cjs.js"
-    },
-    "./switch": {
-      "types": "./dist/types/components/Switch/Switch.d.ts",
-      "import": "./dist/client/switch.es.js",
-      "require": "./dist/client/switch.cjs.js"
-    },
-    "./tabs": {
-      "types": "./dist/types/components/Tabs/Tabs.d.ts",
-      "import": "./dist/client/tabs.es.js",
-      "require": "./dist/client/tabs.cjs.js"
-    },
-    "./tooltip": {
-      "types": "./dist/types/components/Tooltip/Tooltip.d.ts",
-      "import": "./dist/client/tooltip.es.js",
-      "require": "./dist/client/tooltip.cjs.js"
-    },
-    "./command": {
-      "types": "./dist/types/components/Command/Command.d.ts",
-      "import": "./dist/client/command.es.js",
-      "require": "./dist/client/command.cjs.js"
-    },
-    "./dialog": {
-      "types": "./dist/types/components/Dialog/Dialog.d.ts",
-      "import": "./dist/client/dialog.es.js",
-      "require": "./dist/client/dialog.cjs.js"
-    },
-    "./drawer": {
-      "types": "./dist/types/components/Drawer/Drawer.d.ts",
-      "import": "./dist/client/drawer.es.js",
-      "require": "./dist/client/drawer.cjs.js"
-    },
-    "./sheet": {
-      "types": "./dist/types/components/Sheet/Sheet.d.ts",
-      "import": "./dist/client/sheet.es.js",
-      "require": "./dist/client/sheet.cjs.js"
-    },
-    "./toaster": {
-      "types": "./dist/types/components/Toaster/Toaster.d.ts",
-      "import": "./dist/client/toaster.es.js",
-      "require": "./dist/client/toaster.cjs.js"
-    },
-    "./toggle": {
-      "types": "./dist/types/components/Toggle/Toggle.d.ts",
-      "import": "./dist/client/toggle.es.js",
-      "require": "./dist/client/toggle.cjs.js"
-    },
-    "./label": {
-      "types": "./dist/types/components/Label/Label.d.ts",
-      "import": "./dist/client/label.es.js",
-      "require": "./dist/client/label.cjs.js"
-    },
-    "./menu-bar": {
-      "types": "./dist/types/components/MenuBar/Menubar.d.ts",
-      "import": "./dist/client/menu-bar.es.js",
-      "require": "./dist/client/menu-bar.cjs.js"
-    },
-    "./popover": {
-      "types": "./dist/types/components/Popover/Popover.d.ts",
-      "import": "./dist/client/popover.es.js",
-      "require": "./dist/client/popover.cjs.js"
-    }
+    ".": "./dist/src/components/index.ts",
+    "./client": "./dist/src/components/client.ts",
+    "./accordion": "./dist/src/components/Accordion/Accordion.tsx",
+    "./alert": "./dist/src/components/Alert/Alert.tsx",
+    "./alert-dialog": "./dist/src/components/AlertDialog/AlertDialog.tsx",
+    "./aurora-text": "./dist/src/components/AuroraText/AuroraText.tsx",
+    "./avatar": "./dist/src/components/Avatar/Avatar.tsx",
+    "./badge": "./dist/src/components/Badge/Badge.tsx",
+    "./box": "./dist/src/components/Box/Box.tsx",
+    "./breadcrumb": "./dist/src/components/Breadcrumb/Breadcrumb.tsx",
+    "./button": "./dist/src/components/Button/Button.tsx",
+    "./calendar": "./dist/src/components/Calendar/Calendar.tsx",
+    "./card": "./dist/src/components/Card/Card.tsx",
+    "./carousel": "./dist/src/components/Carousel/Carousel.tsx",
+    "./checkbox": "./dist/src/components/Checkbox/Checkbox.tsx",
+    "./combobox": "./dist/src/components/Combobox/Combobox.tsx",
+    "./command": "./dist/src/components/Command/Command.tsx",
+    "./container": "./dist/src/components/Container/Container.tsx",
+    "./context-menu": "./dist/src/components/ContextMenu/ContextMenu.tsx",
+    "./dialog": "./dist/src/components/Dialog/Dialog.tsx",
+    "./drawer": "./dist/src/components/Drawer/Drawer.tsx",
+    "./dropdown-menu": "./dist/src/components/DropdownMenu/DropdownMenu.tsx",
+    "./external-link": "./dist/src/components/ExternalLink/ExternalLink.tsx",
+    "./flex": "./dist/src/components/Flex/Flex.tsx",
+    "./formatted-date": "./dist/src/components/FormattedDate/FormattedDate.tsx",
+    "./formatted-number": "./dist/src/components/FormattedNumber/FormattedNumber.tsx",
+    "./grid": "./dist/src/components/Grid/Grid.tsx",
+    "./heading": "./dist/src/components/Heading/Heading.tsx",
+    "./hover-card": "./dist/src/components/HoverCard/HoverCard.tsx",
+    "./input": "./dist/src/components/Input/Input.tsx",
+    "./input-group": "./dist/src/components/InputGroup/InputGroup.tsx",
+    "./input-otp": "./dist/src/components/InputOTP/InputOTP.tsx",
+    "./label": "./dist/src/components/Label/Label.tsx",
+    "./language-selector": "./dist/src/components/LanguageSelector/LanguageSelector.tsx",
+    "./layout": "./dist/src/components/Layout/Layout.tsx",
+    "./marquee": "./dist/src/components/Marquee/Marquee.tsx",
+    "./menubar": "./dist/src/components/MenuBar/Menubar.tsx",
+    "./pagination": "./dist/src/components/Pagination/Pagination.tsx",
+    "./paragraph": "./dist/src/components/Paragraph/Paragraph.tsx",
+    "./popover": "./dist/src/components/Popover/Popover.tsx",
+    "./progress": "./dist/src/components/Progress/Progress.tsx",
+    "./radio-group": "./dist/src/components/RadioGroup/RadioGroup.tsx",
+    "./scroll-area": "./dist/src/components/ScrollArea/ScrollArea.tsx",
+    "./section": "./dist/src/components/Section/Section.tsx",
+    "./select": "./dist/src/components/Select/Select.tsx",
+    "./separator": "./dist/src/components/Separator/Separator.tsx",
+    "./sheet": "./dist/src/components/Sheet/Sheet.tsx",
+    "./sidebar": "./dist/src/components/Sidebar/Sidebar.tsx",
+    "./skeleton": "./dist/src/components/Skeleton/Skeleton.tsx",
+    "./slider": "./dist/src/components/Slider/Slider.tsx",
+    "./stack": "./dist/src/components/Stack/Stack.tsx",
+    "./switch": "./dist/src/components/Switch/Switch.tsx",
+    "./table": "./dist/src/components/Table/Table.tsx",
+    "./tabs": "./dist/src/components/Tabs/Tabs.tsx",
+    "./text": "./dist/src/components/Text/Text.tsx",
+    "./text-reveal": "./dist/src/components/RevealText/TextReveal.tsx",
+    "./textarea": "./dist/src/components/Textarea/Textarea.tsx",
+    "./toaster": "./dist/src/components/Toaster/Toaster.tsx",
+    "./toggle": "./dist/src/components/Toggle/Toggle.tsx",
+    "./tooltip": "./dist/src/components/Tooltip/Tooltip.tsx",
+    "./translated-html": "./dist/src/components/TranslatedHtml/TranslatedHtml.tsx",
+    "./translated-text": "./dist/src/components/TranslatedText/TranslatedText.tsx"
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "pnpm clean && vite build",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "mkdir -p ./performance && storybook build > ./performance/storybook-build.log 2>&1",

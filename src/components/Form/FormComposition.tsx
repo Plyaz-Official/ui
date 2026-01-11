@@ -1,8 +1,8 @@
-import { Box } from '@/components/Box/Box';
-import { SignupForm } from '@/components/Form/SignupForm';
-import { Heading } from '@/components/Heading/Heading';
-import { Layout } from '@/components/Layout/Layout';
-import { Paragraph } from '@/components/Paragraph/Paragraph';
+import { Box } from '../../components/Box/Box';
+import { SignupForm } from '../../components/Form/SignupForm';
+import { Heading } from '../../components/Heading/Heading';
+import { Layout } from '../../components/Layout/Layout';
+import { Paragraph } from '../../components/Paragraph/Paragraph';
 
 type FormCompositionProps = {
   children?: React.ReactNode;
