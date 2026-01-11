@@ -65,6 +65,7 @@
   --animate-marquee: marquee var(--duration) infinite linear;
   --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
   --spacing-main-container: 1550px;
+  --spacing-settings-field: 568px;
   --background-image-gradient-orange: var(--accent);
   --width-card-sm: 282px;
   --width-search-input: 340px;
